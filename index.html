@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechLex · 技术英语词汇听打训练</title>
+<meta name="description" content="面向中文母语学习者的 AI / 算法 / 软件工程 / 系统 / 网络 专业英语词汇训练：自动发音、实时逐字母校对、词源典故中英对照。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">TechLex</span>
+    <span class="tagline">技术英语 · 听打训练</span>
+  </div>
+
+  <div class="controls">
+    <!-- 口音选择 / Accent -->
+    <div class="seg" id="accentSeg" role="radiogroup" aria-label="口音 Accent">
+      <button class="seg-btn is-on" data-accent="en-GB" role="radio" aria-checked="true">🇬🇧 英音 UK</button>
+      <button class="seg-btn" data-accent="en-US" role="radio" aria-checked="false">🇺🇸 美音 US</button>
+    </div>
+
+    <!-- 语速 / Rate -->
+    <label class="rate">
+      <span>语速 Rate</span>
+      <input type="range" id="rate" min="0.5" max="1.2" step="0.05" value="0.9">
+    </label>
+
+    <!-- 听写模式 / Dictation -->
+    <label class="switch">
+      <input type="checkbox" id="blindMode">
+      <span>听写模式 Dictation</span>
+    </label>
+  </div>
+</header>
+
+<!-- 分类筛选 / Category filter -->
+<nav class="cats" id="cats" aria-label="词汇分类 Categories"></nav>
+
+<main class="stage">
+
+  <section class="card word-card">
+    <div class="card-head">
+      <span class="pill" id="catPill">—</span>
+      <span class="counter" id="counter">0 / 0</span>
+    </div>
+
+    <!-- 主体：单词 / The word -->
+    <div class="word-row">
+      <button class="speak-btn" id="speakBtn" title="重听 Replay (Ctrl+Enter)" aria-label="重听 Replay">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>
+          <path d="M16.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="word" id="wordLine" aria-live="polite"></div>
+    </div>
+
+    <div class="phonetics">
+      <span class="ipa" id="ipa">—</span>
+      <span class="pos" id="pos"></span>
+    </div>
+
+    <!-- 隐藏输入框：整页承接键盘输入 / Hidden input capturing all typing -->
+    <input id="typer" type="text" autocomplete="off" autocorrect="off"
+           autocapitalize="off" spellcheck="false" aria-label="在此输入单词 Type the word">
+
+    <div class="typing-hint" id="hint">开始打字，逐字母实时校对 · Start typing, checked letter by letter</div>
+  </section>
+
+  <!-- 释义 / 词源 / 例句 -->
+  <section class="card detail-card" id="detail">
+    <div class="block">
+      <h3>释义 <span>Definition</span></h3>
+      <p class="en" id="defEn"></p>
+      <p class="zh" id="defZh"></p>
+    </div>
+    <div class="block">
+      <h3>词源与典故 <span>Etymology &amp; Story</span></h3>
+      <p class="en" id="etyEn"></p>
+      <p class="zh" id="etyZh"></p>
+    </div>
+    <div class="block">
+      <h3>例句 <span>Example</span></h3>
+      <p class="en" id="exEn"></p>
+      <p class="zh" id="exZh"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="statbar">
+  <div class="stats">
+    <span><b id="sDone">0</b> 已完成 done</span>
+    <span><b id="sStreak">0</b> 连击 streak</span>
+    <span><b id="sAcc">100%</b> 准确率 accuracy</span>
+    <span><b id="sWpm">0</b> WPM</span>
+  </div>
+  <div class="keys">
+    <kbd>Ctrl</kbd>+<kbd>Enter</kbd> 重听 replay ·
+    <kbd>Enter</kbd> 跳过 skip ·
+    <kbd>Esc</kbd> 重来 reset
+  </div>
+</footer>
+
+<script src="js/words.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
