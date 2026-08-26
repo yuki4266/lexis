@@ -1,21 +1,26 @@
 /* ==========================================================
    TechLex — 技术英语听打训练 / typing trainer for tech English
+   亮色主题 / light theme
    ========================================================== */
 
 :root {
-  --bg:        #0b0d12;
-  --bg-glow:   #131a26;
-  --surface:   rgba(255, 255, 255, .035);
-  --surface-2: rgba(255, 255, 255, .06);
-  --line:      rgba(255, 255, 255, .09);
-  --text:      #e8ecf3;
-  --muted:     #8b95a7;
-  --dim:       #5d6779;
-  --ok:        #4ade80;
-  --ok-glow:   rgba(74, 222, 128, .35);
-  --err:       #fb7185;
-  --err-glow:  rgba(251, 113, 133, .32);
-  --accent:    #67e8f9;
+  --bg:        #f7f8fb;
+  --bg-tint:   #eef3fb;
+  --surface:   #ffffff;
+  --surface-2: #f2f4f9;
+  --line:      #e3e7ef;
+  --line-2:    #ccd3e0;
+  --text:      #1a1d26;
+  --muted:     #5c6474;
+  --dim:       #6b7280;
+  --pending:   #8a91a0;                 /* 尚未打到的字母 / letters not typed yet */
+  --ok:        #15803d;
+  --ok-soft:   rgba(21, 128, 61, .10);
+  --err:       #e11d48;
+  --err-soft:  rgba(225, 29, 72, .09);
+  --accent:    #0b7d99;
+  --accent-2:  #6d4aff;
+  --shadow:    0 1px 2px rgba(20, 28, 48, .05), 0 10px 30px rgba(20, 28, 48, .06);
 
   --mono: "SF Mono", "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
@@ -29,7 +34,7 @@ body {
   font-family: var(--sans);
   color: var(--text);
   background:
-    radial-gradient(1100px 700px at 50% -15%, var(--bg-glow) 0%, transparent 65%),
+    radial-gradient(1200px 620px at 50% -10%, var(--bg-tint) 0%, transparent 62%),
     var(--bg);
   display: flex;
   flex-direction: column;
@@ -40,16 +45,18 @@ body {
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
   gap: 20px; flex-wrap: wrap;
-  padding: 16px clamp(16px, 4vw, 40px);
+  padding: 15px clamp(16px, 4vw, 40px);
+  background: rgba(255, 255, 255, .78);
   border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 10;
 }
 
 .brand { display: flex; align-items: baseline; gap: 12px; }
 .logo {
   font-family: var(--mono); font-size: 19px; font-weight: 600;
   letter-spacing: -.4px;
-  background: linear-gradient(92deg, var(--accent), #a78bfa);
+  background: linear-gradient(92deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .tagline { font-size: 12px; color: var(--dim); letter-spacing: .5px; }
@@ -59,7 +66,7 @@ body {
 /* 口音切换 accent switch */
 .seg {
   display: flex; padding: 3px; gap: 3px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px;
 }
 .seg-btn {
   font: inherit; font-size: 13px; color: var(--muted);
@@ -67,47 +74,53 @@ body {
   background: transparent; cursor: pointer; transition: .18s;
 }
 .seg-btn:hover { color: var(--text); }
-.seg-btn.is-on { background: var(--surface-2); color: var(--text); box-shadow: 0 1px 0 rgba(255,255,255,.06) inset; }
+.seg-btn.is-on {
+  background: var(--surface); color: var(--text); font-weight: 600;
+  box-shadow: 0 1px 2px rgba(20, 28, 48, .09);
+}
 
-.rate { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--dim); }
+.rate { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
 .rate input { width: 84px; accent-color: var(--accent); }
 
-.switch { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--dim); cursor: pointer; }
+.switch { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); cursor: pointer; }
 .switch input { accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer; }
 
 /* -------------------------- 分类 categories -------------------------- */
 .cats {
   display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
-  padding: 14px clamp(16px, 4vw, 40px) 4px;
+  padding: 18px clamp(16px, 4vw, 40px) 4px;
 }
 .cat-chip {
   font: inherit; font-size: 12.5px; color: var(--muted);
   padding: 6px 14px; border-radius: 999px; cursor: pointer;
-  background: transparent; border: 1px solid var(--line); transition: .18s;
+  background: var(--surface); border: 1px solid var(--line); transition: .18s;
 }
-.cat-chip:hover { border-color: rgba(255,255,255,.22); color: var(--text); }
+.cat-chip:hover { border-color: var(--line-2); color: var(--text); }
 .cat-chip.is-on {
-  color: #0b0d12; background: var(--accent); border-color: var(--accent); font-weight: 600;
+  color: #fff; background: var(--accent); border-color: var(--accent);
+  font-weight: 600; box-shadow: 0 2px 8px rgba(11, 125, 153, .25);
 }
 
 /* ----------------------------- 主舞台 stage ----------------------------- */
 .stage {
   flex: 1; width: 100%; max-width: 820px; margin: 0 auto;
-  padding: 22px clamp(16px, 4vw, 40px) 40px;
+  padding: 20px clamp(16px, 4vw, 40px) 40px;
   display: flex; flex-direction: column; gap: 18px;
 }
 
 .card {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 18px; padding: 26px clamp(18px, 4vw, 34px);
+  box-shadow: var(--shadow);
 }
 
-.word-card { text-align: center; position: relative; overflow: hidden; }
-.word-card::after {           /* 正确时的绿色闪光 / success flash */
+.word-card { text-align: center; position: relative; overflow: hidden; transition: border-color .25s; }
+.word-card::after {           /* 正确时的绿色柔光 / success glow */
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, var(--ok-glow), transparent 70%);
+  background: radial-gradient(circle at 50% 45%, var(--ok-soft), transparent 68%);
   opacity: 0; transition: opacity .25s;
 }
+.word-card.is-solved { border-color: rgba(21, 128, 61, .40); }
 .word-card.is-solved::after { opacity: 1; }
 
 .card-head {
@@ -128,11 +141,13 @@ body {
   color: var(--accent); background: var(--surface-2);
   border: 1px solid var(--line); transition: .18s;
 }
-.speak-btn:hover { background: rgba(103,232,249,.13); border-color: rgba(103,232,249,.4); transform: scale(1.05); }
+.speak-btn:hover {
+  background: #e6f6fa; border-color: rgba(11, 125, 153, .45); transform: scale(1.05);
+}
 .speak-btn.is-speaking { animation: pulse 1s ease-out infinite; }
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(103,232,249,.4); }
-  100% { box-shadow: 0 0 0 14px rgba(103,232,249,0); }
+  0%   { box-shadow: 0 0 0 0 rgba(11, 125, 153, .32); }
+  100% { box-shadow: 0 0 0 14px rgba(11, 125, 153, 0); }
 }
 
 /* 单词逐字母 / the word, letter by letter */
@@ -148,22 +163,22 @@ body {
   25% { transform: translateX(-5px); } 75% { transform: translateX(5px); }
 }
 
-.ch { position: relative; transition: color .09s, text-shadow .09s; color: var(--dim); }
-.ch.done  { color: var(--ok); text-shadow: 0 0 22px var(--ok-glow); }      /* 打对 correct */
-.ch.wrong { color: var(--err); text-shadow: 0 0 22px var(--err-glow); }    /* 打错 wrong  */
-.ch.wrong::after {                                                        /* 错误下划线 */
+.ch { position: relative; transition: color .09s; color: var(--pending); }
+.ch.done  { color: var(--ok); }                       /* 打对 correct */
+.ch.wrong { color: var(--err); background: var(--err-soft); border-radius: 4px; }  /* 打错 wrong */
+.ch.wrong::after {                                    /* 错误下划线 / error underline */
   content: ""; position: absolute; left: 6%; right: 6%; bottom: .08em;
   height: 2px; background: var(--err); border-radius: 2px;
 }
-.ch.cur::before {                                                         /* 光标 caret */
+.ch.cur::before {                                     /* 光标 caret */
   content: ""; position: absolute; left: -3px; top: .1em; bottom: .1em;
   width: 2px; background: var(--accent); animation: blink 1.05s steps(2) infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
 .ch.masked { color: transparent; }
-.ch.masked::after {                                                       /* 听写模式的下划线 */
+.ch.masked::after {                                   /* 听写模式的下划线 / dictation blank */
   content: ""; position: absolute; left: 8%; right: 8%; bottom: .12em;
-  height: 2px; background: var(--line); border-radius: 2px;
+  height: 2px; background: var(--line-2); border-radius: 2px;
 }
 
 .phonetics {
@@ -202,13 +217,15 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px; flex-wrap: wrap;
   padding: 13px clamp(16px, 4vw, 40px);
-  border-top: 1px solid var(--line); font-size: 12px; color: var(--dim);
+  background: rgba(255, 255, 255, .78);
+  border-top: 1px solid var(--line); font-size: 12px; color: var(--muted);
 }
 .stats { display: flex; gap: 20px; flex-wrap: wrap; }
 .stats b { font-family: var(--mono); font-size: 14px; color: var(--text); margin-right: 4px; }
 .keys kbd {
   font-family: var(--mono); font-size: 10.5px; padding: 2px 6px; border-radius: 5px;
-  background: var(--surface-2); border: 1px solid var(--line); color: var(--muted);
+  background: var(--surface); border: 1px solid var(--line-2); color: var(--muted);
+  box-shadow: 0 1px 0 var(--line-2);
 }
 
 @media (max-width: 600px) {

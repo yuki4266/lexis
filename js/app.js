@@ -7,11 +7,11 @@
 
   var WORDS = window.WORDS || [];
   var CATS  = window.CATEGORIES || [];
-  var LS_KEY = 'techlex.prefs.v1';
+  var LS_KEY = 'techlex.prefs.v2';
 
   /* ------------------------- 偏好设置 preferences ------------------------- */
   var prefs = {
-    accent: 'en-GB',                  // 英音 / 美音
+    accent: 'en-US',                  // 默认美音 / American by default
     rate: 0.9,                        // 语速 speech rate
     blind: false,                     // 听写模式 dictation mode
     cats: CATS.map(function (c) { return c.id; })
@@ -371,6 +371,13 @@
   });
 
   /* ------------------------------ 启动 start ------------------------------ */
+  // 口音按钮与偏好保持一致 / sync the accent buttons with the stored preference
+  Array.prototype.forEach.call(document.querySelectorAll('#accentSeg .seg-btn'), function (b) {
+    var on = b.dataset.accent === prefs.accent;
+    b.classList.toggle('is-on', on);
+    b.setAttribute('aria-checked', on ? 'true' : 'false');
+  });
+
   buildQueue();
   load(0);
   setInterval(updateStats, 2000);   // 让 WPM 持续刷新 / keep WPM ticking
