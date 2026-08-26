@@ -390,7 +390,7 @@ a.logo { text-decoration: none; }
   padding: 20px; border-radius: 16px;
   background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
 }
-.donate img { width: 240px; height: 240px; display: block; border-radius: 10px; }
+.donate img { width: 240px; height: auto; display: block; border-radius: 10px; }
 .donate figcaption { font-size: 12.5px; color: var(--dim); }
 
 .about-foot { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); }
