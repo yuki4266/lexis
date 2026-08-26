@@ -68,11 +68,14 @@ python3 -m http.server 8777
 
 ```
 techlex/
-├── index.html          # 页面结构 + SEO 元信息 markup and SEO metadata
+├── index.html          # 练习页 + SEO 元信息 the trainer, plus SEO metadata
+├── about.html          # 关于 / 用法 / FAQ / 赞赏 about, how-to, FAQ, tip jar
 ├── css/style.css       # 亮色主题样式 light theme styles
 ├── js/
 │   ├── words.js        # 词库：单词/音标/释义/词源/例句 the word bank
 │   └── app.js          # 逻辑：发音、校对、音效、错题本、统计 speech, checking, sound, mistakes, stats
+├── assets/
+│   └── wechat-reward.png   # 微信赞赏码（替换成你自己的）WeChat tip QR (swap in your own)
 ├── og-image.png        # 分享封面 social share card
 ├── favicon.svg
 ├── robots.txt

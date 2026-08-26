@@ -34,49 +34,34 @@
 <!-- 结构化数据 / structured data -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebApplication",
-      "name": "TechLex",
-      "alternateName": "TechLex 技术英语词汇听打训练",
-      "url": "https://yuki4266.github.io/techlex/",
-      "description": "面向中文母语学习者的技术英语词汇训练器：118 个 AI、算法、软件工程、系统与网络专业词汇，自动发音（英音/美音）、逐字母实时校对、词源典故中英对照、错题回顾。",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "Any (web browser)",
-      "inLanguage": ["zh-CN", "en"],
-      "isAccessibleForFree": true,
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "featureList": [
-        "自动发音，英音/美音可切 Auto pronunciation, UK or US",
-        "逐字母实时校对 Letter-by-letter checking",
-        "词源与典故中英对照 Bilingual etymology",
-        "错题回顾 Mistakes review",
-        "听写模式 Dictation mode"
-      ],
-      "author": { "@type": "Person", "name": "yuki4266" }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "程序员/算法工程师应该怎么背技术英语单词？",
-          "acceptedAnswer": { "@type": "Answer", "text": "把「听、拼、义、源」绑在一起最有效：先听发音，再逐字母拼写出来，同时看中文词意，最后读一遍词源典故。TechLex 把这四步放在同一屏完成，打错的词会自动进错题本，下次一次打对才移出。" }
-        },
-        {
-          "@type": "Question",
-          "name": "TechLex 支持英音和美音吗？",
-          "acceptedAnswer": { "@type": "Answer", "text": "支持。顶栏可一键切换美音（en-US，默认）和英音（en-GB），音标会同步切换成对应的 UK / US 国际音标，语速也可调。" }
-        },
-        {
-          "@type": "Question",
-          "name": "收录了哪些领域的专业词汇？",
-          "acceptedAnswer": { "@type": "Answer", "text": "共 118 个词，分五类：人工智能与机器学习（如 stochastic、entropy、manifold）、算法与数据结构（如 memoization、amortized、trie）、软件工程（如 idempotent、deprecate、canary）、系统与分布式（如 mutex、semaphore、quorum）、网络工程（如 protocol、socket、cipher）。" }
-        }
-      ]
-    }
-  ]
+  "@type": "WebApplication",
+  "name": "TechLex",
+  "alternateName": "TechLex 技术英语词汇听打训练",
+  "url": "https://yuki4266.github.io/techlex/",
+  "description": "面向中文母语学习者的技术英语词汇训练器：118 个 AI、算法、软件工程、系统与网络专业词汇，自动发音（英音/美音）、逐字母实时校对、词源典故中英对照、错题回顾。",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any (web browser)",
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ],
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "自动发音，英音/美音可切 Auto pronunciation, UK or US",
+    "逐字母实时校对 Letter-by-letter checking",
+    "词源与典故中英对照 Bilingual etymology",
+    "错题回顾 Mistakes review",
+    "听写模式 Dictation mode"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "yuki4266"
+  }
 }
 </script>
 
@@ -90,6 +75,7 @@
   <div class="brand">
     <span class="logo">TechLex</span>
     <span class="tagline">技术英语 · 听打训练</span>
+    <a class="nav-link" href="about.html">关于 About</a>
   </div>
 
   <div class="controls">
@@ -173,39 +159,6 @@
     </div>
   </section>
 
-
-  <!-- 静态介绍：给第一次来的人，也给搜索引擎 / static copy, for first-time readers and crawlers -->
-  <section class="about">
-    <h2>关于 TechLex <span>About</span></h2>
-    <p>
-      TechLex 是一个免费的<strong>技术英语专业词汇</strong>训练器，为中文母语的工程师和学生而做。
-      每个词都把「听发音 → 逐字母打出来 → 看中文词意 → 读词源典故」放在同一屏完成。
-    </p>
-    <p class="en">
-      TechLex is a free trainer for the English vocabulary of software and machine learning, made for Chinese speakers.
-      Every word puts hearing, spelling, meaning and etymology on a single screen.
-    </p>
-    <ul class="about-cats">
-      <li><b>人工智能与机器学习 AI &amp; Machine Learning</b> — stochastic, entropy, tensor, convolution, manifold, distillation, hyperparameter</li>
-      <li><b>算法与数据结构 Algorithms &amp; Data Structures</b> — recursion, memoization, amortized, asymptotic, trie, monotonic, invariant</li>
-      <li><b>软件工程 Software Engineering</b> — refactor, idempotent, deprecate, polymorphism, encapsulation, canary, telemetry</li>
-      <li><b>系统与分布式 Systems &amp; Distributed</b> — mutex, semaphore, deadlock, consensus, quorum, throughput, preemption</li>
-      <li><b>网络工程 Network Engineering</b> — protocol, socket, subnet, proxy, cipher, multiplexing, congestion</li>
-    </ul>
-    <h3>常见问题 <span>FAQ</span></h3>
-    <dl>
-      <dt>技术英语单词应该怎么背？</dt>
-      <dd>把「听、拼、义、源」绑在一起最有效。TechLex 自动发音、逐字母校对拼写、同屏给出中文词意，并解释这个词是从哪来的 —— 知道 <em>daemon</em> 源自希腊语「精灵」而非恶魔，就很难再忘。</dd>
-      <dt>支持英音还是美音？</dt>
-      <dd>都支持。顶栏一键切换美音（默认）与英音，音标同步切换成对应的 UK / US 国际音标，语速可调。</dd>
-      <dt>打错的单词会记录下来吗？</dt>
-      <dd>会。打错或跳过的词自动进入<strong>错题回顾</strong>，可以只练错题；某个词一次打对就自动移出，记录保存在你自己的浏览器里。</dd>
-    </dl>
-    <p class="about-foot">
-      开源免费 · 无需注册 · 无广告 ·
-      <a href="https://github.com/yuki4266/techlex" rel="noopener">源码在 GitHub</a>
-    </p>
-  </section>
 
 </main>
 
