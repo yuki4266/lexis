@@ -33,16 +33,16 @@
 
 ## 词库 · Word bank
 
-118 个高频技术英语词，覆盖五个领域：
-118 high-frequency technical words across five fields:
+313 个词，分五个**大类**、十六个**小类**，顶栏一键切换大类，小类可多选筛选。
+313 words in five **tracks** and sixteen **categories** — switch tracks in one click, filter categories freely.
 
-| 分类 Category | 数量 Count | 例词 Examples |
-| --- | --- | --- |
-| 人工智能与机器学习 AI & Machine Learning | 30 | stochastic, entropy, manifold, distillation |
-| 算法与数据结构 Algorithms & Data Structures | 23 | memoization, amortized, asymptotic, trie |
-| 软件工程 Software Engineering | 23 | idempotent, deprecate, refactor, canary |
-| 系统与分布式 Systems & Distributed | 18 | mutex, semaphore, quorum, preemption |
-| 网络工程 Network Engineering | 24 | protocol, socket, cipher, multiplexing |
+| 大类 Track | 数量 | 小类 Categories | 例词 Examples |
+| --- | --- | --- | --- |
+| 技术英语 Tech English | 154 | AI/机器学习、算法与数据结构、软件工程、系统与分布式、网络工程 | stochastic, manifold, memoization, idempotent, linearizability, backpressure, spoofing |
+| 学术与论文 Academic & Research | 45 | 学术动词、论证与评价、方法与结构 | corroborate, elucidate, obviate, parsimonious, spurious, germane, confound |
+| 职场与商务 Workplace & Business | 42 | 沟通与协作、商业与产品、求职与职涯 | articulate, escalate, incumbent, arbitrage, vested, severance, meritocracy |
+| 高阶通用词 Advanced General | 45 | 性质与描述、行为与态度、抽象概念 | ubiquitous, idiosyncratic, acquiesce, obfuscate, dichotomy, zeitgeist, nadir |
+| 思辨与逻辑 Reasoning & Argument | 27 | 逻辑与论证、修辞与谬误 | premise, corollary, tautology, falsifiable, vacuous, sophistry, specious |
 
 ## 快捷键 · Shortcuts
 
@@ -99,7 +99,8 @@ Append one object to the array in `js/words.js`; the fields are documented at th
 }
 ```
 
-`cat` 可选值 / valid values：`ai` `algo` `sde` `sys` `net`
+`cat` 取 `js/words.js` 顶部 `window.CATEGORIES` 里的任一 id；每个 id 归属于某个 `window.TRACKS` 大类。
+`cat` must be one of the ids in `window.CATEGORIES` at the top of `js/words.js`; each belongs to a track in `window.TRACKS`.
 
 ## 浏览器支持 · Browser support
 

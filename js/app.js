@@ -14,13 +14,30 @@
     accent: 'en-US',                  // 默认美音 / American by default
     rate: 0.9,                        // 语速 speech rate
     blind: false,                     // 听写模式 dictation mode
-    cats: CATS.map(function (c) { return c.id; })
+    track: TRACKS.length ? TRACKS[0].id : '',   // 当前大类 current track
+    catsByTrack: {}                   // 每个大类各自记住选了哪些小类 / per-track subcategory selection
   };
   try {
     var saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
     for (var k in saved) if (saved[k] !== undefined && saved[k] !== null) prefs[k] = saved[k];
   } catch (e) { /* localStorage 不可用时忽略 / ignore */ }
-  if (!prefs.cats || !prefs.cats.length) prefs.cats = CATS.map(function (c) { return c.id; });
+  if (!prefs.catsByTrack || typeof prefs.catsByTrack !== 'object') prefs.catsByTrack = {};
+  if (!TRACKS.some(function (t) { return t.id === prefs.track; })) prefs.track = TRACKS[0].id;
+
+  // 某个大类下的全部小类 / every subcategory of a track
+  function trackCats(tid) {
+    return CATS.filter(function (c) { return c.track === tid; });
+  }
+  // 当前生效的小类；没选过就默认全选 / the selected subcategories, defaulting to all
+  function activeCats() {
+    var sel = prefs.catsByTrack[prefs.track];
+    if (!sel || !sel.length) sel = trackCats(prefs.track).map(function (c) { return c.id; });
+    return sel;
+  }
+  function wordsIn(tid) {
+    var ids = trackCats(tid).map(function (c) { return c.id; });
+    return WORDS.filter(function (w) { return ids.indexOf(w.cat) >= 0; }).length;
+  }
 
   function savePrefs() {
     try { localStorage.setItem(LS_KEY, JSON.stringify(prefs)); } catch (e) {}
@@ -49,7 +66,8 @@
       elDone   = $('sDone'), elStreak = $('sStreak'),
       elAcc    = $('sAcc'),  elWpm = $('sWpm'),
       elOverlay = $('overlay'), elMList = $('mlist'), elMEmpty = $('mEmpty'),
-      elMCount = $('mCount'), elMBtn = $('mistakeBtn'), elDrill = $('drillBtn');
+      elMCount = $('mCount'), elMBtn = $('mistakeBtn'), elDrill = $('drillBtn'),
+      elTracks = $('tracks');
 
   /* ------------------------------ 状态 state ------------------------------ */
   var queue = [], idx = 0, cur = null, solved = false, lastLen = 0;
@@ -155,7 +173,10 @@
       pool = WORDS.filter(function (w) { return !!mistakes[w.w]; });
       if (!pool.length) { drill = false; justEmptied = true; pool = null; }
     }
-    if (!pool) pool = WORDS.filter(function (w) { return prefs.cats.indexOf(w.cat) >= 0; });
+    if (!pool) {
+      var sel = activeCats();
+      pool = WORDS.filter(function (w) { return sel.indexOf(w.cat) >= 0; });
+    }
     if (!pool.length) pool = WORDS.slice();
     queue = shuffle(pool.slice());
     idx = 0;
@@ -448,27 +469,55 @@
   // 重听 replay
   elSpeak.addEventListener('click', function () { speak(cur && cur.w); elTyper.focus(); });
 
-  // 分类筛选 category chips
-  CATS.forEach(function (c) {
-    var b = document.createElement('button');
-    b.className = 'cat-chip' + (prefs.cats.indexOf(c.id) >= 0 ? ' is-on' : '');
-    b.textContent = c.zh + ' · ' + c.en;
-    b.dataset.cat = c.id;
-    b.addEventListener('click', function () {
-      var at = prefs.cats.indexOf(c.id);
-      if (at >= 0) {
-        if (prefs.cats.length === 1) return;            // 至少保留一类 / keep at least one
-        prefs.cats.splice(at, 1);
-      } else {
-        prefs.cats.push(c.id);
-      }
-      b.classList.toggle('is-on');
-      savePrefs();
-      buildQueue();
-      load(0);
+  // 大类切换 / track tabs
+  function renderTracks() {
+    elTracks.innerHTML = '';
+    TRACKS.forEach(function (t) {
+      var b = document.createElement('button');
+      b.className = 'track-tab' + (t.id === prefs.track ? ' is-on' : '');
+      b.dataset.track = t.id;
+      b.innerHTML = '<span class="t-zh">' + t.zh + '</span>' +
+                    '<span class="t-en">' + t.en + '</span>' +
+                    '<span class="t-n">' + wordsIn(t.id) + '</span>';
+      b.addEventListener('click', function () {
+        if (prefs.track === t.id && !drill) return;
+        prefs.track = t.id;
+        drill = false;                                  // 换大类就退出错题模式 / leaving drill
+        savePrefs();
+        renderTracks(); renderChips(); updateMCount();
+        buildQueue(); load(0);
+      });
+      elTracks.appendChild(b);
     });
-    elCats.appendChild(b);
-  });
+  }
+
+  // 小类筛选（只显示当前大类的）/ subcategory chips for the current track
+  function renderChips() {
+    elCats.innerHTML = '';
+    var sel = activeCats();
+    trackCats(prefs.track).forEach(function (c) {
+      var b = document.createElement('button');
+      b.className = 'cat-chip' + (sel.indexOf(c.id) >= 0 ? ' is-on' : '');
+      b.textContent = c.zh + ' · ' + c.en;
+      b.dataset.cat = c.id;
+      b.addEventListener('click', function () {
+        var cur = activeCats().slice();
+        var at = cur.indexOf(c.id);
+        if (at >= 0) {
+          if (cur.length === 1) return;                 // 至少保留一类 / keep at least one
+          cur.splice(at, 1);
+        } else {
+          cur.push(c.id);
+        }
+        prefs.catsByTrack[prefs.track] = cur;
+        b.classList.toggle('is-on');
+        savePrefs();
+        drill = false;
+        buildQueue(); load(0); updateMCount();
+      });
+      elCats.appendChild(b);
+    });
+  }
 
   /* ------------------------------ 键盘 keyboard ------------------------------ */
   elTyper.addEventListener('input', onInput);
@@ -513,6 +562,8 @@
     b.setAttribute('aria-checked', on ? 'true' : 'false');
   });
 
+  renderTracks();
+  renderChips();
   updateMCount();
   buildQueue();
   load(0);
