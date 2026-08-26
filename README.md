@@ -3,21 +3,29 @@
 > 面向中文母语学习者的技术英语单词训练器：听发音、打单词、逐字母实时校对，并给出词源与典故。
 > A tech-English vocabulary trainer for Chinese speakers: hear it, type it, get checked letter by letter, and learn where the word came from.
 
+**▶ 在线试用 / Try it live: https://yuki4266.github.io/techlex/**
+
 **零依赖 · 纯静态 · 打开 `index.html` 就能用**
 **Zero dependencies, pure static — just open `index.html`.**
+
+![TechLex](og-image.png)
 
 ---
 
 ## 功能 · Features
 
-- **自动发音，英音／美音可切** — 顶栏一键切换 UK / US，音标同步切换，可调语速。
-  **Auto pronunciation, UK or US** — switch accent in the top bar; the IPA and the voice follow, and speed is adjustable.
+- **自动发音，美音／英音可切** — 默认美音，顶栏一键切换 US / UK，音标同步切换，可调语速。
+  **Auto pronunciation, US by default** — switch accent in the top bar; the IPA and the voice follow, and speed is adjustable.
 - **逐字母实时校对** — 打对的字母变绿，打错的字母变红并带下划线，光标始终指向当前位置。
   **Letter-by-letter checking in real time** — correct letters turn green, wrong ones turn red and underlined, and a caret marks where you are.
 - **打对就"叮"一声，自动进入下一题** — 全部字母正确时播放提示音并翻页；打错有短促提示音。
   **A chime on success, then the next word** — a bell rings when the spelling completes, a short blip warns on a mistake.
-- **词源与典故** — 每个词都给出释义、词源故事和例句，全部中英对照，逐行对应。
-  **Etymology and stories** — every entry carries a definition, the story behind the word, and an example, all line-by-line bilingual.
+- **单词和词意是页面上最大的两样东西** — 单词最大，中文词意紧随其后，英文释义再次之，词源和例句在下方展开。
+  **The word and its meaning dominate the page** — the word first, the Chinese meaning right under it, then the English definition.
+- **错题回顾** — 打错或跳过的词自动进错题本，可以「只练错题」；某个词一次打对就自动移出，记录存在浏览器本地。
+  **Mistakes review** — missed or skipped words are filed automatically; drill just those, and a clean run removes a word again. Stored locally in your browser.
+- **词源与典故** — 每个词都给出词源故事和例句，全部中英对照，逐行对应。
+  **Etymology and stories** — every entry carries the story behind the word and an example, all line-by-line bilingual.
 - **听写模式** — 隐藏单词，只听发音盲打；打错时显示的是"你打的那个字母"。
   **Dictation mode** — hide the word and type only from the audio; a wrong keystroke shows the letter you actually typed.
 - **分类筛选与统计** — 按 5 个领域筛题，实时显示完成数、连击、准确率、WPM。
@@ -60,11 +68,15 @@ python3 -m http.server 8777
 
 ```
 techlex/
-├── index.html      # 页面结构 markup
-├── css/style.css   # 样式 styles
-└── js/
-    ├── words.js    # 词库：单词/音标/释义/词源/例句 the word bank
-    └── app.js      # 逻辑：发音、校对、音效、统计 speech, checking, sound, stats
+├── index.html          # 页面结构 + SEO 元信息 markup and SEO metadata
+├── css/style.css       # 亮色主题样式 light theme styles
+├── js/
+│   ├── words.js        # 词库：单词/音标/释义/词源/例句 the word bank
+│   └── app.js          # 逻辑：发音、校对、音效、错题本、统计 speech, checking, sound, mistakes, stats
+├── og-image.png        # 分享封面 social share card
+├── favicon.svg
+├── robots.txt
+└── sitemap.xml
 ```
 
 ## 扩词 · Adding words

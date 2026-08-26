@@ -26,6 +26,17 @@
     try { localStorage.setItem(LS_KEY, JSON.stringify(prefs)); } catch (e) {}
   }
 
+  /* --------------------- 错题本 mistakes book ---------------------
+     结构 / shape: { "idempotent": { n: 错误次数 times missed, t: 最后一次 last seen } } */
+  var MK_KEY = 'techlex.mistakes.v1';
+  var mistakes = {};
+  try { mistakes = JSON.parse(localStorage.getItem(MK_KEY) || '{}') || {}; } catch (e) { mistakes = {}; }
+
+  function saveMistakes() {
+    try { localStorage.setItem(MK_KEY, JSON.stringify(mistakes)); } catch (e) {}
+  }
+  function mistakeCount() { return Object.keys(mistakes).length; }
+
   /* ------------------------------ DOM ------------------------------ */
   function $(id) { return document.getElementById(id); }
   var elWord   = $('wordLine'), elIpa = $('ipa'), elPos = $('pos'),
@@ -36,10 +47,15 @@
       elEtyEn  = $('etyEn'), elEtyZh = $('etyZh'),
       elExEn   = $('exEn'),  elExZh  = $('exZh'),
       elDone   = $('sDone'), elStreak = $('sStreak'),
-      elAcc    = $('sAcc'),  elWpm = $('sWpm');
+      elAcc    = $('sAcc'),  elWpm = $('sWpm'),
+      elOverlay = $('overlay'), elMList = $('mlist'), elMEmpty = $('mEmpty'),
+      elMCount = $('mCount'), elMBtn = $('mistakeBtn'), elDrill = $('drillBtn');
 
   /* ------------------------------ 状态 state ------------------------------ */
   var queue = [], idx = 0, cur = null, solved = false, lastLen = 0;
+  var curErr = false;        // 本题是否打错过 / did this word get a wrong keystroke
+  var drill = false;         // 是否处于"只练错题"模式 / drilling the mistakes book
+  var justEmptied = false;   // 错题刚清空 / the book just emptied
   var stats = { done: 0, streak: 0, keys: 0, errs: 0, ok: 0, start: 0 };
 
   /* --------------------------- 音效 sound effects --------------------------- */
@@ -134,7 +150,12 @@
   }
 
   function buildQueue(keepWord) {
-    var pool = WORDS.filter(function (w) { return prefs.cats.indexOf(w.cat) >= 0; });
+    var pool = null;
+    if (drill) {                                   // 错题模式只取错题 / drill only the missed words
+      pool = WORDS.filter(function (w) { return !!mistakes[w.w]; });
+      if (!pool.length) { drill = false; justEmptied = true; pool = null; }
+    }
+    if (!pool) pool = WORDS.filter(function (w) { return prefs.cats.indexOf(w.cat) >= 0; });
     if (!pool.length) pool = WORDS.slice();
     queue = shuffle(pool.slice());
     idx = 0;
@@ -154,11 +175,17 @@
     var roundMsg = '';
     if (i >= queue.length) {                       // 一轮结束，重新洗牌 / round over, reshuffle
       buildQueue(); i = 0;
-      roundMsg = '🎉 本轮完成，已重新洗牌 · Round complete, reshuffled';
+      roundMsg = drill
+        ? '错题再来一轮 · Another pass over the mistakes'
+        : '🎉 本轮完成，已重新洗牌 · Round complete, reshuffled';
+    }
+    if (justEmptied) {
+      justEmptied = false;
+      roundMsg = '🎉 错题全部掌握，已回到全部词库 · Mistakes all cleared, back to the full list';
     }
     idx = i;
     cur = queue[idx];
-    solved = false; lastLen = 0;
+    solved = false; lastLen = 0; curErr = false;
     elTyper.value = '';
     elCard.classList.remove('is-solved');
 
@@ -172,7 +199,13 @@
     }
 
     var cat = catLabel(cur.cat);
-    elPill.textContent = cat.zh + ' · ' + cat.en;
+    if (drill) {
+      elPill.textContent = '错题模式 Drill · 点此返回全部';
+      elPill.className = 'pill drill';
+    } else {
+      elPill.textContent = cat.zh + ' · ' + cat.en;
+      elPill.className = 'pill';
+    }
     elCounter.textContent = (idx + 1) + ' / ' + queue.length;
     elIpa.textContent = (prefs.accent === 'en-GB' ? 'UK ' : 'US ') + (prefs.accent === 'en-GB' ? cur.uk : cur.us);
     elPos.textContent = cur.pos;
@@ -223,6 +256,7 @@
 
   /* ------------------------- 输入处理 typing handler ------------------------- */
   function onInput() {
+    if (!elOverlay.hidden) { elTyper.value = ''; lastLen = 0; return; }
     if (!cur || solved) { elTyper.value = elTyper.value.slice(0, cur ? cur.w.length : 0); return; }
     var typed = elTyper.value.slice(0, cur.w.length);   // 不允许超长 / cap at word length
     if (elTyper.value !== typed) elTyper.value = typed;
@@ -237,6 +271,7 @@
         stats.ok++;
       } else {
         stats.errs++; stats.streak = 0;
+        noteMistake();
         blip();
         elWord.classList.remove('shake');
         void elWord.offsetWidth;                        // 触发重排以重放动画 / restart animation
@@ -252,8 +287,24 @@
     updateStats();
   }
 
+  // 记一次错题 / record the current word as missed
+  function noteMistake() {
+    if (!cur || curErr) return;
+    curErr = true;
+    var e = mistakes[cur.w] || { n: 0, t: 0 };
+    e.n++; e.t = Date.now();
+    mistakes[cur.w] = e;
+    saveMistakes(); updateMCount();
+  }
+
+  // 一次打对就移出错题本 / a clean run removes the word from the book
+  function clearMistake(w) {
+    if (mistakes[w]) { delete mistakes[w]; saveMistakes(); updateMCount(); }
+  }
+
   function success() {
     solved = true;
+    if (!curErr) clearMistake(cur.w);
     stats.done++; stats.streak++;
     elCard.classList.add('is-solved');
     paint(cur.w);                                       // 全绿并揭示答案 / all green, reveal
@@ -265,6 +316,7 @@
 
   function skip() {
     if (!cur || solved) return;
+    noteMistake();
     solved = true; stats.streak = 0;
     paint(cur.w.slice(0, 0));                           // 取消遮罩，露出正确拼写 / unmask
     for (var i = 0; i < elWord.children.length; i++) {
@@ -283,6 +335,87 @@
     var mins = stats.start ? (Date.now() - stats.start) / 60000 : 0;
     elWpm.textContent = mins > 0.02 ? Math.round((stats.ok / 5) / mins) : 0;
   }
+
+  /* --------------------- 错题面板 mistakes panel --------------------- */
+  function updateMCount() {
+    var n = mistakeCount();
+    elMCount.textContent = n;
+    elMBtn.classList.toggle('has-items', n > 0);
+    elDrill.disabled = n === 0;
+    elDrill.textContent = drill ? '返回全部词 Back to all' : '只练错题 Drill these';
+  }
+
+  function wordByKey(k) {
+    for (var i = 0; i < WORDS.length; i++) if (WORDS[i].w === k) return WORDS[i];
+    return null;
+  }
+
+  function renderMistakes() {
+    var keys = Object.keys(mistakes).sort(function (a, b) {
+      return (mistakes[b].n - mistakes[a].n) || (mistakes[b].t - mistakes[a].t);
+    });
+    elMList.innerHTML = '';
+    elMEmpty.hidden = keys.length > 0;
+
+    keys.forEach(function (k) {
+      var wd = wordByKey(k);
+      if (!wd) { delete mistakes[k]; return; }         // 词库里删掉的词 / word no longer in the bank
+      var li = document.createElement('li');
+      li.className = 'mitem';
+
+      var w = document.createElement('span');
+      w.className = 'mw'; w.textContent = wd.w;
+
+      var m = document.createElement('span');
+      m.className = 'mm'; m.textContent = wd.zh;
+
+      var n = document.createElement('span');
+      n.className = 'mn'; n.textContent = '错 ' + mistakes[k].n;
+
+      var play = document.createElement('button');
+      play.className = 'icon-btn'; play.textContent = '🔊';
+      play.setAttribute('aria-label', '朗读 ' + wd.w);
+      play.addEventListener('click', function () { speak(wd.w); });
+
+      var del = document.createElement('button');
+      del.className = 'icon-btn'; del.textContent = '✕';
+      del.setAttribute('aria-label', '移出错题本 remove ' + wd.w);
+      del.addEventListener('click', function () {
+        clearMistake(k); renderMistakes();
+      });
+
+      li.appendChild(w); li.appendChild(m); li.appendChild(n);
+      li.appendChild(play); li.appendChild(del);
+      elMList.appendChild(li);
+    });
+  }
+
+  function openSheet() { renderMistakes(); updateMCount(); elOverlay.hidden = false; }
+  function closeSheet() { elOverlay.hidden = true; elTyper.focus(); }
+
+  elMBtn.addEventListener('click', openSheet);
+  $('closeSheet').addEventListener('click', closeSheet);
+  elOverlay.addEventListener('click', function (e) { if (e.target === elOverlay) closeSheet(); });
+
+  // 进入 / 退出错题练习 / enter or leave the drill
+  elDrill.addEventListener('click', function () {
+    if (!drill && !mistakeCount()) return;
+    drill = !drill;
+    buildQueue(); load(0);
+    updateMCount(); closeSheet();
+  });
+
+  $('clearBtn').addEventListener('click', function () {
+    mistakes = {}; saveMistakes();
+    if (drill) { drill = false; buildQueue(); load(0); }
+    renderMistakes(); updateMCount();
+  });
+
+  // 点分类标签可退出错题模式 / clicking the drill pill returns to the full list
+  elPill.addEventListener('click', function () {
+    if (!drill) return;
+    drill = false; buildQueue(); load(0); updateMCount();
+  });
 
   /* ------------------------------ 控件 controls ------------------------------ */
   // 口音 accent
@@ -350,8 +483,10 @@
       else if (!solved) skip();
     } else if (e.key === 'Escape') {
       e.preventDefault();
+      if (!elOverlay.hidden) return closeSheet();
       elTyper.value = ''; lastLen = 0; paint(''); hint('已重来 · reset', '');
     }
+    if (!elOverlay.hidden) return;                 // 面板打开时不抢焦点 / don't steal focus while open
     if (document.activeElement !== elTyper) elTyper.focus();
   });
 
@@ -378,6 +513,7 @@
     b.setAttribute('aria-checked', on ? 'true' : 'false');
   });
 
+  updateMCount();
   buildQueue();
   load(0);
   setInterval(updateStats, 2000);   // 让 WPM 持续刷新 / keep WPM ticking
