@@ -93,15 +93,7 @@
     </label>
 
     <!-- 听写模式 / Dictation -->
-    <label class="switch">
-      <input type="checkbox" id="blindMode">
-      <span>听写模式 Dictation</span>
-    </label>
-
-    <!-- 错题本 / Mistakes -->
-    <button class="mistake-btn" id="mistakeBtn" aria-haspopup="dialog">
-      错题回顾 Mistakes <b id="mCount">0</b>
-    </button>
+    <button class="mode-btn" id="blindMode" aria-pressed="false">听写模式 Dictation</button>
   </div>
 </header>
 
@@ -154,7 +146,7 @@
     <input id="typer" type="text" autocomplete="off" autocorrect="off"
            autocapitalize="off" spellcheck="false" aria-label="在此输入单词 Type the word">
 
-    <div class="typing-hint" id="hint">开始打字，逐字母实时校对 · Start typing, checked letter by letter</div>
+    <div class="typing-hint" id="hint" hidden></div>
   </section>
 
   <!-- 词源 / 例句 -->
@@ -180,6 +172,7 @@
     <span><b id="sStreak">0</b> 连击 streak</span>
     <span><b id="sAcc">100%</b> 准确率 accuracy</span>
     <span><b id="sWpm">0</b> WPM</span>
+    <span><b id="sDue">0</b> 待复习 to review</span>
   </div>
   <div class="keys">
     <kbd>Ctrl</kbd>+<kbd>Enter</kbd> 重听 replay ·
@@ -200,29 +193,6 @@
       <span>Each track is its own word bank, and remembers its own category filter.</span>
     </p>
     <div id="trackGroups"></div>
-  </div>
-</div>
-
-<!-- 错题回顾面板 / Mistakes review panel -->
-<div class="overlay" id="overlay" hidden>
-  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
-    <div class="sheet-head">
-      <h2 id="sheetTitle">错题回顾 <span>Mistakes</span></h2>
-      <button class="icon-btn" id="closeSheet" aria-label="关闭 Close">✕</button>
-    </div>
-    <p class="sheet-note">
-      打错或跳过的词会自动收进这里；下次一次打对就自动移出。<br>
-      <span>Words you miss or skip land here; typing one cleanly removes it again.</span>
-    </p>
-    <div class="sheet-actions">
-      <button class="primary" id="drillBtn">只练错题 Drill these</button>
-      <button class="ghost" id="clearBtn">清空 Clear all</button>
-    </div>
-    <ul class="mlist" id="mlist"></ul>
-    <p class="sheet-empty" id="mEmpty">
-      还没有错题，先去练几个词吧。<br>
-      <span>No mistakes yet — go type a few words.</span>
-    </p>
   </div>
 </div>
 

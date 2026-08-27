@@ -90,19 +90,16 @@ body {
 .switch { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); cursor: pointer; }
 .switch input { accent-color: var(--accent); width: 15px; height: 15px; cursor: pointer; }
 
-.mistake-btn {
+.mode-btn {
   font: inherit; font-size: 12.5px; color: var(--muted); cursor: pointer;
-  display: flex; align-items: center; gap: 7px;
-  padding: 7px 13px; border-radius: 9px;
+  padding: 7px 14px; border-radius: 9px;
   background: var(--surface); border: 1px solid var(--line); transition: .18s;
 }
-.mistake-btn:hover { border-color: var(--line-2); color: var(--text); }
-.mistake-btn b {
-  font-family: var(--mono); font-size: 11px; min-width: 20px; text-align: center;
-  padding: 1px 5px; border-radius: 20px; color: var(--muted); background: var(--surface-2);
+.mode-btn:hover { border-color: var(--line-2); color: var(--text); }
+.mode-btn.is-on {
+  background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600;
+  box-shadow: 0 2px 8px rgba(11, 125, 153, .25);
 }
-.mistake-btn.has-items { border-color: rgba(225, 29, 72, .35); color: var(--text); }
-.mistake-btn.has-items b { background: var(--err); color: #fff; }
 
 /* ---------------------------- 大类 tracks ---------------------------- */
 .trackbar { display: flex; justify-content: center; padding: 20px clamp(16px, 4vw, 40px) 0; }
@@ -278,9 +275,10 @@ body {
 }
 
 .typing-hint {
-  margin-top: 20px; font-size: 12px; color: var(--dim); min-height: 1.2em;
+  margin-top: 18px; font-size: 12px; color: var(--dim);
   transition: color .2s;
 }
+.typing-hint[hidden] { display: none; }
 .typing-hint.ok  { color: var(--ok); }
 .typing-hint.err { color: var(--err); }
 
@@ -371,13 +369,13 @@ body {
 .sheet-empty { margin-top: 18px; font-size: 13.5px; line-height: 1.8; color: var(--muted); text-align: center; padding: 20px 0; }
 .sheet-empty span { color: var(--dim); }
 
-/* 错题练习模式的标记 / drill-mode marker */
-.pill.drill { background: var(--err-soft); border-color: rgba(225, 29, 72, .3); color: var(--err); font-weight: 600; }
+/* 这一题是回来复习的 / this word came back for review */
+.pill.review { background: var(--err-soft); border-color: rgba(225, 29, 72, .3); color: var(--err); font-weight: 600; }
 
 @media (max-width: 600px) {
   .topbar { justify-content: center; }
   .rate { display: none; }
-  .mistake-btn { font-size: 12px; padding: 6px 11px; }
+  .mode-btn { font-size: 12px; padding: 6px 11px; }
   .track-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .keys { display: none; }
   .statbar { justify-content: center; }

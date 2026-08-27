@@ -38,13 +38,45 @@
     return sel;
   }
 
-  /* --------------------- 错题本 mistakes book ---------------------
-     { "idempotent": { n: 错误次数, t: 最后一次, tr: 大类, zh: 词意快照 } } */
-  var MK_KEY = 'techlex.mistakes.v2';
+  /* ------------------ 复习队列 the review queue ------------------
+     打错的词不进任何列表，而是隔一段自己回来，打对几次就消失。
+     A missed word joins no list; it simply comes back later and fades out once mastered.
+
+     { "idempotent": { n: 错过次数, t: 时间, tr: 大类, zh: 词意快照,
+                       stage: 已连续答对几轮, reps: 已复习几次, due: 到第几个词时回来 } } */
+  var MK_KEY = 'lexis.review.v1';
+  var SEEN_KEY = 'lexis.seen.v1';
+  var INTERVALS = [3, 12, 30];   // 隔多少个词回来一次；连过三轮即掌握 / three passes and it is done
+  var MAX_REPS = 6;              // 最多复习这么多次，免得没完没了 / never nag beyond this
+
   var mistakes = {};
   try { mistakes = JSON.parse(localStorage.getItem(MK_KEY) || '{}') || {}; } catch (e) { mistakes = {}; }
+  var seen = 0;
+  try { seen = parseInt(localStorage.getItem(SEEN_KEY), 10) || 0; } catch (e) { seen = 0; }
+
   function saveMistakes() { try { localStorage.setItem(MK_KEY, JSON.stringify(mistakes)); } catch (e) {} }
+  function saveSeen() { try { localStorage.setItem(SEEN_KEY, String(seen)); } catch (e) {} }
   function mistakeCount() { return Object.keys(mistakes).length; }
+
+  // 只在某个大类里找这个词 / find the entry inside one track
+  function findEntry(w, tr) {
+    var list = window.TECHLEX_DATA[tr];
+    if (!list) return null;
+    for (var j = 0; j < list.length; j++) if (list[j].w === w) return list[j];
+    return null;
+  }
+
+  // 到点该回来的那个词 —— 只在当前大类内复习，换了大类就不会串出别处的词
+  // The word whose turn it is to come back — reviews stay inside the current track
+  function dueWord(skip) {
+    var best = null, bestDue = Infinity;
+    for (var w in mistakes) {
+      var m = mistakes[w];
+      if (m.due > seen || w === skip) continue;
+      if (m.due < bestDue && findEntry(w, prefs.track)) { best = w; bestDue = m.due; }
+    }
+    return best;
+  }
 
   /* ------------------------------ DOM ------------------------------ */
   function $(id) { return document.getElementById(id); }
@@ -57,16 +89,14 @@
       elExEn   = $('exEn'),  elExZh  = $('exZh'),  elBlockEx  = $('blockEx'),
       elDone   = $('sDone'), elStreak = $('sStreak'),
       elAcc    = $('sAcc'),  elWpm = $('sWpm'),
-      elOverlay = $('overlay'), elMList = $('mlist'), elMEmpty = $('mEmpty'),
-      elMCount = $('mCount'), elMBtn = $('mistakeBtn'), elDrill = $('drillBtn'),
+      elDue = $('sDue'),
       elTrackOverlay = $('trackOverlay'), elTrackGroups = $('trackGroups'),
       elTrackBtn = $('trackBtn'), elTbZh = $('tbZh'), elTbN = $('tbN');
 
   /* ------------------------------ 状态 state ------------------------------ */
   var queue = [], idx = 0, cur = null, solved = false, lastLen = 0;
   var curErr = false;        // 本题是否打错过 / did this word get a wrong keystroke
-  var drill = false;         // 只练错题 / drilling the mistakes book
-  var justEmptied = false;   // 错题刚清空 / the book just emptied
+  var reviewOf = null;        // 本题是不是回来复习的词 / is this a resurfaced word
   var extraMsg = '';         // 下一题要顺带显示的提示 / one-shot hint
 
   /* --------------------- 大类数据懒加载 lazy track data --------------------- */
@@ -186,27 +216,9 @@
     return a;
   }
 
-  // 错题池：跨大类，只取已加载的数据 / the drill pool, across tracks
-  function drillPool() {
-    var out = [];
-    for (var w in mistakes) {
-      var tr = mistakes[w].tr;
-      var data = trackData(tr);
-      for (var i = 0; i < data.length; i++) if (data[i].w === w) { out.push(data[i]); break; }
-    }
-    return out;
-  }
-
   function buildQueue() {
-    var pool = null;
-    if (drill) {
-      pool = drillPool();
-      if (!pool.length) { drill = false; justEmptied = true; pool = null; }
-    }
-    if (!pool) {
-      var sel = activeCats();
-      pool = trackData(prefs.track).filter(function (w) { return sel.indexOf(w.cat) >= 0; });
-    }
+    var sel = activeCats();
+    var pool = trackData(prefs.track).filter(function (w) { return sel.indexOf(w.cat) >= 0; });
     if (!pool.length) pool = trackData(prefs.track).slice();
     // 有词源故事的词排在前面 —— 这是这个站的重点，不该靠用户自己去开关
     // Words that carry a story come first; that is the point of the site, not an option to toggle
@@ -228,17 +240,17 @@
     var roundMsg = extraMsg; extraMsg = '';
     if (i >= queue.length) {                       // 一轮结束，重新洗牌 / round over, reshuffle
       buildQueue(); i = 0;
-      roundMsg = drill
-        ? '错题再来一轮 · Another pass over the mistakes'
-        : '🎉 本轮完成，已重新洗牌 · Round complete, reshuffled';
-    }
-    if (justEmptied) {
-      justEmptied = false;
-      roundMsg = '🎉 错题全部掌握，已回到当前大类 · Mistakes all cleared, back to the track';
+      roundMsg = '🎉 本轮完成，已重新洗牌 · Round complete, reshuffled';
     }
     idx = i;
-    cur = queue[idx];
+
+    // 打错过的词到点就自己回来，插在正常队列之前 / a missed word simply comes back
+    var back = dueWord(cur && cur.w);
+    if (back) { reviewOf = back; cur = findEntry(back, prefs.track); }
+    else { reviewOf = null; cur = queue[idx]; }
+
     solved = false; lastLen = 0; curErr = false;
+    seen++; saveSeen();
     elTyper.value = '';
     elCard.classList.remove('is-solved');
 
@@ -254,9 +266,10 @@
     }
 
     var cat = catLabel(cur.cat);
-    if (drill) {
-      elPill.textContent = '错题模式 Drill · 点此返回';
-      elPill.className = 'pill drill';
+    if (reviewOf) {
+      var m = mistakes[reviewOf];
+      elPill.textContent = '复习 review · 第 ' + ((m.reps || 0) + 1) + ' 次';
+      elPill.className = 'pill review';
     } else {
       elPill.textContent = cat.zh + ' · ' + cat.en;
       elPill.className = 'pill';
@@ -287,9 +300,7 @@
     elBlockEx.hidden = !hasEx;
     elExEn.textContent = cur.se || ''; elExZh.textContent = cur.sz || '';
 
-    hint(roundMsg || (prefs.blind
-      ? '听写模式：只听发音，直接输入 · Dictation: type what you hear'
-      : '开始打字，逐字母实时校对 · Start typing, checked letter by letter'), '');
+    hint(roundMsg, '');            // 常态留白：颜色与声音已经把话说完了 / silence by default
     paint('');
     speak(cur.w);
     elTyper.focus();
@@ -303,8 +314,9 @@
   }
 
   function hint(text, cls) {
-    elHint.textContent = text;
+    elHint.textContent = text || '';
     elHint.className = 'typing-hint' + (cls ? ' ' + cls : '');
+    elHint.hidden = !text;
   }
 
   // 逐字母上色：对=绿 / 错=红 / paint every letter: green if right, red if wrong
@@ -336,7 +348,7 @@
 
   /* ------------------------- 输入处理 typing handler ------------------------- */
   function onInput() {
-    if (!elOverlay.hidden || !elTrackOverlay.hidden) { elTyper.value = ''; lastLen = 0; return; }
+    if (!elTrackOverlay.hidden) { elTyper.value = ''; lastLen = 0; return; }
     if (!cur || solved) { elTyper.value = elTyper.value.slice(0, cur ? cur.w.length : 0); return; }
     var typed = elTyper.value.slice(0, cur.w.length);   // 不允许超长 / cap at word length
     if (elTyper.value !== typed) elTyper.value = typed;
@@ -356,46 +368,65 @@
         elWord.classList.remove('shake');
         void elWord.offsetWidth;                        // 触发重排以重放动画 / restart animation
         elWord.classList.add('shake');
-        hint('拼写不对，退格改一下 · Wrong letter — backspace and fix it', 'err');
       }
     }
     lastLen = typed.length;
 
     var wrong = paint(typed);
     if (!wrong && typed.length === cur.w.length) return success();
-    if (!wrong && elHint.className.indexOf('err') >= 0) hint('继续 · keep going', '');
     updateStats();
   }
 
   var stats = { done: 0, streak: 0, keys: 0, errs: 0, ok: 0, start: 0 };
 
-  // 记一次错题 / record the current word as missed
+  // 打错了：把这个词排进复习队列，隔几个词就回来 / schedule the word to come back
   function noteMistake() {
     if (!cur || curErr) return;
     curErr = true;
-    var e = mistakes[cur.w] || { n: 0, t: 0 };
+    var e = mistakes[cur.w] || { n: 0, reps: 0 };
     e.n++; e.t = Date.now();
-    e.tr = drill ? (mistakes[cur.w] && mistakes[cur.w].tr) || prefs.track : prefs.track;
+    e.tr = e.tr || prefs.track;
     e.zh = cur.zh || '';
+    e.stage = 0;                                   // 又错了就从头来 / start the ladder again
+    e.due = seen + INTERVALS[0];
     mistakes[cur.w] = e;
-    saveMistakes(); updateMCount();
+    saveMistakes(); updateDue();
   }
 
-  // 一次打对就移出错题本 / a clean run removes the word from the book
   function clearMistake(w) {
-    if (mistakes[w]) { delete mistakes[w]; saveMistakes(); updateMCount(); }
+    if (mistakes[w]) { delete mistakes[w]; saveMistakes(); updateDue(); }
+  }
+
+  // 复习题答完之后往上走一级；连过三轮就算掌握，悄悄消失
+  // After a review, climb one rung; three clean passes and the word quietly retires
+  function advanceReview() {
+    var m = mistakes[reviewOf];
+    if (!m) return;
+    m.reps = (m.reps || 0) + 1;
+    if (curErr) {
+      m.stage = 0;
+      m.due = seen + INTERVALS[0];
+    } else {
+      m.stage = (m.stage || 0) + 1;
+      if (m.stage >= INTERVALS.length) { delete mistakes[reviewOf]; saveMistakes(); updateDue(); return; }
+      m.due = seen + INTERVALS[m.stage];
+    }
+    if (m.reps >= MAX_REPS) delete mistakes[reviewOf];   // 别没完没了 / stop nagging
+    saveMistakes(); updateDue();
   }
 
   function success() {
     solved = true;
-    if (!curErr) clearMistake(cur.w);
+    if (reviewOf) advanceReview();
+    else if (!curErr) clearMistake(cur.w);
     stats.done++; stats.streak++;
     elCard.classList.add('is-solved');
     paint(cur.w);                                       // 全绿并揭示答案 / all green, reveal
     ding();
-    hint('✓ 正确！Correct — 下一题 next…', 'ok');
+    hint(reviewOf ? '这个词你刚才错过 · you missed this one earlier' : '', 'ok');
     updateStats();
-    setTimeout(function () { load(idx + 1); }, 780);
+    var next = reviewOf ? idx : idx + 1;             // 复习题不占用正常队列的位置
+    setTimeout(function () { load(next); }, 780);
   }
 
   function skip() {
@@ -408,8 +439,12 @@
     }
     hint('已跳过：' + cur.w + ' · skipped', 'err');
     updateStats();
-    setTimeout(function () { load(idx + 1); }, 900);
+    var nextIdx = reviewOf ? idx : idx + 1;
+    if (reviewOf) advanceReview();
+    setTimeout(function () { load(nextIdx); }, 900);
   }
+
+  function updateDue() { elDue.textContent = mistakeCount(); }
 
   function updateStats() {
     elDone.textContent = stats.done;
@@ -418,85 +453,6 @@
     var mins = stats.start ? (Date.now() - stats.start) / 60000 : 0;
     elWpm.textContent = mins > 0.02 ? Math.round((stats.ok / 5) / mins) : 0;
   }
-
-  /* --------------------- 错题面板 mistakes panel --------------------- */
-  function updateMCount() {
-    var n = mistakeCount();
-    elMCount.textContent = n;
-    elMBtn.classList.toggle('has-items', n > 0);
-    elDrill.disabled = n === 0;
-    elDrill.textContent = drill ? '返回当前大类 Back to the track' : '只练错题 Drill these';
-  }
-
-  function renderMistakes() {
-    var keys = Object.keys(mistakes).sort(function (a, b) {
-      return (mistakes[b].n - mistakes[a].n) || (mistakes[b].t - mistakes[a].t);
-    });
-    elMList.innerHTML = '';
-    elMEmpty.hidden = keys.length > 0;
-
-    keys.forEach(function (k) {
-      var rec = mistakes[k];
-      var li = document.createElement('li');
-      li.className = 'mitem';
-
-      var w = document.createElement('span');
-      w.className = 'mw'; w.textContent = k;
-
-      var m = document.createElement('span');
-      m.className = 'mm'; m.textContent = rec.zh || '';
-
-      var n = document.createElement('span');
-      n.className = 'mn'; n.textContent = '错 ' + rec.n;
-
-      var play = document.createElement('button');
-      play.className = 'icon-btn'; play.textContent = '🔊';
-      play.setAttribute('aria-label', '朗读 ' + k);
-      play.addEventListener('click', function () { speak(k); });
-
-      var del = document.createElement('button');
-      del.className = 'icon-btn'; del.textContent = '✕';
-      del.setAttribute('aria-label', '移出错题本 remove ' + k);
-      del.addEventListener('click', function () { clearMistake(k); renderMistakes(); });
-
-      li.appendChild(w); li.appendChild(m); li.appendChild(n);
-      li.appendChild(play); li.appendChild(del);
-      elMList.appendChild(li);
-    });
-  }
-
-  function openSheet() { renderMistakes(); updateMCount(); elOverlay.hidden = false; }
-  function closeSheet() { elOverlay.hidden = true; elTyper.focus(); }
-
-  elMBtn.addEventListener('click', openSheet);
-  $('closeSheet').addEventListener('click', closeSheet);
-  elOverlay.addEventListener('click', function (e) { if (e.target === elOverlay) closeSheet(); });
-
-  // 进入 / 退出错题练习：先把涉及的大类都加载进来
-  elDrill.addEventListener('click', function () {
-    if (!drill && !mistakeCount()) return;
-    if (drill) { drill = false; buildQueue(); load(0); updateMCount(); closeSheet(); return; }
-    var need = {};
-    for (var w in mistakes) if (mistakes[w].tr) need[mistakes[w].tr] = 1;
-    var ids = Object.keys(need);
-    hint('正在载入错题所在的大类… · loading tracks…', '');
-    loadTracks(ids, function () {
-      drill = true;
-      buildQueue(); load(0); updateMCount(); closeSheet();
-    });
-  });
-
-  $('clearBtn').addEventListener('click', function () {
-    mistakes = {}; saveMistakes();
-    if (drill) { drill = false; buildQueue(); load(0); }
-    renderMistakes(); updateMCount();
-  });
-
-  // 点分类标签可退出错题模式 / clicking the drill pill returns to the track
-  elPill.addEventListener('click', function () {
-    if (!drill) return;
-    drill = false; buildQueue(); load(0); updateMCount();
-  });
 
   /* --------------------- 大类选择面板 track picker --------------------- */
   function syncTrackBtn() {
@@ -540,12 +496,12 @@
 
   function switchTrack(tid) {
     closeTrackSheet();
-    if (tid === prefs.track && !drill && trackData(tid).length) return;
-    prefs.track = tid; drill = false;
+    if (tid === prefs.track && trackData(tid).length) return;
+    prefs.track = tid;
     savePrefs(); syncTrackBtn(); renderChips();
     hint('正在载入「' + (trackById(tid) || {}).zh + '」… · loading…', '');
     elCounter.textContent = '… / ' + (TCOUNT[tid] || 0);
-    loadTrack(tid, function () { buildQueue(); load(0); updateMCount(); });
+    loadTrack(tid, function () { buildQueue(); load(0); updateDue(); });
   }
 
   /* --------------------- 小类筛选 category chips --------------------- */
@@ -569,8 +525,7 @@
         prefs.catsByTrack[prefs.track] = curSel;
         b.classList.toggle('is-on');
         savePrefs();
-        drill = false;
-        buildQueue(); load(0); updateMCount();
+        buildQueue(); load(0); updateDue();
       });
       elCats.appendChild(b);
     });
@@ -599,10 +554,15 @@
     prefs.rate = parseFloat(this.value); savePrefs(); speak(cur && cur.w);
   });
 
-  // 听写模式 dictation
-  $('blindMode').checked = !!prefs.blind;
-  $('blindMode').addEventListener('change', function () {
-    prefs.blind = this.checked; savePrefs();
+  // 听写模式：一个按钮，不是复选框 / dictation is a button, not a checkbox
+  var elBlind = $('blindMode');
+  function syncBlind() {
+    elBlind.classList.toggle('is-on', !!prefs.blind);
+    elBlind.setAttribute('aria-pressed', prefs.blind ? 'true' : 'false');
+  }
+  syncBlind();
+  elBlind.addEventListener('click', function () {
+    prefs.blind = !prefs.blind; savePrefs(); syncBlind();
     paint(elTyper.value); elTyper.focus();
   });
 
@@ -623,17 +583,16 @@
     } else if (e.key === 'Escape') {
       e.preventDefault();
       if (!elTrackOverlay.hidden) return closeTrackSheet();
-      if (!elOverlay.hidden) return closeSheet();
-      elTyper.value = ''; lastLen = 0; paint(''); hint('已重来 · reset', '');
+      elTyper.value = ''; lastLen = 0; paint('');
     }
-    if (!elOverlay.hidden || !elTrackOverlay.hidden) return;   // 面板打开时不抢焦点
+    if (!elTrackOverlay.hidden) return;                        // 面板打开时不抢焦点
     if (document.activeElement !== elTyper) elTyper.focus();
   });
 
   // 点击页面任意空白处都回到输入状态 / clicking anywhere returns focus to the input
   document.addEventListener('click', function (e) {
     if (e.target.closest('button, input, label, a')) return;
-    if (!elOverlay.hidden || !elTrackOverlay.hidden) return;
+    if (!elTrackOverlay.hidden) return;
     elTyper.focus();
   });
 
@@ -655,7 +614,7 @@
 
   syncTrackBtn();
   renderChips();
-  updateMCount();
+  updateDue();
   hint('正在载入词库… · loading…', '');
   loadTrack(prefs.track, function () { buildQueue(); load(0); });
   setInterval(updateStats, 2000);   // 让 WPM 持续刷新 / keep WPM ticking
