@@ -1,84 +1,100 @@
 # 学术口语与会议表达 / Academic Speaking
+# 这一类收的是短语，练的就是整句里的高频块；空格也要打
 ## cat: speak-hedge
-arguably | 委婉：可以说……，把强断言降成可讨论的立场
-presumably | 委婉：想必……，表示合理推测但未经证实
-ostensibly
-seemingly | 委婉：表面看来……，为后面的转折留出余地
-broadly | 委婉：大体上……，承认存在例外
-roughly | 委婉：大致……，表明数字是估算
-tentatively | 委婉：初步地……，说明结论还会改
-plausibly | 委婉：说得通的是……，只主张合理而非正确
-conceivably | 委婉：不排除……，提出一种可能性
-admittedly | 让步：必须承认……，先认下对方有理再转折
-granted | 让步：诚然……，承认一点之后再提出保留
-notwithstanding | 让步：尽管如此，仍然……
-albeit | 让步：虽然……，用于插入简短保留
-nonetheless | 让步：话虽如此，结论不变
-caveat
-qualification | 保留：对结论加上的限定条件
-reservation | 保留意见：对提案不完全赞同之处
-hesitant | 委婉：I'd be hesitant to…，我不太倾向于……
-inclined | 委婉：I'm inclined to think…，我倾向于认为……
-lean | 委婉：I lean toward…，我偏向于……
+arguably | 可以说……，把强断言降成可讨论的立场
+presumably | 想必……，表示合理推测但未经证实
+seemingly | 表面看来……，为后面的转折留出余地
+tentatively | 初步地……，说明结论还会改
+plausibly | 说得通的是……，只主张合理而非正确
+conceivably | 不排除……，提出一种可能性
+admittedly | 必须承认……，先认下对方有理再转折
+notwithstanding | 尽管如此，仍然……
+albeit | 虽然……，用于插入简短保留
+nonetheless | 话虽如此，结论不变
+to my knowledge | 据我所知——留出"我可能不知道"的余地
+if I understand correctly | 如果我没理解错的话——先确认再回应
+correct me if I am wrong | 说错了请指正——软化即将提出的异议
+it may well be that | 很可能是……，承认对方有理的同时保留判断
+I would argue that | 我倾向于主张……，比 I think 更正式也更有分量
+one could say | 可以这么说——把观点归给"某种说法"而非自己
+in a sense | 从某种意义上说——限定所说成立的范围
+up to a point | 在一定程度上——部分同意，后面通常接转折
+that said | 话虽如此——转折前的标准过渡
+having said that | 尽管这么说——与 that said 同义，稍正式
+fair enough | 这话有道理——先接住对方再继续
+I take your point | 我明白你的意思——承认之后再提出保留
+with respect | 恕我直言——后面几乎一定是反对
+I am not sure that follows | 我不确定这能推出来——温和地指出逻辑跳跃
+that is a fair concern | 这个担心是合理的——先肯定再解释
+I would push back gently | 我想稍微反驳一下——弱化过的异议
 ## cat: speak-ask
-clarify | 提问：Could you clarify…？请澄清一下
-elaborate | 提问：Could you elaborate on…？能再展开讲讲吗
-unpack | 提问：Can we unpack that？把这一点拆开细看
-walk-through | 提问：Walk me through it，请带我过一遍过程
-rationale
-motivate | 提问：What motivates this choice？这么选的动机是什么
-assumption | 提问：What assumption is that resting on？这背后的假设是什么
-implication | 提问：What are the implications？会带来什么后果
-tradeoff
-alternative
-counterexample | 提问：Is there a counterexample？有没有反例
-edge-case | 提问：What about the edge case where…？边界情况怎么办
-failure-mode | 提问：What's the failure mode？出问题时会怎么坏
-scope | 提问：What's in scope here？这次的范围到哪
-constraint | 提问：What's the binding constraint？真正卡住的约束是什么
-evidence | 提问：What evidence would change your mind？什么证据能让你改变看法
-falsify | 提问：How would we falsify this？我们怎么验证它是错的
-baseline | 提问：What's the baseline？跟什么比出来的
-confound
+clarify | Could you clarify…？请澄清一下
+elaborate | Could you elaborate on…？能再展开讲讲吗
+unpack | Can we unpack that？把这一点拆开细看
+could you walk me through it | 请带我过一遍过程——要求对方按步骤说明
+what is the rationale | 依据是什么——问决策背后的理由
+what assumption is that resting on | 这背后的假设是什么——直指未言明的前提
+what are the implications | 会带来什么后果——把讨论推向影响
+what is the tradeoff | 权衡在哪——逼出被隐藏的代价
+is there a counterexample | 有没有反例——检验一般性主张
+what about the edge case | 边界情况怎么办——问最容易出事的地方
+what is the failure mode | 出问题时会怎么坏——问失败的形态
+what is in scope | 这次的范围到哪——先把边界谈清楚
+what is the binding constraint | 真正卡住的约束是什么——找瓶颈
+what evidence would change your mind | 什么证据能让你改变看法——检验对方是否可被说服
+how would we falsify this | 我们怎么验证它是错的——要求可证伪
+what is the baseline | 跟什么比出来的——追问参照系
+just a sanity check | 我确认一下基本前提——不带冒犯地核对常识
+let me play devil's advocate | 我故意站反方——声明立场以免被误解为敌意
+let me steelman your view | 我把你的立场说得更强再回应——最有力的反驳姿态
+from first principles | 从最基本的道理出发——绕开惯例重新推
+concretely what would that look like | 具体会是什么样——把抽象拉回地面
+can you give an example | 能举个例子吗——最有效的追问
+so what | 这有什么要紧——追问意义，语气偏冲
+why now | 为什么是现在做这件事——追问时机
+what breaks if we do not | 不做会出什么问题——反向论证必要性
 ## cat: speak-lead
-agenda | 主持：Let's stick to the agenda，我们按议程来
-timebox | 主持：Let's timebox this to five minutes，这一项限时五分钟
-parking-lot | 主持：Let's put that in the parking lot，先记下来会后再谈
-circle-back | 主持：We'll circle back to this，稍后再回到这个话题
-defer
-sidebar | 主持：Let's take that offline，这个我们会后单独聊
-align
-converge | 主持：Can we converge on a decision？能不能收敛到一个结论
-diverge | 主持：Let's diverge first，先发散再收敛
-straw-man | 主持：Here's a straw-man proposal，先抛个粗糙方案供拍砖
-consensus
-dissent
-objection | 主持：Any objections？有反对意见吗
-show-of-hands | 主持：Let's do a show of hands，我们举手表决
-action-item | 主持：What are the action items？会后要做什么
-owner | 主持：Who's the owner？谁来负责这件事
-deadline
-followup | 主持：I'll follow up by Friday，我周五前跟进
-recap | 主持：Let me recap，我复述一下我们的共识
-takeaway | 主持：The key takeaway is…，最关键的一点是
+let us stick to the agenda | 我们按议程来——把跑偏的讨论拉回
+let us timebox this | 这一项限时讨论——用时间盒止损
+let us put that in the parking lot | 先记下来会后再谈——不否定也不展开
+we will circle back to this | 稍后再回到这个话题——暂时搁置
+let us take that offline | 这个我们会后单独聊——把小众话题移出会议
+can we converge on a decision | 能不能收敛到一个结论——推动决策
+let us diverge first | 先发散再收敛——保护早期的想法
+here is a straw-man proposal | 先抛个粗糙方案供拍砖——降低被批评的心理成本
+any objections | 有反对意见吗——正式征询异议
+let us do a show of hands | 我们举手表决——快速取向
+what are the action items | 会后要做什么——把讨论落成事项
+who owns this | 这件事归谁负责——落实责任人
+by when | 什么时候之前完成——落实时间
+let us write it down | 我们把它记下来——避免口头共识蒸发
+disagree and commit | 保留意见但执行决定——不拖死决策的经典原则
+let us take a step back | 我们退一步看——从细节回到目标
+in the interest of time | 为了节省时间——礼貌地打断
+to be clear | 我明确一下——纠正可能的误解
+let us not rathole on this | 别在这一点上钻牛角尖——制止过度深挖
+let me recap | 我复述一下我们的共识——收尾前对齐
+the key takeaway is | 最关键的一点是——给出结论
 ## cat: speak-present
-outline | 汇报：I'll outline three points，我讲三点
-motivation | 汇报：Let me start with the motivation，先说为什么做这件事
-contribution | 汇报：Our main contribution is…，我们的主要贡献是
-methodology
-setup | 汇报：Here's the experimental setup，实验是这样设置的
-ablation
-baseline
-benchmark | 汇报：Compared against the benchmark…，与基准相比
-metric
-limitation | 汇报：One limitation is…，一个局限在于
-threat | 汇报：threats to validity，对结论有效性的威胁
-generalize | 汇报：This may not generalize to…，这未必能推广到……
-future-work | 汇报：We leave that to future work，这留待后续研究
-acknowledge | 汇报：I'd acknowledge that…，我承认这一点
-concede
-rebut | 答辩：Let me rebut that，我来回应这一点
-pushback | 答辩：I'd push back on that，这一点我有不同看法
-misunderstanding | 答辩：I think there's a misunderstanding，我想这里有误解
-reframe | 答辩：Let me reframe the question，我换个角度理解这个问题
-speculate | 答辩：I'd be speculating，这我只能猜测
+let me outline three points | 我讲三点——先给结构再给内容
+let me start with the motivation | 先说为什么做这件事——从问题而非方法开场
+our main contribution is | 我们的主要贡献是——一句话说清新在哪
+here is the experimental setup | 实验是这样设置的——交代可复现的细节
+at a high level | 从整体上说——先给全景
+let me zoom in on | 我把这一块放大来讲——从整体切到细节
+zooming out | 跳出细节看全局——从细节切回整体
+the punchline is | 结论先说——避免听众等到最后
+in short | 简而言之——收束冗长的说明
+bear with me | 请容我先铺垫一下——为较长的展开争取耐心
+I am glossing over the details | 细节我先略过——诚实地标出简化之处
+one limitation is | 一个局限在于——主动交代不足
+threats to validity | 对结论有效性的威胁——学术报告的标准环节
+this may not generalize to | 这未必能推广到……——限定适用范围
+we leave that to future work | 这留待后续研究——体面地承认没做
+I would acknowledge that | 我承认这一点——答辩中先接住批评
+let me rebut that | 我来回应这一点——正面反驳前的信号
+I would push back on that | 这一点我有不同看法——礼貌但明确的异议
+I think there is a misunderstanding | 我想这里有误解——先归因于沟通而非对错
+let me reframe the question | 我换个角度理解这个问题——重构提问再回答
+I would be speculating | 这我只能猜测——诚实划出知识边界
+happy to take questions | 欢迎提问——结束陈述的标准收尾

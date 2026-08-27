@@ -1,0 +1,167 @@
+# 学术与论文 / Academic & Research
+## cat: acad-verb
+articulate
+delineate
+elucidate
+posit
+substantiate
+corroborate
+refute
+rebut | 反驳：针对具体论点逐条回应
+concede
+qualify | 限定：给结论加上适用条件，缩小其主张范围
+nuance | 细化：指出被忽略的层次与差别
+problematize | 问题化：把被视作理所当然的前提重新提出来质疑
+interrogate | 拷问：对概念或数据反复追问其成立条件
+foreground | 凸显：把某个因素放到分析的中心位置
+sideline | 边缘化：把某因素排除在讨论重心之外
+conflate | 混为一谈：把本该区分的两件事当成一件
+disentangle | 厘清：把纠缠在一起的因素分开
+tease | 剥离：tease apart，把交织的效应一点点分开
+adjudicate | 裁定：在竞争性解释之间作出判断
+arbitrate | 裁断：在对立主张之间作出判定
+triangulate | 三角互证：用多种方法交叉验证同一结论
+operationalize | 操作化：把抽象概念变成可测量的指标
+instantiate | 具体化：给出一个具体实例来落实抽象说法
+exemplify | 例证：用实例说明所主张的一般规律
+generalize | 推广：把结论扩展到更广的范围
+extrapolate | 外推：把趋势延伸到数据范围之外
+interpolate | 内插：在已知数据点之间估算中间值
+approximate | 近似：用较简单的形式逼近真实值
+formalize | 形式化：用精确的数学或逻辑语言重述
+axiomatize | 公理化：把理论归结为若干不加证明的出发点
+derive | 推导：由前提一步步得出结论
+deduce | 演绎：从一般规则推出具体结论
+infer | 推断：由证据推出未直接观察到的结论
+postulate | 假定：作为出发点被接受的命题
+hypothesize | 提出假说：给出一个可检验的猜想
+predict | 预测：由模型给出对未观测情形的判断
+replicate | 重复实验：由他人按同样方法再做一遍
+reproduce | 复现：按同样方法重新得到同样结果
+validate | 验证：确认方法确实测到了想测的东西
+verify | 核验：确认结果确实如所声称
+benchmark | 基准：用来对照衡量的参照标准
+quantify | 量化：把定性判断变成可比较的数字
+estimate | 估计：由样本推算总体参数
+approximate | 近似：用较简单的形式逼近真实值
+converge | 收敛：随迭代或样本增加而趋于稳定
+diverge | 发散：不趋于稳定而越走越远
+subsume | 涵盖：把某个情形纳入更一般的范畴之下
+supersede
+supplant | 取代：把原有的挤下去自己顶上
+augment | 增补：在已有基础上加进新的部分
+attenuate | 衰减：使效应变弱
+amplify | 放大：使效应变得更强或更明显
+confound
+control | 控制变量：让其他因素保持不变以分离效应
+adjust | 调整：在统计上扣除某些变量的影响
+stratify | 分层：按特征把总体切成同质子层
+aggregate | 汇总：把多个观测合并成一个指标
+disaggregate | 拆分：把总量分解成各组成部分
+## cat: acad-eval
+compelling | 有说服力的：证据与论证强到难以反驳
+persuasive | 有说服力的：能让人改变看法
+convincing | 令人信服的：证据与推理都站得住
+substantive | 实质性的：涉及内容本身而非形式
+superficial | 表面的：只触及表层而未深入
+rigorous
+sloppy | 草率的：方法或论证经不起推敲
+thorough | 详尽的：把该覆盖的都覆盖了
+exhaustive | 穷尽的：把所有可能情形都列举过
+comprehensive | 全面的：覆盖了应涉及的各方面
+selective | 有选择的：只挑对自己有利的证据
+cherry-picked | 挑选性引用的：只呈现支持己方的少数案例
+representative | 有代表性的：样本能反映总体
+skewed | 有偏的：分布或样本明显偏向一侧
+confounded
+underpowered | 检验力不足的：样本量太小，看不出真实效应
+overstated | 夸大的：结论超出了证据所能支撑的范围
+understated | 保守表述的：说得比证据所允许的还要谨慎
+speculative | 推测性的：缺乏直接证据的猜想
+preliminary | 初步的：结果尚待更充分的验证
+provisional | 暂定的：随时可能被推翻或修改
+conclusive | 决定性的：足以定论
+inconclusive | 不确定的：证据不足以下结论
+suggestive | 提示性的：暗示某种可能但未证实
+indicative | 具指示性的：可作为某种迹象
+consistent | 一致的：与其他结果或理论不冲突
+inconsistent | 不一致的：与其他结果相冲突
+contradictory | 相互矛盾的：两个结论不能同时为真
+orthogonal | 正交的：互不相干，可分别处理
+overlapping | 重叠的：范围或内容有交叉
+complementary | 互补的：彼此弥补对方的不足
+redundant | 冗余的：重复而无额外信息
+novel | 新颖的：此前未有人做过
+incremental | 增量的：在已有工作上的小幅推进
+marginal | 边际的：增量意义上的，也指微不足道的
+transformative | 变革性的：改变整个领域的做法
+foundational | 奠基性的：后续工作赖以展开的基础
+seminal
+influential | 有影响力的：被广泛引用与follow
+niche | 小众的：只在很窄的范围内相关
+generalizable | 可推广的：结论能外推到别的场景
+transferable | 可迁移的：方法能用到别的问题上
+scalable | 可扩展的：规模变大仍然有效
+reproducible | 可复现的：他人按同样方法能得到同样结果
+brittle | 脆弱的：条件稍变就失效
+## cat: acad-meth
+abstract | 摘要：论文开头概括问题、方法与结论的一段
+introduction | 引言：交代问题背景与本文要做什么
+literature | 文献综述的：梳理已有研究并指出空白
+gap | 研究空白：已有工作尚未回答的问题
+contribution
+scope | 研究范围：本文处理与不处理什么
+delimitation | 界定范围：明确说明本研究不处理什么
+assumption | 假设：论证赖以成立而未加证明的前提
+premise | 前提：推出结论所依据的陈述
+framework | 框架：组织分析的概念结构
+model | 模型：对现象的简化刻画
+specification | 设定：模型的具体函数形式与变量选择
+estimation | 估计：从数据中求出模型参数
+identification | 识别：能否从数据中唯一确定目标参数
+inference | 推断：由证据得出结论的过程
+robustness | 稳健性：换个设定结论是否依然成立
+sensitivity | 敏感性分析：看结论对假设变动有多敏感
+ablation | 消融：拿掉某成分以衡量其真实贡献
+falsification | 证伪：设计一个若理论为真就该失败的检验
+protocol | 方案：预先写定的研究步骤
+preregistration | 预注册：在收集数据前公开研究方案与分析计划
+blinding | 盲法：让受试者或研究者不知道分组
+randomization | 随机化：随机分配以消除系统性差异
+sampling | 抽样：从总体中抽取样本的方法
+convenience | 便利抽样的：抽到谁算谁，代表性差
+purposive | 目的性抽样的：按研究需要有意挑选对象
+snowball | 滚雪球抽样的：由受访者介绍下一位受访者
+saturation | 饱和：新材料不再带来新发现的那个点
+coding | 编码：把定性材料归类为分析用的标签
+transcription | 转录：把访谈录音逐字整理成文字
+annotation | 标注：给数据打上分析所需的标签
+interrater | 评分者间信度的：不同标注者结果是否一致
+kappa | Kappa 系数：扣除偶然一致后的标注一致性
+reliability | 信度：重复测量结果是否稳定
+validity | 效度：是否真的测到了想测的东西
+construct | 构念效度的：抽象概念与测量指标是否对应
+convergent | 聚合效度的：本应相关的指标确实相关
+discriminant | 区分效度的：本应无关的指标确实无关
+ceiling | 天花板效应的：几乎所有人都拿满分，区分不开
+floor | 地板效应的：几乎所有人都得低分，区分不开
+attrition | 样本流失：研究对象中途退出
+missingness | 缺失机制：数据为什么缺、缺得是否随机
+imputation | 插补：用估计值填补缺失数据
+outlier | 离群点：明显偏离其余数据的观测
+winsorize | 缩尾：把极端值压到分位数边界而非删除
+transformation | 变量变换：取对数等改变尺度的处理
+appendix | 附录：正文之外的补充材料
+supplementary | 补充材料的：数据、代码与额外分析
+acknowledgment | 致谢：说明资助与他人贡献
+conflict | 利益冲突的：可能影响研究客观性的关系
+authorship | 署名权：谁被列为作者以及排序
+corresponding | 通讯作者的：负责与期刊和读者沟通的作者
+peer | 同行评审的：由领域内专家匿名评审
+desk | 编辑直拒的：未送外审即被拒稿
+revision | 修改稿：按审稿意见修订后重新提交
+rebuttal
+camera-ready | 终稿的：录用后按格式要求提交的最终版本
+preprint | 预印本：正式发表前公开的稿件
+citation | 引用：标注所依据的文献出处
+impact | 影响因子的：期刊平均被引次数

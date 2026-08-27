@@ -76,7 +76,7 @@ ideology | 意识形态：一套支撑特定利益的观念体系
 alienation | 异化：人与自己的劳动或本质相分离
 emancipation | 解放：从压迫结构中获得自由
 ## cat: phil-soc
-sociology
+sociology | 社会学：研究社会结构与集体行为的学科
 anomie | 失范：社会规范失效导致个体无所适从
 solidarity | 团结：把社会成员维系在一起的力量
 cohesion

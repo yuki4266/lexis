@@ -553,31 +553,31 @@ window.CATEGORIES = [
   }
 ];
 window.TRACK_COUNTS = {
-  "tech": 154,
+  "tech": 400,
   "data": 202,
   "sec": 148,
   "prod": 120,
-  "acad": 45,
-  "rea": 27,
+  "acad": 194,
+  "rea": 126,
   "med": 155,
   "phil": 137,
-  "work": 42,
+  "work": 180,
   "fin": 142,
   "law": 136,
   "news": 142,
-  "gen": 45,
+  "gen": 211,
   "life": 147,
   "exam": 1100,
   "root": 164,
   "conf": 141,
-  "speak": 78
+  "speak": 94
 };
 window.CAT_COUNTS = {
-  "ai": 38,
-  "sde": 30,
-  "algo": 31,
-  "net": 30,
-  "sys": 25,
+  "ai": 99,
+  "sde": 77,
+  "algo": 88,
+  "net": 73,
+  "sys": 63,
   "data-causal": 42,
   "data-eng": 49,
   "data-infer": 51,
@@ -590,11 +590,11 @@ window.CAT_COUNTS = {
   "prod-research": 28,
   "prod-growth": 33,
   "prod-ux": 32,
-  "acad-eval": 15,
-  "acad-meth": 15,
-  "acad-verb": 15,
-  "rea-logic": 14,
-  "rea-rhet": 13,
+  "acad-meth": 74,
+  "acad-eval": 57,
+  "acad-verb": 63,
+  "rea-logic": 64,
+  "rea-rhet": 62,
   "med-clin": 41,
   "med-dis": 39,
   "med-drug": 38,
@@ -603,9 +603,9 @@ window.CAT_COUNTS = {
   "phil-epis": 39,
   "phil-econ": 32,
   "phil-eth": 34,
-  "work-career": 14,
-  "work-comm": 14,
-  "work-biz": 14,
+  "work-career": 53,
+  "work-comm": 64,
+  "work-biz": 63,
   "fin-risk": 36,
   "fin-report": 39,
   "fin-trade": 31,
@@ -618,9 +618,9 @@ window.CAT_COUNTS = {
   "news-trade": 36,
   "news-polit": 36,
   "news-media": 33,
-  "gen-act": 15,
-  "gen-desc": 15,
-  "gen-abs": 15,
+  "gen-act": 63,
+  "gen-desc": 77,
+  "gen-abs": 71,
   "life-out": 37,
   "life-food": 38,
   "life-home": 35,
@@ -638,11 +638,11 @@ window.CAT_COUNTS = {
   "conf-prep": 33,
   "conf-sense": 37,
   "conf-form": 38,
-  "speak-present": 19,
-  "speak-lead": 20,
-  "speak-ask": 19,
-  "speak-hedge": 20
+  "speak-hedge": 26,
+  "speak-ask": 25,
+  "speak-lead": 21,
+  "speak-present": 22
 };
-window.WORD_TOTAL = 3125;
-window.WORD_HANDWRITTEN = 476;
-window.WORD_CURATED = 1494;
+window.WORD_TOTAL = 3939;
+window.WORD_HANDWRITTEN = 497;
+window.WORD_CURATED = 2255;

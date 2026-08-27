@@ -1,0 +1,184 @@
+# 高阶通用词 / Advanced General
+## cat: gen-desc
+laconic | 言简的：话极少但到位
+verbose
+prolix | 冗赘的：啰嗦到令人不耐
+succinct
+terse | 简短生硬的：短到近乎不客气
+cryptic | 晦涩的：说得含糊、让人猜不透
+oblique | 迂回的：不直说而绕着讲
+candid
+forthright | 直率的：有话直说、不绕弯
+evasive | 闪烁其词的：刻意回避正面回答
+equivocal | 模棱两可的：可以两头解释
+unequivocal | 毫不含糊的：只有一种理解
+categorical | 断然的：不留余地的
+emphatic | 加重语气的：强调到不容忽视
+adamant | 坚决的：立场硬得不肯松动
+intransigent | 不妥协的：拒绝任何让步
+recalcitrant | 顽抗的：对权威或规矩公然不服
+obstinate | 固执的：明知不对也不改
+dogged | 执拗坚持的：不肯放弃地一直做
+persistent
+relentless | 不间断的：一刻不停、毫不放松
+inexorable | 不可阻挡的：无论如何都会发生
+inevitable
+imminent
+impending | 逼近的：不好的事情即将到来
+precarious | 岌岌可危的：随时可能崩掉
+tenuous
+fragile
+volatile | 易变的：短时间内剧烈波动
+erratic | 反复无常的：毫无规律地变化
+capricious | 任性的：凭一时兴致而变
+fickle | 见异思迁的：偏好说变就变
+mercurial | 阴晴不定的：情绪变化快而剧烈
+stoic | 隐忍的：受苦也不抱怨
+phlegmatic | 淡定的：情绪起伏很小
+sanguine
+morose | 郁郁寡欢的：阴沉而不快
+sullen | 愠怒不语的：闷着一股火不说话
+petulant | 使性子的：为小事闹脾气
+peevish | 易怒的：一点小事就不高兴
+irascible | 暴躁的：一点就着
+truculent | 好斗的：说话带刺、随时要吵
+belligerent | 挑衅好战的：主动挑起冲突
+antagonistic | 对立的：处处与人为敌
+conciliatory | 息事宁人的：主动缓和关系
+deferential | 恭顺的：对权威表现出尊重
+obsequious | 谄媚的：讨好到没有骨气
+servile | 卑躬屈膝的：毫无自尊地顺从
+haughty | 傲慢的：自视甚高、看不起人
+arrogant
+condescending | 居高临下的：表面客气实则看轻
+patronizing | 屈尊俯就的：像对小孩一样对待成年人
+pretentious | 装腔作势的：假装比自己更有深度
+ostentatious | 招摇的：刻意炫耀给人看
+unassuming | 不张扬的：有实力却不显摆
+self-effacing | 不居功的：主动把自己往后放
+diffident | 缺乏自信的：不敢主张自己
+reticent
+taciturn | 沉默寡言的：天性不爱说话
+loquacious | 健谈的：话很多
+garrulous
+voluble | 滔滔不绝的：说得又快又多
+## cat: gen-act
+substantiate
+corroborate
+refute
+concede
+capitulate
+acquiesce
+demur | 表示异议：礼貌地不赞同
+balk | 却步：临到跟前不肯做
+waver | 动摇：立场开始不坚定
+vacillate
+dither | 犹豫拖延：拿不定主意而空耗时间
+procrastinate
+expedite
+precipitate | 促成：使事情比预期更早发生
+forestall | 抢先阻止：先下手让某事发生不了
+preempt | 先发制人：抢在对方之前采取行动
+circumvent
+subvert
+undermine
+sabotage | 蓄意破坏：暗中搞垮
+thwart | 挫败：让对方的计划落空
+stymie | 阻挠：使无法推进
+impede
+hinder | 妨碍：拖慢或阻挡进展
+facilitate
+expedite
+galvanize
+mobilize | 动员：把人和资源组织起来行动
+rally | 集结：把分散的力量重新聚拢
+consolidate | 巩固：把已有成果稳固下来
+entrench | 固化：使某种做法根深蒂固难以改变
+perpetuate | 使延续：让某种状态一直持续下去
+exacerbate
+mitigate
+alleviate | 减轻：使痛苦或问题缓解
+ameliorate | 改善：使状况变好
+rectify | 纠正：把错误改回来
+redress | 补救：对不公给予纠正与补偿
+reconcile
+placate
+appease | 姑息：以让步换取暂时的平静
+mollify | 安抚：使怒气平息
+assuage | 缓解：减轻疑虑或痛苦
+allay | 打消：使担忧或怀疑消除
+exonerate | 免除罪责：证明其无过错
+absolve | 开脱：宣告不必承担责任
+indict | 控告：正式提出指控
+denounce | 公开谴责：当众指责其不当
+castigate | 严厉斥责：措辞激烈地批评
+reprimand | 训诫：正式而严肃地批评
+admonish
+chastise | 责罚：以责备加以惩戒
+berate | 痛骂：长时间大声责骂
+disparage
+belittle | 轻视：说得比实际小、贬低其价值
+denigrate | 诋毁：损害他人名誉
+vilify | 中伤：把人说得极其恶劣
+extol
+laud | 称颂：公开高度赞扬
+tout | 吹捧：大力宣扬其好处
+## cat: gen-abs
+nuance
+subtlety | 微妙：不易察觉但重要的差别
+distinction | 区分：两者之间被指出的差别
+demarcation | 划界：明确两者的分界线
+delineation | 界定：把范围勾勒清楚
+threshold
+tipping | 临界点的：越过之后局面迅速改变
+inflection | 拐点：趋势方向发生改变的那一点
+trajectory
+momentum
+inertia
+equilibrium
+homeostasis
+resilience
+fragility | 脆性：受冲击就崩坏的倾向
+robustness
+redundancy
+contingency
+dependency
+interdependence | 相互依赖：彼此都离不开对方
+autonomy
+sovereignty
+legitimacy
+authority | 权威：被承认的决定权与影响力
+hierarchy
+bureaucracy | 官僚制：按层级与规章运作的组织形式
+meritocracy
+nepotism | 任人唯亲：优先照顾亲属
+cronyism | 任人唯友：把位置给自己人
+patronage | 恩庇：以资源换取忠诚的关系网
+corruption
+integrity
+probity | 廉正：品行端正、不可收买
+rectitude | 正直：行为严格合乎道德
+hypocrisy | 伪善：说的与做的不一致
+duplicity
+candor
+transparency
+opacity | 不透明：外人无从得知内部情形
+ambiguity
+uncertainty
+volatility
+complexity
+emergence
+serendipity | 意外之喜：无意中发现了有价值的东西
+contingency
+happenstance | 偶然：碰巧发生、并无原因
+providence | 天意：被认为出于某种安排的巧合
+predicament | 困境：进退两难的处境
+plight | 苦境：值得同情的艰难处境
+ordeal | 煎熬：漫长而痛苦的经历
+respite | 喘息：痛苦或忙碌中的短暂间歇
+reprieve | 缓刑：处罚被暂时推迟
+recourse | 求助手段：可以诉诸的补救途径
+leeway | 余地：可以灵活处理的空间
+latitude | 自由裁量的余地：允许自行斟酌的范围
+purview | 权限范围：职责所及的领域
+remit | 职权范围：被授权处理的事务范围

@@ -32,7 +32,7 @@ window.TECHLEX_DATA["phil"] = [
 {"w":"marginal","ph":"/'mɑ:dʒinәl/","pos":"adj.","cat":"phil-econ","en":"","zh":"边际的：再多一个单位所带来的变化","r":3361,"g":1,"tag":"gre"},
 {"w":"norm","ph":"/nɒ:m/","pos":"n.","cat":"phil-soc","en":"","zh":"规范：群体默认应当遵守的行为标准","r":3387,"g":1,"tag":"gre"},
 {"w":"essence","ph":"/'esns/","pos":"n.","cat":"phil-epis","en":"","zh":"本质：使某物成其所是的属性","r":3468,"g":1,"tag":"toefl"},
-{"w":"sociology","ph":"/.sәusi'ɒlәdʒi/","pos":"n.","cat":"phil-soc","en":"The study and classification of human societies","zh":"社会学","r":3612,"tag":"ielts"},
+{"w":"sociology","ph":"/.sәusi'ɒlәdʒi/","pos":"n.","cat":"phil-soc","en":"","zh":"社会学：研究社会结构与集体行为的学科","r":3612,"g":1,"tag":"ielts"},
 {"w":"liberty","ph":"/'libәli/","pos":"n.","cat":"phil-eth","en":"","zh":"自由：不受他人干涉地行动","r":3629,"g":1,"tag":"gre"},
 {"w":"justification","ph":"/.dʒʌstifi'keiʃәn/","pos":"n.","cat":"phil-epis","en":"","zh":"辩护：让一个信念够格称为知识的理由","r":3708,"g":1,"tag":"gre"},
 {"w":"autonomy","ph":"/ɒ:'tɒnәmi/","pos":"n.","cat":"phil-eth","en":"","zh":"自主：按自己的理性意志决定自己的行为","r":3908,"g":1,"tag":"gre"},
