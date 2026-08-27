@@ -105,32 +105,45 @@ body {
 .mistake-btn.has-items b { background: var(--err); color: #fff; }
 
 /* ---------------------------- 大类 tracks ---------------------------- */
-.tracks {
-  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
-  padding: 20px clamp(16px, 4vw, 40px) 0;
-}
-.track-tab {
-  font: inherit; cursor: pointer; text-align: left;
-  display: flex; align-items: baseline; gap: 7px;
+.trackbar { display: flex; justify-content: center; padding: 20px clamp(16px, 4vw, 40px) 0; }
+.track-btn {
+  font: inherit; cursor: pointer;
+  display: flex; align-items: center; gap: 9px;
   padding: 9px 16px; border-radius: 12px;
   background: var(--surface); border: 1px solid var(--line);
-  color: var(--muted); transition: .18s;
+  color: var(--text); transition: .18s; box-shadow: var(--shadow);
 }
-.track-tab:hover { border-color: var(--line-2); color: var(--text); transform: translateY(-1px); }
-.track-tab .t-zh { font-size: 14px; font-weight: 600; color: var(--text); }
-.track-tab .t-en { font-size: 11px; color: var(--dim); }
-.track-tab .t-n {
+.track-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+.track-btn .tb-label { font-size: 11px; color: var(--dim); letter-spacing: .5px; }
+.track-btn .tb-zh { font-size: 15px; font-weight: 600; }
+.track-btn .tb-n {
   font-family: var(--mono); font-size: 10.5px;
-  padding: 1px 7px; border-radius: 20px;
-  background: var(--surface-2); color: var(--dim);
+  padding: 1px 8px; border-radius: 20px;
+  background: var(--surface-2); color: var(--muted);
 }
-.track-tab.is-on {
-  background: var(--accent); border-color: var(--accent);
-  box-shadow: 0 3px 12px rgba(11, 125, 153, .28);
+.track-btn .tb-caret { font-size: 10px; color: var(--dim); }
+
+/* 大类选择面板 / the track picker panel */
+.sheet-wide { max-width: 780px; }
+.group-title {
+  font-size: 12px; font-weight: 600; color: var(--accent);
+  letter-spacing: .8px; margin: 22px 0 10px;
 }
-.track-tab.is-on .t-zh { color: #fff; }
-.track-tab.is-on .t-en { color: rgba(255, 255, 255, .72); }
-.track-tab.is-on .t-n { background: rgba(255, 255, 255, .22); color: #fff; }
+.group-title span { color: var(--dim); font-weight: 400; letter-spacing: .3px; margin-left: 6px; }
+.track-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 9px; }
+.track-card {
+  font: inherit; cursor: pointer; text-align: left;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 11px 14px; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--line); transition: .16s;
+}
+.track-card:hover { border-color: var(--line-2); transform: translateY(-1px); }
+.track-card .tc-zh { font-size: 14px; font-weight: 600; color: var(--text); }
+.track-card .tc-en { font-size: 10.5px; color: var(--dim); }
+.track-card .tc-n { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 3px; }
+.track-card.is-on { background: var(--accent); border-color: var(--accent); }
+.track-card.is-on .tc-zh { color: #fff; }
+.track-card.is-on .tc-en, .track-card.is-on .tc-n { color: rgba(255, 255, 255, .8); }
 
 /* -------------------------- 小类 categories -------------------------- */
 .cats {
@@ -222,6 +235,12 @@ body {
   width: 2px; background: var(--accent); animation: blink 1.05s steps(2) infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
+.ch.space { width: .45em; }                            /* 词组里的空格要看得见 / visible space in a phrase */
+.ch.space::after {
+  content: ""; position: absolute; left: 12%; right: 12%; bottom: .12em;
+  height: 2px; background: var(--line-2); border-radius: 2px;
+}
+.ch.space.done::after { background: var(--ok); }
 .ch.masked { color: transparent; }
 .ch.masked::after {                                   /* 听写模式的下划线 / dictation blank */
   content: ""; position: absolute; left: 8%; right: 8%; bottom: .12em;
@@ -244,6 +263,13 @@ body {
   gap: 10px; flex-wrap: wrap; font-size: 15px; color: var(--muted);
 }
 .ipa { font-family: var(--mono); }
+.badges { display: inline-flex; gap: 6px; }
+.badge {
+  font-size: 10.5px; font-weight: 600; letter-spacing: .3px;
+  padding: 2px 8px; border-radius: 20px; border: 1px solid transparent;
+}
+.badge-story { color: var(--accent); background: rgba(11, 125, 153, .10); border-color: rgba(11, 125, 153, .25); }
+.badge-tag   { color: var(--muted); background: var(--surface-2); border-color: var(--line); }
 .pos { font-size: 12px; color: var(--dim); font-style: italic; }
 
 #typer {                       /* 输入框不可见，但接收全部键盘输入 */
@@ -352,8 +378,7 @@ body {
   .topbar { justify-content: center; }
   .rate { display: none; }
   .mistake-btn { font-size: 12px; padding: 6px 11px; }
-  .track-tab { padding: 7px 12px; }
-  .track-tab .t-en { display: none; }
+  .track-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .keys { display: none; }
   .statbar { justify-content: center; }
 }

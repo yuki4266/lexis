@@ -1,0 +1,30 @@
+/* 由 scripts/build.mjs 生成，请勿手改 / generated — do not edit by hand */
+window.TECHLEX_DATA = window.TECHLEX_DATA || {};
+window.TECHLEX_DATA["data"] = [
+{"w":"power","ph":"/'pauә/","pos":"n.","cat":"data-infer","en":"","zh":"统计功效：效应确实存在时能把它检出来的概率","r":225,"g":1,"tag":"ielts"},
+{"w":"marginal","ph":"/'mɑ:dʒinәl/","pos":"adj.","cat":"data-prob","en":"Obtained by summing or integrating the other variables out","zh":"边缘（分布）：把其他变量积分掉之后剩下的分布","r":3361,"g":1,"tag":"gre"},
+{"w":"likelihood","ph":"/'laiklihud/","pos":"n.","cat":"data-infer","en":"","zh":"似然：在给定参数下观测到这批数据的概率","r":4596,"g":1,"tag":"ielts"},
+{"w":"consistency","ph":"/kәn'sistәnsi/","pos":"n.","cat":"data-infer","en":"","zh":"相合性：样本量趋于无穷时估计量收敛到真值","r":4975,"g":1,"tag":"gre"},
+{"w":"instrumental","ph":"/.instru'mentәl/","pos":"adj.","cat":"data-causal","en":"","zh":"工具变量的：借助只通过处理影响结果的变量识别因果","r":5653,"g":1,"tag":"gre"},
+{"w":"lineage","ph":"/'liniidʒ/","pos":"n.","cat":"data-eng","en":"","zh":"数据血缘：一份数据由哪些上游、经哪些变换得来","r":9046,"g":1,"tag":"gre"},
+{"w":"placebo","ph":"/plә'si:bәu/","pos":"n.","cat":"data-causal","en":"","zh":"安慰剂：无效对照，用来分离心理作用","r":9399,"g":1,"tag":"gre"},
+{"w":"percentile","ph":"/pә'sentail/","pos":"n.","cat":"data-prob","en":"","zh":"百分位数：把有序数据切成一百份的分点","r":13660,"g":1},
+{"w":"posterior","ph":"/pɒ'stiәriә/","pos":"adj.","cat":"data-prob","en":"The distribution of a parameter after the evidence is taken into account","zh":"后验（分布）：看到数据之后更新得到的分布","r":14194,"g":1,"tag":"gre"},
+{"w":"unbiased","ph":"/.ʌn'baiәst/","pos":"adj.","cat":"data-infer","en":"","zh":"无偏的：估计量的期望恰等于真实参数","r":15836,"g":1,"tag":"toefl"},
+{"w":"stratified","ph":"/'strætifaid/","pos":"adj.","cat":"data-causal","en":"","zh":"分层的：先按特征分层再在层内抽样或分配","r":20062,"g":1},
+{"w":"randomization","ph":"/,rændәmai'zeiʃәn; -mi'z-/","pos":"n.","cat":"data-causal","en":"","zh":"随机化：随机分配处理，以切断混杂路径","r":23086,"g":1},
+{"w":"partitioning","ph":"","pos":"n.","cat":"data-eng","en":"","zh":"分区：按键把数据切分到不同物理单元","r":25748,"g":1},
+{"w":"estimator","ph":"/'estimeitә/","pos":"n.","cat":"data-infer","en":"","zh":"估计量：由样本算出、用来估计总体参数的统计量","r":27958,"g":1},
+{"w":"jackknife","ph":"/'dʒæknaif/","pos":"n.","cat":"data-infer","en":"","zh":"刀切法：逐一剔除样本点来估计偏差与方差","r":29579,"g":1},
+{"w":"conjugate","ph":"/'kɒndʒugeit/","pos":"v.","cat":"data-prob","en":"A prior whose posterior stays in the same family","zh":"共轭（先验）：使后验与先验属于同一分布族","r":29783,"g":1},
+{"w":"multimodal","ph":"","pos":"","cat":"data-prob","en":"","zh":"[计] 多模式的","r":32364},
+{"w":"counterfactual","ph":"/,kajntә'fæktʃjәl/","pos":"adj.","cat":"data-causal","en":"","zh":"反事实：若当初做了另一种选择本会发生的结果","r":33428,"g":1},
+{"w":"skewness","ph":"","pos":"n.","cat":"data-prob","en":"An oblique or slanting asymmetry","zh":"[计] 倾斜度；[医] 偏斜","r":34050},
+{"w":"kurtosis","ph":"/kә:'tәusis/","pos":"n.","cat":"data-prob","en":"","zh":"峰态, 峭度","r":36216},
+{"w":"variate","ph":"/'veәriit/","pos":"n.","cat":"data-prob","en":"A variable quantity that is random","zh":"变量","r":37755},
+{"w":"cardinality","ph":"/,kɑ:di'næliti/","pos":"n.","cat":"data-eng","en":"","zh":"基数：某一列中不同取值的个数","r":999999,"g":1},
+{"w":"denormalize","ph":"","pos":"","cat":"data-eng","en":"","zh":"反范式化：为查询速度刻意引入冗余","r":999999,"g":1},
+{"w":"endogeneity","ph":"/endədʒe'ni:ɪtɪ/","pos":"","cat":"data-causal","en":"","zh":"内生性：解释变量与误差项相关，导致估计有偏","r":999999,"g":1},
+{"w":"homoscedastic","ph":"/,hәumәs(k)i'dæstik/","pos":"adj.","cat":"data-infer","en":"","zh":"[统]同方差的","r":999999},
+{"w":"quantile","ph":"/'kwɔntail/","pos":"n.","cat":"data-prob","en":"","zh":"分位数；分位点","r":999999}
+];

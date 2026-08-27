@@ -1,0 +1,39 @@
+# 数据与统计 / Data & Statistics
+# 格式：word | 中文域内释义 | English gloss   （后两项可省，省了就用词典）
+## cat: data-prob
+stochastic
+posterior | 后验（分布）：看到数据之后更新得到的分布 | The distribution of a parameter after the evidence is taken into account
+marginal | 边缘（分布）：把其他变量积分掉之后剩下的分布 | Obtained by summing or integrating the other variables out
+conjugate | 共轭（先验）：使后验与先验属于同一分布族 | A prior whose posterior stays in the same family
+multimodal
+skewness
+kurtosis
+quantile
+percentile | 百分位数：把有序数据切成一百份的分点
+variate
+## cat: data-infer
+heteroskedasticity
+homoscedastic
+likelihood | 似然：在给定参数下观测到这批数据的概率
+estimator | 估计量：由样本算出、用来估计总体参数的统计量
+unbiased | 无偏的：估计量的期望恰等于真实参数
+consistency | 相合性：样本量趋于无穷时估计量收敛到真值
+significance | 显著性：若无真实效应，观测到该结果的概率有多低
+power | 统计功效：效应确实存在时能把它检出来的概率
+bootstrap | 自助法：对样本有放回重抽样以估计不确定性
+jackknife | 刀切法：逐一剔除样本点来估计偏差与方差
+## cat: data-causal
+endogeneity | 内生性：解释变量与误差项相关，导致估计有偏
+instrumental | 工具变量的：借助只通过处理影响结果的变量识别因果
+counterfactual | 反事实：若当初做了另一种选择本会发生的结果
+randomization | 随机化：随机分配处理，以切断混杂路径
+stratified | 分层的：先按特征分层再在层内抽样或分配
+attrition | 样本流失：受试者中途退出造成的系统性缺失
+ablation | 消融：拿掉某个成分以衡量它的真实贡献
+placebo | 安慰剂：无效对照，用来分离心理作用
+## cat: data-eng
+idempotent
+lineage | 数据血缘：一份数据由哪些上游、经哪些变换得来
+denormalize | 反范式化：为查询速度刻意引入冗余
+cardinality | 基数：某一列中不同取值的个数
+partitioning | 分区：按键把数据切分到不同物理单元

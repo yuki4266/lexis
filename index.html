@@ -97,6 +97,12 @@
       <span>听写模式 Dictation</span>
     </label>
 
+    <!-- 只练带词源的词 / Only words with a story -->
+    <label class="switch">
+      <input type="checkbox" id="hwOnly">
+      <span>只练带词源的 Story only</span>
+    </label>
+
     <!-- 错题本 / Mistakes -->
     <button class="mistake-btn" id="mistakeBtn" aria-haspopup="dialog">
       错题回顾 Mistakes <b id="mCount">0</b>
@@ -105,7 +111,14 @@
 </header>
 
 <!-- 大类切换 / Track switcher -->
-<nav class="tracks" id="tracks" aria-label="词库大类 Tracks"></nav>
+<div class="trackbar">
+  <button class="track-btn" id="trackBtn" aria-haspopup="dialog">
+    <span class="tb-label">大类</span>
+    <span class="tb-zh" id="tbZh">—</span>
+    <span class="tb-n" id="tbN">0</span>
+    <span class="tb-caret" aria-hidden="true">▾</span>
+  </button>
+</div>
 
 <!-- 小类筛选 / Category filter -->
 <nav class="cats" id="cats" aria-label="词汇分类 Categories"></nav>
@@ -133,6 +146,7 @@
     <div class="phonetics">
       <span class="ipa" id="ipa">—</span>
       <span class="pos" id="pos"></span>
+      <span class="badges" id="badges"></span>
     </div>
 
     <!-- 词意：中文在上、英文在下 / Meaning: Chinese first, then English -->
@@ -150,12 +164,12 @@
 
   <!-- 词源 / 例句 -->
   <section class="card detail-card" id="detail">
-    <div class="block">
+    <div class="block" id="blockEty">
       <h3>词源与典故 <span>Etymology &amp; Story</span></h3>
       <p class="en" id="etyEn"></p>
       <p class="zh" id="etyZh"></p>
     </div>
-    <div class="block">
+    <div class="block" id="blockEx">
       <h3>例句 <span>Example</span></h3>
       <p class="en" id="exEn"></p>
       <p class="zh" id="exZh"></p>
@@ -178,6 +192,21 @@
     <kbd>Esc</kbd> 重来 reset
   </div>
 </footer>
+
+<!-- 大类选择面板 / Track picker -->
+<div class="overlay" id="trackOverlay" hidden>
+  <div class="sheet sheet-wide" role="dialog" aria-modal="true" aria-labelledby="trackTitle">
+    <div class="sheet-head">
+      <h2 id="trackTitle">选择大类 <span>Choose a track</span></h2>
+      <button class="icon-btn" id="closeTrack" aria-label="关闭 Close">✕</button>
+    </div>
+    <p class="sheet-note">
+      每个大类是一套独立的词库，小类筛选各自记住。<br>
+      <span>Each track is its own word bank, and remembers its own category filter.</span>
+    </p>
+    <div id="trackGroups"></div>
+  </div>
+</div>
 
 <!-- 错题回顾面板 / Mistakes review panel -->
 <div class="overlay" id="overlay" hidden>
@@ -202,7 +231,7 @@
   </div>
 </div>
 
-<script src="js/words.js"></script>
+<script src="js/manifest.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

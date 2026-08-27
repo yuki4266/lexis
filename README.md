@@ -68,12 +68,20 @@ python3 -m http.server 8777
 
 ```
 techlex/
-├── index.html          # 练习页 + SEO 元信息 the trainer, plus SEO metadata
-├── about.html          # 关于 / 用法 / FAQ / 赞赏 about, how-to, FAQ, tip jar
-├── css/style.css       # 亮色主题样式 light theme styles
+├── index.html            # 练习页 + SEO 元信息 the trainer, plus SEO metadata
+├── about.html            # 关于 / 用法 / FAQ / 赞赏 about, how-to, FAQ, tip jar
+├── css/style.css         # 亮色主题样式 light theme styles
+├── data/                 # 词库源文件 the sources of the word bank
+│   ├── schema.mjs        #   大类与小类定义 tracks & categories
+│   ├── handwritten/*.mjs #   手写条目（含词源与例句）hand-written, with etymology
+│   └── headwords/*.txt   #   词表（词典打底）headword lists for the dictionary tier
+├── scripts/
+│   ├── fetch-dict.mjs    #   下载 ECDICT download the dictionary
+│   └── build.mjs         #   构建：词表 ⋈ 词典 ＋ 手写覆盖 build the data files
 ├── js/
-│   ├── words.js        # 词库：单词/音标/释义/词源/例句 the word bank
-│   └── app.js          # 逻辑：发音、校对、音效、错题本、统计 speech, checking, sound, mistakes, stats
+│   ├── manifest.js       # 生成物：大类/小类/词数 generated schema, loaded on every page
+│   ├── data/<track>.js   # 生成物：各大类词条，按需加载 generated, lazily loaded per track
+│   └── app.js            # 逻辑：发音、校对、音效、错题本、统计 speech, checking, sound, mistakes, stats
 ├── assets/
 │   └── wechat-reward.png   # 微信赞赏码（替换成你自己的）WeChat tip QR (swap in your own)
 ├── og-image.png        # 分享封面 social share card
@@ -82,10 +90,20 @@ techlex/
 └── sitemap.xml
 ```
 
+## 构建 · Build
+
+词库是**生成**的，改完源文件要重新构建：
+The word bank is **generated** — rebuild after editing the sources:
+
+```bash
+node scripts/fetch-dict.mjs     # 首次：下载 ECDICT 到 vendor/（不入库）
+node scripts/build.mjs          # 生成 js/manifest.js 与 js/data/*.js，报告写入 build.log
+```
+
 ## 扩词 · Adding words
 
-在 `js/words.js` 的数组里追加一条即可，字段含义见文件顶部注释：
-Append one object to the array in `js/words.js`; the fields are documented at the top of that file:
+**两种方式 / two ways.** 想要完整的词源与例句，就在 `data/handwritten/<track>.mjs` 里追加一条：
+For a full entry with etymology and an example, append to `data/handwritten/<track>.mjs`:
 
 ```js
 {
@@ -99,8 +117,28 @@ Append one object to the array in `js/words.js`; the fields are documented at th
 }
 ```
 
-`cat` 取 `js/words.js` 顶部 `window.CATEGORIES` 里的任一 id；每个 id 归属于某个 `window.TRACKS` 大类。
-`cat` must be one of the ids in `window.CATEGORIES` at the top of `js/words.js`; each belongs to a track in `window.TRACKS`.
+`cat` 取 `data/schema.mjs` 里 `CATEGORIES` 的任一 id。
+`cat` must be one of the ids in `CATEGORIES` in `data/schema.mjs`.
+
+只想快速加词、由词典补齐音标与释义，就写进 `data/headwords/<track>.txt`：
+To add words quickly and let the dictionary fill in the phonetics and definitions, use `data/headwords/<track>.txt`:
+
+```
+## cat: data-infer
+likelihood | 似然：在给定参数下观测到这批数据的概率
+bootstrap
+power | 统计功效：效应确实存在时能把它检出来的概率 | The probability of detecting a real effect
+```
+
+一行一个词；`|` 后可给中文域内释义（覆盖词典的通用义），再一个 `|` 可给英文释义。
+One word per line; after `|` you may supply a domain-specific Chinese gloss that overrides the dictionary's generic one, and after a second `|` an English one.
+
+## 数据来源 · Data source
+
+基础层的音标、词性、释义与词频来自 **[ECDICT](https://github.com/skywind3000/ECDICT)**（MIT 协议），
+词源、例句与领域释义为手写。ECDICT 本身不含词源 —— 页面上没有词源的词，就是还没写，而不是编的。
+The dictionary tier (phonetics, part of speech, definitions, frequency) comes from **[ECDICT](https://github.com/skywind3000/ECDICT)** (MIT).
+Etymologies, examples and domain glosses are hand-written. Where a word shows no etymology, none has been written yet — none is invented.
 
 ## 浏览器支持 · Browser support
 

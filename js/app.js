@@ -1,21 +1,24 @@
 /* ==========================================================
    TechLex — 主逻辑 / main logic
-   发音 speech · 逐字母校对 letter-by-letter check · 统计 stats
+   大类懒加载 lazy tracks · 发音 speech · 逐字母校对 checking · 错题本 mistakes
    ========================================================== */
 (function () {
   'use strict';
 
-  var WORDS = window.WORDS || [];
-  var CATS  = window.CATEGORIES || [];
-  var LS_KEY = 'techlex.prefs.v2';
+  var GROUPS = window.GROUPS || [];
+  var TRACKS = window.TRACKS || [];
+  var CATS   = window.CATEGORIES || [];
+  var TCOUNT = window.TRACK_COUNTS || {};
+  var LS_KEY = 'techlex.prefs.v4';
 
   /* ------------------------- 偏好设置 preferences ------------------------- */
   var prefs = {
     accent: 'en-US',                  // 默认美音 / American by default
     rate: 0.9,                        // 语速 speech rate
     blind: false,                     // 听写模式 dictation mode
-    track: TRACKS.length ? TRACKS[0].id : '',   // 当前大类 current track
-    catsByTrack: {}                   // 每个大类各自记住选了哪些小类 / per-track subcategory selection
+    hwOnly: false,                    // 只练带词源的词 / only words with a story
+    track: TRACKS.length ? TRACKS[0].id : '',
+    catsByTrack: {}                   // 每个大类各自记住选了哪些小类 / per-track selection
   };
   try {
     var saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
@@ -24,57 +27,75 @@
   if (!prefs.catsByTrack || typeof prefs.catsByTrack !== 'object') prefs.catsByTrack = {};
   if (!TRACKS.some(function (t) { return t.id === prefs.track; })) prefs.track = TRACKS[0].id;
 
-  // 某个大类下的全部小类 / every subcategory of a track
-  function trackCats(tid) {
-    return CATS.filter(function (c) { return c.track === tid; });
+  function savePrefs() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(prefs)); } catch (e) {}
   }
-  // 当前生效的小类；没选过就默认全选 / the selected subcategories, defaulting to all
+
+  function trackCats(tid) { return CATS.filter(function (c) { return c.track === tid; }); }
+  function trackById(tid) { for (var i = 0; i < TRACKS.length; i++) if (TRACKS[i].id === tid) return TRACKS[i]; return null; }
   function activeCats() {
     var sel = prefs.catsByTrack[prefs.track];
     if (!sel || !sel.length) sel = trackCats(prefs.track).map(function (c) { return c.id; });
     return sel;
   }
-  function wordsIn(tid) {
-    var ids = trackCats(tid).map(function (c) { return c.id; });
-    return WORDS.filter(function (w) { return ids.indexOf(w.cat) >= 0; }).length;
-  }
-
-  function savePrefs() {
-    try { localStorage.setItem(LS_KEY, JSON.stringify(prefs)); } catch (e) {}
-  }
 
   /* --------------------- 错题本 mistakes book ---------------------
-     结构 / shape: { "idempotent": { n: 错误次数 times missed, t: 最后一次 last seen } } */
-  var MK_KEY = 'techlex.mistakes.v1';
+     { "idempotent": { n: 错误次数, t: 最后一次, tr: 大类, zh: 词意快照 } } */
+  var MK_KEY = 'techlex.mistakes.v2';
   var mistakes = {};
   try { mistakes = JSON.parse(localStorage.getItem(MK_KEY) || '{}') || {}; } catch (e) { mistakes = {}; }
-
-  function saveMistakes() {
-    try { localStorage.setItem(MK_KEY, JSON.stringify(mistakes)); } catch (e) {}
-  }
+  function saveMistakes() { try { localStorage.setItem(MK_KEY, JSON.stringify(mistakes)); } catch (e) {} }
   function mistakeCount() { return Object.keys(mistakes).length; }
 
   /* ------------------------------ DOM ------------------------------ */
   function $(id) { return document.getElementById(id); }
-  var elWord   = $('wordLine'), elIpa = $('ipa'), elPos = $('pos'),
+  var elWord   = $('wordLine'), elIpa = $('ipa'), elPos = $('pos'), elBadges = $('badges'),
       elTyper  = $('typer'),    elHint = $('hint'), elCounter = $('counter'),
       elPill   = $('catPill'),  elSpeak = $('speakBtn'), elCats = $('cats'),
       elCard   = document.querySelector('.word-card'),
       elDefEn  = $('defEn'), elDefZh = $('defZh'),
-      elEtyEn  = $('etyEn'), elEtyZh = $('etyZh'),
-      elExEn   = $('exEn'),  elExZh  = $('exZh'),
+      elEtyEn  = $('etyEn'), elEtyZh = $('etyZh'), elBlockEty = $('blockEty'),
+      elExEn   = $('exEn'),  elExZh  = $('exZh'),  elBlockEx  = $('blockEx'),
       elDone   = $('sDone'), elStreak = $('sStreak'),
       elAcc    = $('sAcc'),  elWpm = $('sWpm'),
       elOverlay = $('overlay'), elMList = $('mlist'), elMEmpty = $('mEmpty'),
       elMCount = $('mCount'), elMBtn = $('mistakeBtn'), elDrill = $('drillBtn'),
-      elTracks = $('tracks');
+      elTrackOverlay = $('trackOverlay'), elTrackGroups = $('trackGroups'),
+      elTrackBtn = $('trackBtn'), elTbZh = $('tbZh'), elTbN = $('tbN');
 
   /* ------------------------------ 状态 state ------------------------------ */
   var queue = [], idx = 0, cur = null, solved = false, lastLen = 0;
   var curErr = false;        // 本题是否打错过 / did this word get a wrong keystroke
-  var drill = false;         // 是否处于"只练错题"模式 / drilling the mistakes book
+  var drill = false;         // 只练错题 / drilling the mistakes book
   var justEmptied = false;   // 错题刚清空 / the book just emptied
-  var stats = { done: 0, streak: 0, keys: 0, errs: 0, ok: 0, start: 0 };
+  var extraMsg = '';         // 下一题要顺带显示的提示 / one-shot hint
+
+  /* --------------------- 大类数据懒加载 lazy track data --------------------- */
+  window.TECHLEX_DATA = window.TECHLEX_DATA || {};
+  var pending = {};
+
+  function trackData(tid) { return window.TECHLEX_DATA[tid] || []; }
+
+  function loadTrack(tid, cb) {
+    if (window.TECHLEX_DATA[tid]) return cb(window.TECHLEX_DATA[tid]);
+    if (pending[tid]) { pending[tid].push(cb); return; }
+    pending[tid] = [cb];
+    var s = document.createElement('script');
+    s.src = 'js/data/' + tid + '.js';
+    s.onload = s.onerror = function () {
+      var q = pending[tid]; delete pending[tid];
+      var data = window.TECHLEX_DATA[tid] || (window.TECHLEX_DATA[tid] = []);
+      q.forEach(function (f) { f(data); });
+    };
+    document.head.appendChild(s);
+  }
+
+  // 依次加载多个大类 / load several tracks, then continue
+  function loadTracks(ids, cb) {
+    var left = ids.length;
+    if (!left) return cb();
+    ids.forEach(function (id) { loadTrack(id, function () { if (--left === 0) cb(); }); });
+  }
 
   /* --------------------------- 音效 sound effects --------------------------- */
   var ac = null;
@@ -112,7 +133,6 @@
 
   /* --------------------------- 发音 text to speech --------------------------- */
   var voices = [];
-  // 各口音下优先挑选的音色 / preferred voice names per accent
   var PREFERRED = {
     'en-GB': ['Daniel', 'Serena', 'Kate', 'Google UK English Female', 'Google UK English Male', 'Arthur', 'Martha'],
     'en-US': ['Samantha', 'Alex', 'Google US English', 'Ava', 'Allison', 'Evan']
@@ -167,23 +187,35 @@
     return a;
   }
 
-  function buildQueue(keepWord) {
+  // 错题池：跨大类，只取已加载的数据 / the drill pool, across tracks
+  function drillPool() {
+    var out = [];
+    for (var w in mistakes) {
+      var tr = mistakes[w].tr;
+      var data = trackData(tr);
+      for (var i = 0; i < data.length; i++) if (data[i].w === w) { out.push(data[i]); break; }
+    }
+    return out;
+  }
+
+  function buildQueue() {
     var pool = null;
-    if (drill) {                                   // 错题模式只取错题 / drill only the missed words
-      pool = WORDS.filter(function (w) { return !!mistakes[w.w]; });
+    if (drill) {
+      pool = drillPool();
       if (!pool.length) { drill = false; justEmptied = true; pool = null; }
     }
     if (!pool) {
       var sel = activeCats();
-      pool = WORDS.filter(function (w) { return sel.indexOf(w.cat) >= 0; });
+      pool = trackData(prefs.track).filter(function (w) { return sel.indexOf(w.cat) >= 0; });
+      if (prefs.hwOnly) {                                   // 只练带词源的词 / story only
+        var withStory = pool.filter(function (w) { return w.hw; });
+        if (withStory.length >= 5) pool = withStory;
+        else extraMsg = '这个大类还没有足够的词源条目，已显示全部 · Not enough stories here yet, showing all';
+      }
     }
-    if (!pool.length) pool = WORDS.slice();
+    if (!pool.length) pool = trackData(prefs.track).slice();
     queue = shuffle(pool.slice());
     idx = 0;
-    if (keepWord) {
-      var at = queue.indexOf(keepWord);
-      if (at > 0) { queue.splice(at, 1); queue.unshift(keepWord); }
-    }
   }
 
   function catLabel(id) {
@@ -192,8 +224,10 @@
   }
 
   /* ------------------------------ 渲染 render ------------------------------ */
+  var TAG_ZH = { gre: 'GRE', toefl: 'TOEFL', ielts: 'IELTS', cet6: '六级', cet4: '四级', ky: '考研', gk: '高考', zk: '中考' };
+
   function load(i) {
-    var roundMsg = '';
+    var roundMsg = extraMsg; extraMsg = '';
     if (i >= queue.length) {                       // 一轮结束，重新洗牌 / round over, reshuffle
       buildQueue(); i = 0;
       roundMsg = drill
@@ -202,7 +236,7 @@
     }
     if (justEmptied) {
       justEmptied = false;
-      roundMsg = '🎉 错题全部掌握，已回到全部词库 · Mistakes all cleared, back to the full list';
+      roundMsg = '🎉 错题全部掌握，已回到当前大类 · Mistakes all cleared, back to the track';
     }
     idx = i;
     cur = queue[idx];
@@ -210,30 +244,50 @@
     elTyper.value = '';
     elCard.classList.remove('is-solved');
 
+    if (!cur) { hint('这个筛选下没有词，换个小类试试 · Nothing here, try another category', 'err'); return; }
+
     // 单词逐字母渲染 / render the word letter by letter
     elWord.innerHTML = '';
     for (var c = 0; c < cur.w.length; c++) {
       var s = document.createElement('span');
-      s.className = 'ch';
+      s.className = 'ch' + (cur.w[c] === ' ' ? ' space' : '');
       s.textContent = cur.w[c];
       elWord.appendChild(s);
     }
 
     var cat = catLabel(cur.cat);
     if (drill) {
-      elPill.textContent = '错题模式 Drill · 点此返回全部';
+      elPill.textContent = '错题模式 Drill · 点此返回';
       elPill.className = 'pill drill';
     } else {
       elPill.textContent = cat.zh + ' · ' + cat.en;
       elPill.className = 'pill';
     }
     elCounter.textContent = (idx + 1) + ' / ' + queue.length;
-    elIpa.textContent = (prefs.accent === 'en-GB' ? 'UK ' : 'US ') + (prefs.accent === 'en-GB' ? cur.uk : cur.us);
-    elPos.textContent = cur.pos;
 
-    elDefEn.textContent = cur.en; elDefZh.textContent = cur.zh;
-    elEtyEn.textContent = cur.oe; elEtyZh.textContent = cur.oz;
-    elExEn.textContent  = cur.se; elExZh.textContent  = cur.sz;
+    // 音标：手写条目分英美，词典条目只有一个 / IPA: hand-written entries have both
+    if (cur.uk && cur.us) {
+      elIpa.textContent = (prefs.accent === 'en-GB' ? 'UK ' : 'US ') + (prefs.accent === 'en-GB' ? cur.uk : cur.us);
+    } else {
+      elIpa.textContent = cur.ph || '';
+    }
+    elPos.textContent = cur.pos || '';
+
+    // 徽章：词源 / 考试标签 / badges
+    elBadges.innerHTML = '';
+    if (cur.hw) addBadge('有词源 story', 'story');
+    if (cur.tag) addBadge(TAG_ZH[cur.tag] || cur.tag, 'tag');
+
+    elDefZh.textContent = cur.zh || '';
+    elDefEn.textContent = cur.en || '';
+    elDefEn.hidden = !cur.en;
+
+    var hasEty = !!(cur.oe || cur.oz);
+    elBlockEty.hidden = !hasEty;
+    elEtyEn.textContent = cur.oe || ''; elEtyZh.textContent = cur.oz || '';
+    var hasEx = !!(cur.se || cur.sz);
+    elBlockEx.hidden = !hasEx;
+    elExEn.textContent = cur.se || ''; elExZh.textContent = cur.sz || '';
 
     hint(roundMsg || (prefs.blind
       ? '听写模式：只听发音，直接输入 · Dictation: type what you hear'
@@ -241,6 +295,13 @@
     paint('');
     speak(cur.w);
     elTyper.focus();
+  }
+
+  function addBadge(text, kind) {
+    var b = document.createElement('span');
+    b.className = 'badge badge-' + kind;
+    b.textContent = text;
+    elBadges.appendChild(b);
   }
 
   function hint(text, cls) {
@@ -253,7 +314,7 @@
     if (!cur) return;
     var target = cur.w, spans = elWord.children, wrong = false;
     for (var i = 0; i < target.length; i++) {
-      var s = spans[i], cls = 'ch';
+      var s = spans[i], cls = 'ch' + (target[i] === ' ' ? ' space' : '');
       s.textContent = target[i];
       if (i < typed.length) {
         if (typed[i].toLowerCase() === target[i].toLowerCase()) {
@@ -277,7 +338,7 @@
 
   /* ------------------------- 输入处理 typing handler ------------------------- */
   function onInput() {
-    if (!elOverlay.hidden) { elTyper.value = ''; lastLen = 0; return; }
+    if (!elOverlay.hidden || !elTrackOverlay.hidden) { elTyper.value = ''; lastLen = 0; return; }
     if (!cur || solved) { elTyper.value = elTyper.value.slice(0, cur ? cur.w.length : 0); return; }
     var typed = elTyper.value.slice(0, cur.w.length);   // 不允许超长 / cap at word length
     if (elTyper.value !== typed) elTyper.value = typed;
@@ -308,12 +369,16 @@
     updateStats();
   }
 
+  var stats = { done: 0, streak: 0, keys: 0, errs: 0, ok: 0, start: 0 };
+
   // 记一次错题 / record the current word as missed
   function noteMistake() {
     if (!cur || curErr) return;
     curErr = true;
     var e = mistakes[cur.w] || { n: 0, t: 0 };
     e.n++; e.t = Date.now();
+    e.tr = drill ? (mistakes[cur.w] && mistakes[cur.w].tr) || prefs.track : prefs.track;
+    e.zh = cur.zh || '';
     mistakes[cur.w] = e;
     saveMistakes(); updateMCount();
   }
@@ -339,9 +404,8 @@
     if (!cur || solved) return;
     noteMistake();
     solved = true; stats.streak = 0;
-    paint(cur.w.slice(0, 0));                           // 取消遮罩，露出正确拼写 / unmask
-    for (var i = 0; i < elWord.children.length; i++) {
-      elWord.children[i].className = 'ch';
+    for (var i = 0; i < elWord.children.length; i++) {   // 取消遮罩，露出正确拼写 / unmask
+      elWord.children[i].className = 'ch' + (cur.w[i] === ' ' ? ' space' : '');
       elWord.children[i].textContent = cur.w[i];
     }
     hint('已跳过：' + cur.w + ' · skipped', 'err');
@@ -363,12 +427,7 @@
     elMCount.textContent = n;
     elMBtn.classList.toggle('has-items', n > 0);
     elDrill.disabled = n === 0;
-    elDrill.textContent = drill ? '返回全部词 Back to all' : '只练错题 Drill these';
-  }
-
-  function wordByKey(k) {
-    for (var i = 0; i < WORDS.length; i++) if (WORDS[i].w === k) return WORDS[i];
-    return null;
+    elDrill.textContent = drill ? '返回当前大类 Back to the track' : '只练错题 Drill these';
   }
 
   function renderMistakes() {
@@ -379,31 +438,28 @@
     elMEmpty.hidden = keys.length > 0;
 
     keys.forEach(function (k) {
-      var wd = wordByKey(k);
-      if (!wd) { delete mistakes[k]; return; }         // 词库里删掉的词 / word no longer in the bank
+      var rec = mistakes[k];
       var li = document.createElement('li');
       li.className = 'mitem';
 
       var w = document.createElement('span');
-      w.className = 'mw'; w.textContent = wd.w;
+      w.className = 'mw'; w.textContent = k;
 
       var m = document.createElement('span');
-      m.className = 'mm'; m.textContent = wd.zh;
+      m.className = 'mm'; m.textContent = rec.zh || '';
 
       var n = document.createElement('span');
-      n.className = 'mn'; n.textContent = '错 ' + mistakes[k].n;
+      n.className = 'mn'; n.textContent = '错 ' + rec.n;
 
       var play = document.createElement('button');
       play.className = 'icon-btn'; play.textContent = '🔊';
-      play.setAttribute('aria-label', '朗读 ' + wd.w);
-      play.addEventListener('click', function () { speak(wd.w); });
+      play.setAttribute('aria-label', '朗读 ' + k);
+      play.addEventListener('click', function () { speak(k); });
 
       var del = document.createElement('button');
       del.className = 'icon-btn'; del.textContent = '✕';
-      del.setAttribute('aria-label', '移出错题本 remove ' + wd.w);
-      del.addEventListener('click', function () {
-        clearMistake(k); renderMistakes();
-      });
+      del.setAttribute('aria-label', '移出错题本 remove ' + k);
+      del.addEventListener('click', function () { clearMistake(k); renderMistakes(); });
 
       li.appendChild(w); li.appendChild(m); li.appendChild(n);
       li.appendChild(play); li.appendChild(del);
@@ -418,12 +474,18 @@
   $('closeSheet').addEventListener('click', closeSheet);
   elOverlay.addEventListener('click', function (e) { if (e.target === elOverlay) closeSheet(); });
 
-  // 进入 / 退出错题练习 / enter or leave the drill
+  // 进入 / 退出错题练习：先把涉及的大类都加载进来
   elDrill.addEventListener('click', function () {
     if (!drill && !mistakeCount()) return;
-    drill = !drill;
-    buildQueue(); load(0);
-    updateMCount(); closeSheet();
+    if (drill) { drill = false; buildQueue(); load(0); updateMCount(); closeSheet(); return; }
+    var need = {};
+    for (var w in mistakes) if (mistakes[w].tr) need[mistakes[w].tr] = 1;
+    var ids = Object.keys(need);
+    hint('正在载入错题所在的大类… · loading tracks…', '');
+    loadTracks(ids, function () {
+      drill = true;
+      buildQueue(); load(0); updateMCount(); closeSheet();
+    });
   });
 
   $('clearBtn').addEventListener('click', function () {
@@ -432,11 +494,89 @@
     renderMistakes(); updateMCount();
   });
 
-  // 点分类标签可退出错题模式 / clicking the drill pill returns to the full list
+  // 点分类标签可退出错题模式 / clicking the drill pill returns to the track
   elPill.addEventListener('click', function () {
     if (!drill) return;
     drill = false; buildQueue(); load(0); updateMCount();
   });
+
+  /* --------------------- 大类选择面板 track picker --------------------- */
+  function syncTrackBtn() {
+    var t = trackById(prefs.track) || { zh: '', en: '' };
+    elTbZh.textContent = t.zh;
+    elTbN.textContent = TCOUNT[prefs.track] || 0;
+  }
+
+  function renderTrackPanel() {
+    elTrackGroups.innerHTML = '';
+    GROUPS.forEach(function (g) {
+      var list = TRACKS.filter(function (t) { return t.group === g.id; });
+      if (!list.length) return;
+      var h = document.createElement('h3');
+      h.className = 'group-title';
+      h.innerHTML = g.zh + ' <span>' + g.en + '</span>';
+      elTrackGroups.appendChild(h);
+
+      var grid = document.createElement('div');
+      grid.className = 'track-grid';
+      list.forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'track-card' + (t.id === prefs.track ? ' is-on' : '');
+        b.dataset.track = t.id;
+        b.innerHTML = '<span class="tc-zh">' + t.zh + '</span>' +
+                      '<span class="tc-en">' + t.en + '</span>' +
+                      '<span class="tc-n">' + (TCOUNT[t.id] || 0) + ' 词</span>';
+        b.addEventListener('click', function () { switchTrack(t.id); });
+        grid.appendChild(b);
+      });
+      elTrackGroups.appendChild(grid);
+    });
+  }
+
+  function openTrackSheet() { renderTrackPanel(); elTrackOverlay.hidden = false; }
+  function closeTrackSheet() { elTrackOverlay.hidden = true; elTyper.focus(); }
+
+  elTrackBtn.addEventListener('click', openTrackSheet);
+  $('closeTrack').addEventListener('click', closeTrackSheet);
+  elTrackOverlay.addEventListener('click', function (e) { if (e.target === elTrackOverlay) closeTrackSheet(); });
+
+  function switchTrack(tid) {
+    closeTrackSheet();
+    if (tid === prefs.track && !drill && trackData(tid).length) return;
+    prefs.track = tid; drill = false;
+    savePrefs(); syncTrackBtn(); renderChips();
+    hint('正在载入「' + (trackById(tid) || {}).zh + '」… · loading…', '');
+    elCounter.textContent = '… / ' + (TCOUNT[tid] || 0);
+    loadTrack(tid, function () { buildQueue(); load(0); updateMCount(); });
+  }
+
+  /* --------------------- 小类筛选 category chips --------------------- */
+  function renderChips() {
+    elCats.innerHTML = '';
+    var sel = activeCats();
+    trackCats(prefs.track).forEach(function (c) {
+      var b = document.createElement('button');
+      b.className = 'cat-chip' + (sel.indexOf(c.id) >= 0 ? ' is-on' : '');
+      b.textContent = c.zh + ' · ' + c.en;
+      b.dataset.cat = c.id;
+      b.addEventListener('click', function () {
+        var curSel = activeCats().slice();
+        var at = curSel.indexOf(c.id);
+        if (at >= 0) {
+          if (curSel.length === 1) return;               // 至少保留一类 / keep at least one
+          curSel.splice(at, 1);
+        } else {
+          curSel.push(c.id);
+        }
+        prefs.catsByTrack[prefs.track] = curSel;
+        b.classList.toggle('is-on');
+        savePrefs();
+        drill = false;
+        buildQueue(); load(0); updateMCount();
+      });
+      elCats.appendChild(b);
+    });
+  }
 
   /* ------------------------------ 控件 controls ------------------------------ */
   // 口音 accent
@@ -448,7 +588,9 @@
       x.classList.toggle('is-on', on);
       x.setAttribute('aria-checked', on ? 'true' : 'false');
     });
-    if (cur) elIpa.textContent = (prefs.accent === 'en-GB' ? 'UK ' : 'US ') + (prefs.accent === 'en-GB' ? cur.uk : cur.us);
+    if (cur && cur.uk && cur.us) {
+      elIpa.textContent = (prefs.accent === 'en-GB' ? 'UK ' : 'US ') + (prefs.accent === 'en-GB' ? cur.uk : cur.us);
+    }
     speak(cur && cur.w);
     elTyper.focus();
   });
@@ -466,58 +608,15 @@
     paint(elTyper.value); elTyper.focus();
   });
 
+  // 只练带词源的词 / story only
+  $('hwOnly').checked = !!prefs.hwOnly;
+  $('hwOnly').addEventListener('change', function () {
+    prefs.hwOnly = this.checked; savePrefs();
+    drill = false; buildQueue(); load(0);
+  });
+
   // 重听 replay
   elSpeak.addEventListener('click', function () { speak(cur && cur.w); elTyper.focus(); });
-
-  // 大类切换 / track tabs
-  function renderTracks() {
-    elTracks.innerHTML = '';
-    TRACKS.forEach(function (t) {
-      var b = document.createElement('button');
-      b.className = 'track-tab' + (t.id === prefs.track ? ' is-on' : '');
-      b.dataset.track = t.id;
-      b.innerHTML = '<span class="t-zh">' + t.zh + '</span>' +
-                    '<span class="t-en">' + t.en + '</span>' +
-                    '<span class="t-n">' + wordsIn(t.id) + '</span>';
-      b.addEventListener('click', function () {
-        if (prefs.track === t.id && !drill) return;
-        prefs.track = t.id;
-        drill = false;                                  // 换大类就退出错题模式 / leaving drill
-        savePrefs();
-        renderTracks(); renderChips(); updateMCount();
-        buildQueue(); load(0);
-      });
-      elTracks.appendChild(b);
-    });
-  }
-
-  // 小类筛选（只显示当前大类的）/ subcategory chips for the current track
-  function renderChips() {
-    elCats.innerHTML = '';
-    var sel = activeCats();
-    trackCats(prefs.track).forEach(function (c) {
-      var b = document.createElement('button');
-      b.className = 'cat-chip' + (sel.indexOf(c.id) >= 0 ? ' is-on' : '');
-      b.textContent = c.zh + ' · ' + c.en;
-      b.dataset.cat = c.id;
-      b.addEventListener('click', function () {
-        var cur = activeCats().slice();
-        var at = cur.indexOf(c.id);
-        if (at >= 0) {
-          if (cur.length === 1) return;                 // 至少保留一类 / keep at least one
-          cur.splice(at, 1);
-        } else {
-          cur.push(c.id);
-        }
-        prefs.catsByTrack[prefs.track] = cur;
-        b.classList.toggle('is-on');
-        savePrefs();
-        drill = false;
-        buildQueue(); load(0); updateMCount();
-      });
-      elCats.appendChild(b);
-    });
-  }
 
   /* ------------------------------ 键盘 keyboard ------------------------------ */
   elTyper.addEventListener('input', onInput);
@@ -532,16 +631,18 @@
       else if (!solved) skip();
     } else if (e.key === 'Escape') {
       e.preventDefault();
+      if (!elTrackOverlay.hidden) return closeTrackSheet();
       if (!elOverlay.hidden) return closeSheet();
       elTyper.value = ''; lastLen = 0; paint(''); hint('已重来 · reset', '');
     }
-    if (!elOverlay.hidden) return;                 // 面板打开时不抢焦点 / don't steal focus while open
+    if (!elOverlay.hidden || !elTrackOverlay.hidden) return;   // 面板打开时不抢焦点
     if (document.activeElement !== elTyper) elTyper.focus();
   });
 
   // 点击页面任意空白处都回到输入状态 / clicking anywhere returns focus to the input
   document.addEventListener('click', function (e) {
     if (e.target.closest('button, input, label, a')) return;
+    if (!elOverlay.hidden || !elTrackOverlay.hidden) return;
     elTyper.focus();
   });
 
@@ -555,17 +656,16 @@
   });
 
   /* ------------------------------ 启动 start ------------------------------ */
-  // 口音按钮与偏好保持一致 / sync the accent buttons with the stored preference
   Array.prototype.forEach.call(document.querySelectorAll('#accentSeg .seg-btn'), function (b) {
     var on = b.dataset.accent === prefs.accent;
     b.classList.toggle('is-on', on);
     b.setAttribute('aria-checked', on ? 'true' : 'false');
   });
 
-  renderTracks();
+  syncTrackBtn();
   renderChips();
   updateMCount();
-  buildQueue();
-  load(0);
+  hint('正在载入词库… · loading…', '');
+  loadTrack(prefs.track, function () { buildQueue(); load(0); });
   setInterval(updateStats, 2000);   // 让 WPM 持续刷新 / keep WPM ticking
 })();
