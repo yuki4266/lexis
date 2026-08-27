@@ -451,3 +451,10 @@ a.logo { text-decoration: none; }
 .about-foot { margin-top: 42px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--dim); }
 .about-foot a { color: var(--accent); text-decoration: none; }
 .about-foot a:hover { text-decoration: underline; }
+
+/* 关于页的词库总表 / the track table on the about page */
+.about-cats .about-group {
+  background: none; border: 0; padding: 16px 0 2px; color: var(--accent);
+  font-size: 12px; letter-spacing: .8px;
+}
+.about-cats .eg { display: block; margin-top: 4px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }

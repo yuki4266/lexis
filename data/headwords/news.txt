@@ -1,0 +1,148 @@
+# 新闻时事与国际关系 / News & Geopolitics
+## cat: news-diplo
+diplomacy | 外交：以谈判而非武力处理国家间关系
+envoy | 使节：受派遣执行外交任务的代表
+delegation | 代表团：代表一国出席会议的一行人
+communiqué | 联合公报：会谈后共同发布的正式声明
+accord | 协定：双方达成的正式协议
+treaty | 条约：具有法律约束力的国际协定
+ratification | 批准：经国内程序确认后条约方生效
+accession | 加入：新成员正式成为条约或组织的一方
+withdrawal | 退出：正式脱离条约或组织
+moratorium | 暂停：约定在一段时间内停止某种行为
+ceasefire | 停火：交战方约定停止军事行动
+armistice | 停战协定：正式终止敌对行动的协议
+truce | 休战：暂时停止交战
+detente | 缓和：紧张关系的松动
+rapprochement | 关系回暖：一度疏远的双方重新接近
+escalation
+deescalation | 降级：主动降低冲突强度
+brinkmanship | 边缘政策：把冲突推到崩溃边缘以逼对方让步
+deterrence | 威慑：以报复的可信威胁阻止对方动手
+proliferation | 扩散：核武等敏感技术向更多国家蔓延
+nonproliferation | 防扩散：阻止敏感技术进一步扩散
+disarmament | 裁军：削减军备
+sovereignty | 主权：国家对自身事务的最高权威
+territorial | 领土完整的：疆域不被分割或侵占
+annexation | 兼并：以武力或单方面行为并吞他国领土
+secession | 分离：某地区脱离原有国家
+insurgency | 叛乱：有组织地武装反抗现政权
+militia | 民兵：非正规的武装组织
+mercenary | 雇佣兵：为报酬而作战的人员
+proxy | 代理人战争的：大国借第三方之手交战
+attrition
+occupation | 占领：以军事力量控制他国领土
+humanitarian | 人道主义的：以救助平民苦难为目的
+refugee | 难民：因迫害或战乱被迫逃离本国的人
+asylum | 庇护：给予外国人免遭遣返的保护
+repatriation | 遣返：把人送回原籍国
+displacement | 流离失所：被迫离开原居住地
+## cat: news-polit
+incumbent
+electorate | 选民群体：有投票资格的全体公民
+constituency | 选区：一名议员所代表的地域与选民
+turnout | 投票率：实际投票人数占选民的比例
+ballot | 选票：记录投票选择的纸张或界面
+plurality | 相对多数：得票最多但未过半
+majority | 绝对多数：超过半数
+supermajority | 绝对多数门槛：须达到三分之二等更高比例
+runoff | 决选：无人过半时前两名再选一轮
+gerrymander | 选区操纵：故意划分选区以偏袒某党
+disenfranchise | 剥夺投票权：使某群体无法投票
+incumbency | 在任优势：现任者天然占据的选举优势
+mandate
+coalition | 联合政府：多党联合执政
+caucus | 党团会议：同党议员的内部集会
+filibuster | 冗长发言阻挠：靠长时间发言拖垮议案
+quorum
+impeachment | 弹劾：由立法机关追究高官责任的程序
+recall | 罢免：由选民中途撤换已当选官员
+referendum | 公投：将议题直接交由全体选民表决
+plebiscite | 全民公决：就重大问题征询全民意愿
+constitution | 宪法：确立政体与基本权利的根本法
+amendment
+judiciary | 司法机关：法院系统整体
+legislature | 立法机关：制定法律的机构
+executive | 行政机关：执行法律的机构
+separation
+checks | 制衡：各权力分支相互约束
+partisan | 党派化的：按党派立场而非议题本身站队
+polarization | 极化：立场向两端分裂、中间地带消失
+populism | 民粹主义：以"人民对抗精英"为叙事的政治动员
+authoritarian | 威权的：权力高度集中且缺乏制约
+autocracy | 独裁：权力由单一统治者垄断
+oligarchy | 寡头统治：由少数人把持权力
+technocracy | 技术官僚治理：由专业人士而非政客决策
+legitimacy
+## cat: news-trade
+tariff | 关税：对进口商品征收的税
+quota | 配额：对进出口数量设定的上限
+embargo | 禁运：全面禁止与某国的贸易
+sanction | 制裁：以经济手段惩罚或施压
+sanctions
+blacklist | 黑名单：被禁止交易的实体清单
+entity | 实体清单的：被列入出口管制名单
+export-control | 出口管制：限制敏感技术与产品出口
+dual-use | 军民两用的：既可民用也可军用的技术
+subsidy | 补贴：政府给本国产业的财政支持
+dumping | 倾销：以低于成本的价格向他国出口
+antidumping | 反倾销的：对倾销征收额外关税
+protectionism | 保护主义：以壁垒保护本国产业
+liberalization | 自由化：削减壁垒、放开市场
+reciprocity | 对等：给予对方与自己所受同等待遇
+retaliation | 反制：以对等措施回应对方的限制
+decoupling | 脱钩：主动切断相互依赖的经济联系
+derisking | 去风险：降低而非切断对某方的依赖
+reshoring | 回流：把产能迁回本国
+nearshoring | 近岸外包：把产能迁到邻近友好国家
+supply-chain | 供应链：从原料到成品的跨国生产网络
+bottleneck
+chokepoint | 咽喉点：一旦被卡住即可瘫痪整条链路的环节
+leverage
+dependency | 依赖：对某国某项供给的不可替代依靠
+currency | 货币操纵的：人为压低汇率以获取出口优势
+devaluation | 贬值：本币相对外币价值下降
+reserve | 储备货币的：各国央行持有的国际结算货币
+remittance | 侨汇：在外工作者寄回本国的钱
+capital-controls | 资本管制：限制资金跨境流动
+default
+restructuring | 债务重组：与债权人重新商定还款条件
+austerity | 紧缩：削减公共开支以压缩赤字
+stimulus | 刺激：以财政或货币手段提振经济
+inflation
+stagflation | 滞胀：经济停滞与通胀同时发生
+## cat: news-media
+narrative | 叙事：把事实组织成某种解读框架
+framing | 框架效应：同一事实换个说法会引导不同结论
+spin | 带风向：用有利于己方的角度解释事件
+soundbite | 金句片段：便于传播的简短引语
+op-ed | 评论版文章：署名表达个人观点的评论
+editorial | 社论：代表媒体机构立场的文章
+byline | 署名行：文章上标明作者的那一行
+dateline | 电头：标明发稿地点与日期
+lede | 导语：新闻开头一句话交代核心
+nut-graf | 主旨段：解释这则报道为何重要的段落
+embargo
+attribution | 消息归属：把说法明确归到某个来源
+sourcing | 消息来源：报道所依据的人或文件
+anonymous | 匿名消息源的：不具名提供信息
+leak | 泄露：未经授权把内部信息透给媒体
+whistleblower | 举报人：揭露内部不当行为的人
+scoop | 独家：抢先于同行的报道
+exclusive
+retraction | 撤稿：承认报道有误并收回
+correction
+fact-check | 事实核查：逐条核实说法是否属实
+misinformation | 错误信息：不实但未必有意误导
+disinformation | 虚假信息：有意制造并传播的假信息
+propaganda | 宣传：为特定立场服务的有组织信息投放
+astroturfing | 伪草根：伪装成自发民意的有组织行动
+echo-chamber | 回音室：只接触同质观点而不断自我强化
+filter-bubble | 过滤气泡：算法筛选造成的信息窄化
+clickbait | 标题党：夸大标题以骗取点击
+paywall | 付费墙：非订阅用户无法阅读全文
+syndication | 内容分发：把稿件授权给多家媒体刊载
+wire | 通讯社稿的：由通讯社发出、多家转载
+censorship | 审查：对内容的强制删改或封禁
+libel
+defamation

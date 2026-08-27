@@ -1,0 +1,144 @@
+# 哲学与社会科学 / Philosophy & Social Science
+## cat: phil-epis
+epistemology | 认识论：研究知识是什么、如何可能
+ontology | 本体论：研究存在的种类与结构
+metaphysics | 形而上学：探讨实在的根本性质
+empiricism | 经验主义：知识最终来自感官经验
+rationalism | 理性主义：理性本身可独立获得知识
+skepticism | 怀疑论：对能否获得确定知识持保留
+solipsism | 唯我论：只能确知自己的心灵存在
+foundationalism | 基础主义：知识建立在无需再证的基本信念上
+coherentism | 融贯论：信念因彼此支持而成立，无需地基
+justification | 辩护：让一个信念够格称为知识的理由
+warrant
+fallibilism | 可错论：任何信念都可能是错的，但仍可合理相信
+verification | 可证实的：能被经验检验为真
+falsification
+underdetermination | 证据不充分决定：同一批证据可支持多个理论
+parsimony
+apriori | 先验的：不依赖经验即可知道
+aposteriori | 后验的：必须依赖经验才能知道
+analytic | 分析的：仅凭词义即为真
+synthetic | 综合的：真假取决于世界如何
+necessary | 必然的：在任何可能情形下都为真
+contingent
+essence | 本质：使某物成其所是的属性
+accident | 偶性：某物可以没有的属性
+universal | 共相：多个个体共同分有的性质
+particular | 殊相：具体的、独一无二的个体
+nominalism | 唯名论：共相只是名称，只有个体真实存在
+realism | 实在论：对象独立于我们的认识而存在
+idealism | 观念论：实在归根结底是心灵性的
+materialism | 唯物论：一切最终都是物质及其运动
+dualism | 二元论：心与物是两类独立的实体
+monism | 一元论：万物归于同一种基本实在
+reductionism | 还原论：高层现象可完全由低层解释
+emergence | 涌现：整体具有部分所没有的性质
+supervenience | 附随：高层属性随低层属性的确定而确定
+qualia | 感受质：主观体验中那种"感觉起来像什么"
+intentionality | 意向性：心理状态总是关于某个对象
+teleology | 目的论：以目的而非原因来解释事物
+determinism | 决定论：一切事件都由先前状态必然决定
+## cat: phil-eth
+normative | 规范性的：讨论应当如何，而非事实如何
+descriptive | 描述性的：只陈述事实，不作价值判断
+deontology | 义务论：行为对错取决于是否符合义务
+consequentialism | 后果论：行为对错只取决于其后果
+utilitarianism | 功利主义：应使整体福祉最大化
+virtue | 德性伦理的：关注做什么样的人而非守什么规则
+imperative | 绝对命令的：无条件适用于一切理性存在者的道德律
+maxim | 准则：行为者据以行动的个人原则
+autonomy | 自主：按自己的理性意志决定自己的行为
+paternalism | 家长主义：为他人好而限制其自由
+liberty | 自由：不受他人干涉地行动
+equality
+equity | 公平：按需分配而非一刀切的平等
+justice | 正义：社会基本制度对权利与负担的分配
+desert | 应得：因自身作为而理应获得
+entitlement | 权利资格：可正当主张的东西
+utilitarian
+egalitarian | 平等主义的：主张结果或资源应尽量均等
+libertarian | 自由至上主义的：把个人自由与产权置于首位
+communitarian | 社群主义的：强调个体嵌于共同体之中
+contractarian | 契约论的：正当性来自理性者的一致同意
+veil | 无知之幕的：不知自己身份时选择的规则才公正
+pluralism | 多元主义：多种价值不可通约但都值得尊重
+relativism | 相对主义：道德真理随文化或个人而变
+absolutism
+utilitarianism
+dilemma | 两难：无论怎么选都要放弃某项重要价值
+supererogatory | 超义务的：值得赞赏但并非必须做
+culpability | 可责性：行为人应受责备的程度
+complicity | 共谋：参与或纵容他人的不当行为
+legitimacy | 正当性：权力被统治者认可为应当服从
+hegemony | 霸权：靠共识而非强制维持的支配地位
+ideology | 意识形态：一套支撑特定利益的观念体系
+alienation | 异化：人与自己的劳动或本质相分离
+emancipation | 解放：从压迫结构中获得自由
+## cat: phil-soc
+sociology
+anomie | 失范：社会规范失效导致个体无所适从
+solidarity | 团结：把社会成员维系在一起的力量
+cohesion
+stratification | 社会分层：社会按资源与地位分成不同层级
+mobility | 社会流动：个体在阶层之间上下移动
+capital | 资本：可转化为优势的资源，包括社会与文化资本
+habitus | 惯习：由出身塑造、习以为常的行为倾向
+agency | 能动性：个体在结构约束下仍能选择与行动
+structure | 结构：约束并塑造个体行为的社会安排
+institution | 制度：被广泛遵守的稳定规则与组织
+norm | 规范：群体默认应当遵守的行为标准
+deviance | 越轨：偏离社会规范的行为
+sanction | 制裁：对越轨行为的惩罚或对合规的奖励
+socialization | 社会化：习得所处社会的规范与角色
+internalization | 内化：把外部规范变成自己的信念
+role | 角色：某个社会位置所附带的行为期待
+status | 地位：个体在社会中的位置与相应声望
+stigma | 污名：因某特征而被贬低与排斥
+prejudice | 偏见：对某群体先入为主的负面态度
+discrimination | 歧视：因群体身份而给予不平等对待
+segregation | 隔离：不同群体在空间或制度上被分开
+assimilation | 同化：少数群体逐渐采纳主流文化
+acculturation | 涵化：不同文化接触后彼此改变
+ethnocentrism | 民族中心主义：以自身文化为标准评判他者
+reflexivity | 反身性：研究者本身会影响所研究的对象
+verstehen | 理解式方法：从行动者的意义世界去理解其行为
+ideal-type | 理想类型：为分析而构造的纯粹概念模型
+positivism | 实证主义：社会科学应仿照自然科学的方法
+interpretivism | 诠释主义：社会现象须从意义层面理解
+constructivism | 建构主义：社会范畴由互动与话语造就
+essentialism | 本质主义：认为群体具有固有不变的特征
+## cat: phil-econ
+scarcity | 稀缺：资源有限而欲望无限
+opportunity | 机会成本的：为选择此项而放弃的最好替代
+marginal | 边际的：再多一个单位所带来的变化
+utility | 效用：消费带来的满足程度
+preference | 偏好：对各种选项的排序
+rationality | 理性：在给定偏好下作出一致的最优选择
+bounded | 有限理性的：认知与信息有限下的次优决策
+heuristic
+externality | 外部性：交易对第三方造成的未被定价的影响
+public-good | 公共品：非排他且非竞争性的物品
+commons | 公地：共同使用、易被过度消耗的资源
+free-rider | 搭便车者：不付出却享受集体成果的人
+collective | 集体行动问题的：人人理性却导致集体劣结果
+coordination | 协调问题：只要一致选哪个都行，难在达成一致
+equilibrium | 均衡：无人有动机单方面改变策略的状态
+incentive
+moral-hazard | 道德风险：有了保障之后反而更不谨慎
+adverse-selection | 逆向选择：信息不对称使坏的一方更愿意交易
+asymmetry | 信息不对称：交易双方掌握的信息不同
+signalling | 信号传递：以成本高昂的行为证明自己的类型
+screening | 甄别：设计机制让对方自己暴露类型
+principal-agent | 委托代理的：代理人未必按委托人利益行事
+transaction | 交易成本的：达成与执行交易本身的耗费
+institution
+path-dependence | 路径依赖：早期偶然选择长期锁定后来的走向
+lock-in | 锁定：转换成本过高导致难以改变现状
+rent-seeking | 寻租：不创造价值、只争夺既有利益的行为
+elasticity | 弹性：需求或供给对价格变化的敏感度
+substitution | 替代效应：价格变化使人改用其他商品
+deadweight | 无谓损失：因扭曲而消失、谁也没得到的福利
+distributive | 分配性的：涉及蛋糕怎么分而非做多大
+inequality
+gini | 基尼系数：衡量收入或财富不平等的指标

@@ -1,0 +1,84 @@
+# 学术口语与会议表达 / Academic Speaking
+## cat: speak-hedge
+arguably | 委婉：可以说……，把强断言降成可讨论的立场
+presumably | 委婉：想必……，表示合理推测但未经证实
+ostensibly
+seemingly | 委婉：表面看来……，为后面的转折留出余地
+broadly | 委婉：大体上……，承认存在例外
+roughly | 委婉：大致……，表明数字是估算
+tentatively | 委婉：初步地……，说明结论还会改
+plausibly | 委婉：说得通的是……，只主张合理而非正确
+conceivably | 委婉：不排除……，提出一种可能性
+admittedly | 让步：必须承认……，先认下对方有理再转折
+granted | 让步：诚然……，承认一点之后再提出保留
+notwithstanding | 让步：尽管如此，仍然……
+albeit | 让步：虽然……，用于插入简短保留
+nonetheless | 让步：话虽如此，结论不变
+caveat
+qualification | 保留：对结论加上的限定条件
+reservation | 保留意见：对提案不完全赞同之处
+hesitant | 委婉：I'd be hesitant to…，我不太倾向于……
+inclined | 委婉：I'm inclined to think…，我倾向于认为……
+lean | 委婉：I lean toward…，我偏向于……
+## cat: speak-ask
+clarify | 提问：Could you clarify…？请澄清一下
+elaborate | 提问：Could you elaborate on…？能再展开讲讲吗
+unpack | 提问：Can we unpack that？把这一点拆开细看
+walk-through | 提问：Walk me through it，请带我过一遍过程
+rationale
+motivate | 提问：What motivates this choice？这么选的动机是什么
+assumption | 提问：What assumption is that resting on？这背后的假设是什么
+implication | 提问：What are the implications？会带来什么后果
+tradeoff
+alternative
+counterexample | 提问：Is there a counterexample？有没有反例
+edge-case | 提问：What about the edge case where…？边界情况怎么办
+failure-mode | 提问：What's the failure mode？出问题时会怎么坏
+scope | 提问：What's in scope here？这次的范围到哪
+constraint | 提问：What's the binding constraint？真正卡住的约束是什么
+evidence | 提问：What evidence would change your mind？什么证据能让你改变看法
+falsify | 提问：How would we falsify this？我们怎么验证它是错的
+baseline | 提问：What's the baseline？跟什么比出来的
+confound
+## cat: speak-lead
+agenda | 主持：Let's stick to the agenda，我们按议程来
+timebox | 主持：Let's timebox this to five minutes，这一项限时五分钟
+parking-lot | 主持：Let's put that in the parking lot，先记下来会后再谈
+circle-back | 主持：We'll circle back to this，稍后再回到这个话题
+defer
+sidebar | 主持：Let's take that offline，这个我们会后单独聊
+align
+converge | 主持：Can we converge on a decision？能不能收敛到一个结论
+diverge | 主持：Let's diverge first，先发散再收敛
+straw-man | 主持：Here's a straw-man proposal，先抛个粗糙方案供拍砖
+consensus
+dissent
+objection | 主持：Any objections？有反对意见吗
+show-of-hands | 主持：Let's do a show of hands，我们举手表决
+action-item | 主持：What are the action items？会后要做什么
+owner | 主持：Who's the owner？谁来负责这件事
+deadline
+followup | 主持：I'll follow up by Friday，我周五前跟进
+recap | 主持：Let me recap，我复述一下我们的共识
+takeaway | 主持：The key takeaway is…，最关键的一点是
+## cat: speak-present
+outline | 汇报：I'll outline three points，我讲三点
+motivation | 汇报：Let me start with the motivation，先说为什么做这件事
+contribution | 汇报：Our main contribution is…，我们的主要贡献是
+methodology
+setup | 汇报：Here's the experimental setup，实验是这样设置的
+ablation
+baseline
+benchmark | 汇报：Compared against the benchmark…，与基准相比
+metric
+limitation | 汇报：One limitation is…，一个局限在于
+threat | 汇报：threats to validity，对结论有效性的威胁
+generalize | 汇报：This may not generalize to…，这未必能推广到……
+future-work | 汇报：We leave that to future work，这留待后续研究
+acknowledge | 汇报：I'd acknowledge that…，我承认这一点
+concede
+rebut | 答辩：Let me rebut that，我来回应这一点
+pushback | 答辩：I'd push back on that，这一点我有不同看法
+misunderstanding | 答辩：I think there's a misunderstanding，我想这里有误解
+reframe | 答辩：Let me reframe the question，我换个角度理解这个问题
+speculate | 答辩：I'd be speculating，这我只能猜测

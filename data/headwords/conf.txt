@@ -1,0 +1,146 @@
+# 易混词与固定搭配 / Confusables & Collocations
+## cat: conf-form
+affect | 动词，影响：Affect 是动词「影响」，effect 是名词「效果」
+effect | 名词，效果：作动词时意为「使…发生」，与 affect 完全不同
+complement | 补足物：补齐使之完整；compliment 才是「赞美」
+compliment | 赞美：与 complement（补足）只差一个字母
+principal | 主要的／校长：principle 才是「原则」，记住 pal 是人
+principle | 原则：抽象的准则，永远不作形容词
+discreet | 谨慎的：说话做事不张扬；discrete 才是「离散的」
+discrete | 离散的：一个个分开的；与「谨慎」无关
+elicit | 引出：设法让对方说出或表现出来；illicit 是「非法的」
+illicit | 非法的：与 elicit（引出）读音相近而意义无关
+adverse | 不利的：adverse effect 是不良影响；averse 才是「反感的」
+averse | 反感的：常用 be averse to，指不情愿
+allusion | 典故暗指：illusion 是「幻觉」，delusion 是「妄想」
+illusion | 幻觉：看到的与实际不符
+delusion | 妄想：坚信不实之事，程度比 illusion 更重
+eminent | 杰出的：imminent 是「迫在眉睫的」，immanent 是「内在的」
+imminent | 迫在眉睫的：马上就要发生
+prescribe | 开处方／规定：proscribe 意思相反，是「禁止」
+proscribe | 禁止：与 prescribe（规定）只差一个字母却相反
+ingenious | 巧妙的：ingenuous 是「天真直率的」
+ingenuous | 天真直率的：disingenuous 则是「假装坦率的」
+disinterested | 无私公正的：不是「不感兴趣」，那是 uninterested
+uninterested | 不感兴趣的：与 disinterested（公正的）常被混用
+flaunt | 炫耀：flout 是「公然藐视规则」
+flout | 公然藐视：故意不把规则放在眼里
+militate | 起反作用：militate against；mitigate 才是「缓解」
+venal | 可收买的：venial 是「可原谅的小过错」
+venial | 可宽恕的：指轻微过失，与 venal（腐败的）无关
+tortuous | 曲折的：torturous 才是「折磨人的」
+torturous | 折磨人的：与 tortuous（弯曲的）拼写极近
+credible | 可信的：credulous 是「轻信的」，creditable 是「值得称道的」
+credulous | 轻信的：太容易相信别人
+judicial | 司法的：judicious 是「明智的」
+judicious | 明智的：判断得当，与法院无关
+economic | 经济的：economical 是「节俭的」
+economical | 节俭的：省钱省资源
+historic | 有历史意义的：historical 只是「历史上的」
+historical | 历史的：与过去有关，未必重要
+## cat: conf-sense
+imply | 说话者暗示：说的人 imply，听的人 infer
+infer | 听者推断：从线索推出结论，主语是接收方
+persuade | 说服去做：persuade 强调让人行动
+convince | 使相信：convince 强调让人相信某事为真
+assure | 向人保证：assure someone，让人安心
+ensure | 确保发生：ensure that，保证某事一定发生
+insure | 投保：为损失购买保险，美式中有时也作 ensure
+comprise | 由…组成：整体 comprises 部分，不用 be comprised of
+compose | 构成：部分 compose 整体，或 be composed of
+constitute | 构成：这些部分共同构成整体
+continual | 断断续续反复的：中间有停顿
+continuous | 不间断持续的：中间没有停顿
+farther | 距离更远：物理距离用 farther
+further | 程度更进一步：抽象程度用 further
+fewer | 用于可数：fewer errors
+less | 用于不可数：less noise
+among | 三者以上之间：among the options
+between | 两者之间：也可用于明确的多方之间
+compare-to | 比作：强调相似，compare A to B
+compare-with | 与…相比：强调对照异同
+substitute | 用新的替换旧的：substitute A for B
+replace | 替换掉：replace A with B
+alternate | 交替的：轮流出现
+alternative | 可替代的：另一个选项
+respectively | 分别地：按前面提到的顺序一一对应
+accordingly | 相应地：因此作出对应的调整
+notably | 尤其是：用来点出最值得注意的一个
+namely | 即：接下来是完整列举
+prescriptive | 规定性的：说应该怎样
+descriptive
+significant | 统计显著的：在学术写作中特指统计意义，慎作「重要」用
+substantial | 数量可观的：强调规模大
+robust
+sensitivity
+specificity
+accuracy | 准确度：整体判对的比例
+precision
+## cat: conf-collo
+conduct | 搭配：conduct research／an experiment／a survey，不用 do
+draw | 搭配：draw a conclusion／a distinction／an inference
+pose | 搭配：pose a question／a risk／a challenge
+raise | 搭配：raise a concern／an objection／a question
+address | 搭配：address an issue／a concern，即着手处理
+tackle | 搭配：tackle a problem，强调正面应对
+undertake | 搭配：undertake a study／an analysis，即着手进行
+carry-out | 搭配：carry out an experiment／an investigation
+yield | 搭配：yield results／insights，即产出
+provide | 搭配：provide evidence／support／insight
+lend | 搭配：lend support to a hypothesis，即为假设提供支持
+shed | 搭配：shed light on，即阐明
+bear | 搭配：bear on the question，即与问题相关
+warrant | 搭配：warrant further investigation，即值得进一步研究
+merit | 搭配：merit attention，即值得关注
+account | 搭配：account for the variance，即解释
+attribute | 搭配：attribute X to Y，即把 X 归因于 Y
+ascribe | 搭配：ascribe importance to，即认为具有某种性质
+derive | 搭配：derive from，即源自
+stem | 搭配：stem from，即源于
+hinge | 搭配：hinge on，即取决于
+predicated | 搭配：be predicated on，即以…为前提
+contingent
+constrained | 搭配：be constrained by，即受限于
+compatible | 搭配：be compatible with，即与…兼容
+consistent | 搭配：be consistent with，即与…一致
+analogous | 搭配：be analogous to，即类似于
+tantamount | 搭配：be tantamount to，即等同于
+conducive | 搭配：be conducive to，即有助于
+amenable | 搭配：be amenable to，即易于接受某种处理
+susceptible | 搭配：be susceptible to，即易受…影响
+prone | 搭配：be prone to，即倾向于发生
+subject | 搭配：be subject to，即受制于
+## cat: conf-prep
+comply | 介词：comply with，遵守规则
+adhere | 介词：adhere to，坚持或遵循
+conform | 介词：conform to，符合标准
+differ | 介词：differ from，与…不同
+distinguish | 介词：distinguish between A and B，或 distinguish X from Y
+discriminate | 介词：discriminate between，即区分
+result | 介词：result in 是导致，result from 是源自
+consist | 介词：consist of 是由…组成，consist in 是在于
+rely | 介词：rely on，依赖
+depend | 介词：depend on，取决于
+insist | 介词：insist on，坚持要求
+persist | 介词：persist in，执意继续
+refrain | 介词：refrain from，克制不做
+deter | 介词：deter from，阻止去做
+preclude | 介词：preclude from，排除在外
+abstain | 介词：abstain from，戒除
+deprive | 介词：deprive of，剥夺
+inform | 介词：inform of／about，告知
+notify | 介词：notify of，通知
+apprise | 介词：apprise of，正式告知
+accuse | 介词：accuse of，指控
+blame | 介词：blame for，因某事责怪
+compensate | 介词：compensate for，弥补
+substitute-for | 介词：substitute for，代替
+account-for | 介词：account for，解释或占比
+allow-for | 介词：allow for，把某因素考虑在内
+provide-for | 介词：provide for，规定或供养
+cater | 介词：cater to，迎合
+subscribe | 介词：subscribe to a view，即赞同某观点
+adapt | 介词：adapt to，适应
+adopt | 无介词：adopt an approach，即采纳
+object | 介词：object to，反对
+oppose | 无介词：oppose the plan，直接接宾语

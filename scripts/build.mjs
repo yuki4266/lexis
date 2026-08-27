@@ -11,6 +11,8 @@
  *                       word | 中文域内释义        → 覆盖中文，词典只供音标/词性/英文
  *                       word | 中文释义 | English  → 两个都覆盖
  *                       word || English            → 只覆盖英文
+ *       "## auto: tag=gre limit=250 exclude=zk,gk,cet4" 从词典按考试标签自动取词
+ *       pull words straight from the dictionary by exam tag
  *   data/handwritten/<track>.mjs  手写完整条目（含词源例句）hand-written entries
  *   vendor/ecdict.csv             ECDICT 词典 (MIT)
  *
@@ -51,7 +53,7 @@ function parseRow(line) {
 const senses = (s) => (s || '').split(/\\n|\n/).map(x => x.trim()).filter(Boolean);
 
 // 词典释义里的词性前缀 / the part-of-speech prefix inside a sense
-const POS_RE = /^(n|v|vt|vi|a|adj|ad|adv|prep|pron|conj|int|interj|num|aux|abbr|s|r)\.\s*/i;
+const POS_RE = /^(n|v|vt|vi|a|adj|ad|adv|prep|pron|conj|int|interj|num|aux|abbr|pl|s|r)\.\s*/i;
 // WordNet 式前缀可能不带句点："n a variable quantity" / prefix may lack the period
 const POS_RE2 = /^([nvasr])\s+(?=[a-z])/;
 const POS_NORM = { n: 'n.', v: 'v.', vt: 'v.', vi: 'v.', a: 'adj.', adj: 'adj.', ad: 'adv.', adv: 'adv.',
@@ -126,10 +128,12 @@ for (const t of TRACKS) {
 
 // 2) 词表 / headword lists，格式：一行一词；"## cat: <id>" 切换小类；"word | cat" 单行指定
 const headwords = new Map();     // track -> [{w, cat}]
+const autoRules = new Map();     // track -> [{cat, tag, limit, exclude}]
 for (const t of TRACKS) {
   const f = p('data', 'headwords', t.id + '.txt');
   if (!fs.existsSync(f)) { headwords.set(t.id, []); continue; }
   const rows = [];
+  const autos = [];
   let cur = catsOf(t.id)[0]?.id;
   for (const raw of fs.readFileSync(f, 'utf8').split('\n')) {
     const line = raw.trim();
@@ -138,6 +142,14 @@ for (const t of TRACKS) {
       if (m) {
         if (!catById.has(m[1])) note(`! 词表小类无效 bad cat header: ${t.id} -> ${m[1]}`);
         else cur = m[1];
+        continue;
+      }
+      const a = /^##\s*auto:\s*(.+)$/.exec(line);
+      if (a) {
+        const opt = {};
+        a[1].split(/\s+/).forEach(kv => { const [x, y] = kv.split('='); if (x) opt[x] = y; });
+        autos.push({ cat: cur, tag: opt.tag, limit: +opt.limit || 200,
+                     exclude: (opt.exclude || '').split(',').filter(Boolean) });
       }
       continue;
     }
@@ -145,6 +157,32 @@ for (const t of TRACKS) {
     rows.push({ w: w.toLowerCase(), cat: cur, zh: zh || '', en: en || '' });
   }
   headwords.set(t.id, rows);
+  if (autos.length) autoRules.set(t.id, autos);
+}
+
+/* ------- 按考试标签从词典自动取词 / auto-fill from the dictionary by exam tag ------- */
+// 只在有 auto 指令时才全量扫一遍词典 / full scan only when some track asks for it
+const byTag = new Map();
+if (autoRules.size && fs.existsSync(p('vendor', 'ecdict.csv'))) {
+  const wanted = new Set();
+  autoRules.forEach(rules => rules.forEach(r => wanted.add(r.tag)));
+  const text = fs.readFileSync(p('vendor', 'ecdict.csv'), 'utf8');
+  let start = text.indexOf('\n') + 1;
+  while (start < text.length) {
+    let end = text.indexOf('\n', start);
+    if (end < 0) end = text.length;
+    const line = text.slice(start, end);
+    start = end + 1;
+    if (line.indexOf('gre') < 0 && line.indexOf('toefl') < 0 && line.indexOf('ielts') < 0 &&
+        line.indexOf('cet6') < 0 && line.indexOf('ky') < 0) continue;   // 便宜的预筛 / cheap prefilter
+    const f = parseRow(line);
+    const w = (f[0] || '').toLowerCase();
+    if (!w || !/^[a-z][a-z-]{2,}$/.test(w)) continue;                    // 只要单个英文词 / plain words only
+    const tags = (f[7] || '').split(/\s+/).filter(Boolean);
+    const rec = { w, phonetic: f[1], definition: f[2], translation: f[3], pos: f[4], tag: f[7], bnc: f[8], frq: f[9], tags };
+    tags.forEach(tg => { if (wanted.has(tg)) { if (!byTag.has(tg)) byTag.set(tg, []); byTag.get(tg).push(rec); } });
+  }
+  byTag.forEach(list => list.sort((a, b) => rank(a.frq, a.bnc) - rank(b.frq, b.bnc)));
 }
 
 /* --------------------- 查词典（只查需要的词）--------------------- */
@@ -236,6 +274,26 @@ for (const t of TRACKS) {
     out.push(entry);
   }
 
+  // 按考试标签自动补词 / auto-fill by exam tag
+  for (const rule of (autoRules.get(t.id) || [])) {
+    const src = byTag.get(rule.tag) || [];
+    let taken = 0;
+    for (const d of src) {
+      if (taken >= rule.limit) break;
+      if (local.has(d.w)) continue;
+      if (rule.exclude.some(x => d.tags.includes(x))) continue;   // 排除太简单的词 / drop the easy ones
+      const zh = cleanZh(d.translation);
+      const en = cleanEn(d.definition);
+      if (!zh || zh.startsWith('[') || zh.length < 3) continue;
+      local.add(d.w); taken++;
+      const entry = { w: d.w, ph: wrapPh(d.phonetic), pos: derivePos(d.translation, d.definition, d.pos),
+                      cat: rule.cat, en, zh, r: rank(d.frq, d.bnc), tag: rule.tag };
+      const borrowed = hwIndex.get(d.w);
+      out.push(borrowed ? { ...borrowed, cat: rule.cat, hw: 1, r: 0, tag: rule.tag } : entry);
+    }
+    note(`  auto ${t.id}/${rule.cat}: tag=${rule.tag} 取 ${taken} 词`);
+  }
+
   // 手写在前，其余按词频 / hand-written first, then by frequency
   out.sort((a, b) => (b.hw || 0) - (a.hw || 0) || a.r - b.r || a.w.localeCompare(b.w));
   byTrack.set(t.id, out);
@@ -271,6 +329,32 @@ fs.writeFileSync(p('js', 'manifest.js'),
   `window.WORD_TOTAL = ${total};\n` +
   `window.WORD_HANDWRITTEN = ${hwTotal};\n` +
   `window.WORD_CURATED = ${glossTotal};\n`);
+
+/* ------------- 生成 about 页的词库总表 / render the track table ------------- */
+{
+  const fp = p('about.html');
+  if (fs.existsSync(fp)) {
+    let html = fs.readFileSync(fp, 'utf8');
+    const rows = GROUPS.map(g => {
+      const list = TRACKS.filter(t => t.group === g.id);
+      if (!list.length) return '';
+      return '    <li class="about-group"><b>' + g.zh + ' ' + g.en + '</b></li>\n' +
+        list.map(t => {
+          const n = (byTrack.get(t.id) || []).length;
+          const cs = catsOf(t.id).map(c => c.zh).join(' · ');
+          const eg = (byTrack.get(t.id) || []).slice(0, 6).map(e => e.w).join(', ');
+          return '    <li><b>' + t.zh + ' ' + t.en + ' · ' + n + ' 词</b>' +
+                 cs + (eg ? '<br><span class="eg">' + eg + '</span>' : '') + '</li>';
+        }).join('\n');
+    }).filter(Boolean).join('\n');
+    html = html.replace(/<!--TRACKS-->[\s\S]*?<!--\/TRACKS-->/,
+                        '<!--TRACKS-->\n  <ul class="about-cats">\n' + rows + '\n  </ul>\n  <!--\/TRACKS-->');
+    const uq = new Set(); TRACKS.forEach(t => (byTrack.get(t.id) || []).forEach(e => uq.add(e.w)));
+    html = html.replace(/<!--TOTAL-->[\s\S]*?<!--\/TOTAL-->/, '<!--TOTAL-->' + uq.size + '<!--\/TOTAL-->');
+    fs.writeFileSync(fp, html);
+    note('  about 页词库表已重建 / track table rebuilt');
+  }
+}
 
 /* ------------------- 回填页面上的词数 / sync the counts ------------------- */
 // 用上次的数字换成这次的，避免把页面里其他数字误伤

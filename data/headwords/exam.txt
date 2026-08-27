@@ -1,0 +1,10 @@
+# 考试高频 / GRE · TOEFL · IELTS · AWL
+# 直接按 ECDICT 的考试标签取词，并排除同时标了中考/高考/四级的简单词
+## cat: exam-gre
+## auto: tag=gre limit=320 exclude=zk,gk,cet4
+## cat: exam-toefl
+## auto: tag=toefl limit=280 exclude=zk,gk,cet4
+## cat: exam-ielts
+## auto: tag=ielts limit=280 exclude=zk,gk,cet4
+## cat: exam-awl
+## auto: tag=ky limit=220 exclude=zk,gk,cet4

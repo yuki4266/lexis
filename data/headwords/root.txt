@@ -1,0 +1,172 @@
+# 词根词缀 / Roots & Affixes
+# 每条释义都点出所含词根，同根词彼此串联
+## cat: root-lat-v
+tenacious | 词根 tenere（持有）：抓紧不放的，与 tenure、tenant、contain 同根
+tenure | 词根 tenere（持有）：任职的时长；大学中指终身职位
+tenable | 词根 tenere（持有）：站得住脚的、守得住的
+sustain | 词根 tenere（持有）+ sub（在下）：从下面撑住，使持续
+abstain | 词根 tenere（持有）+ abs（离开）：把自己拿开，即戒除
+retinue | 词根 tenere（持有）：被"留住"在身边的随从队伍
+recurrent | 词根 currere（跑）：反复跑回来的，与 recursion、concurrency 同根
+cursory | 词根 currere（跑）：跑着扫过的，即草率的
+precursor | 词根 currere（跑）+ pre（先）：先跑一步的，即先驱
+excursion | 词根 currere（跑）+ ex（出）：跑出去一趟，即远足
+discursive | 词根 currere（跑）+ dis（四散）：话跑得到处都是，即散漫的
+incursion | 词根 currere（跑）+ in（进入）：跑进来，即入侵
+tractable | 词根 trahere（拉）：拉得动的，即易处理的
+abstract | 词根 trahere（拉）+ abs（离开）：把本质从细节里拉出来
+protracted | 词根 trahere（拉）+ pro（向前）：被拉长的，即拖沓冗长的
+retract | 词根 trahere（拉）+ re（回）：拉回来，即收回
+distraction | 词根 trahere（拉）+ dis（分开）：注意力被拉走
+intractable | 词根 trahere（拉）+ in（不）：拉不动的，即棘手的
+tenet | 词根 tenere（持有）：被持守的信条
+inference | 词根 ferre（携带）+ in（进入）：把结论带进来
+deference | 词根 ferre（携带）+ de（向下）：把判断交出去，即顺从
+proliferate | 词根 ferre（携带）+ proles（后代）：多产的，即激增
+vociferous | 词根 ferre（携带）+ vox（声音）：带着大嗓门的，即喧嚷的
+conducive | 词根 ducere（引导）+ con（一起）：把事情引向某结果，即有助于
+deduce | 词根 ducere（引导）+ de（向下）：从一般引出个别
+induce | 词根 ducere（引导）+ in（进入）：引入，即诱发
+seduce | 词根 ducere（引导）+ se（离开）：引开，即引诱
+abduct | 词根 ducere（引导）+ ab（离开）：带走，即绑架
+conjecture | 词根 jacere（投掷）+ con（一起）：把线索凑在一起投出一个猜想
+dejected | 词根 jacere（投掷）+ de（向下）：被丢在地上的，即沮丧的
+trajectory | 词根 jacere（投掷）+ trans（横越）：被投出后划过的轨迹
+adjacent | 词根 jacere（躺）+ ad（靠近）：挨着躺的，即毗邻的
+tangible | 词根 tangere（触碰）：摸得着的，与 contact、contingent 同根
+tangential | 词根 tangere（触碰）：只是擦边相关的
+contiguous | 词根 tangere（触碰）+ con（一起）：彼此接触的，即连成一片的
+## cat: root-lat-n
+corroborate | 词根 robur（橡木）：给论断加上橡木般的强度，与 robust 同根
+corporeal | 词根 corpus（身体）：有形体的，与 corpus、corporate 同根
+incorporate | 词根 corpus（身体）+ in（进入）：并入一个整体
+temporal | 词根 tempus（时间）：与时间有关的
+extemporaneous | 词根 tempus（时间）+ ex（出）：脱离准备时间的，即即兴的
+contemporary | 词根 tempus（时间）+ con（一起）：同处一个时代的
+temporize | 词根 tempus（时间）：拖时间，即敷衍拖延
+manifest | 词根 manus（手）：能用手抓住的，即显而易见的
+manipulate | 词根 manus（手）：用手操弄
+emancipate | 词根 manus（手）+ ex（出）：从他人手中放出来，即解放
+mandate | 词根 manus（手）+ dare（给）：交到某人手里的委任
+pedestrian | 词根 pes/pedis（脚）：靠脚走的；引申为平庸乏味的
+impede | 词根 pes/pedis（脚）+ in（在上）：给脚上枷，即阻碍
+expedite | 词根 pes/pedis（脚）+ ex（出）：把脚解开，即加速办理
+expedient | 词根 pes/pedis（脚）：能让事情走通的，即权宜的
+capitulate | 词根 caput（头）：按条款分章投降
+precipitate | 词根 caput（头）+ pre（先）：头朝下栽下去，即仓促促成
+recapitulate | 词根 caput（头）+ re（再）：重列要点，即扼要重述
+cordial | 词根 cor（心）：发自内心的，即热诚的
+discord | 词根 cor（心）+ dis（分开）：心不在一处，即不和
+accord | 词根 cor（心）+ ad（靠近）：心贴到一起，即一致
+concordance | 词根 cor（心）+ con（一起）：一致性，也指索引汇编
+oculist | 词根 oculus（眼）：眼科医生
+inoculate | 词根 oculus（眼/芽）：像嫁接芽眼一样接种
+ocular | 词根 oculus（眼）：与眼睛有关的
+sanguine | 词根 sanguis（血）：血气足的，即乐观自信的
+consanguinity | 词根 sanguis（血）+ con（一起）：同血缘，即血亲关系
+lucid | 词根 lux（光）：清晰明亮的，与 elucidate、translucent 同根
+elucidate | 词根 lux（光）+ ex（出）：把事情带到光下，即阐明
+pellucid | 词根 lux（光）+ per（穿透）：光能穿透的，即极其清澈的
+verity | 词根 verus（真）：真实性，与 verify、verdict 同根
+veracity | 词根 verus（真）：说真话的品质
+verisimilitude | 词根 verus（真）+ similis（相似）：逼真感
+aver | 词根 verus（真）：断言其为真
+## cat: root-gk
+epistemology | 希腊词根 episteme（知识）：研究知识本身的学问
+ontology | 希腊词根 on（存在）：研究存在的学问
+teleology | 希腊词根 telos（目的）：以目的解释事物的学说
+etymology | 希腊词根 etymon（本义）：研究词的本义与来历
+tautology | 希腊词根 tauto（相同）：把同一件事说两遍
+eulogy | 希腊词根 eu（好）+ logos（言）：颂词，尤指悼词
+eloquent | 词根 loqui（说）+ ex（出）：话说得出彩的
+colloquial | 词根 loqui（说）+ con（一起）：日常对话中的，即口语的
+soliloquy | 词根 loqui（说）+ solus（独自）：独白
+grandiloquent | 词根 loqui（说）+ grandis（大）：话说得夸张浮夸的
+anachronism | 希腊词根 chronos（时间）+ ana（逆）：错置于其他时代的事物
+synchronous | 希腊词根 chronos（时间）+ syn（同）：同步的
+chronic | 希腊词根 chronos（时间）：拖很久的，即慢性的
+pathos | 希腊词根 pathos（感受/苦难）：唤起怜悯的力量
+apathy | 希腊词根 pathos（感受）+ a（无）：无动于衷
+empathy | 希腊词根 pathos（感受）+ en（在内）：进入他人感受，即共情
+pathogen | 希腊词根 pathos（疾病）+ genes（产生）：致病原
+anthropology | 希腊词根 anthropos（人）：研究人的学问
+misanthrope | 希腊词根 anthropos（人）+ misein（恨）：厌世者
+philanthropy | 希腊词根 anthropos（人）+ philein（爱）：博爱与慈善
+autonomy | 希腊词根 autos（自己）+ nomos（法）：自己给自己立法
+taxonomy | 希腊词根 taxis（排列）+ nomos（法）：分类体系
+economy | 希腊词根 oikos（家）+ nomos（法）：管家之道，即经济
+ecology | 希腊词根 oikos（家）+ logos（学）：研究生物之"家"的学问
+heterogeneous | 希腊词根 heteros（不同）+ genos（类）：由不同种类构成的
+homogeneous | 希腊词根 homos（相同）+ genos（类）：由同类构成的
+idiosyncrasy | 希腊词根 idios（自己的）+ synkrasis（混合）：个人特有的癖性
+polemic | 希腊词根 polemos（战争）：论战性的文章
+panacea | 希腊词根 pan（全）+ akos（药）：包治百病的万灵药
+panorama | 希腊词根 pan（全）+ horama（景象）：全景
+pandemic | 希腊词根 pan（全）+ demos（民）：波及全体人民的大流行
+demagogue | 希腊词根 demos（民）+ agogos（引导）：煽动民众的政客
+## cat: root-pre
+ambivalent | 前缀 ambi（两者）：两种相反感受同时存在
+ambiguous | 前缀 ambi（两者）：可以两头理解的
+circumvent | 前缀 circum（环绕）：绕过去，即规避
+circumspect | 前缀 circum（环绕）+ specere（看）：环顾四周的，即谨慎的
+circumscribe | 前缀 circum（环绕）+ scribere（写）：画圈限定，即限制
+juxtapose | 前缀 juxta（在旁）：并排放置以形成对比
+subvert | 前缀 sub（在下）+ vertere（转）：从下面翻掉，即颠覆
+subterfuge | 前缀 sub（在下）+ fugere（逃）：暗中开溜的手段，即遁词
+superfluous | 前缀 super（超过）+ fluere（流）：多得溢出来的，即多余的
+supersede | 前缀 super（在上）+ sedere（坐）：坐到其上，即取代
+transient | 前缀 trans（穿过）+ ire（走）：走过就没了的，即短暂的
+transcend | 前缀 trans（穿过）+ scandere（攀）：越过界限
+intercede | 前缀 inter（之间）+ cedere（走）：走到双方之间，即说情
+interdict | 前缀 inter（之间）+ dicere（说）：从中禁止
+introspection | 前缀 intro（向内）+ specere（看）：向内看，即内省
+retrospect | 前缀 retro（向后）+ specere（看）：回头看
+prescient | 前缀 pre（先）+ scire（知）：先知道的，即有先见之明
+preclude | 前缀 pre（先）+ claudere（关）：先把门关上，即排除
+antecedent | 前缀 ante（之前）+ cedere（走）：走在前面的，即先行者
+anachronistic | 前缀 ana（逆）：与所处时代不符的
+counterintuitive | 前缀 counter（相反）：与直觉相反的
+countervail | 前缀 counter（相反）+ valere（有力）：以相反的力抵消
+malfeasance | 前缀 mal（坏）+ facere（做）：渎职
+malign | 前缀 mal（坏）：说人坏话；也指恶性的
+benign | 前缀 bene（好）：良性的、温和的
+benefactor | 前缀 bene（好）+ facere（做）：施惠者
+disparate | 前缀 dis（分开）+ parare（准备）：本质不同、无法并论的
+dissent | 前缀 dis（分开）+ sentire（感觉）：感受不同，即持异议
+disseminate | 前缀 dis（四散）+ semen（种子）：像撒种一样散播
+extricate | 前缀 ex（出）+ tricae（纠缠）：从纠缠中脱身
+exculpate | 前缀 ex（出）+ culpa（过错）：使脱罪
+exacerbate | 前缀 ex（加强）+ acerbus（苦）：使更苦，即加剧
+## cat: root-suf
+propensity | 后缀 -ity（性质）+ 词根 pendere（悬挂）：前倾的性向
+alacrity | 后缀 -ity（性质）：欣然行动的爽快劲
+temerity | 后缀 -ity（性质）：鲁莽大胆
+audacity | 后缀 -ity（性质）：胆大妄为
+duplicity | 后缀 -ity（性质）+ duplex（双层）：两面派的做法
+perspicacity | 后缀 -ity（性质）+ specere（看）：看得透彻，即敏锐
+efficacy | 后缀 -acy（状态）+ facere（做）：起作用的能力
+fallacy | 后缀 -acy（状态）+ fallere（欺骗）：似是而非的推理
+obstinacy | 后缀 -acy（状态）：顽固
+intimacy | 后缀 -acy（状态）：亲密
+complacency | 后缀 -ency（状态）：自满而不思进取
+contingency | 后缀 -ency（状态）+ tangere（触）：可能发生的偶然情形
+transparency | 后缀 -ency（状态）：透明、可见
+belligerence | 后缀 -ence（状态）+ bellum（战争）：好战
+benevolence | 后缀 -ence（状态）+ velle（愿）：善意
+reticence | 后缀 -ence（状态）：寡言少语
+diffidence | 后缀 -ence（状态）+ fides（信任）：缺乏自信
+ubiquitous | 后缀 -ous（充满）+ ubique（到处）：无处不在的
+meticulous | 后缀 -ous（充满）+ metus（恐惧）：小心到近乎怕出错
+perfidious | 后缀 -ous（充满）+ fides（信任）：背信弃义的
+querulous | 后缀 -ous（充满）：爱抱怨的
+garrulous | 后缀 -ous（充满）：话多的
+tenuous | 后缀 -ous（充满）+ tenuis（细）：细弱站不住的
+innocuous | 后缀 -ous（充满）+ nocere（伤害）：无害的
+assiduous | 后缀 -ous（充满）+ sedere（坐）：坐得住的，即勤勉的
+insidious | 后缀 -ous（充满）+ sedere（坐）：暗中埋伏的，即阴险的
+mitigate | 后缀 -ate（使）+ mitis（温和）：使变温和，即缓解
+exonerate | 后缀 -ate（使）+ onus（负担）：卸下负担，即免除罪责
+corroborate | 后缀 -ate（使）+ robur（橡木）：使坚实，即佐证
+obfuscate | 后缀 -ate（使）+ fuscus（暗）：使变暗，即混淆
+placate | 后缀 -ate（使）+ placere（取悦）：使平息
+vindicate | 后缀 -ate（使）：证明清白

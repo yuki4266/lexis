@@ -560,17 +560,17 @@ window.TRACK_COUNTS = {
   "acad": 45,
   "rea": 27,
   "med": 155,
-  "phil": 0,
+  "phil": 137,
   "work": 42,
   "fin": 142,
   "law": 136,
-  "news": 0,
+  "news": 142,
   "gen": 45,
   "life": 147,
-  "exam": 0,
-  "root": 0,
-  "conf": 0,
-  "speak": 0
+  "exam": 1100,
+  "root": 164,
+  "conf": 141,
+  "speak": 78
 };
 window.CAT_COUNTS = {
   "ai": 38,
@@ -599,6 +599,10 @@ window.CAT_COUNTS = {
   "med-dis": 39,
   "med-drug": 38,
   "med-anat": 37,
+  "phil-soc": 32,
+  "phil-epis": 39,
+  "phil-econ": 32,
+  "phil-eth": 34,
   "work-career": 14,
   "work-comm": 14,
   "work-biz": 14,
@@ -610,14 +614,35 @@ window.CAT_COUNTS = {
   "law-data": 33,
   "law-ip": 31,
   "law-tort": 29,
+  "news-diplo": 37,
+  "news-trade": 36,
+  "news-polit": 36,
+  "news-media": 33,
   "gen-act": 15,
   "gen-desc": 15,
   "gen-abs": 15,
   "life-out": 37,
   "life-food": 38,
   "life-home": 35,
-  "life-cook": 37
+  "life-cook": 37,
+  "exam-toefl": 280,
+  "exam-gre": 320,
+  "exam-awl": 220,
+  "exam-ielts": 280,
+  "root-pre": 32,
+  "root-lat-n": 34,
+  "root-lat-v": 35,
+  "root-suf": 31,
+  "root-gk": 32,
+  "conf-collo": 33,
+  "conf-prep": 33,
+  "conf-sense": 37,
+  "conf-form": 38,
+  "speak-present": 19,
+  "speak-lead": 20,
+  "speak-ask": 19,
+  "speak-hedge": 20
 };
-window.WORD_TOTAL = 1363;
-window.WORD_HANDWRITTEN = 391;
-window.WORD_CURATED = 912;
+window.WORD_TOTAL = 3125;
+window.WORD_HANDWRITTEN = 476;
+window.WORD_CURATED = 1494;
