@@ -16,7 +16,6 @@
     accent: 'en-US',                  // 默认美音 / American by default
     rate: 0.9,                        // 语速 speech rate
     blind: false,                     // 听写模式 dictation mode
-    hwOnly: false,                    // 只练带词源的词 / only words with a story
     track: TRACKS.length ? TRACKS[0].id : '',
     catsByTrack: {}                   // 每个大类各自记住选了哪些小类 / per-track selection
   };
@@ -207,14 +206,13 @@
     if (!pool) {
       var sel = activeCats();
       pool = trackData(prefs.track).filter(function (w) { return sel.indexOf(w.cat) >= 0; });
-      if (prefs.hwOnly) {                                   // 只练带词源的词 / story only
-        var withStory = pool.filter(function (w) { return w.hw; });
-        if (withStory.length >= 5) pool = withStory;
-        else extraMsg = '这个大类的词源故事还不够多，已显示全部 · Not enough stories here yet, showing all';
-      }
     }
     if (!pool.length) pool = trackData(prefs.track).slice();
-    queue = shuffle(pool.slice());
+    // 有词源故事的词排在前面 —— 这是这个站的重点，不该靠用户自己去开关
+    // Words that carry a story come first; that is the point of the site, not an option to toggle
+    var withStory = [], rest = [];
+    pool.forEach(function (w) { (w.hw ? withStory : rest).push(w); });
+    queue = shuffle(withStory).concat(shuffle(rest));
     idx = 0;
   }
 
@@ -606,13 +604,6 @@
   $('blindMode').addEventListener('change', function () {
     prefs.blind = this.checked; savePrefs();
     paint(elTyper.value); elTyper.focus();
-  });
-
-  // 只练带词源的词 / story only
-  $('hwOnly').checked = !!prefs.hwOnly;
-  $('hwOnly').addEventListener('change', function () {
-    prefs.hwOnly = this.checked; savePrefs();
-    drill = false; buildQueue(); load(0);
   });
 
   // 重听 replay
