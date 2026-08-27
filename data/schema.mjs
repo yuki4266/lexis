@@ -31,7 +31,8 @@ export const TRACKS = [
   { id: 'news',  group: 'g-biz',  prio: 13, zh: '新闻时事与国际关系', en: 'News & Geopolitics' },
 
   { id: 'gen',   group: 'g-gen',  prio: 15, zh: '高阶通用词',         en: 'Advanced General' },
-  { id: 'life',  group: 'g-gen',  prio: 11, zh: '饮食与日常',         en: 'Food & Everyday' },
+  { id: 'food',  group: 'g-gen',  prio: 11, zh: '饮食',             en: 'Food & Cooking' },
+  { id: 'life',  group: 'g-gen',  prio: 19, zh: '日常生活',         en: 'Everyday Life' },
 
   { id: 'exam',  group: 'g-lang', prio: 18, zh: '考试高频',           en: 'GRE / TOEFL / IELTS' },
   { id: 'root',  group: 'g-lang', prio: 16, zh: '词根词缀',           en: 'Roots & Affixes' },
@@ -102,9 +103,16 @@ export const CATEGORIES = [
   { id: 'gen-desc', track: 'gen', zh: '性质与描述', en: 'Qualities' },
   { id: 'gen-act',  track: 'gen', zh: '行为与态度', en: 'Actions & Attitudes' },
   { id: 'gen-abs',  track: 'gen', zh: '抽象概念',   en: 'Abstract Concepts' },
-  // 饮食与日常
-  { id: 'life-cook', track: 'life', zh: '烹饪技法',   en: 'Cooking Techniques' },
-  { id: 'life-food', track: 'life', zh: '食材与风味', en: 'Ingredients & Flavour' },
+  // 饮食 food
+  { id: 'food-tech',    track: 'food', zh: '烹饪技法',   en: 'Techniques' },
+  { id: 'food-taste',   track: 'food', zh: '风味与口感', en: 'Flavour & Texture' },
+  { id: 'food-meat',    track: 'food', zh: '肉类与海鲜', en: 'Meat & Seafood' },
+  { id: 'food-produce', track: 'food', zh: '蔬果与谷物', en: 'Produce & Grains' },
+  { id: 'food-spice',   track: 'food', zh: '香料与调味', en: 'Spices & Seasoning' },
+  { id: 'food-bake',    track: 'food', zh: '烘焙与甜点', en: 'Baking & Sweets' },
+  { id: 'food-drink',   track: 'food', zh: '咖啡茶与酒', en: 'Coffee, Tea & Drink' },
+  { id: 'food-dining',  track: 'food', zh: '菜系与餐桌', en: 'Cuisine & Dining' },
+  // 日常生活 life
   { id: 'life-home', track: 'life', zh: '居家与事务', en: 'Home & Admin' },
   { id: 'life-out',  track: 'life', zh: '出行与就医', en: 'Travel & Health' },
   // 考试高频

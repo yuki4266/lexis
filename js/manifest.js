@@ -106,10 +106,16 @@ window.TRACKS = [
     "en": "Advanced General"
   },
   {
+    "id": "food",
+    "group": "g-gen",
+    "zh": "饮食",
+    "en": "Food & Cooking"
+  },
+  {
     "id": "life",
     "group": "g-gen",
-    "zh": "饮食与日常",
-    "en": "Food & Everyday"
+    "zh": "日常生活",
+    "en": "Everyday Life"
   },
   {
     "id": "exam",
@@ -426,16 +432,52 @@ window.CATEGORIES = [
     "en": "Abstract Concepts"
   },
   {
-    "id": "life-cook",
-    "track": "life",
+    "id": "food-tech",
+    "track": "food",
     "zh": "烹饪技法",
-    "en": "Cooking Techniques"
+    "en": "Techniques"
   },
   {
-    "id": "life-food",
-    "track": "life",
-    "zh": "食材与风味",
-    "en": "Ingredients & Flavour"
+    "id": "food-taste",
+    "track": "food",
+    "zh": "风味与口感",
+    "en": "Flavour & Texture"
+  },
+  {
+    "id": "food-meat",
+    "track": "food",
+    "zh": "肉类与海鲜",
+    "en": "Meat & Seafood"
+  },
+  {
+    "id": "food-produce",
+    "track": "food",
+    "zh": "蔬果与谷物",
+    "en": "Produce & Grains"
+  },
+  {
+    "id": "food-spice",
+    "track": "food",
+    "zh": "香料与调味",
+    "en": "Spices & Seasoning"
+  },
+  {
+    "id": "food-bake",
+    "track": "food",
+    "zh": "烘焙与甜点",
+    "en": "Baking & Sweets"
+  },
+  {
+    "id": "food-drink",
+    "track": "food",
+    "zh": "咖啡茶与酒",
+    "en": "Coffee, Tea & Drink"
+  },
+  {
+    "id": "food-dining",
+    "track": "food",
+    "zh": "菜系与餐桌",
+    "en": "Cuisine & Dining"
   },
   {
     "id": "life-home",
@@ -566,7 +608,8 @@ window.TRACK_COUNTS = {
   "law": 250,
   "news": 245,
   "gen": 209,
-  "life": 254,
+  "food": 432,
+  "life": 124,
   "exam": 1100,
   "root": 273,
   "conf": 250,
@@ -621,10 +664,16 @@ window.CAT_COUNTS = {
   "gen-act": 63,
   "gen-desc": 77,
   "gen-abs": 69,
+  "food-produce": 54,
+  "food-tech": 65,
+  "food-bake": 52,
+  "food-taste": 67,
+  "food-drink": 43,
+  "food-meat": 54,
+  "food-spice": 50,
+  "food-dining": 47,
   "life-out": 64,
-  "life-food": 66,
   "life-home": 60,
-  "life-cook": 64,
   "exam-toefl": 280,
   "exam-gre": 320,
   "exam-awl": 220,
@@ -643,6 +692,6 @@ window.CAT_COUNTS = {
   "speak-lead": 21,
   "speak-present": 22
 };
-window.WORD_TOTAL = 5095;
-window.WORD_HANDWRITTEN = 512;
-window.WORD_CURATED = 3394;
+window.WORD_TOTAL = 5397;
+window.WORD_HANDWRITTEN = 551;
+window.WORD_CURATED = 3657;

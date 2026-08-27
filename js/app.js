@@ -33,9 +33,9 @@
   function trackCats(tid) { return CATS.filter(function (c) { return c.track === tid; }); }
   function trackById(tid) { for (var i = 0; i < TRACKS.length; i++) if (TRACKS[i].id === tid) return TRACKS[i]; return null; }
   function activeCats() {
-    var sel = prefs.catsByTrack[prefs.track];
-    if (!sel || !sel.length) sel = trackCats(prefs.track).map(function (c) { return c.id; });
-    return sel;
+    var all = trackCats(prefs.track).map(function (c) { return c.id; });
+    var sel = (prefs.catsByTrack[prefs.track] || []).filter(function (id) { return all.indexOf(id) >= 0; });
+    return sel.length ? sel : all;          // 小类被改名或删掉时自动回到全选
   }
 
   /* ------------------ 复习队列 the review queue ------------------
