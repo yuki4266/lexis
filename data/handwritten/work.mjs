@@ -10,8 +10,10 @@ export default [
   zh: '对齐／达成一致：让人或计划在方向上取得共识。',
   oe: 'From French aligner, from Latin ad "to" + linea "line" - literally to bring into line. The corporate sense keeps the military picture of a straightened rank.',
   oz: '源自法语 aligner，来自拉丁语 ad（向）+ linea（线）——字面就是“排成一条线”。职场用法保留了队列列齐的军事意象。',
-  se: 'Let us align on the metric before we argue about the model.',
-  sz: '在争论模型之前，先把评价指标对齐。'
+  se: 'Two people pushing a sofa in different directions get nowhere.',
+  sz: '两个人朝不同方向推沙发，谁也推不动。',
+  s2: 'Let us agree on the measure before we argue about the method.',
+  z2: '先把衡量标准谈拢，再争方法。'
 },
 {
   w: 'escalate', uk: '/ˈeskəleɪt/', us: '/ˈeskəleɪt/', pos: 'v.', cat: 'work-comm',
@@ -19,8 +21,10 @@ export default [
   zh: '升级上报：把问题提交给更有权限的层级；也指让冲突加剧。',
   oe: 'A 1920s back-formation from escalator, itself from escalade "the scaling of walls with ladders" (Latin scala "ladder") - the same scala as scalability.',
   oz: '1920 年代由 escalator（自动扶梯）逆构而成，而 escalator 来自 escalade“搭梯攻城”（拉丁语 scala 梯子）——与 scalability 同根。',
-  se: 'Escalate early; a silent blocker is the expensive kind.',
-  sz: '要尽早上报——闷着不说的阻塞才是代价最高的。'
+  se: 'A small leak becomes a flood if nobody tells the landlord.',
+  sz: '没人告诉房东，小漏水就变成水淹。',
+  s2: 'Escalate early. A silent blocker is the expensive kind.',
+  z2: '要尽早上报，闷着不说的阻塞才最贵。'
 },
 {
   w: 'delegate', uk: '/ˈdelɪɡeɪt/', us: '/ˈdelɪɡeɪt/', pos: 'v.', cat: 'work-comm',
@@ -28,8 +32,10 @@ export default [
   zh: '委派：把任务连同决策权一并交给他人。',
   oe: 'From Latin delegare "to send as a representative" (de- + legare "to depute, to bequeath") - the same legare behind legacy and legate.',
   oz: '源自拉丁语 delegare“派为代表”（de- + legare 委任、遗赠）——与 legacy、legate 同根。',
-  se: 'Delegating the task without the authority is just assigning blame.',
-  sz: '只委派任务而不给决策权，那不过是在分派责任。'
+  se: 'Handing over the shopping list without the wallet is not delegating.',
+  sz: '只把购物清单给人、不给钱包，那不叫委派。',
+  s2: 'Give the task and the authority, or you have only given blame.',
+  z2: '要连决策权一起给，否则你给出去的只是责任。'
 },
 {
   w: 'articulate', uk: '/ɑːˈtɪkjuleɪt/', us: '/ɑːrˈtɪkjuleɪt/', pos: 'v./adj.', cat: 'work-comm',
@@ -37,8 +43,10 @@ export default [
   zh: '清晰表达：把想法分成清楚的部分讲明白。',
   oe: 'From Latin articulare "to divide into joints", from articulus "a small joint" (a diminutive of artus "limb"). To articulate is to give speech joints so it can bend clearly.',
   oz: '源自拉丁语 articulare“分节”，词根 articulus“小关节”（artus 肢体的指小形式）。清晰表达就是给话语装上关节，让它能分明地弯折。',
-  se: 'If you cannot articulate the tradeoff, you have not found it yet.',
-  sz: '如果你说不清这个权衡，说明你还没真正想明白。'
+  se: 'You know the way home but cannot say it out loud.',
+  sz: '你认得回家的路，却说不出来。',
+  s2: 'If you cannot articulate the tradeoff, you have not found it yet.',
+  z2: '说不清这个权衡，说明你还没想明白。'
 },
 {
   w: 'defer', uk: '/dɪˈfɜː/', us: '/dɪˈfɜːr/', pos: 'v.', cat: 'work-comm',
@@ -46,8 +54,10 @@ export default [
   zh: '推迟；后接 to 时表示“听从、尊重他人的判断”。',
   oe: 'Two Latin verbs collapsed into one English word: differre "to postpone, to carry apart" gives the delay sense, and deferre "to carry down, to submit" gives the yielding sense.',
   oz: '两个拉丁动词合并成了同一个英语词：differre“推迟、分开搬运”给出“延后”义，deferre“向下呈交、服从”给出“听从”义。',
-  se: 'I defer to the on-call engineer on rollback decisions.',
-  sz: '回滚的决定我听值班工程师的。'
+  se: 'I will let the doctor decide; she has seen more of these.',
+  sz: '我听医生的，她见得比我多。',
+  s2: 'Defer to whoever is on call at three in the morning.',
+  z2: '凌晨三点值班的是谁，就听谁的。'
 },
 {
   w: 'advocate', uk: '/ˈædvəkeɪt/', us: '/ˈædvəkeɪt/', pos: 'v.', cat: 'work-comm',
@@ -55,8 +65,10 @@ export default [
   zh: '倡导／为……发声：公开为某个主张或某个人辩护。',
   oe: 'From Latin advocatus "one called in to help", from ad- + vocare "to call" - originally the friend you called to stand beside you in court.',
   oz: '源自拉丁语 advocatus“被召来相助之人”（ad- + vocare 呼唤）——最初指你在法庭上叫来站在身旁的那位朋友。',
-  se: 'Someone has to advocate for the users who never file tickets.',
-  sz: '总得有人为那些从不提工单的用户说话。'
+  se: 'Someone has to speak for the person who is not in the room.',
+  sz: '总得有人替不在场的那个人说话。',
+  s2: 'Advocate for the users who never file a complaint.',
+  z2: '为那些从不投诉的用户说话。'
 },
 {
   w: 'mediate', uk: '/ˈmiːdieɪt/', us: '/ˈmiːdieɪt/', pos: 'v.', cat: 'work-comm',
@@ -64,8 +76,10 @@ export default [
   zh: '调解：介于双方之间促成一致。',
   oe: 'From Latin medius "middle" - the same medius behind medium, median, mediocre and Mediterranean, the sea in the middle of the land.',
   oz: '源自拉丁语 medius“中间”——medium、median、mediocre 同源；Mediterranean 意即“陆地中间的海”。',
-  se: 'A good design review mediates between speed and safety.',
-  sz: '一场好的设计评审，是在速度与安全之间做调解。'
+  se: 'A referee does not play; a referee keeps the game possible.',
+  sz: '裁判不下场，裁判让比赛得以进行。',
+  s2: 'A good review mediates between shipping fast and shipping safe.',
+  z2: '一场好的评审是在快发和稳发之间调解。'
 },
 {
   w: 'concede', uk: '/kənˈsiːd/', us: '/kənˈsiːd/', pos: 'v.', cat: 'work-comm',
@@ -73,8 +87,10 @@ export default [
   zh: '让步／承认：承认对方有理，通常是不情愿地。',
   oe: 'From Latin concedere "to yield, to withdraw" (com- + cedere "to go, to give way") - the same cedere behind recede, precede and, ultimately, ancestor.',
   oz: '源自拉丁语 concedere“让出、退让”（com- + cedere 走、让路）——recede、precede 同根，ancestor 也源出于此。',
-  se: 'Concede the small points early so the real one lands.',
-  sz: '小的分歧早点让步，真正要紧的那点才推得动。'
+  se: 'Losing a small point can win the whole argument.',
+  sz: '让掉一个小点，可能赢下整场争论。',
+  s2: 'Concede the details early so the real question gets air.',
+  z2: '小分歧早点让步，真正的问题才有空间谈。'
 },
 {
   w: 'solicit', uk: '/səˈlɪsɪt/', us: '/səˈlɪsɪt/', pos: 'v.', cat: 'work-comm',
@@ -82,8 +98,10 @@ export default [
   zh: '征求：正式地请求某物，如反馈、报价、申请。',
   oe: 'From Latin sollicitare "to disturb, to agitate", from sollus "whole" + citare "to set in motion" - to set someone entirely in motion.',
   oz: '源自拉丁语 sollicitare“打扰、搅动”，由 sollus（整个）+ citare（使运动）构成——把某人整个儿地搅动起来。',
-  se: 'Solicit written feedback; the meeting favours the loudest voice.',
-  sz: '要征求书面反馈——会议上占便宜的总是嗓门最大的人。'
+  se: 'Asking the quiet person directly gets you a different answer.',
+  sz: '直接问那个不出声的人，你会得到不一样的答案。',
+  s2: 'Ask for written comments; meetings reward the loudest voice.',
+  z2: '要书面意见，会议奖励的是嗓门最大的人。'
 },
 {
   w: 'reiterate', uk: '/riˈɪtəreɪt/', us: '/riˈɪtəreɪt/', pos: 'v.', cat: 'work-comm',
@@ -91,8 +109,10 @@ export default [
   zh: '重申：为强调而再次说明。',
   oe: 'From re- "again" + Latin iterare "to repeat" (iterum "again") - the same iterare as iteration, so the word literally means "re-repeat".',
   oz: '由 re-（再）+ 拉丁语 iterare（重复，词根 iterum 又一次）构成——与 iteration 同根，所以它字面上是“再重复一次”。',
-  se: 'Let me reiterate the constraint, because it decides the design.',
-  sz: '我重申一下这个约束，因为它决定了整个设计。'
+  se: 'Say the room number twice and nobody gets lost.',
+  sz: '把房间号说两遍，就没人会走错。',
+  s2: 'Let me reiterate the constraint, because it decides everything.',
+  z2: '我重申一下这个约束，因为它决定了一切。'
 },
 {
   w: 'candid', uk: '/ˈkændɪd/', us: '/ˈkændɪd/', pos: 'adj.', cat: 'work-comm',
@@ -100,8 +120,10 @@ export default [
   zh: '坦率的：诚实直接，即便所说的话并不中听。',
   oe: 'From Latin candidus "white, pure, unblemished". A Roman seeking office wore a whitened toga, which is why he was a candidatus - and why candour is whiteness of speech.',
   oz: '源自拉丁语 candidus“洁白、纯净”。罗马求职者身着漂白托加，故称 candidatus（候选人）——坦率即言语的洁白。',
-  se: 'Candid feedback early is kinder than polite feedback late.',
-  sz: '早期的坦率反馈，比事后的客气反馈更厚道。'
+  se: 'A friend tells you there is spinach on your teeth.',
+  sz: '朋友会告诉你牙上有菜叶。',
+  s2: 'Candid early beats polite and late.',
+  z2: '早说实话，好过晚说客气话。'
 },
 {
   w: 'ambiguous', uk: '/æmˈbɪɡjuəs/', us: '/æmˈbɪɡjuəs/', pos: 'adj.', cat: 'work-comm',
@@ -109,8 +131,10 @@ export default [
   zh: '有歧义的：可以有不止一种理解。',
   oe: 'From Latin ambiguus "wavering, going both ways" (ambi- "both" + agere "to drive"). Note the difference from ambivalent, which is about feelings, not meanings.',
   oz: '源自拉丁语 ambiguus“摇摆、两头跑”（ambi- 两者 + agere 驱动）。注意与 ambivalent 区别：后者说的是情感，不是含义。',
-  se: 'An ambiguous spec is a bug filed against the future.',
-  sz: '有歧义的规格说明，等于给未来预先提了个 bug。'
+  se: '"Let us meet by the bank" - the river or the money?',
+  sz: '“我们在 bank 见”—— 是河岸还是银行？',
+  s2: 'An ambiguous spec is a bug filed against the future.',
+  z2: '有歧义的规格，等于给未来提了个 bug。'
 },
 {
   w: 'rapport', uk: '/ræˈpɔː/', us: '/ræˈpɔːr/', pos: 'n.', cat: 'work-comm',
@@ -118,8 +142,10 @@ export default [
   zh: '默契／融洽关系：彼此很快就能理解对方的良好协作关系。',
   oe: 'French, from rapporter "to bring back, to refer" - what two people bring back to each other. The final t is silent, as in French.',
   oz: '法语词，源自 rapporter“带回、联系”——两人彼此带回给对方的东西。词尾的 t 不发音，保留法语读法。',
-  se: 'Rapport with the on-call team is worth more than any dashboard.',
-  sz: '和值班团队的默契，比任何监控面板都值钱。'
+  se: 'Some people you can ask a stupid question without paying for it.',
+  sz: '有些人你可以问蠢问题而不用付出代价。',
+  s2: 'Rapport with the on-call team beats any dashboard.',
+  z2: '和值班团队的默契，胜过任何监控面板。'
 },
 {
   w: 'concur', uk: '/kənˈkɜː/', us: '/kənˈkɜːr/', pos: 'v.', cat: 'work-comm',
@@ -127,8 +153,10 @@ export default [
   zh: '同意：尤指认同某项已表述的判断。',
   oe: 'From Latin concurrere "to run together" - the very same verb behind concurrency. Two opinions running together arrive at the same place.',
   oz: '源自拉丁语 concurrere“一起跑”——与 concurrency 是同一个动词。两种意见一起跑，就跑到了同一处。',
-  se: 'I concur with the recommendation but not with the reasoning.',
-  sz: '我同意这个建议，但不同意其中的推理。'
+  se: 'Three doctors, same diagnosis, no discussion needed.',
+  sz: '三位医生，同一个诊断，不必再讨论。',
+  s2: 'I concur with the recommendation but not with the reasoning.',
+  z2: '我同意这个建议，但不同意其中的推理。'
 },
 {
   w: 'incumbent', uk: '/ɪnˈkʌmbənt/', us: '/ɪnˈkʌmbənt/', pos: 'n./adj.', cat: 'work-biz',
@@ -136,8 +164,10 @@ export default [
   zh: '在位者／现有主导方；作形容词时表示“义不容辞的”。',
   oe: 'From Latin incumbere "to lie upon, to lean on" (in- + cubare "to lie down") - the holder of an office leans on it. The same cubare gives incubate.',
   oz: '源自拉丁语 incumbere“伏在其上、倚靠”（in- + cubare 躺下）——任职者倚在这个位置上。incubate 同根。',
-  se: 'The incumbent has distribution; the startup has speed.',
-  sz: '在位者手握渠道，创业公司手握速度。'
+  se: 'The corner shop that was there before you were born.',
+  sz: '你出生前就开在街角的那家店。',
+  s2: 'The incumbent has the customers; the newcomer has the speed.',
+  z2: '在位者有客户，新来者有速度。'
 },
 {
   w: 'attrition', uk: '/əˈtrɪʃn/', us: '/əˈtrɪʃn/', pos: 'n.', cat: 'work-biz',
@@ -145,8 +175,10 @@ export default [
   zh: '流失：员工或客户通过日常离开而逐步减少。',
   oe: 'From Latin atterere "to rub against, to wear away" (ad- + terere "to rub") - the same terere behind detriment and trite, which literally means worn out.',
   oz: '源自拉丁语 atterere“摩擦、磨损”（ad- + terere 摩擦）——detriment 同根；trite（陈腐的）字面正是“被磨旧的”。',
-  se: 'Hiring cannot outrun attrition for long.',
-  sz: '招聘的速度，长期跑不赢流失的速度。'
+  se: 'A bucket with a slow leak still empties eventually.',
+  sz: '一个慢慢漏的桶，最后还是会空。',
+  s2: 'Hiring cannot outrun attrition for long.',
+  z2: '招聘长期跑不赢流失。'
 },
 {
   w: 'churn', uk: '/tʃɜːn/', us: '/tʃɜːrn/', pos: 'n./v.', cat: 'work-biz',
@@ -154,8 +186,10 @@ export default [
   zh: '流失率：客户停止使用产品的速率。',
   oe: 'From Old English cyrin, a butter churn - a vessel whose whole purpose is constant agitation. The business sense keeps the churning motion: in and out.',
   oz: '源自古英语 cyrin“搅乳桶”——一种存在意义就是不断搅动的容器。商业含义保留了这种翻搅感：进进出出。',
-  se: 'Five percent monthly churn quietly halves the base in a year.',
-  sz: '每月 5% 的流失率，一年内会悄悄把用户基数腰斩。'
+  se: 'Five percent leaving each month halves the room in a year.',
+  sz: '每月走五个百分点，一年下来屋里的人少一半。',
+  s2: 'Look at who leaves, not only at who arrives.',
+  z2: '要看谁走了，而不只看谁来了。'
 },
 {
   w: 'leverage', uk: '/ˈliːvərɪdʒ/', us: '/ˈlevərɪdʒ/', pos: 'n./v.', cat: 'work-biz',
@@ -163,8 +197,10 @@ export default [
   zh: '杠杆（作用）：用较小投入撬动较大产出；金融中指用借贷放大收益。',
   oe: 'From lever, via French from Latin levare "to raise" (levis "light") - the same levis behind levity, alleviate and elevator. Archimedes: give me a lever long enough.',
   oz: '源自 lever（杠杆），经法语来自拉丁语 levare“举起”（levis 轻）——levity、alleviate、elevator 同源。阿基米德说：给我一根足够长的杠杆。',
-  se: 'Automation gives you leverage; headcount only gives you throughput.',
-  sz: '自动化带来的是杠杆，加人带来的只是吞吐。'
+  se: 'A crowbar lets one person move a rock ten cannot lift.',
+  sz: '一根撬棍让一个人挪动十个人抬不起的石头。',
+  s2: 'Automation gives leverage; adding people only gives throughput.',
+  z2: '自动化带来杠杆，加人只带来吞吐。'
 },
 {
   w: 'margin', uk: '/ˈmɑːdʒɪn/', us: '/ˈmɑːrdʒɪn/', pos: 'n.', cat: 'work-biz',
@@ -172,8 +208,10 @@ export default [
   zh: '利润率／毛利：收入扣除相应成本后剩下的部分。',
   oe: 'From Latin margo "edge, border" - the same root as march (a border territory) and Marquis (the lord of one). Profit sits on the edge between price and cost.',
   oz: '源自拉丁语 margo“边缘、边界”——march（边区）与 Marquis（边区领主，即侯爵）同源。利润正处在售价与成本之间的那道边上。',
-  se: 'Inference cost is what decides whether the margin survives.',
-  sz: '推理成本决定了利润率能否保得住。'
+  se: 'Sell for ten, it cost you nine. The margin is one.',
+  sz: '卖十块，成本九块，利润就是一块。',
+  s2: 'The cost of running it decides whether the margin survives.',
+  z2: '运行成本决定利润率保不保得住。'
 },
 {
   w: 'procurement', uk: '/prəˈkjʊəmənt/', us: '/prəˈkjʊrmənt/', pos: 'n.', cat: 'work-biz',
@@ -181,8 +219,10 @@ export default [
   zh: '采购：组织购买物资或服务的正式流程。',
   oe: 'From Latin procurare "to take care of on another\'s behalf" (pro- + curare "to care") - the very same verb that, contracted, gave us proxy.',
   oz: '源自拉丁语 procurare“代人打理”（pro- + curare 照管）——proxy 正是由这个词缩合而来。',
-  se: 'The technical evaluation took a week; procurement took a quarter.',
-  sz: '技术评估花了一周，采购流程花了一个季度。'
+  se: 'The shop assistant says yes in a minute. The purchasing office takes a quarter.',
+  sz: '店员一分钟就答应了，采购部要一个季度。',
+  s2: 'Technical evaluation took a week. Procurement took three months.',
+  z2: '技术评估花了一周，采购流程花了三个月。'
 },
 {
   w: 'stakeholder', uk: '/ˈsteɪkhəʊldə/', us: '/ˈsteɪkhoʊldər/', pos: 'n.', cat: 'work-biz',
@@ -190,8 +230,10 @@ export default [
   zh: '利益相关方：其利益会被某项决策影响的任何一方。',
   oe: 'Originally the neutral third party who physically held the stakes in an eighteenth-century wager until the bet was settled - someone with no stake of their own. The meaning has since inverted.',
   oz: '本指 18 世纪赌局中代为保管赌注、直到胜负揭晓的中立第三方——一个自己毫无利害的人。词义后来完全反转了。',
-  se: 'List the stakeholders before you list the requirements.',
-  sz: '在列需求之前，先把利益相关方列出来。'
+  se: 'Everyone whose day changes if you change this.',
+  sz: '所有会因为你这个改动而日子不一样的人。',
+  s2: 'List the stakeholders before you list the requirements.',
+  z2: '列需求之前，先把利益相关方列出来。'
 },
 {
   w: 'arbitrage', uk: '/ˈɑːbɪtrɑːʒ/', us: '/ˈɑːrbɪtrɑːʒ/', pos: 'n.', cat: 'work-biz',
@@ -199,8 +241,10 @@ export default [
   zh: '套利：利用同一标的在两地定价不同来获利。',
   oe: 'French, from arbitrer "to judge", Latin arbiter "one who goes to see, a witness". The arbitrageur is the one who judges two prices at once.',
   oz: '法语词，源自 arbitrer“裁判”，拉丁语 arbiter“前往查看之人、见证者”。套利者就是同时裁断两个价格的人。',
-  se: 'Most latency arbitrage disappears the moment it is published.',
-  sz: '大多数延迟套利，在被公开的那一刻就消失了。'
+  se: 'Buy apples cheap at one market and sell them at another.',
+  sz: '在一个市场便宜买苹果，到另一个市场卖掉。',
+  s2: 'Most arbitrage disappears the moment it is written about.',
+  z2: '大多数套利在被写出来的那一刻就消失了。'
 },
 {
   w: 'monetize', uk: '/ˈmʌnɪtaɪz/', us: '/ˈmɑːnɪtaɪz/', pos: 'v.', cat: 'work-biz',
@@ -208,8 +252,10 @@ export default [
   zh: '变现：把有用户的东西转化为有收入的东西。',
   oe: 'From Latin moneta "mint, coinage" - the name comes from the temple of Juno Moneta, "Juno the Warner", where Rome struck its coins. Money and monitor share that root of warning.',
   oz: '源自拉丁语 moneta“铸币厂、货币”——此名来自罗马铸币所在的朱诺·莫涅塔（“警示者朱诺”）神庙。money 与 monitor 同出于这个“警告”词根。',
-  se: 'Monetize the workflow, not the click.',
-  sz: '要对工作流变现，而不是对点击变现。'
+  se: 'Plenty of visitors, no till at the door.',
+  sz: '人来了很多，门口却没有收银台。',
+  s2: 'Charge for the workflow, not for the click.',
+  z2: '要对工作流收费，而不是对点击收费。'
 },
 {
   w: 'incentive', uk: '/ɪnˈsentɪv/', us: '/ɪnˈsentɪv/', pos: 'n.', cat: 'work-biz',
@@ -217,8 +263,10 @@ export default [
   zh: '激励：让某种行为变得值得选择的东西。',
   oe: 'From Latin incentivum "setting the tune", from incinere "to sing or play into" (in- + canere "to sing"). An incentive was originally the note that started the song.',
   oz: '源自拉丁语 incentivum“起调”，动词 incinere“奏入、唱起”（in- + canere 唱）。激励最初指的是起唱的那个音。',
-  se: 'Every metric becomes an incentive the moment it is reported upward.',
-  sz: '任何指标一旦要向上汇报，就立刻变成了一种激励。'
+  se: 'Pay people by the metre and you get a very long wall.',
+  sz: '按米付钱，你会得到一堵很长的墙。',
+  s2: 'Every metric becomes a target the moment it is reported upward.',
+  z2: '任何指标一旦要向上汇报，就变成了目标。'
 },
 {
   w: 'liability', uk: '/ˌlaɪəˈbɪləti/', us: '/ˌlaɪəˈbɪləti/', pos: 'n.', cat: 'work-biz',
@@ -226,8 +274,10 @@ export default [
   zh: '责任／负债：法律或财务上的义务；引申指累赘。',
   oe: 'From liable, from Old French lier "to bind", Latin ligare - the same ligare behind ligament, oblige and religion, which may mean "that which binds".',
   oz: '源自 liable，来自古法语 lier“捆绑”，拉丁语 ligare——ligament、oblige 同根；religion 或许也意为“把人绑住之物”。',
-  se: 'Code you cannot delete is an asset on paper and a liability in practice.',
-  sz: '删不掉的代码，账面上是资产，实践中是负债。'
+  se: 'A free puppy is not free.',
+  sz: '免费的小狗并不免费。',
+  s2: 'Code you cannot delete is an asset on paper and a liability in life.',
+  z2: '删不掉的代码，账面是资产，生活中是负债。'
 },
 {
   w: 'mandate', uk: '/ˈmændeɪt/', us: '/ˈmændeɪt/', pos: 'n./v.', cat: 'work-biz',
@@ -235,8 +285,10 @@ export default [
   zh: '授权／强制要求：权威下达的指令，或执行该指令的授权。',
   oe: 'From Latin mandatum "a commission", from manus "hand" + dare "to give" - literally to give something into someone\'s hand.',
   oz: '源自拉丁语 mandatum“委任”，由 manus（手）+ dare（给）构成——字面就是把事情交到某人手里。',
-  se: 'A migration without a mandate is a hobby.',
-  sz: '没有授权的迁移，只能算个人爱好。'
+  se: 'Being asked to organise the party is not the same as being given the budget.',
+  sz: '让你办派对，和给你预算，是两回事。',
+  s2: 'A migration without a mandate is a hobby.',
+  z2: '没有授权的迁移，只是个人爱好。'
 },
 {
   w: 'runway', uk: '/ˈrʌnweɪ/', us: '/ˈrʌnweɪ/', pos: 'n.', cat: 'work-biz',
@@ -244,8 +296,10 @@ export default [
   zh: '现金流跑道：公司在资金耗尽前还能维持运转多久。',
   oe: 'Straight from aviation: the strip of ground you have to accelerate along before you either take off or run out of it. The metaphor is exact and unforgiving.',
   oz: '直接取自航空：起飞前用来加速的那条跑道——要么起飞，要么用尽。这个比喻精确而不留情面。',
-  se: 'Eighteen months of runway buys exactly one wrong bet.',
-  sz: '十八个月的跑道，刚好够犯一次方向性的错误。'
+  se: 'The plane must take off before the tarmac runs out.',
+  sz: '飞机必须在跑道用完之前起飞。',
+  s2: 'Eighteen months of runway buys exactly one wrong turn.',
+  z2: '十八个月的跑道，刚好够走错一次路。'
 },
 {
   w: 'valuation', uk: '/ˌvæljuˈeɪʃn/', us: '/ˌvæljuˈeɪʃn/', pos: 'n.', cat: 'work-biz',
@@ -253,8 +307,10 @@ export default [
   zh: '估值：市场在某一时刻给一家公司标出的价格。',
   oe: 'From Latin valere "to be strong, to be worth" - the same valere behind value, valid, prevail and the farewell vale, "be well".',
   oz: '源自拉丁语 valere“强健、值得”——value、valid、prevail 同根；告别语 vale（保重）也出于此。',
-  se: 'Valuation is a story the market tells until it stops believing it.',
-  sz: '估值是市场讲给自己听的故事，直到它不再相信为止。'
+  se: 'A house is worth what someone will pay today.',
+  sz: '房子值多少，取决于今天有人肯出多少。',
+  s2: 'Valuation is a story the market tells until it stops believing it.',
+  z2: '估值是市场讲给自己听的故事，直到它不再相信。'
 },
 {
   w: 'tenure', uk: '/ˈtenjə/', us: '/ˈtenjər/', pos: 'n.', cat: 'work-career',
@@ -262,8 +318,10 @@ export default [
   zh: '任期／终身教职：任职的时长；在大学中指终身职位。',
   oe: 'From Latin tenere "to hold" - the same tenere behind tenant, tenacious, contain and maintain, which is to hold in the hand.',
   oz: '源自拉丁语 tenere“持有”——tenant、tenacious、contain 同根；maintain 字面就是“握在手中”。',
-  se: 'Median tenure of two years means the docs are the real handover.',
-  sz: '平均任期两年，意味着文档才是真正的交接。'
+  se: 'How long you have held the seat, not how well.',
+  sz: '你在这个位子上坐了多久，而不是坐得多好。',
+  s2: 'If the median tenure is two years, the documents are the real handover.',
+  z2: '平均任期两年的话，文档才是真正的交接。'
 },
 {
   w: 'credential', uk: '/krəˈdenʃl/', us: '/krəˈdenʃl/', pos: 'n.', cat: 'work-career',
@@ -271,8 +329,10 @@ export default [
   zh: '资历／凭证：确立某人资格或权限的证明。',
   oe: 'From Latin credentia "belief, trust", from credere "to believe" - the same credere behind credit, creed and incredible. A credential asks you to believe.',
   oz: '源自拉丁语 credentia“信任”，词根 credere“相信”——credit、creed、incredible 同源。凭证要求的正是“你信我”。',
-  se: 'Credentials open the first door; nothing after that.',
-  sz: '资历只能打开第一扇门，之后就不管用了。'
+  se: 'A key opens the door. It does not make you welcome inside.',
+  sz: '钥匙能开门，但不代表你受欢迎。',
+  s2: 'Credentials open the first door and nothing after it.',
+  z2: '资历只打开第一扇门，之后就不管用了。'
 },
 {
   w: 'endorse', uk: '/ɪnˈdɔːs/', us: '/ɪnˈdɔːrs/', pos: 'v.', cat: 'work-career',
@@ -280,8 +340,10 @@ export default [
   zh: '背书：公开表示支持某人、某产品或某主张。',
   oe: 'From Latin in- "on" + dorsum "the back" - literally to write on the back of a document, the way a cheque is signed on its reverse.',
   oz: '源自拉丁语 in-（在上）+ dorsum（背面）——字面就是在文件背面签字，正如支票要在背面背书。',
-  se: 'Do not endorse a tool you have only seen in a demo.',
-  sz: '不要为一个只在演示里见过的工具背书。'
+  se: 'Signing the back of a cheque passes it on with your name attached.',
+  sz: '在支票背面签字，就等于连你的名字一起转出去。',
+  s2: 'Do not endorse a tool you have only seen in a demo.',
+  z2: '不要为一个只在演示里见过的工具背书。'
 },
 {
   w: 'negotiate', uk: '/nɪˈɡəʊʃieɪt/', us: '/nɪˈɡoʊʃieɪt/', pos: 'v.', cat: 'work-career',
@@ -289,8 +351,10 @@ export default [
   zh: '谈判：通过条件的商讨达成协议。',
   oe: 'From Latin negotiari "to do business", from neg- "not" + otium "leisure" - business is literally the absence of leisure. Romans defined work as not-rest.',
   oz: '源自拉丁语 negotiari“做生意”，由 neg-（不）+ otium（闲暇）构成——生意字面上就是“没有闲暇”。罗马人把工作定义为“非休息”。',
-  se: 'Negotiate the scope, not just the deadline.',
-  sz: '要谈的是范围，而不只是截止日期。'
+  se: 'Both sides leave slightly unhappy and the deal holds.',
+  sz: '双方都稍有不满，交易反而成得住。',
+  s2: 'Negotiate the scope, not just the deadline.',
+  z2: '要谈的是范围，不只是截止日期。'
 },
 {
   w: 'compensation', uk: '/ˌkɒmpenˈseɪʃn/', us: '/ˌkɑːmpenˈseɪʃn/', pos: 'n.', cat: 'work-career',
@@ -298,8 +362,10 @@ export default [
   zh: '薪酬：工作所得的工资、股权与福利的总和。',
   oe: 'From Latin compensare "to weigh one thing against another" (com- + pendere "to weigh, to hang") - the same pendere behind pension, pendulum and ponder.',
   oz: '源自拉丁语 compensare“把两样东西放在秤上比较”（com- + pendere 称量、悬挂）——pension、pendulum、ponder 同根。',
-  se: 'Ask for the whole compensation band, not just the base.',
-  sz: '要问整个薪酬区间，而不只是基本工资。'
+  se: 'The salary is one number. What you take home is several.',
+  sz: '工资是一个数，实际到手的是好几个数。',
+  s2: 'Ask for the whole band, not just the base.',
+  z2: '要问整个区间，而不只是基本工资。'
 },
 {
   w: 'seniority', uk: '/ˌsiːniˈɒrəti/', us: '/ˌsiːniˈɔːrəti/', pos: 'n.', cat: 'work-career',
@@ -307,8 +373,10 @@ export default [
   zh: '资历／职级：由服务年限或职责范围决定的级别。',
   oe: 'From Latin senior "older", comparative of senex "old man" - the same senex behind senate (a council of elders) and senile.',
   oz: '源自拉丁语 senior“较年长的”，是 senex（老人）的比较级——senate（元老院，长者会议）与 senile 同根。',
-  se: 'Seniority should mean scope of judgement, not years served.',
-  sz: '职级衡量的应是判断的范围，而不是任职的年头。'
+  se: 'Twenty years of experience, or one year repeated twenty times?',
+  sz: '是二十年经验，还是把一年重复了二十遍？',
+  s2: 'Seniority should mean the size of the judgement, not the number of years.',
+  z2: '职级衡量的应是判断的分量，而不是年头。'
 },
 {
   w: 'onboarding', uk: '/ˈɒnbɔːdɪŋ/', us: '/ˈɑːnbɔːrdɪŋ/', pos: 'n.', cat: 'work-career',
@@ -316,8 +384,10 @@ export default [
   zh: '入职引导：让新人尽快进入生产状态的过程。',
   oe: 'From the nautical "on board" - a new hand is brought aboard the ship and taught the ropes, an idiom that is itself literally about rigging.',
   oz: '源自航海用语 on board（上船）——新水手被带上船并被教会 the ropes（绳索），而这个习语本身说的就是缆绳。',
-  se: 'If onboarding takes a month, the build system is the reason.',
-  sz: '如果入职要花一个月，原因多半在构建系统。'
+  se: 'A new sailor is shown the ropes before the ship leaves.',
+  sz: '新水手在船离港前先被教会绳索。',
+  s2: 'If onboarding takes a month, the build system is the reason.',
+  z2: '如果入职要花一个月，原因多半在构建系统。'
 },
 {
   w: 'referral', uk: '/rɪˈfɜːrəl/', us: '/rɪˈfɜːrəl/', pos: 'n.', cat: 'work-career',
@@ -325,8 +395,10 @@ export default [
   zh: '内推：把候选人直接推荐给招聘团队。',
   oe: 'From Latin referre "to carry back" (re- + ferre "to carry") - the same ferre as inference, transfer and, through Greek, metaphor.',
   oz: '源自拉丁语 referre“带回”（re- + ferre 携带）——inference、transfer 同根，希腊语的 metaphor 也是“搬运”之意。',
-  se: 'A referral skips the queue, not the bar.',
-  sz: '内推跳过的是排队，不是门槛。'
+  se: 'A friend walks you past the queue to the front door.',
+  sz: '朋友带你绕过队伍走到正门。',
+  s2: 'A referral skips the queue, not the bar.',
+  z2: '内推跳过的是排队，不是门槛。'
 },
 {
   w: 'sabbatical', uk: '/səˈbætɪkl/', us: '/səˈbætɪkl/', pos: 'n.', cat: 'work-career',
@@ -334,8 +406,10 @@ export default [
   zh: '公休假／学术休假：较长的离岗休假，通常用于进修或休息。',
   oe: 'From Hebrew shabbath "rest". Leviticus commands that fields lie fallow every seventh year - the sabbatical year - and universities borrowed both the number and the idea.',
   oz: '源自希伯来语 shabbath“安息”。《利未记》规定土地每七年休耕一次，即安息年；大学把这个年数和理念一并借了过来。',
-  se: 'He came back from sabbatical with the rewrite already designed.',
-  sz: '他休完假回来，重写方案已经设计好了。'
+  se: 'Fields left unplanted every seventh year yield better afterwards.',
+  sz: '田地每七年休耕一次，之后反而长得更好。',
+  s2: 'He came back with the whole rewrite already designed.',
+  z2: '他休完假回来，整套重写方案已经设计好了。'
 },
 {
   w: 'vested', uk: '/ˈvestɪd/', us: '/ˈvestɪd/', pos: 'adj.', cat: 'work-career',
@@ -343,8 +417,10 @@ export default [
   zh: '已归属的：已完全拥有、不会再被收回，如已到期的股权。',
   oe: 'From Latin vestire "to clothe" (vestis "garment"). A right that has vested is one you are clothed in - which is also the picture behind a vested interest.',
   oz: '源自拉丁语 vestire“穿衣”（vestis 衣物）。已归属的权利，就是你已“穿在身上”的权利——vested interest（既得利益）用的也是这个意象。',
-  se: 'Nothing is vested until the cliff has passed.',
-  sz: '在 cliff 期满之前，没有任何股权是已归属的。'
+  se: 'The coat is yours once you have paid the last instalment.',
+  sz: '付完最后一期，这件大衣才真是你的。',
+  s2: 'Nothing is yours until the first year has passed.',
+  z2: '满一年之前，什么都还不是你的。'
 },
 {
   w: 'probation', uk: '/prəˈbeɪʃn/', us: '/proʊˈbeɪʃn/', pos: 'n.', cat: 'work-career',
@@ -352,8 +428,10 @@ export default [
   zh: '试用期：新员工接受考察的最初阶段。',
   oe: 'From Latin probare "to test, to prove", from probus "good, honest" - the same probare behind probe, prove and approve.',
   oz: '源自拉丁语 probare“检验、证明”，词根 probus“良好、正直”——probe、prove、approve 同根。',
-  se: 'Probation runs both ways, whatever the contract says.',
-  sz: '不管合同怎么写，试用期都是双向的。'
+  se: 'The first month is a trial for both sides.',
+  sz: '头一个月是双方互相试用。',
+  s2: 'Probation runs both ways, whatever the contract says.',
+  z2: '不管合同怎么写，试用期都是双向的。'
 },
 {
   w: 'severance', uk: '/ˈsevərəns/', us: '/ˈsevərəns/', pos: 'n.', cat: 'work-career',
@@ -361,8 +439,10 @@ export default [
   zh: '离职补偿：终止雇佣关系时的补偿金与相关条款。',
   oe: 'From Latin separare "to separate" (se- "apart" + parare "to prepare") - the same separare that, worn down through French, also gave English sever.',
   oz: '源自拉丁语 separare“分开”（se- 分离 + parare 准备）——经法语磨损后也演化出了英语的 sever。',
-  se: 'Read the severance clause when you sign, not when you leave.',
-  sz: '离职补偿条款要在签字时读，而不是在离开时读。'
+  se: 'Read the exit clause on the day you sign, not the day you leave.',
+  sz: '离职条款要在签字那天读，而不是离开那天。',
+  s2: 'Ask what happens on the last day before there is a last day.',
+  z2: '在还没有最后一天之前，先问清最后一天会怎样。'
 },
 {
   w: 'accolade', uk: '/ˈækəleɪd/', us: '/ˈækəleɪd/', pos: 'n.', cat: 'work-career',
@@ -370,8 +450,10 @@ export default [
   zh: '嘉奖：公开的奖赏或赞誉。',
   oe: 'From French accolade "an embrace", from Latin ad- + collum "neck". Knighthood was originally conferred with an embrace around the neck, before the sword on the shoulder replaced it.',
   oz: '源自法语 accolade“拥抱”，来自拉丁语 ad- + collum（脖颈）。授予骑士称号最初是搂颈拥抱，后来才被剑拍肩膀取代。',
-  se: 'The accolade went to the launch; the work was done a year earlier.',
-  sz: '嘉奖给了这次发布，而真正的工作是一年前完成的。'
+  se: 'A knight was once made with an embrace, not a sword.',
+  sz: '册封骑士最初靠的是一个拥抱，不是剑。',
+  s2: 'The award went to the launch; the work was done a year earlier.',
+  z2: '奖颁给了发布，而工作是一年前做完的。'
 },
 {
   w: 'meritocracy', uk: '/ˌmerɪˈtɒkrəsi/', us: '/ˌmerɪˈtɑːkrəsi/', pos: 'n.', cat: 'work-career',
@@ -379,7 +461,9 @@ export default [
   zh: '精英体制：晋升理应依据已证明的能力来决定的制度。',
   oe: 'Latin meritum "that which is earned" + Greek kratos "power". Michael Young coined it in 1958 for a satirical dystopia - he was dismayed to watch it become a compliment.',
   oz: '拉丁语 meritum（所应得）+ 希腊语 kratos（权力）。1958 年 Michael Young 造此词是为了讽刺一个反乌托邦，他后来眼看它变成褒义词而深感沮丧。',
-  se: 'Every organisation believes it is a meritocracy; that belief is the risk.',
-  sz: '每个组织都相信自己是精英体制，这种信念本身就是风险。'
+  se: 'A race is only fair if everyone starts from the same line.',
+  sz: '只有大家从同一条起跑线出发，比赛才算公平。',
+  s2: 'Every organisation believes it is one. That belief is the risk.',
+  z2: '每个组织都相信自己是精英体制，这份相信本身就是风险。'
 }
 ];

@@ -11,6 +11,7 @@
  *                       word | 中文域内释义        → 覆盖中文，词典只供音标/词性/英文
  *                       word | 中文释义 | English  → 两个都覆盖
  *                       word || English            → 只覆盖英文
+ *                       word | 中文 | English | 例句 | 例句中文  → 连例句一起给
  *       "## auto: tag=gre limit=250 exclude=zk,gk,cet4" 从词典按考试标签自动取词
  *       pull words straight from the dictionary by exam tag
  *   data/handwritten/<track>.mjs  手写完整条目（含词源例句）hand-written entries
@@ -157,8 +158,8 @@ for (const t of TRACKS) {
       }
       continue;
     }
-    const [w, zh, en] = line.split('|').map(x => x.trim());
-    rows.push({ w: w.toLowerCase(), cat: cur, zh: zh || '', en: en || '' });
+    const [w, zh, en, se, sz] = line.split('|').map(x => x.trim());
+    rows.push({ w: w.toLowerCase(), cat: cur, zh: zh || '', en: en || '', se: se || '', sz: sz || '' });
   }
   headwords.set(t.id, rows);
   if (autos.length) autoRules.set(t.id, autos);
@@ -281,6 +282,7 @@ for (const t of TRACKS) {
     }
     const entry = { w: k, ph: wrapPh(d.phonetic), pos: derivePos(d.translation, d.definition, d.pos),
                     cat: row.cat, en, zh, r: rk };
+    if (row.se) { entry.se = row.se; entry.sz = row.sz || ''; }   // 词表里也能带例句 / examples from the list
     if (row.zh) entry.g = 1;                              // 已人工校订 / curated gloss
     else if (zh.startsWith('[') || zh.length < 4 || !en)  // 词典义太差，标记待校订
       needGloss.push(`${t.id}\t${k}\t${zh}`);

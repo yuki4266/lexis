@@ -292,6 +292,8 @@ body {
 .block p { font-size: 16px; line-height: 1.78; }
 .block p.en { color: var(--text); }
 .block p.zh { color: var(--muted); margin-top: 3px; }
+.block p.ex2 { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.block p[hidden] { display: none; }
 .block p.en:empty, .block p.zh:empty { display: none; }
 
 /* ----------------------------- 底栏 stats ----------------------------- */

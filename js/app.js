@@ -87,6 +87,7 @@
       elDefEn  = $('defEn'), elDefZh = $('defZh'),
       elEtyEn  = $('etyEn'), elEtyZh = $('etyZh'), elBlockEty = $('blockEty'),
       elExEn   = $('exEn'),  elExZh  = $('exZh'),  elBlockEx  = $('blockEx'),
+      elExEn2  = $('exEn2'), elExZh2 = $('exZh2'),
       elDone   = $('sDone'), elStreak = $('sStreak'),
       elAcc    = $('sAcc'),  elWpm = $('sWpm'),
       elDue = $('sDue'),
@@ -299,6 +300,8 @@
     var hasEx = !!(cur.se || cur.sz);
     elBlockEx.hidden = !hasEx;
     elExEn.textContent = cur.se || ''; elExZh.textContent = cur.sz || '';
+    elExEn2.textContent = cur.s2 || ''; elExZh2.textContent = cur.z2 || '';
+    elExEn2.hidden = elExZh2.hidden = !cur.s2;
 
     hint(roundMsg, '');            // 常态留白：颜色与声音已经把话说完了 / silence by default
     paint('');
