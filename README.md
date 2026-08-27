@@ -33,8 +33,8 @@
 
 ## 词库 · Word bank
 
-313 个词，分五个**大类**、十六个**小类**，顶栏一键切换大类，小类可多选筛选。
-313 words in five **tracks** and sixteen **categories** — switch tracks in one click, filter categories freely.
+737 个词，分五个**大类**、十六个**小类**，顶栏一键切换大类，小类可多选筛选。
+737 words in five **tracks** and sixteen **categories** — switch tracks in one click, filter categories freely.
 
 | 大类 Track | 数量 | 小类 Categories | 例词 Examples |
 | --- | --- | --- | --- |

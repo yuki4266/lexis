@@ -185,37 +185,48 @@ const dupes = [];
 const noPhon = [];      // 词典查不到、靠人工释义收录的词 / kept via manual gloss, no IPA
 const needGloss = [];   // 释义质量差、建议人工校订 / dictionary gloss looks poor
 
-const ordered = [...TRACKS].sort((a, b) => a.prio - b.prio);
-ordered.forEach(t => byTrack.set(t.id, []));
-
-// 第一轮：手写条目先占位 —— 手写永远赢过词典条目
-// Pass 1: hand-written entries claim their words first; they always beat a dictionary entry
-for (const t of ordered) {
-  const out = byTrack.get(t.id);
+// 手写条目是全局资产：一个词在别的大类的词表里出现时，直接复用它的词源与例句，
+// 只把小类改成那个大类的。大类之间允许重复 —— 每个大类本来就是一套独立词库。
+// Hand-written entries are global assets: if another track lists the same word, reuse the
+// full entry (etymology and all) under that track's category. Tracks may overlap by design.
+const hwIndex = new Map();                    // word -> 手写条目 / the hand-written entry
+for (const t of TRACKS) {
   for (const e of (handwritten.get(t.id) || [])) {
     const k = e.w.toLowerCase();
-    if (seen.has(k)) { dupes.push(`${e.w}: 手写 ${t.id} 让给手写 ${seen.get(k)}`); continue; }
-    seen.set(k, t.id);
-    out.push({ ...e, hw: 1, r: 0 });
+    if (!hwIndex.has(k)) hwIndex.set(k, e);
+    else dupes.push(`${e.w}: ${t.id} 与 ${catById.get(hwIndex.get(k).cat).track} 都有手写条目`);
   }
 }
 
-// 第二轮：词典条目只认领还没被占走的词
-// Pass 2: dictionary entries fill in only the words nobody has claimed
-for (const t of ordered) {
-  const out = byTrack.get(t.id);
+for (const t of TRACKS) {
+  const out = [];
+  const local = new Set();                    // 大类内去重 / unique within the track
+
+  for (const e of (handwritten.get(t.id) || [])) {
+    const k = e.w.toLowerCase();
+    if (local.has(k)) continue;
+    local.add(k);
+    out.push({ ...e, hw: 1, r: 0 });
+  }
+
   for (const row of (headwords.get(t.id) || [])) {
     const k = row.w;
-    if (seen.has(k)) { if (seen.get(k) !== t.id) dupes.push(`${k}: ${t.id} 让给 ${seen.get(k)}`); continue; }
+    if (local.has(k)) continue;
+    local.add(k);
+
+    const borrowed = hwIndex.get(k);
+    if (borrowed) {                           // 借用别处的手写条目，换成本大类的小类
+      out.push({ ...borrowed, cat: row.cat, zh: row.zh || borrowed.zh, hw: 1, r: 0 });
+      continue;
+    }
+
     const d = dict.get(k) || (row.zh ? { phonetic: '', definition: '', translation: '', pos: '', tag: '', bnc: 0, frq: 0 } : null);
     if (!d) { missing.push(`${t.id}\t${k}`); continue; }
     if (!dict.get(k)) noPhon.push(`${t.id}\t${k}`);      // 词典没有，音标待补 / IPA still to add
     const zh = row.zh || cleanZh(d.translation);          // 手填的域内释义优先 / manual gloss wins
     // 只给了中文域内释义时宁可留白，也不挂一条可能矛盾的通用英文释义
-    // If only a Chinese gloss was supplied, leave English blank rather than contradict it
     const en = row.en || (row.zh ? '' : cleanEn(d.definition));
     if (!zh) { missing.push(`${t.id}\t${k}\t(无中文释义 no Chinese gloss)`); continue; }
-    seen.set(k, t.id);
     const entry = { w: k, ph: wrapPh(d.phonetic), pos: derivePos(d.translation, d.definition, d.pos),
                     cat: row.cat, en, zh, r: rank(d.frq, d.bnc) };
     if (row.zh) entry.g = 1;                              // 已人工校订 / curated gloss
@@ -224,11 +235,10 @@ for (const t of ordered) {
     const tag = pickTag(d.tag); if (tag) entry.tag = tag;
     out.push(entry);
   }
-}
 
-// 手写在前，其余按词频 / hand-written first, then by frequency
-for (const t of TRACKS) {
-  byTrack.get(t.id).sort((a, b) => (b.hw || 0) - (a.hw || 0) || a.r - b.r || a.w.localeCompare(b.w));
+  // 手写在前，其余按词频 / hand-written first, then by frequency
+  out.sort((a, b) => (b.hw || 0) - (a.hw || 0) || a.r - b.r || a.w.localeCompare(b.w));
+  byTrack.set(t.id, out);
 }
 
 /* ------------------------------ 输出 ------------------------------ */
@@ -262,9 +272,34 @@ fs.writeFileSync(p('js', 'manifest.js'),
   `window.WORD_HANDWRITTEN = ${hwTotal};\n` +
   `window.WORD_CURATED = ${glossTotal};\n`);
 
+/* ------------------- 回填页面上的词数 / sync the counts ------------------- */
+// 用上次的数字换成这次的，避免把页面里其他数字误伤
+// Replace last build's number with this one, so no other figure gets touched
+const STAMP = p('.wordcount');
+const uniqTotal = new Set();
+TRACKS.forEach(t => (byTrack.get(t.id) || []).forEach(e => uniqTotal.add(e.w)));
+const shown = uniqTotal.size;
+const prev = fs.existsSync(STAMP) ? fs.readFileSync(STAMP, 'utf8').trim() : '';
+if (prev && prev !== String(shown)) {
+  for (const f of ['index.html', 'about.html', 'README.md']) {
+    const fp = p(f);
+    if (!fs.existsSync(fp)) continue;
+    const before = fs.readFileSync(fp, 'utf8');
+    const after = before.split(prev + ' 个词').join(shown + ' 个词')
+                        .split(prev + ' 词').join(shown + ' 词')
+                        .split(prev + ' words').join(shown + ' words')
+                        .split(prev + ' high-frequency').join(shown + ' high-frequency');
+    if (after !== before) { fs.writeFileSync(fp, after); note(`  词数回填 ${f}: ${prev} → ${shown}`); }
+  }
+}
+fs.writeFileSync(STAMP, String(shown) + '\n');
+
 /* ------------------------------ 报告 ------------------------------ */
 note('');
-note(`总词数 total: ${total}（手写词源 ${hwTotal} · 人工校订释义 ${glossTotal} · 词典原样 ${total - hwTotal - glossTotal}）`);
+const uniq = new Set();
+TRACKS.forEach(t => (byTrack.get(t.id) || []).forEach(e => uniq.add(e.w)));
+note(`总词条 entries: ${total}（去重后 unique ${uniq.size}）`);
+note(`  手写词源 ${hwTotal} · 人工校订释义 ${glossTotal} · 词典原样 ${total - hwTotal - glossTotal}`);
 for (const t of TRACKS) {
   const list = byTrack.get(t.id) || [];
   const hw = list.filter(e => e.hw).length;
@@ -273,7 +308,7 @@ for (const t of TRACKS) {
        catsOf(t.id).map(c => `${c.id}:${list.filter(e => e.cat === c.id).length}`).join(' '));
 }
 note('');
-note(`重复词（已按优先级裁决）dupes: ${dupes.length}`);
+note(`手写条目撞车 hand-written clashes: ${dupes.length}`);
 dupes.slice(0, 40).forEach(d => note('  ' + d));
 note('');
 note(`词典查不到、也没给人工释义（已丢弃）dropped: ${missing.length}`);

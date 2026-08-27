@@ -554,15 +554,15 @@ window.CATEGORIES = [
 ];
 window.TRACK_COUNTS = {
   "tech": 154,
-  "data": 26,
-  "sec": 0,
+  "data": 202,
+  "sec": 148,
   "prod": 0,
   "acad": 45,
   "rea": 27,
   "med": 0,
   "phil": 0,
   "work": 42,
-  "fin": 0,
+  "fin": 142,
   "law": 0,
   "news": 0,
   "gen": 45,
@@ -578,10 +578,14 @@ window.CAT_COUNTS = {
   "algo": 31,
   "net": 30,
   "sys": 25,
-  "data-infer": 7,
-  "data-prob": 9,
-  "data-causal": 6,
-  "data-eng": 4,
+  "data-causal": 42,
+  "data-eng": 49,
+  "data-infer": 51,
+  "data-prob": 60,
+  "sec-def": 35,
+  "sec-iam": 37,
+  "sec-crypto": 39,
+  "sec-attack": 37,
   "acad-eval": 15,
   "acad-meth": 15,
   "acad-verb": 15,
@@ -590,10 +594,14 @@ window.CAT_COUNTS = {
   "work-career": 14,
   "work-comm": 14,
   "work-biz": 14,
+  "fin-risk": 36,
+  "fin-report": 39,
+  "fin-trade": 31,
+  "fin-market": 36,
   "gen-act": 15,
   "gen-desc": 15,
   "gen-abs": 15
 };
-window.WORD_TOTAL = 339;
-window.WORD_HANDWRITTEN = 313;
-window.WORD_CURATED = 20;
+window.WORD_TOTAL = 805;
+window.WORD_HANDWRITTEN = 371;
+window.WORD_CURATED = 418;

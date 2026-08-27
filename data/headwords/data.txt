@@ -1,39 +1,210 @@
 # 数据与统计 / Data & Statistics
-# 格式：word | 中文域内释义 | English gloss   （后两项可省，省了就用词典）
+# 一行一词；| 后为中文域内释义（覆盖词典通用义）；再一个 | 为英文释义
 ## cat: data-prob
 stochastic
-posterior | 后验（分布）：看到数据之后更新得到的分布 | The distribution of a parameter after the evidence is taken into account
+probabilistic | 概率性的：输出的是分布而非单一确定值
+deterministic
+posterior | 后验（分布）：看到数据之后更新得到的分布 | The distribution of a parameter once the evidence is taken into account
+prior | 先验（分布）：看到数据之前对参数的信念 | The belief about a parameter before any evidence
 marginal | 边缘（分布）：把其他变量积分掉之后剩下的分布 | Obtained by summing or integrating the other variables out
-conjugate | 共轭（先验）：使后验与先验属于同一分布族 | A prior whose posterior stays in the same family
-multimodal
-skewness
-kurtosis
-quantile
+conditional | 条件（分布）：在给定另一变量取值下的分布
+joint | 联合（分布）：多个变量同时取值的分布
+conjugate | 共轭（先验）：使后验与先验落在同一分布族
+multimodal | 多峰的：概率密度有不止一个局部极大
+unimodal | 单峰的：概率密度只有一个极大
+skewness | 偏度：分布左右不对称的程度
+kurtosis | 峰度：分布尾部厚薄与峰的尖锐程度
+quantile | 分位数：把有序数据按比例切开的分点
 percentile | 百分位数：把有序数据切成一百份的分点
-variate
+median | 中位数：把有序数据一分为二的那个值
+mode | 众数：出现次数最多的取值
+expectation | 期望：随机变量取值的加权平均
+covariance | 协方差：两个变量同向变动的程度
+correlation | 相关：两个变量同向或反向变动的强度
+independence | 独立性：一个变量的取值不改变另一个的分布
+marginalize | 边缘化：对不关心的变量求和或积分把它消掉
+normalize | 归一化：把数值缩放到可比的尺度
+standardize | 标准化：减去均值再除以标准差
+parametric | 参数化的：假定数据来自某个有限参数的分布族
+nonparametric | 非参数的：不预设分布形式的方法
+gaussian | 高斯的／正态的：钟形对称、由均值与方差决定的分布
+binomial
+poisson | 泊松的：单位时间内独立事件计数所服从的分布
+exponential
+uniform
+bernoulli
+multinomial
+dirichlet | 狄利克雷的：多项分布的共轭先验，用于分布之上的分布
+beta
+gamma
+laplace
+cauchy | 柯西的：尾极重、连均值都不存在的分布
+lognormal | 对数正态的：取对数之后服从正态的分布
+mixture | 混合（分布）：若干分布按权重叠加而成
+density | 概率密度：连续变量在某点附近的概率集中程度
+cumulative | 累积的：小于等于某值的总概率
+percentage
+odds | 几率：事件发生与不发生的概率之比
+logit | 对数几率：几率取对数，把概率映到实数轴
+softmax | 归一化指数函数：把一组实数压成和为一的概率分布
+entropy
+divergence | 散度：衡量两个分布差异的非对称量
+convolution
+moment | 矩：随机变量幂次的期望，刻画分布形状
+variance
+dispersion | 离散程度：数据分散开的程度
+outlier | 离群点：明显偏离其余数据的观测
+tail | 尾部：分布两端概率很小但影响很大的区域
+heavy-tailed | 重尾的：极端值出现的概率远高于正态
+stationary | 平稳的：统计性质不随时间改变
+ergodic | 遍历的：时间平均等于空间平均
+markov | 马尔可夫的：下一步只取决于当前状态，与历史无关
+martingale
+autocorrelation | 自相关：序列与自身滞后项之间的相关
 ## cat: data-infer
-heteroskedasticity
-homoscedastic
+heteroskedasticity | 异方差性：误差项的方差随观测而变
+homoscedastic | 同方差的：误差项方差恒定
 likelihood | 似然：在给定参数下观测到这批数据的概率
 estimator | 估计量：由样本算出、用来估计总体参数的统计量
+estimate | 估计值：由样本算出的、对总体参数的猜测
 unbiased | 无偏的：估计量的期望恰等于真实参数
+biased | 有偏的：估计量的期望系统性地偏离真值
 consistency | 相合性：样本量趋于无穷时估计量收敛到真值
+efficiency | 有效性：在同类估计量中方差最小
+sufficient | 充分的：统计量已包含样本中关于参数的全部信息
 significance | 显著性：若无真实效应，观测到该结果的概率有多低
 power | 统计功效：效应确实存在时能把它检出来的概率
+hypothesis | 假设：待检验的关于总体的陈述
+null | 零假设的：假定效应不存在的那个基准假设
+alternative
+inference
+frequentist | 频率派的：把概率理解为长期频率的统计立场
+bayesian | 贝叶斯的：把参数当作随机变量、用先验加数据更新信念
+posterior
+credible | 可信区间的：贝叶斯下参数以给定概率落入的区间
+confidence | 置信（区间）的：重复抽样下有给定比例会覆盖真值
+interval | 区间：以上下界给出的估计范围
+margin | 误差幅度：区间估计中加减的那一半宽度
 bootstrap | 自助法：对样本有放回重抽样以估计不确定性
 jackknife | 刀切法：逐一剔除样本点来估计偏差与方差
+resampling | 重抽样：反复从样本中抽取子样本以逼近抽样分布
+permutation | 置换检验：打乱标签重复计算以得到零分布
+asymptotic | 渐近的：样本量趋于无穷时的极限性质
+convergence | 收敛：随着样本量或迭代增加而趋于稳定
+regression | 回归：用解释变量拟合结果变量的期望
+residual | 残差：观测值与模型拟合值之差
+fitted | 拟合的：由模型算出、与观测相对应的值
+overdispersion | 过离散：实际方差超出模型所假定的方差
+multicollinearity | 多重共线性：解释变量之间高度相关，系数不稳定
+regularization
+shrinkage | 收缩：把估计值往零或均值方向压，以降低方差
+penalty | 惩罚项：为抑制复杂度而加进目标函数的项
+likelihood-ratio | 似然比：两个模型似然之比，用于检验
+calibration | 校准：模型给出的概率与真实频率是否吻合
+goodness-of-fit | 拟合优度：模型与观测数据吻合的程度
+robust | 稳健的：少数异常值不会显著改变结论
+sensitivity | 灵敏度：真阳性被正确检出的比例
+specificity | 特异度：真阴性被正确排除的比例
+precision | 精确率：预测为正的样本中真正为正的比例
+recall | 召回率：真正为正的样本中被预测出来的比例
+threshold | 判定阈值：把连续得分切成正负两类的分界
+tradeoff | 权衡：一项指标变好必然伴随另一项变差
+variance
+overfit | 过拟合：把训练集的噪声也学了进去
+underfit | 欠拟合：模型太简单，连训练集的规律都没学到
+cross-validation | 交叉验证：轮流留出一份数据做验证以估计泛化误差
+holdout | 留出法：单独留一份数据只用于最终评估
+stratification | 分层：按特征把总体切成若干同质子层
 ## cat: data-causal
+causality | 因果性：改变原因会真的改变结果，而非只是同现
 endogeneity | 内生性：解释变量与误差项相关，导致估计有偏
+exogenous | 外生的：不受模型内部因素影响的变量
 instrumental | 工具变量的：借助只通过处理影响结果的变量识别因果
+identification | 识别：能否从数据中唯一确定因果参数
+confounding | 混杂：某变量同时影响处理与结果，制造假关联
+collider | 对撞因子：被处理与结果共同影响的变量，控制它反而引入偏倚
+mediator | 中介变量：处理通过它影响结果
+moderator | 调节变量：改变处理效应大小的变量
 counterfactual | 反事实：若当初做了另一种选择本会发生的结果
+potential | 潜在结果的：每个个体在各种处理下本会得到的结果
 randomization | 随机化：随机分配处理，以切断混杂路径
+randomized
+controlled
 stratified | 分层的：先按特征分层再在层内抽样或分配
-attrition | 样本流失：受试者中途退出造成的系统性缺失
-ablation | 消融：拿掉某个成分以衡量它的真实贡献
+blocking | 区组化：把相似单元分组后在组内随机分配
+blinding | 盲法：让受试者或研究者不知道分组
 placebo | 安慰剂：无效对照，用来分离心理作用
+attrition | 样本流失：受试者中途退出造成的系统性缺失
+compliance | 依从性：受试者实际是否按分配接受了处理
+spillover | 溢出效应：对一个单元的处理影响了另一个单元
+interference | 干扰：一个单元的处理影响到别的单元，破坏独立性
+selection | 选择偏差的：样本进入研究的方式本身与结果相关
+survivorship | 幸存者偏差：只看到留下来的样本而忽略消失的
+ablation | 消融：拿掉某个成分以衡量它的真实贡献
+intervention | 干预：主动设定某变量的取值，而非被动观察
+treatment | 处理：实验中被施加的那个条件
+control | 对照：不施加处理、用作比较基准的一组
+covariate | 协变量：可能影响结果、需要控制的变量
+propensity | 倾向得分：给定协变量下接受处理的概率
+matching | 匹配：为处理组找到协变量相近的对照
+weighting | 加权：给样本不同权重以纠正分布失衡
+difference-in-differences | 双重差分：用处理前后与对照组的双重比较估计效应
+regression-discontinuity | 断点回归：利用分配阈值附近的准随机性识别因果
+synthetic | 合成控制的：用多个对照加权拟造一个反事实
+placebo-test | 安慰剂检验：在不该有效应的地方跑一遍以自证
+falsification | 证伪检验：设计一个若模型正确就该失败的检验
+robustness
+heterogeneity | 异质性：不同子群体的效应大小不同
+generalizability | 可推广性：结论能否外推到别的人群或场景
+external | 外部效度的：结论在研究之外是否依然成立
+internal | 内部效度的：研究本身能否支撑因果结论
 ## cat: data-eng
-idempotent
 lineage | 数据血缘：一份数据由哪些上游、经哪些变换得来
+provenance | 来源溯源：一份数据由谁、经什么流程产生
+idempotent
 denormalize | 反范式化：为查询速度刻意引入冗余
+normalization
 cardinality | 基数：某一列中不同取值的个数
 partitioning | 分区：按键把数据切分到不同物理单元
+sharding | 分片：把数据水平拆到多台机器
+bucketing | 分桶：按哈希把数据均匀分到固定数量的桶
+skew
+ingestion | 数据摄取：把外部数据接进系统的过程
+extraction | 抽取：从源系统把数据取出来的环节
+transformation | 转换：把数据清洗、重塑成目标结构
+warehouse | 数据仓库：为分析优化的集中式存储
+lakehouse | 湖仓：兼具数据湖弹性与仓库事务能力的架构
+schema | 模式：数据的字段、类型与约束的定义
+evolution | 模式演进：字段随时间增删改而保持兼容
+backfill | 回填：为历史区间重新跑一遍计算
+incremental
+batch | 批处理：攒够一批再统一计算
+streaming | 流式的：数据持续到达、边到边算，没有明确终点
+watermark | 水位线：流处理中判定某时间点数据已到齐的标记
+windowing | 开窗：把无界流按时间或计数切成有界片段
+checkpoint | 检查点：把中间状态落盘，故障后可从此处恢复
+replay | 重放：把历史事件重新跑一遍以重建状态
+dedupe | 去重：把重复记录合并或删除
+upsert | 更新插入：存在则更新、不存在则插入
+compaction | 压实：把大量小文件或增量合并成紧凑形式
+retention | 保留期：数据保存多久之后被清理
+granularity | 粒度：一行数据代表多细的单位
+aggregate | 聚合：把多行按维度合并成汇总值
+rollup | 上卷：把细粒度数据按维度汇总成粗粒度
+drill-down | 下钻：从汇总数据逐层展开到更细的维度
+dimension | 维度：用来切分与分组的属性
+metric | 度量：被汇总计算的数值指标
+cube | 数据立方：按多个维度预聚合好的结构
+column-oriented | 列式存储的：按列而非按行组织数据以加速分析
+vectorized | 向量化的：一次处理一批值而非逐行处理
+pushdown | 下推：把过滤或投影推到更靠近存储的一层执行
+pruning | 剪枝：跳过不可能命中的分区或分支
+indexing | 建索引：为加速查找而额外维护的数据结构
+materialized | 物化的：把查询结果预先算好并落盘
+staleness | 陈旧度：数据落后于真实世界的程度
+freshness
+validation | 校验：检查数据是否满足预期的规则
+anomaly | 异常：明显偏离既有模式的数据点
+profiling | 数据画像：统计一份数据的分布与质量特征
+governance | 数据治理：对数据的权属、质量与合规的管理
+catalog | 元数据目录：登记有哪些数据集及其含义
