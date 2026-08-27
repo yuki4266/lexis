@@ -41,7 +41,7 @@ volatility | 波动率：价格变动幅度的度量
 variance | 方差：收益围绕均值波动的平方度量
 drawdown | 回撤：从历史高点跌到低点的最大跌幅
 downside | 下行风险的：只统计亏损一侧的波动
-tail-risk | 尾部风险：概率极低但损失极大的情形
+tail risk | 尾部风险：概率极低但损失极大的情形
 exposure | 敞口：一旦风险发生会被波及的头寸规模
 hedge | 对冲：用反向头寸抵消已有风险
 hedging | 对冲操作：建立反向头寸以抵消已有风险
@@ -61,9 +61,9 @@ counterparty | 交易对手：合约另一方，其违约本身即是风险
 credit | 信用风险的：借款人还不上钱的风险
 systemic | 系统性的：单点崩塌拖垮整个体系
 contagion | 传染：风险从一个机构或市场蔓延到另一个
-stress-test | 压力测试：设定极端情景检验是否扛得住
+stress test | 压力测试：设定极端情景检验是否扛得住
 scenario | 情景：为压力测试设定的一组极端假设
-value-at-risk | 风险价值：给定置信水平下的最大可能损失
+value at risk | 风险价值：给定置信水平下的最大可能损失
 expected-shortfall | 预期损失：超过风险价值那部分损失的平均
 backtest | 回测：用历史数据检验策略表现
 overfitting | 过拟合：策略只是在历史数据上凑巧有效
@@ -151,3 +151,121 @@ exposure | 敞口：会被风险波及的头寸规模
 mark-to-market | 盯市：按当前市价重估持仓的账面盈亏
 unrealized | 未实现的：账面浮盈浮亏，尚未平仓兑现
 realized | 已实现的：已平仓兑现的盈亏
+## cat: fin-market
+issuer | 发行人：发行证券并承担偿付义务的一方
+custodian
+depositary | 存托机构：代持境外股票并发行存托凭证
+prospectus
+indenture | 债券契约：规定债券条款与受托人职责的文件
+callable | 可赎回的：发行人有权提前赎回
+puttable | 可回售的：持有人有权提前要求兑付
+convertible | 可转换的：可按约定条件转成股票
+warrant | 认股权证：以约定价格认购新股的权利
+rights | 配股权：现有股东按持股比例优先认购新股
+spinoff | 分拆上市：把子公司独立出来单独上市
+ipo | 首次公开发行：公司首次向公众出售股票
+secondary | 二级市场的：投资者之间买卖已发行证券
+primary | 一级市场的：证券首次从发行人手中卖出
+otc | 场外交易的：不通过交易所而由双方直接成交
+repo | 回购协议：卖出证券并约定日后按定价买回
+haircut
+collateralized | 有抵押的：以特定资产作为偿付担保
+securitization | 证券化：把一池现金流打包成可交易证券
+tranching
+subordination
+overcollateralization | 超额抵押：抵押品价值高于所担保的债务
+credit-enhancement | 信用增级：通过担保或分层提升债项评级
+rating | 信用评级：对偿付能力的等级评定
+downgrade | 评级下调：信用等级被调低
+spread
+basis | 基点：万分之一，利率与利差的最小计量单位
+curve | 收益率曲线的：不同期限利率所连成的曲线
+inversion | 曲线倒挂：短端利率高于长端，常被视为衰退信号
+carry-trade | 息差交易：借低息货币投高息资产
+## cat: fin-risk
+var | 风险价值：给定置信水平下的最大可能损失
+cvar | 条件风险价值：超出风险价值那部分损失的期望
+volatility-surface | 波动率曲面：不同行权价与期限对应的隐含波动率
+implied | 隐含波动率的：由期权价格反推出的波动率
+realized volatility | 已实现波动率：由历史价格算出的实际波动
+skew | 波动率偏斜：不同行权价隐含波动率的不对称
+smile | 波动率微笑：两端隐含波动率高于中间
+greeks | 希腊字母：衡量期权价格各类敏感度的指标
+delta | Delta：标的价格变动一单位时期权价格的变化
+gamma | Gamma：Delta 本身随标的价格变化的速度
+vega | Vega：波动率变动一单位时期权价格的变化
+theta | Theta：时间流逝对期权价格的侵蚀
+rho | Rho：利率变动对期权价格的影响
+hedge ratio | 对冲比率：为中和风险所需的对冲头寸比例
+basis risk | 基差风险：对冲工具与被对冲资产走势不完全一致
+tracking-error | 跟踪误差：组合收益与基准收益的偏离度
+information ratio | 信息比率：单位跟踪误差换来的超额收益
+sortino | 索提诺比率：只用下行波动衡量的风险调整收益
+calmar | 卡玛比率：年化收益与最大回撤之比
+kelly | 凯利公式的：使长期对数增长最大化的下注比例
+ruin | 破产概率：资金在到达目标前被打光的概率
+ergodicity | 遍历性：时间平均是否等于集合平均，决定复利能否成立
+fat-tail | 肥尾：极端事件比正态分布预测的频繁得多
+black-swan | 黑天鹅：事前难以预料、事后被合理化的极端事件
+stress | 压力情景的：为检验韧性设定的极端假设
+haircutting | 折价处理：为抵押品或估值打上保守折扣
+margin-call | 追加保证金通知：保证金不足时被要求补钱
+deleveraging | 去杠杆：主动降低负债比例
+fire-sale | 抛售：被迫低价变现导致价格进一步下跌
+liquidity-spiral | 流动性螺旋：抛售压低价格、价格下跌又迫使更多抛售
+## cat: fin-report
+gaap | 通用会计准则的：美国的财务报告标准
+ifrs | 国际财务报告准则的：多数国家采用的报告标准
+consolidation | 合并报表：把子公司并入母公司报表
+minority | 少数股东权益的：子公司中不属于母公司的那部分
+segment | 分部报告的：按业务或地域分别披露业绩
+capex | 资本性支出：购建长期资产的支出
+opex | 经营性支出：维持日常运营的支出
+capitalize | 资本化：把支出计入资产而非当期费用
+expense | 费用化：把支出直接计入当期损益
+accretive | 增厚的：并购后使每股收益上升
+dilutive | 摊薄的：使每股收益下降
+eps | 每股收益：净利润除以股本
+fcf | 自由现金流：经营现金流扣除资本开支后的余额
+wacc | 加权平均资本成本：股权与债务成本的加权平均
+npv | 净现值：未来现金流折现后减去初始投入
+irr | 内部收益率：使净现值为零的折现率
+payback | 回本期：多久能把初始投入赚回来
+terminal | 终值的：预测期之后所有现金流的现值
+comparable | 可比公司法的：用同类公司的估值倍数定价
+precedent | 先例交易法的：参考类似并购的成交倍数
+dcf | 现金流折现：把未来现金流折算成今天的价值
+sensitivity
+scenario
+covenant
+leverage ratio | 杠杆率：债务与权益或资产之比
+coverage | 利息保障倍数：经营利润能覆盖利息多少倍
+liquidity ratio | 流动比率：流动资产与流动负债之比
+working-capital | 营运资本：流动资产减流动负债
+## cat: fin-trade
+vwap | 成交量加权平均价：按成交量加权的平均成交价格
+twap | 时间加权平均价：按时间均匀切分下单的基准
+iceberg | 冰山单：只显示一小部分数量的大额委托
+hidden | 隐藏单的：完全不在订单簿上显示
+peg | 挂钩单的：价格自动跟随某个参考价
+stop | 止损单的：价格触及阈值时转为市价单
+trailing | 跟踪止损的：止损价随有利方向自动上移
+gtc | 撤销前有效的：委托一直有效直到成交或撤单
+ioc | 立即成交否则取消的：不能立即成交的部分立刻撤销
+fok | 全部成交否则取消的：不能全部成交就整单撤销
+crossing | 内部撮合：在自家系统内把买卖双方直接配对
+internalization | 内部化：券商用自有库存与客户成交
+payment-for-order-flow | 订单流付费：做市商付钱换取零售订单
+best-execution | 最优执行：有义务为客户争取最有利的成交条件
+adverse-selection | 逆向选择：做市商总在信息劣势方成交
+inventory risk | 库存风险：做市商被动持仓所承担的价格风险
+queue | 排队位置：同价位上委托的先后顺序
+tick-size | 最小报价单位：价格允许跳动的最小幅度
+lot | 手：交易的最小数量单位
+odd-lot | 零股：不足一手的零散数量
+halt | 停牌：交易被暂时中止
+circuit-breaker | 熔断：波动过大时自动暂停交易
+auction | 集合竞价：按统一价格一次性撮合的机制
+close | 收盘价的：一天交易结束时的最终价格
+settlement-cycle | 结算周期：成交后多少个交易日完成交收
+fail | 交收失败：到期未能交付证券或资金

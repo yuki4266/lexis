@@ -152,3 +152,85 @@ fixation | 会话固定：诱使受害者使用攻击者已知的会话标识
 lockout | 锁定：多次失败后暂时禁止登录
 throttling | 限流：有意压低请求速率以抵御滥用
 zero-trust | 零信任的：不因为在内网就默认信任任何请求
+## cat: sec-crypto
+kdf | 密钥派生函数：由口令或主密钥推出实际密钥
+argon2 | Argon2 的：抗 GPU 与内存受限的口令哈希算法
+bcrypt | bcrypt 的：可调工作因子的口令哈希算法
+scrypt | scrypt 的：内存密集的口令哈希算法
+pbkdf2 | PBKDF2 的：靠多轮迭代拉长派生时间
+aead | 带关联数据的认证加密：一次同时保证机密性与完整性
+galois | GCM 模式的：兼顾加密与认证的分组模式
+cbc | CBC 模式的：每块与前一块密文异或后再加密
+ctr | CTR 模式的：把分组密码当作流密码使用
+ecb | ECB 模式的：各块独立加密，会泄露明文模式
+malleability | 可延展性：攻击者能在不解密的情况下改动明文
+oracle | 预言机攻击的：靠服务端的错误反馈逐步解密
+constant-time | 恒定时间的：运行时长不依赖秘密数据
+blinding | 盲化：给运算加随机掩码以防侧信道
+diffie-hellman | Diffie-Hellman 的：在公开信道上协商共享密钥
+rsa | RSA 的：基于大整数分解困难性的公钥体制
+ecdsa | ECDSA 的：椭圆曲线上的数字签名算法
+ed25519 | Ed25519 的：高性能且实现不易出错的签名方案
+curve | 曲线参数的：椭圆曲线体制所选用的具体曲线
+modulus | 模数：公钥算法中决定安全强度的大整数
+exponent | 指数：公钥或私钥中参与幂运算的部分
+factorization | 因数分解：把大整数拆成质因数，RSA 的安全根基
+discrete-log | 离散对数：在有限群中求指数，多种公钥体制的难题
+birthday | 生日攻击的：碰撞出现的概率远高于直觉
+length-extension | 长度扩展攻击的：由已知哈希算出追加内容的哈希
+merkle | 默克尔树的：用哈希树高效证明某数据属于集合
+ratchet | 棘轮的：每条消息都换新密钥，泄露不波及前后
+envelope | 信封加密的：用数据密钥加密数据、再用主密钥加密数据密钥
+hsm | 硬件安全模块：把密钥关在防拆硬件里的设备
+enclave | 可信执行环境：CPU 内与操作系统隔离的加密执行区
+## cat: sec-attack
+csrf | 跨站请求伪造：借用户已登录的身份发出非其本意的请求
+xss | 跨站脚本：把脚本注入页面在受害者浏览器中执行
+ssrf | 服务端请求伪造：诱使服务器去访问内网地址
+xxe | XML 外部实体注入：借解析器读取本地文件或发起请求
+prototype-pollution | 原型链污染：改写共享原型影响全局对象行为
+clickjacking | 点击劫持：用透明层诱使用户点到别处
+typosquatting | 域名抢注：注册拼错的域名或包名等人上钩
+dependency-confusion | 依赖混淆：让构建系统误装同名的公开恶意包
+homograph | 同形字攻击的：用外形相同的异体字冒充域名
+cache-poisoning | 缓存投毒：让中间缓存存下攻击者构造的响应
+dns-rebinding | DNS 重绑定：解析结果中途改成内网地址以绕过同源
+session-fixation | 会话固定：诱使受害者使用攻击者已知的会话标识
+padding-oracle | 填充预言机：靠填充错误提示逐字节还原明文
+use-after-free | 释放后使用：访问已释放内存导致可控崩溃
+double-free | 重复释放：同一块内存被释放两次破坏堆结构
+heap-spray | 堆喷射：往堆里填满载荷以提高命中概率
+rop | 返回导向编程：拼接已有代码片段绕过不可执行保护
+shellcode | 载荷代码：漏洞触发后被执行的机器码
+privilege-escalation | 提权：从低权限拿到更高权限
+living-off-the-land | 就地取材的：只用系统自带工具，避免落地可疑文件
+beaconing | 心跳回连：受控主机定期向控制端报到
+command-and-control | 命令与控制：攻击者远程操纵受控主机的通道
+data-staging | 数据暂存：外带之前先在内网集中打包
+covert-channel | 隐蔽信道：借助本不用于通信的机制传递信息
+## cat: sec-def
+defense-in-depth | 纵深防御：多层独立防护，一层失守还有下一层
+fail-secure | 失效安全的：出错时默认拒绝而不是默认放行
+fail-open | 失效开放的：出错时默认放行，可用但危险
+allowlist | 白名单：只放行明确列出的，其余一律拒绝
+denylist | 黑名单：只拦截明确列出的，容易被绕过
+sanitization | 净化：对输入做清洗使其失去危害
+escaping | 转义：把特殊字符处理成纯数据而非代码
+parameterized | 参数化查询的：把数据与语句结构分开，杜绝注入
+csp | 内容安全策略：限定页面可加载与执行的资源来源
+sri | 子资源完整性：用哈希校验外部脚本未被篡改
+hsts | 强制 HTTPS：告诉浏览器此站永远只走加密连接
+pinning | 证书固定：只信任指定证书，防止中间人签发
+rotation
+secret | 密钥管理的：安全地存放、分发与轮换敏感凭据
+vault | 密钥保险库：集中托管密钥并按策略发放
+scanning | 扫描：自动查找已知漏洞与敏感信息泄露
+sbom | 软件物料清单：列明产物包含哪些组件与版本
+reproducible-build | 可复现构建：同样的源码总能构建出完全相同的产物
+signing | 签名：为产物附上可验证的来源证明
+runbook | 应急手册：事故发生时照着执行的处置步骤
+tabletop | 桌面推演：不动真格地演练应急流程
+blast-radius | 影响半径：一处失守会波及多大范围
+least-blast | 最小影响面的：把权限与连通性收到最小
+segmentation
+microsegmentation | 微隔离：把隔离粒度细化到单个工作负载

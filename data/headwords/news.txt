@@ -146,3 +146,111 @@ wire | 通讯社稿的：由通讯社发出、多家转载
 censorship | 审查：对内容的强制删改或封禁
 libel
 defamation
+## cat: news-diplo
+multilateral | 多边的：由多个国家共同参与
+bilateral | 双边的：只涉及两个国家
+unilateral | 单边的：一国单独采取行动
+summit | 峰会：国家领导人之间的会晤
+diplomatic protocol | 礼宾：外交场合的仪节规范
+credentials | 国书：使节递交以证明其身份的文件
+persona-non-grata | 不受欢迎的人：被驱逐的外交人员
+recall-ambassador | 召回大使：以撤回使节表达不满
+severing | 断交：正式终止外交关系
+normalization | 关系正常化：恢复正常的外交往来
+recognition | 承认：正式认可某政权或国家地位
+diplomatic mediation | 斡旋：第三方居中促成谈判
+shuttle | 穿梭外交的：调停者往返于双方之间
+backchannel | 秘密渠道：不公开的沟通管道
+diplomatic concession | 让步：谈判中主动放弃部分要求
+red-line | 红线：越过即引发强烈反应的界限
+ultimatum | 最后通牒：限期答复否则采取行动
+escalatory | 升级性的：会推高对抗强度
+containment | 遏制：阻止对手扩张影响力
+appeasement | 绥靖：以让步换取和平
+alignment-geopolitical | 站队：在大国竞争中选择靠向哪一方
+nonaligned | 不结盟的：不加入任何一方阵营
+sphere-of-influence | 势力范围：大国主张享有特殊影响的区域
+buffer | 缓冲国的：夹在大国之间的中间地带
+flashpoint | 引爆点：随时可能引发冲突的地点
+attrition-war | 消耗战：靠拼资源与人力拖垮对方
+asymmetric | 非对称的：弱势方以非常规手段对抗强敌
+hybrid | 混合战的：军事、信息与经济手段并用
+deniability | 可否认性：行动被设计成难以归因
+## cat: news-polit
+franchise | 选举权：公民参与投票的权利
+incumbency-advantage | 现任优势：在任者天然占据的选举便利
+swing | 摇摆选区的：两党势均力敌、结果难料
+landslide | 压倒性胜利：得票远超对手
+electoral mandate | 民意授权：以选举结果为施政依据
+lame-duck | 跛脚鸭的：任期将满、影响力下降
+transition | 政权交接：从上一届到下一届的过渡
+cabinet | 内阁：由部长组成的核心行政团队
+reshuffle | 改组：调整内阁或高层人事
+confidence-vote | 信任投票：议会表决是否继续支持政府
+motion | 动议：提交表决的正式提案
+bill | 法案：尚未通过的立法草案
+statute | 成文法：由立法机关制定的法律
+regulation | 行政法规：由行政机关制定的实施细则
+veto | 否决：拒绝批准已通过的法案
+override | 推翻否决：以更高票数强行通过
+sunset | 日落条款的：到期自动失效除非续期
+rider | 附加条款：搭在主法案上一并通过的条文
+pork-barrel | 分肥政治的：为选区争取项目以换取支持
+lobbying | 游说：向立法者施加影响的有组织活动
+revolving-door | 旋转门：官员与业界之间来回任职
+conflict-of-interest | 利益冲突：私人利益可能影响公职判断
+political accountability | 政治问责：为决策后果承担政治责任
+oversight | 监督：立法或独立机构对行政的制衡
+subpoena-power | 传唤权：要求作证或提交材料的权力
+whistleblower-protection | 举报人保护：防止揭发者遭到报复
+civil-service | 公务员体系：不随政党更替的职业官僚
+patronage-appointment | 政治任命：因政治关系而获得职位
+## cat: news-trade
+most-favoured | 最惠国待遇的：给予某国不低于其他国的条件
+national-treatment | 国民待遇：对外国产品与本国产品一视同仁
+nontariff | 非关税壁垒的：以标准或许可限制进口
+safeguard | 保障措施：进口激增时的临时限制
+countervailing | 反补贴的：对受补贴进口品加征关税
+origin | 原产地规则的：判定商品属于哪国的标准
+transshipment | 转运：经第三国中转以规避限制
+smuggling | 走私：绕过海关非法运输货物
+gray-market | 灰色市场的：非授权渠道的正品流通
+parallel-import | 平行进口：未经授权从他国进口正品
+localization-requirement | 本地化要求：强制在本国生产或采购一定比例
+technology-transfer | 技术转让：以市场准入换取技术
+joint-venture | 合资：外资与本地企业共同出资设立
+investment screening | 投资审查：以国家安全为由审查外资
+divest | 强制剥离：要求外资出售所持股权
+secondary sanctions | 次级制裁：惩罚与被制裁方交易的第三方
+extraterritorial | 域外管辖的：把本国法律适用到境外行为
+compliance risk | 合规风险：因违反管制而受罚的可能
+export license | 出口许可：特定商品出口前须获批准
+end-user | 最终用户核查：确认货物不会流向受限用途
+stockpiling | 囤积：为应对断供而提前储备
+supply diversification | 供应多元化：分散来源以降低单点依赖
+friendshoring | 友岸外包：把供应链迁往政治可靠的国家
+## cat: news-media
+gatekeeper | 把关人：决定什么内容能进入公共视野
+agenda-setting | 议程设置：媒体决定公众关注什么
+priming | 铺垫效应：媒体报道影响评价所依据的标准
+false-balance | 虚假平衡：为求"两面"而给边缘观点同等篇幅
+bothsidesism | 各打五十大板：不顾证据强弱一律并列呈现
+sensationalism | 煽情主义：以刺激性内容吸引注意
+tabloid | 小报的：以八卦与耸动标题为主
+broadsheet | 大报的：以严肃深度报道为主
+wire-service | 通讯社：向多家媒体供稿的机构
+stringer | 特约记者：按稿计酬的当地记者
+fixer | 当地协助者：为外国记者安排采访与翻译
+embedded | 随军记者的：跟随部队采访
+background | 背景交流的：可用信息但不得指明来源
+off-the-record | 不供发表的：谈话内容不得使用
+on-the-record | 可公开引用的：可直接署名引用
+deep-background | 深度背景的：可用但不得暗示来源存在
+paraphrase-attribution | 转述归属：不直接引语但仍标明来源
+verification | 核实：发稿前确认事实成立
+corroboration | 交叉印证：以多个独立来源确认同一事实
+deepfake | 深度伪造：用生成模型造出以假乱真的音视频
+synthetic media | 合成媒体：由算法生成而非拍摄的内容
+content-moderation | 内容审核：平台对违规内容的处理
+amplification-algorithmic | 算法放大：推荐机制让某些内容传播远超自然水平
+engagement-bait | 互动诱导：故意制造争议以博取互动

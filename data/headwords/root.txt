@@ -170,3 +170,120 @@ corroborate | 后缀 -ate（使）+ robur（橡木）：使坚实，即佐证
 obfuscate | 后缀 -ate（使）+ fuscus（暗）：使变暗，即混淆
 placate | 后缀 -ate（使）+ placere（取悦）：使平息
 vindicate | 后缀 -ate（使）：证明清白
+## cat: root-lat-v
+convene | 词根 venire（来）+ con（一起）：召集大家来到一处
+intervene | 词根 venire（来）+ inter（之间）：介入其中
+contravene | 词根 venire（来）+ contra（相对）：迎面顶撞，即违反
+circumvent | 词根 venire（来）+ circum（环绕）：绕道而行，即规避
+advent | 词根 venire（来）+ ad（到）：某事物的到来
+revenue | 词根 venire（来）+ re（回）：回流到手里的钱，即收入
+prevent | 词根 venire（来）+ pre（先）：先一步来挡住
+inevitable | 词根 venire（来）+ e（出）+ in（不）：躲不开的
+provident | 词根 videre（看）+ pro（先）：先看到的，即有远见的
+evident | 词根 videre（看）+ e（出）：看得出来的，即明显的
+survey | 词根 videre（看）+ super（在上）：从上方通看一遍
+supervise | 词根 videre（看）+ super（在上）：从上面看着，即监督
+revise | 词根 videre（看）+ re（再）：再看一遍，即修订
+improvise | 词根 videre（看）+ pro（先）+ in（不）：没有预先看过就上，即即兴
+prudent | 词根 videre（看）+ pro（先）：预先看清的，即审慎的
+dictate | 词根 dicere（说）：口述或强行规定
+edict | 词根 dicere（说）+ e（出）：发布出来的命令
+indict | 词根 dicere（说）+ in（对着）：正式提出指控
+predicament | 词根 dicere（说）+ pre（先）：被断言的处境，即困境
+verdict | 词根 dicere（说）+ verus（真）：说出真相，即裁决
+abdicate | 词根 dicere（说）+ ab（离开）：宣布放弃，即退位
+vindicate | 词根 dicere（说）+ vis（力）：以力证明清白
+benediction | 词根 dicere（说）+ bene（好）：说好话，即祝福
+malediction | 词根 dicere（说）+ mal（坏）：说坏话，即诅咒
+scribe | 词根 scribere（写）：抄写者
+ascribe | 词根 scribere（写）+ ad（归于）：把某事记在某人名下
+proscribe | 词根 scribere（写）+ pro（公开）：公告禁止
+conscription | 词根 scribere（写）+ con（一起）：登记入册，即征兵
+circumscribe | 词根 scribere（写）+ circum（环绕）：画圈限定
+transcribe | 词根 scribere（写）+ trans（跨越）：转写成另一种形式
+render | 词根 dare（给）+ re（回）：交回、给出，也指渲染
+tradition | 词根 dare（给）+ trans（跨越）：一代代交下去的东西
+## cat: root-lat-n
+juncture | 词根 jungere（连接）：关节点，即紧要关头
+conjunction | 词根 jungere（连接）+ con（一起）：连在一起
+adjunct | 词根 jungere（连接）+ ad（附）：附加的东西
+subjugate | 词根 jugum（轭）+ sub（在下）：套上轭，即征服
+yoke | 与拉丁 jugum（轭）同源：把两头牲口连在一起的横木
+gradual | 词根 gradus（台阶）：一级一级来的
+digress | 词根 gradi（走）+ dis（分开）：走岔了，即离题
+transgress | 词根 gradi（走）+ trans（越过）：越界，即违规
+aggressive | 词根 gradi（走）+ ad（朝向）：朝人走过去，即进攻性的
+congress | 词根 gradi（走）+ con（一起）：走到一起，即会议
+ingredient | 词根 gradi（走）+ in（进入）：走进配方里的东西
+egregious | 词根 grex（羊群）+ e（出）：跳出羊群的，即恶劣得显眼
+gregarious | 词根 grex（羊群）：爱扎堆的，即合群的
+segregate | 词根 grex（羊群）+ se（分开）：把羊群分开
+congregate | 词根 grex（羊群）+ con（一起）：聚成一群
+pendant | 词根 pendere（悬挂）：吊坠
+suspend | 词根 pendere（悬挂）+ sub（在下）：吊起来，即暂停
+indispensable | 词根 pendere（称量）+ dis（分开）+ in（不）：不可分出去的，即必不可少
+compendium | 词根 pendere（称量）+ com（一起）：称在一起，即纲要
+ponderous | 词根 pondus（重量）：沉重的、笨拙的
+imponderable | 词根 pondus（重量）+ in（不）：称不出分量的，即难以估量
+stringent | 词根 stringere（拉紧）：绷得很紧的，即严格的
+constrain | 词根 stringere（拉紧）+ con（一起）：捆住，即约束
+restrain | 词根 stringere（拉紧）+ re（回）：拉回来，即克制
+stricture | 词根 stringere（拉紧）：束缚，也指严厉批评
+## cat: root-gk
+antithesis | 希腊词根 tithenai（放置）+ anti（相对）：放在对立面
+parenthesis | 希腊词根 tithenai（放置）+ para（旁边）：插在旁边的话
+thesis | 希腊词根 tithenai（放置）：被提出来的主张
+analysis | 希腊词根 lyein（松开）+ ana（彻底）：彻底拆开
+paralysis | 希腊词根 lyein（松开）+ para（旁边）：一侧松脱，即瘫痪
+catalysis | 希腊词根 lyein（松开）+ kata（向下）：使分解
+dialysis | 希腊词根 lyein（松开）+ dia（穿过）：透过膜分离
+electrolysis | 希腊词根 lyein（松开）+ electro（电）：用电分解
+graphic | 希腊词根 graphein（写画）：图形的
+epigraph | 希腊词根 graphein（写画）+ epi（在上）：题词
+paragraph | 希腊词根 graphein（写画）+ para（旁边）：旁注标记，即段落
+calligraphy | 希腊词根 graphein（写画）+ kallos（美）：书法
+cartography | 希腊词根 graphein（写画）+ chartes（纸）：制图学
+phonetics | 希腊词根 phone（声音）：语音学
+euphony | 希腊词根 phone（声音）+ eu（好）：悦耳
+cacophony | 希腊词根 phone（声音）+ kakos（坏）：刺耳的杂音
+symphony | 希腊词根 phone（声音）+ syn（一起）：声音合在一起
+polyphony | 希腊词根 phone（声音）+ poly（多）：多声部
+morphology | 希腊词根 morphe（形态）：研究形态与构词的学问
+amorphous | 希腊词根 morphe（形态）+ a（无）：无定形的
+metamorphosis | 希腊词根 morphe（形态）+ meta（转变）：形态彻底改变
+anthropomorphic | 希腊词根 morphe（形态）+ anthropos（人）：把非人之物拟人化
+## cat: root-pre
+antipathy | 前缀 anti（相反）+ pathos（感受）：反感
+antidote | 前缀 anti（相反）+ didonai（给）：解毒剂
+antiseptic | 前缀 anti（相反）+ sepsis（腐败）：防腐的
+autocrat | 前缀 auto（自己）+ kratos（权力）：独揽大权者
+automaton | 前缀 auto（自己）：自行运转的机械装置
+dyslexia | 前缀 dys（不良）+ lexis（词）：阅读障碍
+dysfunction | 前缀 dys（不良）：功能失调
+dystopia | 前缀 dys（不良）+ topos（地方）：反乌托邦
+eulogize | 前缀 eu（好）+ logos（言）：颂扬
+euphoria | 前缀 eu（好）+ pherein（承载）：极度愉悦
+euthanasia | 前缀 eu（好）+ thanatos（死）：安乐死
+hypothermia | 前缀 hypo（不足）+ therme（热）：体温过低
+synchronize | 前缀 syn（一起）+ chronos（时间）：使同步
+synopsis | 前缀 syn（一起）+ opsis（看）：一眼看全，即提要
+symbiosis | 前缀 syn（一起）+ bios（生命）：共生
+sympathy | 前缀 syn（一起）+ pathos（感受）：同情
+## cat: root-suf
+tenacity | 后缀 -ity（性质）+ tenere（持有）：不肯松手的劲头
+voracity | 后缀 -ity（性质）+ vorare（吞食）：贪吃或贪求
+capacity | 后缀 -ity（性质）+ capere（容纳）：容纳的能力
+rapacity | 后缀 -ity（性质）+ rapere（夺取）：贪婪掠夺
+mendacity | 后缀 -ity（性质）+ mendax（说谎）：撒谎成性
+sagacity | 后缀 -ity（性质）+ sagax（敏锐）：明智洞察
+pugnacity | 后缀 -ity（性质）+ pugnare（打斗）：好斗
+loquacity | 后缀 -ity（性质）+ loqui（说）：话多
+propriety | 后缀 -ity（性质）+ proprius（自己的）：合乎分寸
+levity | 后缀 -ity（性质）+ levis（轻）：轻浮不庄重
+brevity | 后缀 -ity（性质）+ brevis（短）：简短
+gravity | 后缀 -ity（性质）+ gravis（重）：庄重，也指重力
+paucity | 后缀 -ity（性质）+ paucus（少）：数量稀少
+asperity | 后缀 -ity（性质）+ asper（粗糙）：严酷或语气尖刻
+disparity | 后缀 -ity（性质）+ par（对等）+ dis（不）：不对等的差距
+parity | 后缀 -ity（性质）+ par（对等）：对等、平价
+polity | 后缀 -ity（性质）+ polis（城邦）：政体

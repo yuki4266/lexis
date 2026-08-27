@@ -158,3 +158,125 @@ meta-analysis | 荟萃分析：把多项研究的结果定量合并
 systematic | 系统综述的：按预设方案穷尽检索并评价文献
 heterogeneity
 publication | 发表偏倚的：阳性结果更容易被发表而扭曲证据
+## cat: med-anat
+vasculature | 脉管系统：某区域的血管分布整体
+capillary | 毛细血管：进行物质交换的最细血管
+arteriole | 小动脉：调节外周阻力的细小动脉
+venule | 小静脉：把毛细血管血液汇回静脉的细管
+lymphatic | 淋巴的：回收组织液并参与免疫的系统
+interstitial | 组织间隙的：细胞之间的空隙及其液体
+membrane | 膜：包裹细胞或分隔腔隙的薄层结构
+permeability | 通透性：物质穿过屏障的难易程度
+gradient
+osmosis | 渗透：水沿浓度梯度穿过半透膜
+diffusion
+transporter | 转运蛋白：把物质主动搬过细胞膜的蛋白
+channel | 离子通道：让特定离子通过细胞膜的孔道
+depolarization | 去极化：膜电位向正方向变化并触发兴奋
+repolarization | 复极化：膜电位恢复到静息水平
+refractory period | 不应期：刚兴奋过、暂时无法再兴奋的时段
+synapse | 突触：神经元之间传递信号的接头
+neurotransmitter | 神经递质：跨突触传递信号的化学分子
+receptor
+agonist
+innervation | 支配：某神经对某器官的分布与控制
+sympathetic | 交感神经的：应激时提高心率与警觉
+parasympathetic | 副交感神经的：休息时促进消化与恢复
+endocrine | 内分泌的：把激素直接分泌进血液
+paracrine | 旁分泌的：只作用于邻近细胞的信号
+autocrine | 自分泌的：作用于分泌细胞自身的信号
+feedback | 负反馈的：结果反过来抑制起因以维持稳态
+## cat: med-dis
+inflammatory | 炎症性的：以炎症为核心机制
+autoimmune | 自身免疫的：免疫系统攻击自身组织
+immunodeficiency | 免疫缺陷：免疫功能低下易感染
+hypersensitivity | 超敏反应：免疫反应过强造成组织损伤
+allergen | 过敏原：诱发过敏反应的物质
+antigen | 抗原：能被免疫系统识别的分子
+antibody | 抗体：特异性结合抗原的免疫球蛋白
+seroconversion | 血清转化：感染后血中出现特异抗体
+titer | 滴度：抗体或病原在血中的浓度水平
+viral-load | 病毒载量：血中病毒的数量
+incubation | 潜伏期：感染到出现症状之间的时间
+transmissibility | 传播力：病原从一人传给另一人的能力
+reproduction-number | 基本再生数：一个病例平均传染多少人
+herd-immunity | 群体免疫：足够多人免疫后传播链自然中断
+endemic | 地方性流行的：在某地区长期稳定存在
+epidemic | 流行的：短期内病例明显超出常态
+pandemic
+outbreak | 暴发：局部短时间内出现大量病例
+zoonotic | 人畜共患的：由动物传给人的疾病
+vector | 媒介传播的：靠蚊虫等生物传播
+reservoir | 宿主库：病原长期存在的自然宿主
+virulence | 毒力：病原致病能力的强弱
+pathogenicity | 致病性：病原引起疾病的能力
+resistance | 耐药性：病原对药物不再敏感
+mutation | 突变：基因序列发生的改变
+variant
+genotype | 基因型：个体所携带的基因构成
+phenotype | 表型：基因与环境共同决定的可观察特征
+biomarker | 生物标志物：可测量、反映疾病状态的指标
+screening | 筛查：在无症状人群中主动查找疾病
+falsepositive | 假阳性：实际没病却被判为有病
+falsenegative | 假阴性：实际有病却被判为没病
+overdiagnosis | 过度诊断：查出了本不会造成伤害的病变
+lead-time | 领先时间偏倚：早发现只是提前知道而非延长生存
+## cat: med-drug
+formulation | 剂型：药物被制成片剂注射剂等的形式
+excipient | 辅料：不起药效但影响制剂性质的成分
+sustained-release | 缓释的：让药物在体内缓慢释放
+enteric | 肠溶的：包衣使药物在肠道而非胃中释放
+parenteral | 胃肠外给药的：注射等不经消化道的给药方式
+intravenous | 静脉注射的：直接进入血液循环
+intramuscular | 肌肉注射的：注入肌肉后缓慢吸收
+subcutaneous | 皮下注射的：注入皮下脂肪层
+topical | 局部外用的：直接作用于皮肤或黏膜
+systemic | 全身性的：经血液分布到全身
+firstpass | 首过效应的：口服药经肝脏代谢后剩余量减少
+metabolite | 代谢产物：药物在体内被转化后的形式
+prodrug | 前药：本身无活性、在体内转化后才起效
+cytochrome | 细胞色素酶的：负责多数药物代谢的肝酶系统
+induction | 酶诱导：某药提高代谢酶活性使他药失效更快
+inhibition | 酶抑制：某药降低代谢酶活性使他药蓄积
+narrow-therapeutic | 治疗窗窄的：有效剂量与中毒剂量非常接近
+therapeutic-index | 治疗指数：中毒剂量与有效剂量之比
+monitoring | 血药浓度监测：定期测量以调整剂量
+tapering | 逐渐减量：缓慢停药以避免反跳
+rebound | 反跳：停药后症状比治疗前更重
+refractoriness | 快速耐受：短期反复用药后效果迅速下降
+synergy | 协同：合用效果大于各自作用之和
+antagonism | 拮抗：合用效果小于各自作用之和
+polypharmacy | 多重用药：同时服用多种药物带来的风险
+deprescribing | 减药：主动停用不再必要的药物
+formulary | 处方集：医保或医院允许使用的药品目录
+generic | 仿制药的：专利到期后成分相同的替代药
+biosimilar | 生物类似药的：与原研生物药高度相似的产品
+## cat: med-clin
+phase | 试验分期的：从安全性到有效性的分阶段推进
+dose-escalation | 剂量爬坡：逐步加量以找到最大耐受剂量
+maximum-tolerated | 最大耐受剂量的：不引起不可接受毒性的最高剂量
+noninferiority | 非劣效的：证明新疗法不比现有疗法差
+superiority | 优效的：证明新疗法优于对照
+equivalence | 等效的：证明两者疗效差异在可接受范围内
+margin | 界值：非劣效检验中可容忍的最大劣势
+powering | 样本量估算：为达到目标检验力所需的受试人数
+enrichment | 富集设计的：只纳入更可能获益的人群
+adaptive | 适应性设计的：按期中结果调整试验方案
+basket | 篮子试验的：同一疗法用于携带同一靶点的多种癌症
+umbrella | 伞式试验的：同一癌种按不同靶点分配不同疗法
+platform | 平台试验的：可随时加入或退出治疗组的长期试验
+pragmatic | 实用性试验的：在真实医疗环境中评估效果
+registry-based | 登记式的：借助已有登记系统开展研究
+real-world | 真实世界证据的：来自日常诊疗数据的证据
+propensity score matching | 倾向评分匹配：为观察性研究构造可比对照
+immortal-time | 永生时间偏倚：分组定义方式造成的虚假生存优势
+competing risk | 竞争风险：其他事件的发生阻止了目标事件
+censoring | 删失：随访结束时仍未发生事件的观测
+survival | 生存分析的：研究到事件发生所经历时间
+hazard | 风险比的：两组瞬时事件发生率之比
+kaplan-meier | Kaplan-Meier 曲线的：随时间描绘生存概率
+median-survival | 中位生存期：一半受试者仍存活的时间点
+progression-free | 无进展生存期：从治疗开始到疾病进展的时间
+quality-adjusted | 质量调整生命年的：兼顾寿命长度与生活质量
+cost-effectiveness | 成本效果：每多获得一单位健康收益要花多少钱
+number-needed | 需治疗人数：每避免一例不良结局需治疗多少人

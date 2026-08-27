@@ -57,8 +57,8 @@ fewer | 用于可数：fewer errors
 less | 用于不可数：less noise
 among | 三者以上之间：among the options
 between | 两者之间：也可用于明确的多方之间
-compare-to | 比作：强调相似，compare A to B
-compare-with | 与…相比：强调对照异同
+compare to | 比作：强调相似，compare A to B
+compare with | 与…相比：强调对照异同
 substitute | 用新的替换旧的：substitute A for B
 replace | 替换掉：replace A with B
 alternate | 交替的：轮流出现
@@ -84,7 +84,7 @@ raise | 搭配：raise a concern／an objection／a question
 address | 搭配：address an issue／a concern，即着手处理
 tackle | 搭配：tackle a problem，强调正面应对
 undertake | 搭配：undertake a study／an analysis，即着手进行
-carry-out | 搭配：carry out an experiment／an investigation
+carry out | 搭配：carry out an experiment／an investigation
 yield | 搭配：yield results／insights，即产出
 provide | 搭配：provide evidence／support／insight
 lend | 搭配：lend support to a hypothesis，即为假设提供支持
@@ -134,13 +134,127 @@ apprise | 介词：apprise of，正式告知
 accuse | 介词：accuse of，指控
 blame | 介词：blame for，因某事责怪
 compensate | 介词：compensate for，弥补
-substitute-for | 介词：substitute for，代替
-account-for | 介词：account for，解释或占比
-allow-for | 介词：allow for，把某因素考虑在内
-provide-for | 介词：provide for，规定或供养
+substitute for | 介词：substitute for，代替
+account for | 介词：account for，解释或占比
+allow for | 介词：allow for，把某因素考虑在内
+provide for | 介词：provide for，规定或供养
 cater | 介词：cater to，迎合
 subscribe | 介词：subscribe to a view，即赞同某观点
 adapt | 介词：adapt to，适应
 adopt | 无介词：adopt an approach，即采纳
 object | 介词：object to，反对
 oppose | 无介词：oppose the plan，直接接宾语
+## cat: conf-form
+elusive | 难以捉摸的：illusive 是「虚幻的」，allusive 是「多典故的」
+allusive | 多典故的：与 elusive（难捉摸）常被混淆
+perspicuous | 表述清晰的：perspicacious 才是「目光敏锐的」
+perspicacious | 目光敏锐的：看人看事透彻
+peruse | 细读：常被误用为「浏览」，本义是仔细阅读
+appraise | 估价：apprise 是「告知」
+apprise | 告知：与 appraise（估价）只差一个字母
+censure | 谴责：censor 是「审查」，sensor 是「传感器」
+censor | 审查：删改或封禁内容
+deprecate | 不赞成／弃用：depreciate 是「贬值」
+depreciate | 贬值：资产价值下降
+relegate | 降级放置：把人或事挪到不重要的位置
+enervate | 使虚弱：常被误以为是「激励」，意思正相反
+innervate | 支配神经：与 enervate（使虚弱）无关
+fortuitous | 偶然的：本义只是「碰巧」，未必是好事
+fortunate | 幸运的：与 fortuitous（偶然的）不同
+noisome | 恶臭的：与 noisy（吵闹的）毫无关系
+nauseous | 令人作呕的：nauseated 才是「感到恶心的」
+nauseated | 感到恶心的：主语是人
+turbid | 浑浊的：turgid 是「浮夸臃肿的」
+turgid | 浮夸的：文风肿胀累赘
+prodigal | 挥霍的：不是「多产的」，那是 prolific
+prolific | 多产的：产出数量很大
+restive | 焦躁不安的：不是「休息的」，恰恰相反
+restful | 宁静的：让人得以休息的
+disburse | 支付：disperse 是「驱散、分散」
+disperse | 分散：使散开
+hoard | 囤积：horde 是「一大群人」
+horde | 一大群：常带贬义
+pore | 钻研：pore over a text；pour 是「倒」
+pour | 倒：把液体倒出
+wary | 警惕的：weary 是「疲惫的」
+weary | 疲惫的：与 wary（警惕的）拼写相近
+## cat: conf-sense
+apathetic | 冷漠的：比 uninterested 更强，含情感缺失
+indifferent | 无所谓的：不偏向任何一方，也指平庸
+impartial | 公正的：不偏袒任何一方，是褒义
+neutral | 中立的：不站队，未必是因为公正
+objective | 客观的：不受个人感受影响
+subjective | 主观的：取决于个人视角与感受
+sceptical | 存疑的：需要更多证据才肯相信
+cynical | 犬儒的：认定他人皆出于自利
+critical | 批判的：审慎评估，未必是负面
+judgmental | 好评判的：轻易对他人下道德判断
+discerning | 有鉴赏力的：能分辨优劣
+discriminating | 有品味的：作褒义时指眼光挑剔
+discriminatory | 歧视性的：作贬义时指区别对待
+pragmatic | 务实的：以效果为准而不拘原则
+expedient | 权宜的：管用但未必正当
+opportunistic | 机会主义的：只看时机不讲原则
+strategic | 有战略的：为长期目标而布局
+tactical | 战术性的：着眼于眼前的具体手段
+efficient | 高效的：以更少投入得到同样产出
+effective | 有效的：确实达成了目标
+productive | 多产的：产出量大
+efficacious | 有效力的：在理想条件下确能奏效
+optimal | 最优的：在给定约束下最好
+optimum | 最佳点：作名词指最优的那个值
+maximal | 极大的：不能再大的
+maximum | 最大值：作名词指最大的那个数
+periodic | 周期性的：按固定间隔重复
+intermittent | 间歇性的：时有时无、间隔不定
+sporadic | 零星的：偶尔发生且无规律
+## cat: conf-collo
+pose a risk | 构成风险：risk 最常见的动词搭配
+mitigate a risk | 降低风险：mitigate 与 risk 的固定搭配
+assume the risk | 承担风险：明知有险仍接受
+run the risk of | 冒着……的风险：后接动名词
+meet the criteria | 符合标准：criteria 是复数，单数为 criterion
+set a precedent | 开创先例：此后同类情形都会援引它
+reach a consensus | 达成共识：不是 reach to
+draw a distinction | 作出区分：指出两者不同
+make a case for | 为……提出论证：正式场合的常用说法
+build consensus | 凝聚共识：强调过程而非结果
+take issue with | 对……提出异议：礼貌而明确的反对
+call into question | 使……受到质疑：动摇某个既有结论
+cast doubt on | 令人怀疑：削弱某说法的可信度
+lay the groundwork for | 为……打基础：做前期铺垫
+gain traction | 开始被接受：势头起来了
+lose momentum | 势头减弱：推进变慢
+strike a balance | 取得平衡：常接 between A and B
+bridge the gap | 弥合差距：把两者之间的落差补上
+close the loop | 闭环：把事情跟到有结果为止
+move the needle | 产生实际影响：指标真的动了
+raise the bar | 提高标准：让门槛变高
+lower the barrier to entry | 降低门槛：让更多人能进来
+scope creep | 范围蔓延：需求不断悄悄扩张
+technical debt | 技术债：为赶进度欠下、日后要还的代价
+low-hanging fruit | 容易摘的果子：投入小见效快的事
+## cat: conf-prep
+consist of | 由……组成：注意与 consist in 区别
+consist in | 在于：本质是……，不是「由……组成」
+agree with | 同意某人：宾语是人或观点
+agree to | 同意某方案：宾语是提议或条件
+agree on | 就某事达成一致：宾语是议题
+different from | 与……不同：英式亦可 different to
+similar to | 与……相似
+identical to | 与……完全相同
+equivalent to | 等价于：在所关心的意义上一样
+proportional to | 与……成正比
+inversely proportional to | 与……成反比
+correlated with | 与……相关：不等于有因果
+associated with | 与……有关联：比 caused by 弱
+attributable to | 可归因于：把结果算在某因头上
+subject to | 受制于；也表示有待于
+liable for | 对……负有责任：法律上的责任
+liable to | 易于发生：倾向于出现某种情况
+responsible for | 对……负责
+accountable to | 向……问责负责：要向谁交代
+capable of | 有能力做：后接动名词
+capacity for | 具备某种能力或容量
+aptitude for | 在某方面有天分
+propensity to | 倾向于做某事

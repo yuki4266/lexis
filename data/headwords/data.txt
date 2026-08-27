@@ -99,7 +99,7 @@ multicollinearity | 多重共线性：解释变量之间高度相关，系数不
 regularization
 shrinkage | 收缩：把估计值往零或均值方向压，以降低方差
 penalty | 惩罚项：为抑制复杂度而加进目标函数的项
-likelihood-ratio | 似然比：两个模型似然之比，用于检验
+likelihood ratio | 似然比：两个模型似然之比，用于检验
 calibration | 校准：模型给出的概率与真实频率是否吻合
 goodness-of-fit | 拟合优度：模型与观测数据吻合的程度
 robust | 稳健的：少数异常值不会显著改变结论
@@ -151,7 +151,7 @@ weighting | 加权：给样本不同权重以纠正分布失衡
 difference-in-differences | 双重差分：用处理前后与对照组的双重比较估计效应
 regression-discontinuity | 断点回归：利用分配阈值附近的准随机性识别因果
 synthetic | 合成控制的：用多个对照加权拟造一个反事实
-placebo-test | 安慰剂检验：在不该有效应的地方跑一遍以自证
+placebo test | 安慰剂检验：在不该有效应的地方跑一遍以自证
 falsification | 证伪检验：设计一个若模型正确就该失败的检验
 robustness
 heterogeneity | 异质性：不同子群体的效应大小不同
@@ -208,3 +208,106 @@ anomaly | 异常：明显偏离既有模式的数据点
 profiling | 数据画像：统计一份数据的分布与质量特征
 governance | 数据治理：对数据的权属、质量与合规的管理
 catalog | 元数据目录：登记有哪些数据集及其含义
+## cat: data-prob
+support | 支撑集：随机变量取值概率非零的区域
+mass | 概率质量：离散变量在某点上的概率
+likelihood
+prior
+posterior
+evidence | 证据项：贝叶斯公式分母上的边缘似然
+normalizing | 归一化常数的：使概率积分为一的那个因子
+sampler | 采样器：从目标分布中抽样的算法
+metropolis | Metropolis 算法的：按接受率决定是否接受候选样本
+gibbs | 吉布斯采样的：轮流对每个变量条件采样
+importance | 重要性采样的：用易采样分布加权逼近目标分布
+rejection | 拒绝采样的：先从包络分布抽样再按比例丢弃
+variational | 变分的：用一族简单分布去逼近复杂后验
+elbo | 证据下界：变分推断实际优化的那个目标
+reparameterization | 重参数化：把随机性挪到与参数无关的噪声上
+monte-carlo | 蒙特卡洛的：靠大量随机采样近似期望
+antithetic | 对偶变量的：用负相关样本对降低方差
+stratified sampling | 分层抽样：先分层再层内抽样以降低方差
+concentration | 集中不等式的：刻画样本均值偏离期望的概率上界
+chernoff | 切尔诺夫界的：指数级衰减的偏离概率上界
+hoeffding | 霍夫丁不等式的：有界随机变量的集中界
+chebyshev | 切比雪夫不等式的：只用方差给出的偏离上界
+jensen | 詹森不等式的：凸函数的期望不小于期望的函数值
+law-of-large-numbers | 大数定律：样本均值收敛到期望
+central-limit | 中心极限定理的：大量独立变量之和趋于正态
+copula | 联结函数：把边缘分布与相关结构分开建模
+mixture
+latent
+generative | 生成式的：对数据的联合分布建模
+discriminative | 判别式的：只对条件分布建模
+## cat: data-infer
+frequentist
+pvalue | p 值：零假设为真时得到当前或更极端结果的概率
+critical | 临界值的：拒绝零假设的分界点
+rejection-region | 拒绝域：落入其中就拒绝零假设的取值范围
+typeone | 第一类错误的：零假设为真却被拒绝
+typetwo | 第二类错误的：零假设为假却未被拒绝
+multiple-comparisons | 多重比较：做很多检验会推高假阳性
+bonferroni | Bonferroni 校正的：把显著性水平除以检验次数
+fdr | 错误发现率：被判为显著的结果中假阳性的比例
+familywise | 族错误率的：一组检验中至少犯一次错的概率
+prespecified | 预先设定的：分析计划在看数据之前就定好
+phacking | p 值操纵：反复尝试直到凑出显著结果
+garden-of-forking-paths | 分叉路径花园：看数据后才决定分析方式导致虚假显著
+harking | 事后编假设：看到结果再把它写成事先的假设
+replication-crisis | 可复现性危机：大量已发表结果无法被重复
+effect-size | 效应量：效应本身有多大，与显著性无关
+cohen | Cohen's d：以标准差为单位度量的效应量
+odds ratio | 优势比：两组事件几率之比
+relative risk | 相对风险：两组发生率之比
+absolute risk | 绝对风险差：两组发生率之差
+nnt | 需治疗人数：每避免一例不良结局需治疗多少人
+confidence interval | 置信区间：重复抽样下有给定比例覆盖真值
+standard-error | 标准误：估计量抽样分布的标准差
+degrees | 自由度的：可自由变化的独立信息个数
+ttest | t 检验的：小样本下比较均值的检验
+anova | 方差分析：比较多组均值是否存在差异
+chisquare | 卡方检验的：检验分类变量之间是否独立
+nonparametric
+rank | 秩检验的：只用大小顺序而不用具体数值
+wilcoxon | Wilcoxon 检验的：配对样本的非参数检验
+kolmogorov | K-S 检验的：比较两个分布是否相同
+bootstrapping | 自助法：对样本有放回重抽样以估计不确定性
+jackknifing | 刀切：逐一剔除样本以估计偏差
+permutation test | 置换检验：打乱标签重复计算以得到零分布
+posterior-predictive | 后验预测检验的：用模型生成数据看像不像真实数据
+credible interval | 可信区间：参数以给定概率落入的区间
+bayes-factor | 贝叶斯因子：两个模型对数据的相对支持度
+aic | 赤池信息准则：兼顾拟合与复杂度的模型选择指标
+bic | 贝叶斯信息准则：对复杂度惩罚更重的选择指标
+likelihood ratio test | 似然比检验：比较嵌套模型的标准检验
+## cat: data-causal
+dag | 有向无环图的：用图表示变量之间的因果结构
+backdoor | 后门路径的：从处理到结果的非因果通路
+frontdoor | 前门准则的：借中介变量识别因果效应
+dseparation | d-分离：图中判断条件独立性的规则
+adjustment | 调整集：控制哪些变量才能无偏估计因果效应
+overcontrol | 过度控制：控制了中介变量反而挡住真实效应
+collider-bias | 对撞偏倚：控制对撞因子引入的虚假关联
+berkson | 伯克森偏倚：选择性入组造成的虚假负相关
+simpson | 辛普森悖论：分组结论与合并结论相反
+ecological | 生态学谬误：从群体规律推断个体行为
+atomistic | 原子谬误：从个体推断群体层面的规律
+natural-experiment | 自然实验：现实中恰好出现的准随机分配
+quasi-experimental | 准实验的：无法随机化时的近似因果设计
+event study | 事件研究：以事件时点为界比较前后走势
+interrupted | 中断时间序列的：以干预时点为界的前后对比
+panel | 面板数据的：同一批对象在多个时点上的观测
+fixed-effects | 固定效应的：控制掉不随时间变化的个体差异
+random-effects | 随机效应的：把个体差异当作随机抽取
+clustered | 聚类稳健标准误的：同组观测相关时的方差修正
+placebo outcome | 安慰剂结局：本不该受影响的结局，用来自证
+negative-control | 阴性对照：预期无效应的对照以检出偏倚
+sensitivity analysis | 敏感性分析：结论对未观测混杂有多脆弱
+evalue | E 值：需要多强的未观测混杂才能推翻结论
+bounds | 界：在弱假设下给出因果效应的取值范围
+partial-identification | 部分识别：只能确定效应落在某区间内
+compliers | 依从者：分到什么就接受什么的那部分人
+late | 局部平均处理效应：只对依从者成立的因果效应
+att | 处理组平均处理效应：只在被处理者身上的效应
+dose-response | 剂量反应：处理强度与效应大小的关系
+mendelian | 孟德尔随机化的：用基因变异当作天然的工具变量
