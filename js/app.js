@@ -303,7 +303,7 @@
     elExEn2.textContent = cur.s2 || ''; elExZh2.textContent = cur.z2 || '';
     elExEn2.hidden = elExZh2.hidden = !cur.s2;
 
-    hint(roundMsg, '');            // 常态留白：颜色与声音已经把话说完了 / silence by default
+    hint(roundMsg || (reviewOf ? '上次错过，这次凭听的打 · missed before — from memory now' : ''), '');
     paint('');
     speak(cur.w);
     elTyper.focus();
@@ -322,6 +322,10 @@
     elHint.hidden = !text;
   }
 
+  // 什么时候把拼写藏起来：听写模式，或者这是一道复习题
+  // When to hide the spelling: dictation mode, or when the word came back for review
+  function masked() { return (prefs.blind || !!reviewOf) && !solved; }
+
   // 逐字母上色：对=绿 / 错=红 / paint every letter: green if right, red if wrong
   function paint(typed) {
     if (!cur) return;
@@ -335,13 +339,13 @@
         } else {
           cls += ' wrong';
           wrong = true;
-          // 听写模式下显示"你打的那个字母"，而不是正确答案
-          if (prefs.blind && !solved) s.textContent = typed[i];
+          // 看不见拼写时显示"你打的那个字母"，而不是正确答案
+          if (masked()) s.textContent = typed[i];
         }
       } else if (i === typed.length) {
         cls += ' cur';
-        if (prefs.blind && !solved) cls += ' masked';
-      } else if (prefs.blind && !solved) {
+        if (masked()) cls += ' masked';
+      } else if (masked()) {
         cls += ' masked';
       }
       s.className = cls;
@@ -365,7 +369,7 @@
       if (typed[i].toLowerCase() === cur.w[i].toLowerCase()) {
         stats.ok++;
       } else {
-        stats.errs++; stats.streak = 0;
+        stats.errs++; if (counts()) stats.streak = 0;
         noteMistake();
         blip();
         elWord.classList.remove('shake');
@@ -382,9 +386,13 @@
 
   var stats = { done: 0, streak: 0, keys: 0, errs: 0, ok: 0, start: 0 };
 
+  // 词就摆在屏幕上时打错只是手滑，不算不会；只有看不见拼写时的错才是真的错
+  // With the word on screen a wrong key is a typo, not a gap. Only blind attempts count.
+  function counts() { return prefs.blind || !!reviewOf; }
+
   // 打错了：把这个词排进复习队列，隔几个词就回来 / schedule the word to come back
   function noteMistake() {
-    if (!cur || curErr) return;
+    if (!cur || curErr || !counts()) return;
     curErr = true;
     var e = mistakes[cur.w] || { n: 0, reps: 0 };
     e.n++; e.t = Date.now();
@@ -421,12 +429,12 @@
   function success() {
     solved = true;
     if (reviewOf) advanceReview();
-    else if (!curErr) clearMistake(cur.w);
+    else if (!curErr && counts()) clearMistake(cur.w);   // 照着屏幕抄对不算掌握
     stats.done++; stats.streak++;
     elCard.classList.add('is-solved');
     paint(cur.w);                                       // 全绿并揭示答案 / all green, reveal
     ding();
-    hint(reviewOf ? '这个词你刚才错过 · you missed this one earlier' : '', 'ok');
+    hint('', 'ok');
     updateStats();
     var next = reviewOf ? idx : idx + 1;             // 复习题不占用正常队列的位置
     setTimeout(function () { load(next); }, 780);
@@ -434,7 +442,7 @@
 
   function skip() {
     if (!cur || solved) return;
-    noteMistake();
+    if (counts()) noteMistake();
     solved = true; stats.streak = 0;
     for (var i = 0; i < elWord.children.length; i++) {   // 取消遮罩，露出正确拼写 / unmask
       elWord.children[i].className = 'ch' + (cur.w[i] === ' ' ? ' space' : '');
