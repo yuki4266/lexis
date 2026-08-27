@@ -370,6 +370,7 @@ if (prev && prev !== String(shown)) {
     if (!fs.existsSync(fp)) continue;
     const before = fs.readFileSync(fp, 'utf8');
     const after = before.split(prev + ' 个词').join(shown + ' 个词')
+                        .split(prev + ' 个').join(shown + ' 个')
                         .split(prev + ' 词').join(shown + ' 词')
                         .split(prev + ' words').join(shown + ' words')
                         .split(prev + ' high-frequency').join(shown + ' high-frequency');
