@@ -52,7 +52,6 @@ window.TECHLEX_DATA["phil"] = [
 {"w":"symbolic","ph":"/sim'bɒlik/","pos":"adj.","cat":"phil-soc","en":"","zh":"符号资本的：声望与认可所构成的无形资源","r":4160,"g":1},
 {"w":"equality","ph":"/i:'kwɒliti/","pos":"n.","cat":"phil-eth","en":"The quality of being the same in quantity or measure or value or status","zh":"平等, 均匀, 相等","r":4197,"tag":"toefl"},
 {"w":"mobility","ph":"/mәu'biliti/","pos":"n.","cat":"phil-soc","en":"","zh":"社会流动：个体在阶层之间上下移动","r":4407,"g":1,"tag":"gre"},
-{"w":"inequality","ph":"/.ini'kwɒliti/","pos":"n.","cat":"phil-econ","en":"Lack of equality","zh":"不平等, 不同, 不平坦, 不平均；不平等, 不等式","r":4436},
 {"w":"screening","ph":"/'skri:niŋ/","pos":"n.","cat":"phil-econ","en":"","zh":"甄别：设计机制让对方自己暴露类型","r":4694,"g":1},
 {"w":"reproduction","ph":"/.ri:prә'dʌkʃәn/","pos":"n.","cat":"phil-soc","en":"","zh":"再生产：不平等经由教育与家庭代际延续","r":4803,"g":1,"tag":"toefl"},
 {"w":"inclusion","ph":"/in'kluʒәn/","pos":"n.","cat":"phil-soc","en":"","zh":"包容：让被排斥者获得实质参与","r":5156,"g":1},

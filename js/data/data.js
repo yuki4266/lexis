@@ -84,7 +84,6 @@ window.TECHLEX_DATA["data"] = [
 {"w":"precision","ph":"/pri'siʒәn/","pos":"n.","cat":"data-infer","en":"","zh":"精确率：预测为正的样本中真正为正的比例","r":5050,"g":1,"tag":"toefl"},
 {"w":"aggregate","ph":"/'ægrigәt/","pos":"n.","cat":"data-eng","en":"","zh":"聚合：把多行按维度合并成汇总值","r":5505,"g":1,"tag":"gre"},
 {"w":"batch","ph":"/bætʃ/","pos":"n.","cat":"data-eng","en":"","zh":"批处理：攒够一批再统一计算","r":5555,"g":1,"tag":"gre"},
-{"w":"controlled","ph":"/kәn'trәuld/","pos":"adj.","cat":"data-causal","en":"Restrained or managed or kept within certain bounds","zh":"受约束的, 克制的","r":5572},
 {"w":"instrumental","ph":"/.instru'mentәl/","pos":"adj.","cat":"data-causal","en":"","zh":"工具变量的：借助只通过处理影响结果的变量识别因果","r":5653,"g":1,"tag":"gre"},
 {"w":"cube","ph":"/kju:b/","pos":"n.","cat":"data-eng","en":"","zh":"数据立方：按多个维度预聚合好的结构","r":5725,"g":1,"tag":"toefl"},
 {"w":"credible","ph":"/'kredәbl/","pos":"adj.","cat":"data-infer","en":"","zh":"可信区间的：贝叶斯下参数以给定概率落入的区间","r":5991,"g":1,"tag":"gre"},

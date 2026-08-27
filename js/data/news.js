@@ -63,7 +63,6 @@ window.TECHLEX_DATA["news"] = [
 {"w":"accord","ph":"/ә'kɒ:d/","pos":"n.","cat":"news-diplo","en":"","zh":"协定：双方达成的正式协议","r":5594,"g":1,"tag":"gre"},
 {"w":"diplomacy","ph":"/di'plәumәsi/","pos":"n.","cat":"news-diplo","en":"","zh":"外交：以谈判而非武力处理国家间关系","r":5638,"g":1,"tag":"toefl"},
 {"w":"sunset","ph":"/'sʌnset/","pos":"n.","cat":"news-polit","en":"","zh":"日落条款的：到期自动失效除非续期","r":5739,"g":1,"tag":"toefl"},
-{"w":"legitimacy","ph":"/li'dʒitimәsi/","pos":"n.","cat":"news-polit","en":"Lawfulness by virtue of being authorized or in accordance with law","zh":"合法, 正统, 正当","r":5759},
 {"w":"asylum","ph":"/ә'sailәm/","pos":"n.","cat":"news-diplo","en":"","zh":"庇护：给予外国人免遭遣返的保护","r":5764,"g":1,"tag":"gre"},
 {"w":"default","ph":"/di'fɒ:lt/","pos":"n.","cat":"news-trade","en":"Loss due to not showing up","zh":"违约, 不履行责任, 缺席, 默认值；疏怠职责, 缺席, 拖欠, 默认","r":5836,"tag":"gre"},
 {"w":"restructuring","ph":"","pos":"v.","cat":"news-trade","en":"","zh":"债务重组：与债权人重新商定还款条件","r":5880,"g":1},

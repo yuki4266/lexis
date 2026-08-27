@@ -458,3 +458,16 @@ a.logo { text-decoration: none; }
   font-size: 12px; letter-spacing: .8px;
 }
 .about-cats .eg { display: block; margin-top: 4px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); }
+
+/* 关于页的开场白与数据条 / lede and stat row on the about page */
+.page .lede { font-size: 17.5px; line-height: 1.8; color: var(--text); margin-bottom: 10px; }
+.statgrid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px; margin: 18px 0 20px;
+}
+.statgrid > div {
+  padding: 14px 16px; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.statgrid b { display: block; font-family: var(--mono); font-size: 26px; color: var(--accent); line-height: 1.2; }
+.statgrid span { font-size: 11.5px; color: var(--dim); }

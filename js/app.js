@@ -210,7 +210,7 @@
       if (prefs.hwOnly) {                                   // 只练带词源的词 / story only
         var withStory = pool.filter(function (w) { return w.hw; });
         if (withStory.length >= 5) pool = withStory;
-        else extraMsg = '这个大类还没有足够的词源条目，已显示全部 · Not enough stories here yet, showing all';
+        else extraMsg = '这个大类的词源故事还不够多，已显示全部 · Not enough stories here yet, showing all';
       }
     }
     if (!pool.length) pool = trackData(prefs.track).slice();
@@ -275,7 +275,7 @@
 
     // 徽章：词源 / 考试标签 / badges
     elBadges.innerHTML = '';
-    if (cur.hw) addBadge('有词源 story', 'story');
+    if (cur.hw) addBadge('词源故事 story', 'story');
     if (cur.tag) addBadge(TAG_ZH[cur.tag] || cur.tag, 'tag');
 
     elDefZh.textContent = cur.zh || '';

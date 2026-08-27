@@ -10,7 +10,6 @@ window.TECHLEX_DATA["life"] = [
 {"w":"finish","ph":"/'finiʃ/","pos":"n.","cat":"life-food","en":"","zh":"尾韵：味道消散的方式与长度","r":842,"g":1,"tag":"toefl"},
 {"w":"exchange","ph":"/iks'tʃeindʒ/","pos":"n.","cat":"life-home","en":"Chemical process in which one atom or ion or group changes places with another","zh":"交换, (电话)交换局, 交换机, 汇兑, 交易所；交换, 交易, 兑换","r":1084,"tag":"toefl"},
 {"w":"appointment","ph":"/ә'pɒintmәnt/","pos":"n.","cat":"life-out","en":"","zh":"预约：与医生或机构约定的时间","r":1558,"g":1,"tag":"toefl"},
-{"w":"gate","ph":"/geit/","pos":"n.","cat":"life-out","en":"Movable barrier in a fence or wall","zh":"门, 牌楼, 大门, 通道, 闸；装门于","r":1707,"tag":"gk"},
 {"w":"specialist","ph":"/'speiʃәlist/","pos":"n.","cat":"life-out","en":"","zh":"专科医生：只看某一类疾病的医生","r":1808,"g":1,"tag":"cet6"},
 {"w":"cream","ph":"/kri:m/","pos":"n.","cat":"life-cook","en":"","zh":"打成乳霜状：把黄油与糖搅打至发白蓬松","r":2008,"g":1,"tag":"ielts"},
 {"w":"tenant","ph":"/'tenәnt/","pos":"n.","cat":"life-home","en":"Someone who pays rent to use land or a building or a car that is owned by someone else","zh":"承租人, 房客, 居住者；租借","r":2029,"tag":"gre"},

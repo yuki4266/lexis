@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yuki4266.github.io/techlex/sitemap.xml
+Sitemap: https://yuki4266.github.io/lexis/sitemap.xml

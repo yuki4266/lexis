@@ -102,6 +102,10 @@ const rank = (frq, bnc) => {
 };
 
 const EXAM_TAGS = ['gre', 'toefl', 'ielts', 'cet6', 'ky', 'cet4', 'gk', 'zk'];
+// 难度下限：只收六级以上 / difficulty floor — CET-6 and above only
+const ADVANCED = new Set(['gre', 'toefl', 'ielts', 'cet6', 'ky']);
+const EASY = new Set(['zk', 'gk', 'cet4']);
+const RARE_RANK = 6000;   // 词频排名比这更靠后就算生僻，本身就不简单
 const pickTag = (tag) => {
   const has = (tag || '').split(/\s+/).filter(Boolean);
   for (const t of EXAM_TAGS) if (has.includes(t)) return t;
@@ -222,6 +226,7 @@ const missing = [];
 const dupes = [];
 const noPhon = [];      // 词典查不到、靠人工释义收录的词 / kept via manual gloss, no IPA
 const needGloss = [];   // 释义质量差、建议人工校订 / dictionary gloss looks poor
+const tooEasy = [];     // 太简单，被难度闸门挡掉 / dropped by the difficulty floor
 
 // 手写条目是全局资产：一个词在别的大类的词表里出现时，直接复用它的词源与例句，
 // 只把小类改成那个大类的。大类之间允许重复 —— 每个大类本来就是一套独立词库。
@@ -265,8 +270,17 @@ for (const t of TRACKS) {
     // 只给了中文域内释义时宁可留白，也不挂一条可能矛盾的通用英文释义
     const en = row.en || (row.zh ? '' : cleanEn(d.definition));
     if (!zh) { missing.push(`${t.id}\t${k}\t(无中文释义 no Chinese gloss)`); continue; }
+    // 难度闸门：词典层条目必须够难 —— 有六级以上标签，或本身就够生僻
+    // Difficulty gate: a dictionary-tier word must be CET-6+ tagged, or rare enough
+    const tags = (d.tag || '').split(/\s+/).filter(Boolean);
+    const rk = rank(d.frq, d.bnc);
+    if (!row.zh) {
+      const advanced = tags.some(x => ADVANCED.has(x));
+      const easy = tags.some(x => EASY.has(x));
+      if (!advanced && (easy || rk < RARE_RANK)) { tooEasy.push(`${t.id}\t${k}\t${tags.join(',') || '-'}\t${rk}`); continue; }
+    }
     const entry = { w: k, ph: wrapPh(d.phonetic), pos: derivePos(d.translation, d.definition, d.pos),
-                    cat: row.cat, en, zh, r: rank(d.frq, d.bnc) };
+                    cat: row.cat, en, zh, r: rk };
     if (row.zh) entry.g = 1;                              // 已人工校订 / curated gloss
     else if (zh.startsWith('[') || zh.length < 4 || !en)  // 词典义太差，标记待校订
       needGloss.push(`${t.id}\t${k}\t${zh}`);
@@ -282,6 +296,7 @@ for (const t of TRACKS) {
       if (taken >= rule.limit) break;
       if (local.has(d.w)) continue;
       if (rule.exclude.some(x => d.tags.includes(x))) continue;   // 排除太简单的词 / drop the easy ones
+      if (!d.tags.some(x => ADVANCED.has(x)) && rank(d.frq, d.bnc) < RARE_RANK) continue;
       const zh = cleanZh(d.translation);
       const en = cleanEn(d.definition);
       if (!zh || zh.startsWith('[') || zh.length < 3) continue;
@@ -347,6 +362,19 @@ fs.writeFileSync(p('js', 'manifest.js'),
                  cs + (eg ? '<br><span class="eg">' + eg + '</span>' : '') + '</li>';
         }).join('\n');
     }).filter(Boolean).join('\n');
+    const st = TRACKS.reduce((a, t) => {
+      const L = byTrack.get(t.id) || [];
+      a.n += L.length; a.hw += L.filter(e => e.hw).length; a.g += L.filter(e => e.g).length;
+      L.forEach(e => a.uniq.add(e.w));
+      return a;
+    }, { n: 0, hw: 0, g: 0, uniq: new Set() });
+    html = html.replace(/<!--STATS-->[\s\S]*?<!--\/STATS-->/,
+      '<!--STATS-->\n  <div class="statgrid">' +
+      `<div><b>${st.uniq.size}</b><span>个难词 hard words</span></div>` +
+      `<div><b>${TRACKS.length}</b><span>个领域 fields</span></div>` +
+      `<div><b>${st.hw}</b><span>已配词源故事 with a story</span></div>` +
+      `<div><b>${st.g + st.hw}</b><span>释义为手写 hand-written glosses</span></div>` +
+      '</div>\n  <!--\/STATS-->');
     html = html.replace(/<!--TRACKS-->[\s\S]*?<!--\/TRACKS-->/,
                         '<!--TRACKS-->\n  <ul class="about-cats">\n' + rows + '\n  </ul>\n  <!--\/TRACKS-->');
     const uq = new Set(); TRACKS.forEach(t => (byTrack.get(t.id) || []).forEach(e => uq.add(e.w)));
@@ -401,6 +429,9 @@ missing.slice(0, 120).forEach(m => note('  ' + m));
 note('');
 note(`词典查不到、靠人工释义收录（缺音标）no IPA: ${noPhon.length}`);
 noPhon.slice(0, 120).forEach(m => note('  ' + m));
+note('');
+note(`太简单被挡掉（六级以下且不生僻）too easy: ${tooEasy.length}`);
+tooEasy.slice(0, 120).forEach(m => note('  ' + m));
 note('');
 note(`词典释义偏弱，建议人工校订 needs a gloss: ${needGloss.length}`);
 needGloss.slice(0, 200).forEach(m => note('  ' + m));

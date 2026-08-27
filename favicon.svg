@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TechLex">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Lexis">
   <rect width="64" height="64" rx="14" fill="#0b7d99"/>
   <text x="32" y="46" text-anchor="middle" fill="#ffffff"
-        font-family="Menlo, ui-monospace, monospace" font-size="40" font-weight="600">T</text>
+        font-family="Menlo, ui-monospace, monospace" font-size="40" font-weight="600">L</text>
 </svg>

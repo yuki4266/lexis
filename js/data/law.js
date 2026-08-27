@@ -76,7 +76,6 @@ window.TECHLEX_DATA["law"] = [
 {"w":"clearance","ph":"/'kliәrәns/","pos":"n.","cat":"law-ip","en":"","zh":"侵权排查：上市前对相关权利的检索与评估","r":5606,"g":1,"tag":"ielts"},
 {"w":"injunction","ph":"/in'dʒʌŋkʃәn/","pos":"n.","cat":"law-tort","en":"","zh":"禁令：法院命令一方停止或必须为某行为","r":5765,"g":1,"tag":"gre"},
 {"w":"governing","ph":"/'^ʌvәniŋ/","pos":"adj.","cat":"law-contract","en":"","zh":"准据法的：约定用哪个法域的法律解释合同","r":5791,"g":1},
-{"w":"licensing","ph":"","pos":"v.","cat":"law-ip","en":"Authorize officially","zh":"许可；批准（license的ing形式）","r":5837},
 {"w":"fairness","ph":"/'fєәnis/","pos":"n.","cat":"law-data","en":"","zh":"公平性：处理方式不得对个人产生不当损害","r":5954,"g":1,"tag":"gk"},
 {"w":"royalty","ph":"/'rɒiәlti/","pos":"n.","cat":"law-ip","en":"","zh":"许可费：按使用量或收入向权利人支付的费用","r":6037,"g":1,"tag":"gre"},
 {"w":"continuation","ph":"/kәn.tinju'eiʃәn/","pos":"n.","cat":"law-ip","en":"","zh":"继续申请：在原申请基础上提出的新申请","r":6109,"g":1,"tag":"gre"},
