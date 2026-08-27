@@ -1,0 +1,131 @@
+# 产品与设计 / Product & Design
+## cat: prod-ux
+affordance | 可供性：物体的外形本身暗示了它该怎么用
+signifier | 意符：明确告诉用户此处可操作的视觉线索
+discoverability | 可发现性：用户能不能自己找到某个功能
+learnability | 易学性：第一次上手要花多少力气
+memorability | 易记性：隔一阵子回来还记不记得怎么用
+friction | 摩擦：让用户放弃的每一处多余步骤
+onboarding
+walkthrough | 引导流程：手把手带新用户走一遍核心路径
+tooltip | 提示气泡：悬停或聚焦时弹出的简短说明
+placeholder | 占位提示：输入框里示意该填什么的灰字
+skeleton | 骨架屏：内容加载前先显示的灰色轮廓
+spinner | 加载指示器：表示正在处理的旋转图标
+progressive | 渐进式的：先给最小可用，再逐步加载或展开
+disclosure | 渐进披露的：默认收起复杂选项，需要时才展开
+hierarchy | 层级：用大小与位置告诉用户先看哪里
+scannability | 可扫读性：能不能一眼扫过就抓到重点
+legibility | 可辨识度：字形本身清不清楚
+readability | 可读性：一段文字读起来费不费劲
+contrast | 对比度：前景与背景的明暗差，直接决定能否看清
+accessibility | 无障碍：让有视觉、听觉或运动障碍的人也能用
+screenreader | 读屏软件：把界面朗读出来的辅助工具
+keyboard | 键盘可达的：不用鼠标也能完成全部操作
+focus | 焦点：当前接受键盘输入的那个元素
+landmark | 地标：供辅助技术跳转的页面区域标记
+modality | 模态的：打开后必须处理完才能回到主流程
+undo | 撤销：让误操作可以后悔
+confirmation | 二次确认：破坏性操作前要求再点一次
+destructive | 破坏性的：会造成不可逆后果的操作
+idempotent
+latency
+responsiveness | 响应感：界面对操作有没有立刻给出反馈
+perceived | 主观感知的：用户觉得多快，而非实际多快
+## cat: prod-growth
+acquisition | 获客：让新用户第一次进来
+activation | 激活：新用户完成第一次有价值的动作
+retention | 留存：用户是否持续回来使用
+referral | 推荐：老用户主动带来新用户
+monetization | 变现：把使用转化成收入
+funnel | 漏斗：从曝光到转化逐层收窄的过程
+conversion | 转化：用户完成目标动作的比例
+dropoff | 流失点：漏斗中用户大量离开的那一环
+churn
+cohort
+stickiness | 粘性：日活与月活之比，衡量回访频率
+engagement | 参与度：用户使用的深度与频率
+attribution | 归因：把一次转化算在哪个渠道头上
+incrementality | 增量性：这次投放到底带来了多少本不会发生的转化
+lift | 提升幅度：实验组相对对照组的效果增量
+uplift
+holdout
+experimentation
+variant | 变体：实验中被对比的不同版本
+guardrail | 护栏指标：不允许被劣化的底线指标
+counter-metric | 反向指标：防止只优化单一指标而损害整体
+vanity | 虚荣指标的：好看但与业务价值无关
+north-star | 北极星指标的：全公司对齐的那一个核心指标
+leading | 先行指标的：能提前预示结果变化
+lagging | 滞后指标的：结果已经发生才反映出来
+segmentation
+personalization | 个性化：按用户特征调整内容与推荐
+targeting | 定向：只把内容投给特定人群
+cannibalization | 自我蚕食：新功能抢走了老功能的量
+saturation
+virality | 病毒性：每个用户平均带来多少新用户
+onboarding
+paywall | 付费墙：超出免费额度后必须付费才能继续
+freemium | 免费增值的：基础免费、高级功能收费
+## cat: prod-design
+wireframe | 线框图：只画结构与布局、不管视觉的草图
+mockup | 视觉稿：确定了颜色与排版的静态设计图
+prototype | 原型：可点击、能走通流程的演示版本
+fidelity | 保真度：设计稿离最终成品有多接近
+iteration
+whitespace | 留白：元素之间刻意留出的空白
+alignment | 对齐：让元素沿同一条线排布
+proximity | 邻近性：靠得近的元素会被看成一组
+grid | 栅格：把版面切成等分列以保证一致
+baseline | 基线：文字底部所对齐的那条隐形线
+kerning | 字距微调：单独调整两个字母之间的间距
+leading | 行距：相邻两行基线之间的距离
+typeface | 字体家族：一整套风格统一的字形
+weight | 字重：笔画的粗细等级
+serif | 衬线的：笔画末端带小横线的字体
+palette | 色板：一套被限定使用的颜色
+saturation | 饱和度：颜色的鲜艳程度
+hue | 色相：红黄蓝这种颜色本身的类别
+luminance | 亮度：人眼感知到的明暗
+token | 设计令牌：把颜色、间距等值抽成可复用的变量
+component | 组件：可复用的界面构件
+variant
+state | 状态：组件在默认、悬停、禁用等情形下的样子
+elevation | 层级高度：用阴影表达元素离页面多"高"
+affordance
+motion | 动效：用运动解释状态之间发生了什么
+easing | 缓动：让动画有加速与减速而非匀速
+choreography | 编排：多个元素动起来时的先后与配合
+skeuomorphic | 拟物的：模仿真实物体的质感与形态
+minimal
+consistency
+## cat: prod-research
+qualitative | 定性的：关注为什么，样本小但深入
+quantitative | 定量的：关注多少，靠规模化的数据
+ethnographic | 民族志式的：到用户的真实环境里长期观察
+contextual | 情境访谈的：在用户实际使用的场景中提问
+diary | 日记研究的：让用户自己记录一段时间的使用
+usability | 可用性测试：看真实用户能否完成任务
+think-aloud | 出声思考：让用户边操作边说出他在想什么
+moderated | 有主持的：研究员在场引导的测试
+unmoderated | 无主持的：用户自行完成、事后看录屏
+recruit | 招募：找到符合条件的受访者
+screener | 筛选问卷：用来判断谁符合招募条件
+incentive
+persona | 用户画像：由研究归纳出的典型用户形象
+segment | 用户分群：按行为或属性划分的用户子集
+journey | 用户旅程：用户为达成目标经历的完整路径
+touchpoint | 触点：用户与产品发生接触的每个环节
+painpoint | 痛点：用户在过程中真正难受的地方
+jobs-to-be-done | 待办任务：用户"雇用"产品来完成的那件事
+affinity | 亲和图：把零散发现归类成主题的整理方法
+saturation | 饱和：新访谈不再带来新发现的那个点
+bias
+leading-question | 诱导性问题：措辞本身暗示了期待的答案
+recall | 回忆偏差的：用户对过去行为的记忆并不可靠
+observed | 观察到的：用户实际做了什么，而非说自己会做什么
+stated | 自述的：用户口头声称的偏好或意图
+triangulation | 三角互证：用多种方法交叉验证同一结论
+synthesis
+insight | 洞察：能改变决策的、非显而易见的发现
+recommendation

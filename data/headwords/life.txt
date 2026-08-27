@@ -1,0 +1,152 @@
+# 饮食与日常 / Food & Everyday
+## cat: life-cook
+sear | 高温煎封：用大火快速把表面煎出焦壳
+sauté | 快炒：少油大火翻炒至熟
+braise | 焖炖：先煎上色再加少量液体小火久煮
+stew | 炖：食材长时间浸在液体中慢煮
+simmer | 微沸：保持将沸未沸的小火状态
+poach | 水波煮：在不沸腾的液体中温和煮熟
+blanch | 焯水：短暂入沸水后立刻取出
+parboil | 半煮：只煮到半熟，留待后续烹调
+steam
+roast | 烤制：用干热在烤箱中加热整块食材
+broil | 上火烤：用来自上方的强热快速烤上色
+grill
+smoke | 熏制：用烟给食材上色与增香
+cure | 腌渍保存：用盐或糖脱水以延长保存
+brine | 盐水浸泡：让肉在盐水中吸水并入味
+marinate | 腌制：浸泡在调味液中让风味渗入
+tenderize | 嫩化：破坏肌肉纤维使肉变软
+render | 熬出油脂：小火把脂肪熬成液态油
+deglaze | 溶解锅底：用液体把锅底焦香物刮起做酱
+reduce | 收汁：加热蒸发水分使味道浓缩
+emulsify | 乳化：让油与水稳定混合成一体
+whisk | 打发：快速搅打使混入空气
+fold | 翻拌：轻手把两种混合物合并而不消泡
+knead | 揉面：反复揉压使面筋形成
+proof | 醒发：让面团在温暖处发起
+ferment | 发酵：靠微生物把糖转化为酸或酒精
+pickle | 腌渍：用酸性溶液浸泡保存
+caramelize | 焦糖化：糖受热变褐并产生香气
+maillard | 美拉德反应的：氨基酸与糖受热生成褐色与香味
+temper | 回温调和：把热的一点点加进冷的以免结块
+baste | 浇汁：烹调中不断把汁液浇回食材表面
+skim | 撇沫：把浮在表面的泡沫或油撇去
+strain | 过滤：用筛网滤去固体
+zest | 柑橘皮屑：只取外层带香精油的表皮
+julienne | 切细丝：切成火柴棍粗细的长条
+mince | 切碎：切成极细的小粒
+dice | 切丁：切成方块
+## cat: life-food
+umami | 鲜味：谷氨酸带来的第五种基本味
+savory | 咸鲜的：与甜相对的那类味道
+astringent | 涩的：让口腔发紧发干的感觉
+pungent | 辛辣刺鼻的：气味或味道强烈冲鼻
+acrid | 呛的：刺激喉咙的焦苦气味
+tart | 酸爽的：明快而不刺激的酸
+tangy | 带酸香的：酸中带鲜的爽利风味
+bland | 寡淡的：几乎没有味道
+succulent | 多汁的：咬下去汁水丰盈
+tender
+chewy | 有嚼劲的：需要多咀嚼但不难嚼
+crisp
+crunchy | 脆响的：咬起来发出清脆声响
+flaky | 酥松分层的：一碰就掉层的酥皮口感
+creamy | 绵密的：口感顺滑浓厚
+velvety | 丝绒般的：细腻无颗粒感
+gamey | 膻味的：野味或羊肉特有的强烈气味
+rancid | 哈喇的：油脂氧化变质的味道
+stale | 不新鲜的：放久后失去应有风味或口感
+curdle | 结块分离：乳制品因酸或热而凝结
+coagulate | 凝固：蛋白质受热或遇酸变成固体
+seasoning | 调味：盐与香料的整体使用
+condiment | 佐料：吃时另加的酱料
+garnish | 装饰配菜：为观感与香气放上的点缀
+aromatic | 芳香类食材的：葱姜蒜等用来打底出香的材料
+staple | 主食：日常饮食中提供主要热量的食物
+produce | 生鲜农产：新鲜蔬菜与水果
+poultry | 禽肉：鸡鸭鹅等家禽的肉
+offal | 内脏：动物的可食用脏器
+cured | 腌制的：经盐渍或风干保存的
+fermented
+leavened | 发酵膨胀的：加了酵母或膨松剂而蓬松
+unleavened
+perishable | 易腐的：保质期短、需冷藏
+shelf-life | 保质期：食品保持可食用的时长
+palate | 味觉：一个人对味道的辨别力与偏好
+palatable | 可口的：味道让人能接受
+appetizing | 开胃的：让人有食欲
+## cat: life-home
+lease | 租约：租房的书面合同
+tenancy | 租期：承租关系存续的期间
+landlord | 房东：把房屋出租的一方
+tenant
+sublet | 转租：承租人再把房子租给第三方
+deposit | 押金：入住前交付、退租时可退还的钱
+utilities | 水电煤等公用事业费
+appliance | 家电：冰箱洗衣机等家用电器
+thermostat | 温控器：设定并维持室温的装置
+plumbing | 管道系统：给水与排水的整套管路
+insulation | 隔热层：减少室内外热量交换的材料
+mortgage | 按揭：以房产抵押取得的长期贷款
+amortization | 分期偿还：按期归还贷款本金与利息
+escrow | 第三方托管：交易款项由中立方代管至条件满足
+appraisal | 估价：由专业人士评定房产价值
+closing | 过户：完成产权转移的最后环节
+premises | 房产：合同所指的那处场所
+maintenance | 维护：为保持可用状态而做的日常修缮
+wear-and-tear | 正常损耗：使用中不可避免的自然磨损
+renovation | 翻新：对既有房屋的改造装修
+declutter | 清理杂物：把不需要的东西清出去
+errand | 跑腿事务：出门办的琐碎小事
+chore | 家务：反复要做的日常杂活
+subscription | 订阅：按周期自动续费的服务
+invoice | 发票账单：列明应付款项的单据
+receipt
+reimbursement | 报销：垫付后由单位或保险返还
+deductible | 免赔额：保险开始赔付前需自付的金额
+premium | 保费：为投保定期支付的费用
+claim
+warranty
+refund | 退款：把已付款项退还
+exchange
+recurring | 周期性的：按固定周期反复发生
+overdue | 逾期的：已超过应付日期
+## cat: life-out
+itinerary | 行程单：按时间列出的旅行安排
+layover | 中转停留：转机之间在机场等待的时间
+stopover | 经停：中途下机停留一段时间再继续
+boarding | 登机：进入飞机的流程
+gate
+terminal
+baggage | 托运行李：交由航司运输的行李
+carry-on | 随身行李的：可带上客舱的行李
+customs | 海关：入境时查验物品与征税的机构
+immigration | 边检：入境时查验身份与签证
+declaration | 申报：入境时主动告知携带的物品
+visa
+transit | 过境的：只是路过而不入境
+reservation | 预订：预先订下座位或房间
+confirmation
+cancellation | 取消：撤销已有预订
+refundable | 可退的：取消后能拿回款项
+rebook | 改签：改到另一班次或日期
+overbooking | 超售：卖出的座位多于实际座位
+compensation
+accommodation | 住宿：过夜的地方
+amenity | 配套设施：住宿提供的额外便利
+checkin | 办理入住／值机：抵达时登记并领取房卡或登机牌
+concierge | 礼宾：帮客人安排各种事务的服务台
+appointment | 预约：与医生或机构约定的时间
+referral | 转诊：由全科医生转介到专科
+copay | 自付额：每次就诊需自己承担的固定费用
+prescription | 处方：医生开具的用药单
+refill | 续开药：按原处方再取一次药
+dosage
+symptom
+diagnosis | 诊断：判断所患何病
+triage | 分诊：按紧急程度决定先看谁
+outpatient | 门诊的：不需住院的诊疗
+inpatient | 住院的：需要留院的诊疗
+discharge | 出院：结束住院离开医院
+follow-up | 随访：治疗后按期复查

@@ -1,0 +1,148 @@
+# 法律与合规 / Law & Compliance
+## cat: law-contract
+covenant | 承诺条款：合同中一方承诺做或不做某事
+consideration | 对价：使合同成立所必需的交换利益
+offer | 要约：一方提出的、对方一经承诺即成立的条件
+acceptance | 承诺：对要约的无保留同意
+counterparty | 相对方：合同中的另一方当事人
+indemnity | 赔偿保证：一方承诺补偿另一方因特定事由所受损失
+indemnify
+warranty | 保证：对事实状态所作的、不实即构成违约的陈述
+representation | 陈述：签约时对既有事实的声明
+disclaimer | 免责声明：明确排除某些责任的声明
+liability
+limitation | 责任限额：约定赔偿的上限
+cap | 上限：责任或费用不得超过的数额
+exclusion | 除外条款：明确不适用本合同的情形
+termination | 终止：使合同关系提前结束
+expiry
+renewal | 续约：期满后延续合同效力
+notice | 通知：合同要求以特定方式送达的书面告知
+cure | 补正期：违约后被允许改正的宽限期
+breach | 违约：未履行合同义务
+material | 重大的：足以影响对方是否愿意继续履约
+remedy
+waiver | 弃权：明示放弃行使某项权利
+severability | 可分割性：某条无效不影响其余条款效力
+assignment | 转让：把合同权利义务让与第三方
+novation | 更替：以新合同替换原合同并更换一方当事人
+subcontracting | 分包：把部分义务交由第三方履行
+governing | 准据法的：约定用哪个法域的法律解释合同
+jurisdiction | 管辖：由哪个法院或机构受理争议
+venue | 审理地：诉讼实际进行的地点
+arbitration | 仲裁：由仲裁庭而非法院裁决争议
+mediation
+escalation
+confidentiality | 保密义务：不得向第三方披露对方信息
+nondisclosure | 保密协议的：约定不得泄露对方信息
+noncompete | 竞业禁止的：约定一段时间内不得从事竞争业务
+nonsolicitation | 禁止招揽的：约定不得挖对方的员工或客户
+force-majeure | 不可抗力：无法预见与避免的事件可免除责任
+boilerplate | 通用条款：几乎每份合同都有的标准化条款
+execution | 签署：使合同正式生效的签字动作
+counterpart | 副本：分别签署、合起来构成同一份合同
+amendment | 修订：对已生效合同的书面变更
+addendum | 附录：附加在合同之后的补充条款
+## cat: law-tort
+tort | 侵权：合同之外的、导致他人受损的不法行为
+negligence | 过失：未尽到合理注意义务
+duty | 注意义务：法律要求你对他人保持的谨慎程度
+breach
+causation | 因果关系：损害确实由被告行为造成
+foreseeability | 可预见性：损害是否为行为人当时能预料到的
+proximate | 近因的：法律上被认定为直接原因
+remoteness | 过远：损害与行为关系太远，不予赔偿
+damages | 损害赔偿金：为弥补损失而判付的金钱
+compensatory | 补偿性的：只填平实际损失
+punitive | 惩罚性的：超出损失、意在惩戒的赔偿
+mitigation
+liability
+strict | 严格责任的：无需证明过错即须担责
+vicarious | 替代责任的：雇主为雇员的行为担责
+joint | 连带的：任一责任人都可能被要求全额赔偿
+defamation | 诽谤：损害他人名誉的不实陈述
+libel | 书面诽谤：以文字或影像形式发表的诽谤
+slander | 口头诽谤：以言语形式作出的诽谤
+nuisance | 妨害：对他人使用财产的不合理干扰
+trespass | 侵入：未经许可进入他人土地或系统
+conversion | 侵占：把他人财物据为己有
+restitution | 返还：把不当得利退还原主
+injunction | 禁令：法院命令一方停止或必须为某行为
+specific | 强制履行的：要求实际履行合同而非赔钱
+remedy | 救济：法律为受害方提供的补救方式
+settlement | 和解：双方约定不再追究并了结争议
+statute | 时效的：超过法定期限即丧失起诉权
+limitation
+discovery | 证据开示：诉讼前双方交换相关证据的程序
+privilege | 特免权：律师与客户之间的沟通可以拒绝披露
+burden | 举证责任：由哪一方负责证明某事实
+preponderance | 优势证据：民事案件中"更可能如此"的证明标准
+## cat: law-ip
+patent | 专利：对发明在一定期限内的独占权
+prior-art | 现有技术：申请日之前已公开、可否定新颖性的材料
+novelty | 新颖性：此前从未被公开过
+obviousness | 显而易见性：本领域技术人员能轻易想到，因而不可专利
+claim | 权利要求：专利中界定保护范围的那部分文字
+infringement | 侵权：未经许可实施他人的知识产权
+willful | 故意的：明知侵权仍继续，赔偿可能被加重
+injunction
+royalty | 许可费：按使用量或收入向权利人支付的费用
+licensing
+exclusive | 独占许可的：连权利人自己也不得再实施
+nonexclusive | 非独占许可的：权利人仍可另行许可他人
+sublicense | 再许可：被许可方把权利转授第三方
+assignment
+copyright | 著作权：对原创表达的专有权利
+authorship | 作者身份：谁被认定为作品的创作者
+originality | 独创性：作品须由作者独立完成且有最低限度创造
+fixation | 固定：作品被固定在有形载体上才受保护
+derivative | 演绎作品的：在原作基础上改编而成
+fair-use | 合理使用：特定情形下无需授权也可使用
+attribution | 署名：使用作品时须注明原作者
+trademark | 商标：标识商品或服务来源的标志
+distinctiveness | 显著性：标志能否让消费者区分来源
+genericide | 商标通用化：商标被用成通用名称而丧失保护
+dilution | 淡化：削弱驰名商标的识别力
+passing-off | 冒充：让公众误以为自己的商品出自他人
+trade-secret | 商业秘密：因保密而具有商业价值的信息
+misappropriation | 不当获取：以不正当手段取得商业秘密
+reverse-engineering | 反向工程：拆解成品以推知其构造与原理
+open-source
+copyleft | 著佐权的：要求衍生作品必须以同样条款开放
+permissive | 宽松许可的：允许闭源再分发
+compatibility | 许可兼容性：两种许可证能否合并使用
+attribution | 署名：使用作品时须注明原作者
+## cat: law-data
+consent | 同意：数据主体明确、自愿地授权处理其个人数据
+lawful | 合法性基础的：处理个人数据必须具备的法定理由
+legitimate | 正当利益的：以自身合理需要为依据处理数据
+controller | 数据控制者：决定处理目的与方式的一方
+processor | 数据处理者：受控制者委托处理数据的一方
+subject | 数据主体：个人数据所指向的那个自然人
+personal | 个人数据的：能直接或间接识别到具体个人
+sensitive | 敏感数据的：涉及健康、信仰、生物特征等特殊类别
+identifiable | 可识别的：结合其他信息即可指向具体个人
+pseudonymization | 假名化：替换掉直接标识符，但仍可还原
+anonymization | 匿名化：处理到无法再识别到个人，从而脱离监管
+minimization | 最小化：只收集为达成目的所必需的数据
+purpose | 目的限制的：数据只能用于收集时声明的目的
+proportionality | 比例原则：手段与目的之间应当相称
+retention
+erasure | 删除权：数据主体要求删除其个人数据的权利
+portability | 可携带权：以通用格式取回并转移自己的数据
+rectification | 更正权：要求修正不准确的个人数据
+objection | 反对权：对特定处理活动提出异议
+profiling | 画像：自动化地评估个人特征以作出判断
+automated | 自动化决策的：完全由算法作出的、对个人有重大影响的决定
+transfer | 跨境传输的：把个人数据传到本法域之外
+adequacy | 充分性认定：认定某国的保护水平足够而允许传输
+safeguard | 保障措施：为跨境传输提供的合同或技术保护
+breach-notification | 泄露通报：发生数据泄露后必须在限期内上报
+supervisory | 监管机构的：负责执法的数据保护当局
+impact-assessment | 影响评估：高风险处理前必须做的风险评估
+accountability | 问责：不仅要合规，还要能证明自己合规
+audit
+record | 处理记录：登记有哪些处理活动的法定台账
+processor-agreement | 数据处理协议：控制者与处理者之间的强制合同
+subprocessor | 次级处理者：处理者再委托的第三方
+localization | 本地化存储的：要求数据必须存放在境内
