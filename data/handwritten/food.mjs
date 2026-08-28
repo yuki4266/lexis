@@ -327,4 +327,239 @@ export default [
   se: 'Salt water pulls water out, then the meat pulls it back in seasoned.', sz: '盐水先把水抽出去，肉再把带味的水吸回来。',
   s2: 'Brine a lean bird overnight and it will not dry out.', z2: '瘦的禽肉用盐水泡一夜，就不会烤柴。'
 }
+,
+{
+  w: 'lasagne', uk: '/ləˈzænjə/', us: '/ləˈzɑːnjə/', pos: 'n.', cat: 'food-carb',
+  en: 'Flat wide sheets of pasta, layered with sauce and baked.',
+  zh: '千层面：宽平的面片，与酱汁层层叠起烘烤。',
+  oe: 'From Greek lasanon, which meant a chamber pot. It came to mean any pot you set over a fire, then the dish cooked in it, and finally the pasta itself. Nobody was thinking about the first meaning by then.',
+  oz: '源自希腊语 lasanon —— 它的意思是夜壶。后来泛指架在火上的锅，再指锅里做的菜，最后变成了面片本身。到那时已经没人再想起最初那层意思了。',
+  se: 'The word started life meaning a chamber pot, then a cooking pot.', sz: '这个词最初的意思是夜壶，后来才变成锅。',
+  s2: 'Let the lasagne rest twenty minutes or it will slide apart.', z2: '千层面要静置二十分钟，否则一切就散。'
+},
+{
+  w: 'vermicelli', uk: '/ˌvɜːmɪˈtʃeli/', us: '/ˌvɜːrmɪˈtʃeli/', pos: 'n.', cat: 'food-carb',
+  en: 'Very thin pasta or rice noodles.',
+  zh: '细面／米粉：极细的面条或米线。',
+  oe: 'Italian for "little worms", from Latin vermis. Italians named several pasta shapes after what they honestly looked like: spaghetti is "little strings", linguine is "little tongues".',
+  oz: '意大利语意为“小虫子”，词根拉丁语 vermis。意大利人给面条起名一向老实：spaghetti 是“小绳子”，linguine 是“小舌头”。',
+  se: 'Italians named it "little worms" and meant it literally.', sz: '意大利人叫它“小虫子”，而且是字面意思。',
+  s2: 'Soak rice vermicelli; do not boil it or it turns to paste.', z2: '米粉要泡不要煮，煮了就成糊。'
+},
+{
+  w: 'cheese', uk: '/tʃiːz/', us: '/tʃiːz/', pos: 'n.', cat: 'food-dairy',
+  en: 'Milk solids separated from whey and left to ripen.',
+  zh: '奶酪：从乳清中分出的乳固体，再加以熟成。',
+  oe: 'From Latin caseus, which also gives casein, the milk protein that does the work. The Germanic languages borrowed the Roman word wholesale - Kase, kaas, cheese are all the same word wearing different clothes.',
+  oz: '源自拉丁语 caseus —— 它也生出了 casein（酪蛋白），正是干活的那种牛奶蛋白。日耳曼语族整个借走了这个罗马词：Käse、kaas、cheese 是同一个词换了身衣服。',
+  se: 'Cheese and casein are the same Latin word, one eaten and one measured.', sz: 'cheese 与 casein 是同一个拉丁词，一个用来吃，一个用来测。',
+  s2: 'Take cheese out of the fridge an hour before you serve it.', z2: '奶酪上桌前一小时就该从冰箱拿出来。'
+},
+{
+  w: 'mozzarella', uk: '/ˌmɒtsəˈrelə/', us: '/ˌmɑːtsəˈrelə/', pos: 'n.', cat: 'food-dairy',
+  en: 'A soft fresh cheese stretched in hot water and torn into balls.',
+  zh: '马苏里拉：在热水中拉扯后揪成球的新鲜软奶酪。',
+  oe: 'From Italian mozzare, "to cut off" - the cheesemaker pinches the stretched curd and tears each ball away by hand. The name records the gesture, not the taste.',
+  oz: '源自意大利语 mozzare“掐断”——制作者把拉好的凝乳用手一掐，一个球就揪下来了。这个名字记录的是动作，不是味道。',
+  se: 'The name is the gesture: the cheesemaker pinches each ball off by hand.', sz: '这个名字就是那个动作：制作者用手把每个球掐下来。',
+  s2: 'Fresh mozzarella should weep a little when you cut it.', z2: '新鲜的马苏里拉切开时应该会渗出一点乳汁。'
+},
+{
+  w: 'pretzel', uk: '/ˈpretsl/', us: '/ˈpretsl/', pos: 'n.', cat: 'food-bake',
+  en: 'A knotted bread, boiled in alkali then baked dark and glossy.',
+  zh: '扭结面包：打结成型，先过碱水再烤成深色亮面。',
+  oe: 'Through German from Latin bracchium, "arm". The shape is a pair of arms folded across the chest in prayer, which is how the loops came to have a hole in the middle.',
+  oz: '经德语来自拉丁语 bracchium“手臂”。那个形状是双臂交叠在胸前祈祷的样子 —— 中间那两个洞就是这么来的。',
+  se: 'The shape is a pair of arms folded in prayer.', sz: '那个形状是双臂交叠祈祷的样子。',
+  s2: 'The alkaline bath is what makes a pretzel taste like a pretzel.', z2: '让扭结面包尝起来像扭结面包的，正是那道碱水。'
+},
+{
+  w: 'bagel', uk: '/ˈbeɪɡl/', us: '/ˈbeɪɡl/', pos: 'n.', cat: 'food-bake',
+  en: 'A dense ring of bread, boiled before it is baked.',
+  zh: '贝果：先水煮再烘烤的致密环形面包。',
+  oe: 'From Yiddish beygl, related to a Germanic root meaning "ring" or "bracelet" - the same family as the English word bow, something bent round.',
+  oz: '源自意第绪语 beygl，与一个意为“环、镯”的日耳曼词根相关 —— 和英语 bow（弯成弧形之物）同宗。',
+  se: 'The word simply means "ring", from a root meaning to bend.', sz: '这个词的意思就是“环”，词根意为“弯曲”。',
+  s2: 'Boiling is what separates a bagel from a bread roll.', z2: '贝果与普通小面包的区别，就在那一道水煮。'
+},
+{
+  w: 'cereal', uk: '/ˈsɪəriəl/', us: '/ˈsɪriəl/', pos: 'n.', cat: 'food-produce',
+  en: 'Any grain grown for food, and the breakfast food made from it.',
+  zh: '谷物：作为食物栽培的禾本科作物；也指用它做的早餐麦片。',
+  oe: 'From Ceres, the Roman goddess of grain and harvest. Every box of breakfast cereal carries the name of a goddess who was worshipped for four hundred years.',
+  oz: '源自罗马谷物与丰收女神刻瑞斯（Ceres）。每一盒早餐麦片上，都印着一位被供奉了四百年的女神的名字。',
+  se: 'Every box of cereal is named after a Roman goddess.', sz: '每一盒麦片都以一位罗马女神命名。',
+  s2: 'Wheat, rice and maize are three cereals feeding most of the world.', z2: '小麦、水稻和玉米这三种谷物养活了世界上大部分人。'
+},
+{
+  w: 'omelette', uk: '/ˈɒmlət/', us: '/ˈɑːmlət/', pos: 'n.', cat: 'food-tech',
+  en: 'Beaten eggs cooked flat in a pan and folded over.',
+  zh: '蛋卷：打散的蛋在锅里摊平后对折。',
+  oe: 'From French lamelle, "a thin plate", from Latin lamina. The l wandered to the front and then fell off entirely, which is why the modern word looks nothing like its origin.',
+  oz: '源自法语 lamelle“薄片”，拉丁语 lamina。那个 l 先跑到词首，后来干脆掉了 —— 所以现在这个词看上去和它的来历毫无关系。',
+  se: 'It means "thin plate". The word has been reshaped almost beyond recognition.', sz: '它的意思是“薄片”，只是这个词被改造得几乎认不出来了。',
+  s2: 'A French omelette should be pale, soft and folded in three.', z2: '法式蛋卷应当颜色浅、质地软，折成三折。'
+},
+{
+  w: 'souffle', uk: '/ˈsuːfleɪ/', us: '/suːˈfleɪ/', pos: 'n.', cat: 'food-bake',
+  en: 'A baked dish made light by folding beaten egg white through a base.',
+  zh: '舒芙蕾：把打发蛋白拌进基底后烘烤，靠气泡撑起。',
+  oe: 'French for "blown up", the past participle of souffler, "to breathe" - the same Latin flare behind inflate and flatulence. The name is a description of what the air does.',
+  oz: '法语意为“被吹起来的”，是 souffler“吹气”的过去分词 —— 与 inflate、flatulence 中的拉丁语 flare 同根。这个名字描述的就是空气干的事。',
+  se: 'The name means "blown up", which is exactly the technique.', sz: '这个名字的意思是“被吹起来”，说的正是它的做法。',
+  s2: 'A souffle waits for nobody. Serve it the moment it leaves the oven.', z2: '舒芙蕾不等人，出炉就得上桌。'
+},
+{
+  w: 'caramel', uk: '/ˈkærəmel/', us: '/ˈkɑːrməl/', pos: 'n.', cat: 'food-bake',
+  en: 'Sugar cooked until it browns and turns bitter-sweet.',
+  zh: '焦糖：糖加热到变褐、由甜转微苦。',
+  oe: 'Probably from Latin canna mellis, "cane of honey" - the medieval name for sugar cane. The word describes the raw material; what heat does to it came later.',
+  oz: '很可能源自拉丁语 canna mellis“蜜之杖”，即中世纪对甘蔗的称呼。这个词描述的是原料，至于加热之后发生了什么，那是后来的事。',
+  se: 'The name means "cane of honey": it describes sugar, not what heat does to it.', sz: '这个名字的意思是“蜜之杖”，说的是糖本身，不是加热之后的它。',
+  s2: 'Caramel goes from perfect to burnt in about ten seconds.', z2: '焦糖从刚好到烧焦，只要十秒。'
+},
+{
+  w: 'syrup', uk: '/ˈsɪrəp/', us: '/ˈsɪrəp/', pos: 'n.', cat: 'food-bake',
+  en: 'A thick sweet liquid of sugar dissolved in water.',
+  zh: '糖浆：糖溶在水里形成的浓稠甜液。',
+  oe: 'From Arabic sharab, "a drink". The same word came into European languages three separate times and gave us syrup, sherbet and sorbet - three quite different things from one Arabic verb meaning simply "to drink".',
+  oz: '源自阿拉伯语 sharab“饮料”。同一个词分三次进入欧洲语言，先后生出 syrup、sherbet 和 sorbet —— 三样很不一样的东西，都出自一个意为“喝”的阿拉伯动词。',
+  se: 'Syrup, sherbet and sorbet are the same Arabic word, borrowed three times.', sz: 'syrup、sherbet、sorbet 是同一个阿拉伯词，被借了三次。',
+  s2: 'A heavier syrup keeps fruit firm; a light one lets it soften.', z2: '浓糖浆让水果保持挺实，稀糖浆则让它变软。'
+},
+{
+  w: 'alcohol', uk: '/ˈælkəhɒl/', us: '/ˈælkəhɔːl/', pos: 'n.', cat: 'food-drink',
+  en: 'The intoxicating compound produced by fermentation.',
+  zh: '酒精：发酵产生的致醉化合物。',
+  oe: 'From Arabic al-kuhl, the fine black powder women used as eye make-up. Alchemists used the word for any substance refined to its purest essence, and it eventually settled on the spirit distilled out of wine.',
+  oz: '源自阿拉伯语 al-kuhl —— 女性用来画眼的极细黑粉。炼金术士用这个词泛指一切被提纯到极致的物质，最后它落在了从酒里蒸馏出来的那样东西上。',
+  se: 'The word first meant eyeliner powder, then anything refined to its essence.', sz: '这个词最初指的是画眼的黑粉，后来泛指一切被提纯到极致之物。',
+  s2: 'Alcohol carries aroma, which is why a splash of wine changes a sauce.', z2: '酒精能带香，所以往酱里加一点酒，味道就变了。'
+},
+{
+  w: 'coffee', uk: '/ˈkɒfi/', us: '/ˈkɔːfi/', pos: 'n.', cat: 'food-drink',
+  en: 'A drink brewed from roasted and ground coffee beans.',
+  zh: '咖啡：由烘焙研磨的咖啡豆冲煮而成的饮料。',
+  oe: 'From Arabic qahwa, a word that originally meant wine, borrowed for the new drink that also kept you up at night. It travelled through Turkish kahve and Italian caffe before reaching English.',
+  oz: '源自阿拉伯语 qahwa —— 这个词本来指酒，后来被借给这种同样让人夜里睡不着的新饮料。它经土耳其语 kahve、意大利语 caffè 才进入英语。',
+  se: 'The Arabic word for coffee originally meant wine.', sz: '阿拉伯语里“咖啡”这个词，本来指的是酒。',
+  s2: 'Grind coffee just before you brew; the aroma leaves in minutes.', z2: '咖啡要现磨现煮，香气几分钟就散了。'
+},
+{
+  w: 'mocha', uk: '/ˈmɒkə/', us: '/ˈmoʊkə/', pos: 'n.', cat: 'food-drink',
+  en: 'Coffee with chocolate, or the Yemeni bean the name came from.',
+  zh: '摩卡：加了巧克力的咖啡；也指名字所出的那种也门豆。',
+  oe: 'From Mokha, the Yemeni port on the Red Sea that shipped the world its coffee for two centuries. The beans had a natural chocolate note, and eventually the name stuck to the chocolate rather than the port.',
+  oz: '源自也门红海边的港口摩卡（Mokha）—— 两个世纪里，全世界的咖啡都从那里出海。那里的豆子带天然的可可调，最后这个名字落到了巧克力身上，而不是那座港口。',
+  se: 'Mocha is a port in Yemen. The chocolate came later.', sz: '摩卡是也门的一座港口，巧克力是后来的事。',
+  s2: 'The beans were named for the port they left from, not where they grew.', z2: '这些豆子是按出海的港口命名的，不是按产地。'
+},
+{
+  w: 'tea', uk: '/tiː/', us: '/tiː/', pos: 'n.', cat: 'food-drink',
+  en: 'A drink made by steeping the dried leaves of the tea plant.',
+  zh: '茶：茶树干叶浸泡而成的饮料。',
+  oe: 'Two routes, one leaf. Languages that got tea by sea from Fujian say some form of te, from Hokkien; those that got it overland from northern China say cha. Tea, the, Tee against chai, cha, shai - the map of the word is the map of the trade routes.',
+  oz: '一片叶子，两条路线。从福建走海路拿到茶的语言说 te 一类的音，来自闽南语；从中国北方走陆路拿到的说 cha。tea、thé、Tee 对上 chai、чай、shai —— 这个词的分布图，就是贸易路线图。',
+  se: 'Say "tea" and you got it by sea; say "chai" and it came overland.', sz: '说 tea 的走的是海路，说 chai 的走的是陆路。',
+  s2: 'Water off the boil makes green tea bitter.', z2: '滚开的水会把绿茶泡苦。'
+},
+{
+  w: 'tofu', uk: '/ˈtəʊfuː/', us: '/ˈtoʊfuː/', pos: 'n.', cat: 'food-produce',
+  en: 'Soy milk curdled and pressed into blocks.',
+  zh: '豆腐：豆浆点卤凝固后压制成块。',
+  oe: 'From Chinese doufu through Japanese tofu, literally "bean curd" - the name is the recipe. It is made exactly as cheese is: a liquid, a coagulant, and a press.',
+  oz: '经日语 tōfu 借自汉语「豆腐」，字面就是“豆的凝乳”—— 名字即配方。它的做法与奶酪完全一样：一种液体、一种凝固剂、一道压制。',
+  se: 'Bean curd is made exactly like cheese: liquid, coagulant, press.', sz: '豆腐的做法与奶酪一模一样：液体、凝固剂、压制。',
+  s2: 'Press firm tofu for an hour and it will brown instead of steaming.', z2: '老豆腐压一小时再煎，才会上色而不是出水。'
+},
+{
+  w: 'curry', uk: '/ˈkʌri/', us: '/ˈkɜːri/', pos: 'n.', cat: 'food-world',
+  en: 'A dish of meat or vegetables in a spiced sauce.',
+  zh: '咖喱：肉或蔬菜在香料酱汁中烹成的菜。',
+  oe: 'From Tamil kari, simply "sauce". There is no single dish called curry in India; the word is what British traders heard and applied to everything that came in a sauce.',
+  oz: '源自泰米尔语 kari，意思仅仅是“酱汁”。印度并不存在一道叫 curry 的菜，这个词是英国商人听来的，然后被他们用来指一切带酱汁的东西。',
+  se: 'In Tamil it just means "sauce". The single dish never existed.', sz: '在泰米尔语里它只是“酱汁”，那道菜从来就不存在。',
+  s2: 'Fry the spices in oil first or the curry tastes raw.', z2: '香料要先用油炒过，否则咖喱会有生味。'
+},
+{
+  w: 'punch', uk: '/pʌntʃ/', us: '/pʌntʃ/', pos: 'n.', cat: 'food-drink',
+  en: 'A mixed drink served from a bowl.',
+  zh: '潘趣酒：用大碗调好、分饮的混合酒饮。',
+  oe: 'Probably from Hindi panch, "five", for the five ingredients: spirit, sugar, lemon, water and spice. English sailors brought both the drink and the number home from India in the 1600s.',
+  oz: '很可能源自印地语 panch“五”，指五样材料：酒、糖、柠檬、水与香料。17 世纪英国水手把这种饮料连同这个数字一起从印度带了回来。',
+  se: 'Five ingredients, and the Hindi word for five became the name.', sz: '五样材料，于是印地语里的“五”成了它的名字。',
+  s2: 'Punch is built in a bowl, not shaken by the glass.', z2: '潘趣酒是在大碗里调的，不是一杯一杯摇的。'
+},
+{
+  w: 'toast', uk: '/təʊst/', us: '/toʊst/', pos: 'n./v.', cat: 'food-drink',
+  en: 'Browned bread; also to drink in someone\'s honour.',
+  zh: '烤面包片；也指举杯祝酒。',
+  oe: 'From Latin torrere, "to parch". The drinking sense came from a real custom: a piece of spiced toast was floated in the wine to flavour it, and the person honoured was said to be the toast of the cup.',
+  oz: '源自拉丁语 torrere“烘干”。祝酒这层意思来自一个真实习俗：往酒里放一片加了香料的烤面包以增味，而被致敬的那个人，就被说成是这杯酒里的那片 toast。',
+  se: 'People once floated spiced toast in wine. That is why we drink a toast.', sz: '人们曾往酒里放一片香料烤面包 —— 这就是“祝酒”一词的由来。',
+  s2: 'Toast the spices in a dry pan until they smell of themselves.', z2: '香料要在干锅里烘到自己的香气出来为止。'
+},
+{
+  w: 'larder', uk: '/ˈlɑːdə/', us: '/ˈlɑːrdər/', pos: 'n.', cat: 'food-kit',
+  en: 'A cool room or cupboard for keeping food.',
+  zh: 'food 储藏室：存放食物的阴凉房间或柜子。',
+  oe: 'From lard, bacon fat. A larder was originally the room where the salted pork hung, just as a pantry - from panis, bread - was the room for bread. Each room is named after the one thing it first held.',
+  oz: '源自 lard（猪油）。larder 原是挂咸猪肉的房间，正如 pantry 来自 panis（面包），是放面包的房间。每个房间都以它最早存放的那样东西命名。',
+  se: 'The larder held bacon; the pantry held bread. Both are named for their contents.', sz: 'larder 放咸肉，pantry 放面包，两个房间都以所存之物命名。',
+  s2: 'A cool larder does more for flavour than a cold fridge.', z2: '一间阴凉的储藏室比冰冷的冰箱更能保住风味。'
+},
+{
+  w: 'menu', uk: '/ˈmenjuː/', us: '/ˈmenjuː/', pos: 'n.', cat: 'food-dining',
+  en: 'The list of dishes a kitchen offers.',
+  zh: '菜单：厨房提供的菜品清单。',
+  oe: 'From Latin minutus, "made small" - a menu was a detailed list, small in its particulars. The same word gives minute, both the sixty-second one and the adjective meaning tiny.',
+  oz: '源自拉丁语 minutus“变小的”—— 菜单原指一份事无巨细的清单。同一个词还生出 minute：既是那六十秒，也是形容词“微小的”。',
+  se: 'A menu is a "minute" list: small in its details.', sz: '菜单是一份 minute 的清单：细节琐碎。',
+  s2: 'A short menu usually means a kitchen that knows what it is doing.', z2: '菜单短，通常说明这家厨房心里有数。'
+},
+{
+  w: 'dessert', uk: '/dɪˈzɜːt/', us: '/dɪˈzɜːrt/', pos: 'n.', cat: 'food-dining',
+  en: 'The sweet course at the end of a meal.',
+  zh: '甜点：一餐最后的甜味一道。',
+  oe: 'From French desservir, "to clear the table" - dessert is literally what comes after everything has been taken away. Note the two s: one s and you have desert, a dry place.',
+  oz: '源自法语 desservir“撤席”—— dessert 字面意思就是“桌子收干净之后的那部分”。注意两个 s：只写一个 s 就成了 desert（沙漠）。',
+  se: 'Dessert is what arrives after the table has been cleared.', sz: 'dessert 是桌子收干净之后才上的那道。',
+  s2: 'Two s in dessert, because you always want more of it.', z2: 'dessert 有两个 s —— 因为甜点你总想再来一份。'
+},
+{
+  w: 'hors-doeuvre', uk: '/ˌɔː ˈdɜːvrə/', us: '/ˌɔːr ˈdɜːrv/', pos: 'n.', cat: 'food-dining',
+  en: 'A small savoury item served before the meal proper.',
+  zh: '餐前小点：正餐之前的小份咸味食物。',
+  oe: 'French for "outside the work". In classical kitchens the oeuvre was the set of formal courses; anything served apart from it was, quite literally, outside the work.',
+  oz: '法语意为“在作品之外”。古典厨房里，oeuvre 指那套正式的菜序；不属于它的东西，字面上就是“工作之外”的。',
+  se: 'It means "outside the work": not part of the formal sequence of courses.', sz: '它的意思是“在作品之外”：不属于正式菜序的一部分。',
+  s2: 'One good hors d\'oeuvre beats five mediocre ones.', z2: '一道好的餐前小点，胜过五道平庸的。'
+},
+{
+  w: 'butler', uk: '/ˈbʌtlə/', us: '/ˈbʌtlər/', pos: 'n.', cat: 'food-dining',
+  en: 'The senior servant of a household, once responsible for the wine.',
+  zh: '管家：宅邸中最高级的仆役，最初负责酒。',
+  oe: 'From Old French bouteillier, "the bottle man". The butler began as the servant in charge of the wine cellar and worked his way up to running the entire house - a promotion recorded in the word itself.',
+  oz: '源自古法语 bouteillier“管瓶子的人”。管家最初只是掌管酒窖的仆人，后来一路升到统管全宅 —— 这次升迁就记录在这个词里。',
+  se: 'The butler started as the man who looked after the bottles.', sz: '管家最初只是那个看管酒瓶的人。',
+  s2: 'The word still carries a bottle inside it.', z2: '这个词里至今还装着一只瓶子。'
+},
+{
+  w: 'gastronomy', uk: '/ɡæˈstrɒnəmi/', us: '/ɡæˈstrɑːnəmi/', pos: 'n.', cat: 'food-dining',
+  en: 'The study and practice of good eating.',
+  zh: '美食学：关于吃得好的研究与实践。',
+  oe: 'Greek gaster, "stomach", plus nomos, "law" - literally the law of the stomach. The same gaster gives gastric and gastritis, which are considerably less enjoyable.',
+  oz: '希腊语 gaster（胃）+ nomos（法则）—— 字面就是“胃的法则”。同一个 gaster 还生出 gastric、gastritis，那两个词就没这么愉快了。',
+  se: 'It means "the law of the stomach".', sz: '它的意思是“胃的法则”。',
+  s2: 'Gastronomy is what happens when eating becomes a subject.', z2: '当吃变成一门学问，就有了美食学。'
+},
+{
+  w: 'companion', uk: '/kəmˈpæniən/', us: '/kəmˈpæniən/', pos: 'n.', cat: 'food-dining',
+  en: 'Someone you spend time with; a person you share things with.',
+  zh: '同伴：与你共度时光、分享事物的人。',
+  oe: 'From Latin com, "with", and panis, "bread" - a companion is literally the person you break bread with. Company, accompany and even the corporate sense of company all grew from the same shared loaf.',
+  oz: '源自拉丁语 com（一起）+ panis（面包）—— companion 字面就是“和你分同一块面包的人”。company、accompany，乃至公司意义上的 company，都是从这块共享的面包长出来的。',
+  se: 'A companion is the person you break bread with.', sz: '所谓同伴，就是和你掰同一块面包的人。',
+  s2: 'Every company in the world is named after sharing a loaf.', z2: '世界上所有的公司，名字都源于分享一块面包。'
+}
 ];

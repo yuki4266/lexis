@@ -111,6 +111,11 @@ export const CATEGORIES = [
   { id: 'food-spice',   track: 'food', zh: '香料与调味', en: 'Spices & Seasoning' },
   { id: 'food-bake',    track: 'food', zh: '烘焙与甜点', en: 'Baking & Sweets' },
   { id: 'food-drink',   track: 'food', zh: '咖啡茶与酒', en: 'Coffee, Tea & Drink' },
+  { id: 'food-dairy',   track: 'food', zh: '奶酪与乳制品', en: 'Cheese & Dairy' },
+  { id: 'food-carb',    track: 'food', zh: '面食与米食', en: 'Noodles, Rice & Bread' },
+  { id: 'food-world',   track: 'food', zh: '世界菜系',   en: 'Cuisines of the World' },
+  { id: 'food-kit',     track: 'food', zh: '厨房器具',   en: 'Kitchen Equipment' },
+  { id: 'food-sci',     track: 'food', zh: '食品科学与安全', en: 'Food Science & Safety' },
   { id: 'food-dining',  track: 'food', zh: '菜系与餐桌', en: 'Cuisine & Dining' },
   // 日常生活 life
   { id: 'life-home', track: 'life', zh: '居家与事务', en: 'Home & Admin' },

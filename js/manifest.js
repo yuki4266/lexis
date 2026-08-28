@@ -474,6 +474,36 @@ window.CATEGORIES = [
     "en": "Coffee, Tea & Drink"
   },
   {
+    "id": "food-dairy",
+    "track": "food",
+    "zh": "奶酪与乳制品",
+    "en": "Cheese & Dairy"
+  },
+  {
+    "id": "food-carb",
+    "track": "food",
+    "zh": "面食与米食",
+    "en": "Noodles, Rice & Bread"
+  },
+  {
+    "id": "food-world",
+    "track": "food",
+    "zh": "世界菜系",
+    "en": "Cuisines of the World"
+  },
+  {
+    "id": "food-kit",
+    "track": "food",
+    "zh": "厨房器具",
+    "en": "Kitchen Equipment"
+  },
+  {
+    "id": "food-sci",
+    "track": "food",
+    "zh": "食品科学与安全",
+    "en": "Food Science & Safety"
+  },
+  {
     "id": "food-dining",
     "track": "food",
     "zh": "菜系与餐桌",
@@ -608,7 +638,7 @@ window.TRACK_COUNTS = {
   "law": 250,
   "news": 245,
   "gen": 209,
-  "food": 432,
+  "food": 1029,
   "life": 124,
   "exam": 1100,
   "root": 273,
@@ -664,14 +694,19 @@ window.CAT_COUNTS = {
   "gen-act": 63,
   "gen-desc": 77,
   "gen-abs": 69,
-  "food-produce": 54,
-  "food-tech": 65,
-  "food-bake": 52,
-  "food-taste": 67,
-  "food-drink": 43,
-  "food-meat": 54,
-  "food-spice": 50,
-  "food-dining": 47,
+  "food-drink": 72,
+  "food-produce": 76,
+  "food-bake": 82,
+  "food-tech": 92,
+  "food-dining": 76,
+  "food-taste": 97,
+  "food-meat": 82,
+  "food-dairy": 75,
+  "food-spice": 77,
+  "food-world": 80,
+  "food-kit": 66,
+  "food-carb": 75,
+  "food-sci": 79,
   "life-out": 64,
   "life-home": 60,
   "exam-toefl": 280,
@@ -692,6 +727,6 @@ window.CAT_COUNTS = {
   "speak-lead": 21,
   "speak-present": 22
 };
-window.WORD_TOTAL = 5397;
-window.WORD_HANDWRITTEN = 551;
-window.WORD_CURATED = 3657;
+window.WORD_TOTAL = 5994;
+window.WORD_HANDWRITTEN = 578;
+window.WORD_CURATED = 4228;
