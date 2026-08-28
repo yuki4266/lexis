@@ -9,7 +9,7 @@
   var TRACKS = window.TRACKS || [];
   var CATS   = window.CATEGORIES || [];
   var TCOUNT = window.TRACK_COUNTS || {};
-  var LS_KEY = 'techlex.prefs.v4';
+  var LS_KEY = 'lexis.prefs.v1';
 
   /* ------------------------- 偏好设置 preferences ------------------------- */
   var prefs = {
@@ -326,32 +326,37 @@
   // When to hide the spelling: dictation mode, or when the word came back for review
   function masked() { return (prefs.blind || !!reviewOf) && !solved; }
 
-  // 逐字母上色：对=绿 / 错=红 / paint every letter: green if right, red if wrong
+  // 逐字母上色 / paint the word letter by letter
+  //   看得见拼写时：对=绿、错=红，边打边给反馈
+  //   看不见拼写时：只把你打的字母原样显示出来，写完之前不透露对错
+  // With the word on screen: live green/red. Blind: show what you typed, and say nothing until the end.
   function paint(typed) {
     if (!cur) return;
-    var target = cur.w, spans = elWord.children, wrong = false;
+    var target = cur.w, spans = elWord.children, wrong = false, blind = masked();
     for (var i = 0; i < target.length; i++) {
       var s = spans[i], cls = 'ch' + (target[i] === ' ' ? ' space' : '');
       s.textContent = target[i];
+
+      if (blind) {                                   // 盲写中：不做任何判断 / no verdict while blind
+        if (i < typed.length) { s.textContent = typed[i]; cls += ' typed'; }
+        else { cls += ' masked'; if (i === typed.length) cls += ' cur'; }
+        s.className = cls;
+        continue;
+      }
+
       if (i < typed.length) {
-        if (typed[i].toLowerCase() === target[i].toLowerCase()) {
-          cls += ' done';
-        } else {
-          cls += ' wrong';
-          wrong = true;
-          // 看不见拼写时显示"你打的那个字母"，而不是正确答案
-          if (masked()) s.textContent = typed[i];
-        }
+        if (typed[i].toLowerCase() === target[i].toLowerCase()) cls += ' done';
+        else { cls += ' wrong'; wrong = true; }
       } else if (i === typed.length) {
         cls += ' cur';
-        if (masked()) cls += ' masked';
-      } else if (masked()) {
-        cls += ' masked';
       }
       s.className = cls;
     }
     return wrong;
   }
+
+  // 写完了吗、写对了吗 / has the attempt finished, and was it right
+  function isRight(typed) { return typed.toLowerCase() === cur.w.toLowerCase(); }
 
   /* ------------------------- 输入处理 typing handler ------------------------- */
   function onInput() {
@@ -362,32 +367,39 @@
 
     if (!stats.start && typed.length) stats.start = Date.now();
 
+    var blind = masked();
+
     // 只在"新增了一个字符"时计一次按键 / count a keystroke only when a char is added
     if (typed.length > lastLen) {
       var i = typed.length - 1;
       stats.keys++;
-      if (typed[i].toLowerCase() === cur.w[i].toLowerCase()) {
-        stats.ok++;
-      } else {
-        stats.errs++; if (counts()) stats.streak = 0;
-        noteMistake();
-        blip();
-        elWord.classList.remove('shake');
-        void elWord.offsetWidth;                        // 触发重排以重放动画 / restart animation
-        elWord.classList.add('shake');
+      if (typed[i].toLowerCase() === cur.w[i].toLowerCase()) stats.ok++;
+      else {
+        stats.errs++;
+        // 看得见拼写时立刻提示手滑；盲写时什么都不说，等写完一起算
+        // With the word on screen, flag the slip at once. Blind, stay silent until the end.
+        if (!blind) {
+          blip();
+          elWord.classList.remove('shake');
+          void elWord.offsetWidth;                      // 触发重排以重放动画 / restart animation
+          elWord.classList.add('shake');
+        }
       }
     }
     lastLen = typed.length;
 
-    var wrong = paint(typed);
-    if (!wrong && typed.length === cur.w.length) return success();
+    paint(typed);
+    if (typed.length === cur.w.length) {                // 写满了才结算 / judge only when finished
+      if (isRight(typed)) return success();
+      if (blind) return missed(typed);                  // 盲写写完还是错的，才算错
+    }
     updateStats();
   }
 
   var stats = { done: 0, streak: 0, keys: 0, errs: 0, ok: 0, start: 0 };
 
-  // 词就摆在屏幕上时打错只是手滑，不算不会；只有看不见拼写时的错才是真的错
-  // With the word on screen a wrong key is a typo, not a gap. Only blind attempts count.
+  // 什么时候的错才算数：看不见拼写、而且已经写完 —— 中途打错又改回来的不算
+  // What counts: a finished blind attempt. A typo you caught and fixed does not.
   function counts() { return prefs.blind || !!reviewOf; }
 
   // 打错了：把这个词排进复习队列，隔几个词就回来 / schedule the word to come back
@@ -428,8 +440,8 @@
 
   function success() {
     solved = true;
-    if (reviewOf) advanceReview();
-    else if (!curErr && counts()) clearMistake(cur.w);   // 照着屏幕抄对不算掌握
+    if (reviewOf) advanceReview();                       // 复习题：这一轮算过
+    else if (counts()) clearMistake(cur.w);              // 盲写一次写对就算掌握
     stats.done++; stats.streak++;
     elCard.classList.add('is-solved');
     paint(cur.w);                                       // 全绿并揭示答案 / all green, reveal
@@ -440,10 +452,34 @@
     setTimeout(function () { load(next); }, 780);
   }
 
+  // 盲写写完了，但和正确拼写不一样 —— 这才算真的错
+  // Finished blind and it does not match. This is the only thing that counts as wrong.
+  function missed(typed) {
+    solved = true;
+    stats.streak = 0;
+    if (reviewOf) { curErr = true; advanceReview(); }   // 复习题答错：退回第一档
+    else noteMistake();                                 // 新错的词：排进复习队列（它自己会置 curErr）
+    blip();
+    elWord.classList.remove('shake');
+    void elWord.offsetWidth;
+    elWord.classList.add('shake');
+    // 亮出正确拼写：对的字母绿，错的位置红
+    for (var i = 0; i < cur.w.length; i++) {
+      var sp = elWord.children[i];
+      sp.textContent = cur.w[i];
+      sp.className = 'ch' + (cur.w[i] === ' ' ? ' space' : '') +
+        (typed[i] && typed[i].toLowerCase() === cur.w[i].toLowerCase() ? ' done' : ' wrong');
+    }
+    hint('你打的是 ' + typed + ' · you typed ' + typed, 'err');
+    updateStats();
+    var nextIdx = reviewOf ? idx : idx + 1;
+    setTimeout(function () { load(nextIdx); }, 1800);
+  }
+
   function skip() {
     if (!cur || solved) return;
-    if (counts()) noteMistake();
-    solved = true; stats.streak = 0;
+    if (counts() && !reviewOf) noteMistake();   // 看不见拼写却放弃了，算不会
+    solved = true; curErr = true; stats.streak = 0;
     for (var i = 0; i < elWord.children.length; i++) {   // 取消遮罩，露出正确拼写 / unmask
       elWord.children[i].className = 'ch' + (cur.w[i] === ' ' ? ' space' : '');
       elWord.children[i].textContent = cur.w[i];

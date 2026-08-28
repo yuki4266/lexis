@@ -471,3 +471,6 @@ a.logo { text-decoration: none; }
 }
 .statgrid b { display: block; font-family: var(--mono); font-size: 26px; color: var(--accent); line-height: 1.2; }
 .statgrid span { font-size: 11.5px; color: var(--dim); }
+
+/* 盲写过程中：只显示你打的字母，不透露对错 / blind input, no verdict yet */
+.ch.typed { color: var(--text); }
