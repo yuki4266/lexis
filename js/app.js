@@ -420,7 +420,7 @@
       }
 
       if (i < typed.length) {
-        if (typed[i].toLowerCase() === target[i].toLowerCase()) cls += ' done';
+        if (sameCh(typed[i], target[i])) cls += ' done';
         else { cls += ' wrong'; wrong = true; }
       } else if (i === typed.length) {
         cls += ' cur';
@@ -430,14 +430,19 @@
     return wrong;
   }
 
+  // 带重音的字母（sauté、communiqué）允许直接打不带重音的键：e 和 é 算同一个字母
+  // Accented letters (sauté, communiqué) may be typed without the accent: e matches é
+  function fold(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+  function sameCh(a, b) { return fold(a) === fold(b); }
+
   // 写完了吗、写对了吗 / has the attempt finished, and was it right
-  function isRight(typed) { return typed.toLowerCase() === cur.w.toLowerCase(); }
+  function isRight(typed) { return fold(typed) === fold(cur.w); }
 
   /* ------------------------- 输入处理 typing handler ------------------------- */
   function onInput() {
     if (!elTrackOverlay.hidden) { elTyper.value = ''; lastLen = 0; return; }
     if (!cur || solved) { elTyper.value = elTyper.value.slice(0, cur ? cur.w.length : 0); return; }
-    var typed = elTyper.value.slice(0, cur.w.length);   // 不允许超长 / cap at word length
+    var typed = elTyper.value.normalize('NFC').slice(0, cur.w.length);   // 不允许超长；组合字符先合并 / cap at word length, compose e+◌́ into é first
     if (elTyper.value !== typed) elTyper.value = typed;
 
     if (!stats.start && typed.length) stats.start = Date.now();
@@ -448,7 +453,7 @@
     if (typed.length > lastLen) {
       var i = typed.length - 1;
       stats.keys++;
-      if (typed[i].toLowerCase() === cur.w[i].toLowerCase()) stats.ok++;
+      if (sameCh(typed[i], cur.w[i])) stats.ok++;
       else {
         stats.errs++;
         // 看得见拼写时立刻提示手滑；盲写时什么都不说，等写完一起算
@@ -543,7 +548,7 @@
       var sp = elWord.children[i];
       sp.textContent = cur.w[i];
       sp.className = 'ch' + (cur.w[i] === ' ' ? ' space' : '') +
-        (typed[i] && typed[i].toLowerCase() === cur.w[i].toLowerCase() ? ' done' : ' wrong');
+        (typed[i] && sameCh(typed[i], cur.w[i]) ? ' done' : ' wrong');
     }
     hint('你打的是 ' + typed + ' · you typed ' + typed, 'err');
     updateStats();
