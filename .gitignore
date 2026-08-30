@@ -2,3 +2,8 @@
 node_modules/
 vendor/
 build.log
+
+# 发音生成的本地工具链，不入库（音频产物 audio/ 要入库）
+# Local TTS toolchain — not committed; the rendered audio/ is
+.venv-tts/
+.models/

@@ -21,7 +21,8 @@
 
 ## 功能 · Features
 
-- **自动发音，美音／英音可切** — 默认美音，音标同步切换，语速可调。
+- **每个词都有自带的发音，美音／英音各一套** — 用开源模型 [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)（Apache 2.0）在本机离线生成成 mp3，随站点一起发布。不是浏览器那个合成音，也不是真人录音 —— 是模型生成的，音色统一、词词都有、断网也能放，运行时不向任何第三方发请求。音标同步切换，语速可调且变速不变调。
+  **Every word ships with its own audio, in both accents** — rendered offline by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache 2.0) at build time. Model-generated, not human recordings and not the browser's synthesiser: one consistent voice, complete coverage, works offline, and no third-party request at run time.
 - **逐字母实时校对** — 打对变绿、打错变红并抖一下，全对时「叮」一声自动进入下一题。
 - **单词与词意是页面上最大的两样东西** — 单词最大，中文词意紧随其后，来历与例句在下方展开。
 - **每个带词源的词配两句例句** — 第一句用生活画面把词义说明白（除目标词外全是简单词），第二句才是真实语境里的用法。
@@ -64,7 +65,27 @@ The word bank is **generated** — rebuild after editing the sources:
 ```bash
 node scripts/fetch-dict.mjs     # 首次：下载 ECDICT 到 vendor/（不入库）
 node scripts/build.mjs          # 生成 js/manifest.js 与 js/data/*.js，报告写入 build.log
+scripts/gen-audio.sh            # 给新词生成发音（增量，已有的文件跳过）
+node scripts/build.mjs          # 再跑一次，把音频统计回填到 about 页
 ```
+
+### 发音生成 · Audio
+
+首次要装一次工具链（只在开发机上，跟网站发布无关）：
+One-time toolchain setup on the dev machine:
+
+```bash
+brew install python@3.12 espeak-ng ffmpeg
+python3.12 -m venv .venv-tts && .venv-tts/bin/pip install kokoro-onnx soundfile
+
+mkdir -p .models && cd .models          # Kokoro-82M 权重，Apache 2.0
+curl -LO https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx
+curl -LO https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin
+```
+
+之后 `scripts/gen-audio.sh` 只生成缺的文件，加几个词跑一次几秒钟。
+`--force` 全部重来，`--us=` / `--uk=` 换音色（`.venv-tts/bin/python -c "from kokoro_onnx import Kokoro; print(Kokoro('.models/kokoro-v1.0.onnx','.models/voices-v1.0.bin').get_voices())"` 列出全部 54 个），`--bitrate=` 调码率。
+读不准的词写进 `data/say-as.json` 指定念法（`ed25519` 之类）。
 
 ## 结构 · Structure
 
@@ -74,12 +95,18 @@ lexis/
 ├── about.html            # 关于 / 三条原则 / FAQ / 赞赏
 ├── css/style.css
 ├── data/                 # 词库源文件 the sources
+│   ├── say-as.json       #   少数词的指定念法 pronunciation overrides
 │   ├── schema.mjs        #   18 个大类与 69 个小类 tracks & categories
 │   ├── handwritten/*.mjs #   手写条目（含词源与例句）
 │   └── headwords/*.txt   #   词表 + 中文域内释义
+├── audio/                # 生成物：每个词的发音 the pronunciations
+│   ├── us/<slug>.mp3     #   美音 af_heart
+│   └── uk/<slug>.mp3     #   英音 bm_george
 ├── scripts/
 │   ├── fetch-dict.mjs    #   下载 ECDICT
-│   └── build.mjs         #   构建、去重、难度闸门、回填页面数字
+│   ├── gen-audio.py      #   Kokoro-82M 离线生成发音
+│   ├── gen-audio.sh      #   上面那个的入口，带好环境变量
+│   └── build.mjs         #   构建、去重、难度闸门、回填页面数字与音频统计
 └── js/
     ├── manifest.js       # 生成物：大类目录，首屏加载
     ├── data/<track>.js   # 生成物：各大类词条，按需加载
@@ -116,9 +143,13 @@ power | 统计功效：效应确实存在时能把它检出来的概率 | The pr
 ## 数据来源 · Data source
 
 音标、词性与词频来自 **[ECDICT](https://github.com/skywind3000/ECDICT)**（MIT 协议）。
+发音由 **[Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)**（Apache 2.0）在本机离线生成 —— 是模型合成的，不是真人录音，about 页上写明了这一点。权重与代码均可商用，生成出来的音频属于本项目，运行时不依赖任何在线服务。
 词源、例句与全部领域释义为手写。ECDICT 本身不含词源 —— 页面上没有词源的词，就是还没写，而不是编的。
+
+Phonetics, part of speech and frequency come from **[ECDICT](https://github.com/skywind3000/ECDICT)** (MIT).
+Pronunciations are generated offline by **[Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M)** (Apache 2.0) — model-synthesised, not human recordings, and the about page says so. Weights and code permit commercial use; the rendered audio belongs to this project and no online service is involved at run time.
 
 ## 浏览器支持 · Browser support
 
-发音依赖 Web Speech API，音效依赖 Web Audio API，桌面版 Chrome / Edge / Safari 均可。
+发音播放站点自带的 mp3（`<audio>`，全平台可放），文件缺失时退回 Web Speech API；音效依赖 Web Audio API。桌面版 Chrome / Edge / Safari 均可。
 若听不到声音，先点一下页面（部分浏览器要求先有用户手势）。

@@ -146,18 +146,40 @@
     <dd>逐条手写，来自可查的词源学材料，不是模型编的。音标、词性与词频来自开源词典 <a href="https://github.com/skywind3000/ECDICT" rel="noopener">ECDICT</a>（MIT 协议），但它不含词源 —— 所以没有词源的词就是还没写到，而不是编了一个。</dd>
     <dt>为什么要打字，而不是看一遍就过？</dt>
     <dd>看一遍认得，不等于写得出来。逐字母打一遍会逼你面对每一个拼写细节，错了立刻变红。听、拼、义、源四件事同屏完成，比只看词表记得牢。</dd>
+    <dt>发音是真人念的吗？</dt>
+    <dd>不是，是模型生成的 —— 这一点不含糊。但也不是浏览器自带的那种合成音：每个词的发音都是构建时用 <a href="https://huggingface.co/hexgrad/Kokoro-82M" rel="noopener">Kokoro-82M</a>（Apache 2.0 开源模型）在本机离线跑出来、存成 mp3 一起发布的，全站 <b><!--AUDIOCOUNT-->10546<!--/AUDIOCOUNT--></b> 段音频，词词都有，音色统一。你听到的声音质量和第一次打开时一样，不受网络影响，也不会往任何第三方服务发请求。</dd>
+    <dt>为什么不用真人录音？</dt>
+    <dd>试过。维基共享资源上有志愿者录的真人发音，但只覆盖得了七成词，而且一百多个人录的，音量、口音、录音环境全不一样，切下一个词就换个人说话。统一音色的模型发音反而更适合拿来跟读。</dd>
     <dt>支持英音还是美音？</dt>
-    <dd>都支持。顶栏一键切换美音（默认）与英音，音标同步切换成对应的 UK / US 国际音标，语速可调。</dd>
+    <dd>都支持，而且是两套完整音频，不是同一把嗓子改参数。顶栏一键切换美音（默认，af_heart）与英音（bm_george），音标同步切换成对应的 UK / US 国际音标。语速可调且变速不变调。</dd>
     <dt>打错的单词会怎么处理？</dt>
     <dd>先要分清哪种错算数：词就摆在屏幕上时打错只是手滑，不记；中途打错又自己改回来的也不记。
     只有在<strong>听写模式</strong>下把整个词写完、写完仍然不对，才说明你确实不会，这才会被记下来。
     之后它会自己回来：隔 3 个词一次，答对了隔 12 个，再对隔 30 个，三次都对就不再出现，最多 6 次。
     回来时拼写一律藏住。不需要你打开任何列表或做任何设置，记录只存在你自己的浏览器里。</dd>
     <dt>听不到发音怎么办？</dt>
-    <dd>先点一下页面 —— 部分浏览器要求先有用户手势才允许发声。桌面版 Chrome / Edge / Safari 都可用。</dd>
+    <dd>先点一下页面 —— 部分浏览器要求先有用户手势才允许发声。桌面版 Chrome / Edge / Safari 都可用。音频是站点自带的本地文件，断网也能放。</dd>
     <dt>要注册吗？收费吗？</dt>
     <dd>都不用。没有账号、没有广告、不收集任何数据，源码开源。</dd>
   </dl>
+
+  <h2 id="voices">发音是怎么来的 <span>Where the voice comes from</span></h2>
+  <p class="voices-note">
+    实话说在前面：<strong>发音是模型生成的，不是真人录的。</strong>
+    用的是 <a href="https://huggingface.co/hexgrad/Kokoro-82M" rel="noopener">Kokoro-82M</a> ——
+    一个 8200 万参数的开源语音模型，<a href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache 2.0</a> 许可，
+    权重和代码都可商用。所有音频在构建时于本机离线生成，随站点一起发布，
+    运行时只读本地文件，不向任何第三方服务发请求，也就没有任何授权上的牵扯。<br>
+    <span class="en">Plainly: the pronunciations are model-generated, not human recordings.
+    They come from <a href="https://huggingface.co/hexgrad/Kokoro-82M" rel="noopener">Kokoro-82M</a>,
+    an 82M-parameter open-weights speech model under
+    <a href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache 2.0</a>.
+    Every clip is rendered offline at build time and shipped with the site — nothing is requested
+    from a third party at run time.</span>
+  </p>
+  <!--VOICES-->
+  <div class="statgrid"><div><b>10546</b><span>段音频 clips</span></div><div><b>5273</b><span>个词都有 words covered</span></div><div><b>57 MB</b><span>随站发布 shipped with the site</span></div><div><b>5.6 KB</b><span>平均每段 per clip</span></div></div>
+  <!--/VOICES-->
 
   <h2>请我喝杯咖啡 <span>Support</span></h2>
   <p class="donate-note">

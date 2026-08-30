@@ -161,7 +161,28 @@
     o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + 0.11);
   }
 
-  /* --------------------------- 发音 text to speech --------------------------- */
+  /* ---------------------------- 发音 pronunciation ---------------------------- */
+  // 发音是构建时生成好的：Kokoro-82M（Apache 2.0）在本机离线跑出来的 mp3，存在 audio/ 下，
+  // 运行时只播本地文件，不连任何外部服务。文件缺失时才退回浏览器自带的合成音。
+  // Pronunciations are rendered at build time by Kokoro-82M (Apache 2.0) running locally and
+  // shipped as mp3 under audio/. The page only plays local files; the browser's own speech
+  // synthesis is the fallback when a file is missing.
+  var AUDIO_DIR = 'audio/';
+
+  // 文件名规则必须和 scripts/gen-audio.py 里的 slug() 一模一样
+  // Must match slug() in scripts/gen-audio.py exactly
+  function slug(w) {
+    return w.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function recordingUrl(entry, accent) {
+    var w = typeof entry === 'string' ? entry : (entry && entry.w);
+    if (!w) return null;
+    return AUDIO_DIR + (accent === 'en-GB' ? 'uk/' : 'us/') + slug(w) + '.mp3';
+  }
+
+  /* ------- 浏览器合成音，只在文件缺失时用 / synthesis, fallback only ------- */
   var voices = [];
   var PREFERRED = {
     'en-GB': ['Daniel', 'Serena', 'Kate', 'Google UK English Female', 'Google UK English Male', 'Arthur', 'Martha'],
@@ -189,10 +210,8 @@
     return any[0] || null;
   }
 
-  var spoke = false;
-  function speak(text) {
-    if (!('speechSynthesis' in window) || !text) return;
-    spoke = true;
+  function synth(text) {
+    if (!('speechSynthesis' in window) || !text) { busy(false); return; }
     try {
       window.speechSynthesis.cancel();
       setTimeout(function () {
@@ -201,11 +220,66 @@
         if (v) u.voice = v;
         u.lang = prefs.accent;
         u.rate = parseFloat(prefs.rate) || 0.9;
-        u.onstart = function () { elSpeak.classList.add('is-speaking'); };
-        u.onend = u.onerror = function () { elSpeak.classList.remove('is-speaking'); };
+        u.onstart = function () { busy(true); };
+        u.onend = u.onerror = function () { busy(false); };
         window.speechSynthesis.speak(u);
       }, 40);
-    } catch (e) { /* 某些浏览器不支持 / unsupported browser */ }
+    } catch (e) { busy(false); }
+  }
+
+  /* ---------------------- 播放 playback ---------------------- */
+  var player = null, preloader = null, token = 0;
+  function busy(on) {
+    if (!elSpeak) return;
+    elSpeak.classList.toggle('is-speaking', !!on);
+  }
+
+  function setRate(el) {
+    var r = parseFloat(prefs.rate) || 0.9;
+    try {
+      el.playbackRate = r;
+      // 变速不变调，各家前缀都设一遍 / keep the pitch when slowed down
+      el.preservesPitch = true;
+      el.mozPreservesPitch = true;
+      el.webkitPreservesPitch = true;
+    } catch (e) { /* 旧浏览器忽略 / older browsers */ }
+  }
+
+  var spoke = false;
+  function speak(entry) {
+    if (!entry) return;
+    var word = typeof entry === 'string' ? entry : entry.w;
+    if (!word) return;
+    spoke = true;
+    var mine = ++token;
+    var url = typeof entry === 'string' ? null : recordingUrl(entry, prefs.accent);
+
+    if ('speechSynthesis' in window) { try { window.speechSynthesis.cancel(); } catch (e) {} }
+    if (player) { try { player.pause(); } catch (e) {} }
+
+    if (!url) { synth(word); return; }
+
+    try {
+      if (!player) { player = new Audio(); player.preload = 'auto'; }
+      player.onplaying = function () { if (mine === token) busy(true); };
+      player.onended = function () { if (mine === token) busy(false); };
+      // 文件缺失或解码失败就退回合成音 / fall back if the file will not load
+      player.onerror = function () { if (mine === token) synth(word); };
+      player.src = url;
+      setRate(player);
+      var play = player.play();
+      if (play && play.catch) play.catch(function () { if (mine === token) synth(word); });
+    } catch (e) { synth(word); }
+  }
+
+  // 提前把下一个词的录音拉进缓存 / warm the cache for the next word
+  function preload(entry) {
+    var url = entry && recordingUrl(entry, prefs.accent);
+    if (!url) return;
+    try {
+      if (!preloader) { preloader = new Audio(); preloader.preload = 'auto'; preloader.muted = true; }
+      preloader.src = url;
+    } catch (e) { /* 拉不到就算了 / never mind */ }
   }
 
   /* ------------------------------ 队列 queue ------------------------------ */
@@ -305,7 +379,8 @@
 
     hint(roundMsg || (reviewOf ? '上次错过，这次凭听的打 · missed before — from memory now' : ''), '');
     paint('');
-    speak(cur.w);
+    speak(cur);
+    preload(queue[idx + 1]);                       // 下一个词的录音先拉好 / warm the next one
     elTyper.focus();
   }
 
@@ -591,14 +666,14 @@
     if (cur && cur.uk && cur.us) {
       elIpa.textContent = (prefs.accent === 'en-GB' ? 'UK ' : 'US ') + (prefs.accent === 'en-GB' ? cur.uk : cur.us);
     }
-    speak(cur && cur.w);
+    speak(cur);
     elTyper.focus();
   });
 
   // 语速 rate
   $('rate').value = prefs.rate;
   $('rate').addEventListener('change', function () {
-    prefs.rate = parseFloat(this.value); savePrefs(); speak(cur && cur.w);
+    prefs.rate = parseFloat(this.value); savePrefs(); speak(cur);
   });
 
   // 听写模式：一个按钮，不是复选框 / dictation is a button, not a checkbox
@@ -614,7 +689,7 @@
   });
 
   // 重听 replay
-  elSpeak.addEventListener('click', function () { speak(cur && cur.w); elTyper.focus(); });
+  elSpeak.addEventListener('click', function () { speak(cur); elTyper.focus(); });
 
   /* ------------------------------ 键盘 keyboard ------------------------------ */
   elTyper.addEventListener('input', onInput);
@@ -625,7 +700,7 @@
     if (onControl && e.key !== 'Escape') return;   // 让控件自己处理按键 / let controls keep their keys
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (e.ctrlKey || e.metaKey) speak(cur && cur.w);
+      if (e.ctrlKey || e.metaKey) speak(cur);
       else if (!solved) skip();
     } else if (e.key === 'Escape') {
       e.preventDefault();
@@ -647,7 +722,7 @@
   ['pointerdown', 'keydown'].forEach(function (evt) {
     window.addEventListener(evt, function once() {
       audio();
-      if (!spoke) speak(cur && cur.w);
+      if (!spoke) speak(cur);
       window.removeEventListener(evt, once);
     }, { once: true });
   });

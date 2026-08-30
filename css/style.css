@@ -474,3 +474,8 @@ a.logo { text-decoration: none; }
 
 /* 盲写过程中：只显示你打的字母，不透露对错 / blind input, no verdict yet */
 .ch.typed { color: var(--text); }
+
+/* 发音来源说明 / the note about where the voice comes from */
+.voices-note { font-size: 14.5px; }
+.voices-note .en { display: block; margin-top: 6px; color: var(--dim); font-size: 13px; }
+.voices-empty { font-size: 13px; color: var(--dim); }

@@ -32,6 +32,12 @@ const p = (...a) => path.join(ROOT, ...a);
 const log = [];
 const note = (s) => { log.push(s); };
 
+// 音频文件名规则，必须和 scripts/gen-audio.py 与 js/app.js 里的一致
+// Audio file naming — must match scripts/gen-audio.py and js/app.js
+const audioSlug = (w) => w.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+
 /* ------------------------------ CSV ------------------------------ */
 // 解析一行 CSV（支持引号、双引号转义）/ parse one CSV row
 function parseRow(line) {
@@ -381,6 +387,39 @@ fs.writeFileSync(p('js', 'manifest.js'),
                         '<!--TRACKS-->\n  <ul class="about-cats">\n' + rows + '\n  </ul>\n  <!--\/TRACKS-->');
     const uq = new Set(); TRACKS.forEach(t => (byTrack.get(t.id) || []).forEach(e => uq.add(e.w)));
     html = html.replace(/<!--TOTAL-->[\s\S]*?<!--\/TOTAL-->/, '<!--TOTAL-->' + uq.size + '<!--\/TOTAL-->');
+
+    /* ---- 音频统计 / the generated-audio figures ---- */
+    {
+      const stat = { n: 0, bytes: 0, missing: 0 };
+      for (const acc of ['us', 'uk']) {
+        const d = p('audio', acc);
+        if (!fs.existsSync(d)) continue;
+        for (const fn of fs.readdirSync(d)) {
+          if (!fn.endsWith('.mp3')) continue;
+          stat.n++; stat.bytes += fs.statSync(path.join(d, fn)).size;
+        }
+      }
+      for (const w of uq) for (const acc of ['us', 'uk'])
+        if (!fs.existsSync(p('audio', acc, audioSlug(w) + '.mp3'))) stat.missing++;
+
+      if (stat.n) {
+        const mb = (stat.bytes / 1048576).toFixed(0);
+        const kb = (stat.bytes / stat.n / 1024).toFixed(1);
+        const covered = uq.size - Math.ceil(stat.missing / 2);
+        html = html.replace(/<!--AUDIOCOUNT-->[\s\S]*?<!--\/AUDIOCOUNT-->/,
+                            '<!--AUDIOCOUNT-->' + stat.n + '<!--\/AUDIOCOUNT-->');
+        html = html.replace(/<!--VOICES-->[\s\S]*?<!--\/VOICES-->/,
+          '<!--VOICES-->\n  <div class="statgrid">' +
+          `<div><b>${stat.n}</b><span>段音频 clips</span></div>` +
+          `<div><b>${covered}</b><span>个词都有 words covered</span></div>` +
+          `<div><b>${mb} MB</b><span>随站发布 shipped with the site</span></div>` +
+          `<div><b>${kb} KB</b><span>平均每段 per clip</span></div>` +
+          '</div>\n  <!--\/VOICES-->');
+        note(`  about 页音频统计已重建 / audio figures: ${stat.n} 段, ${mb} MB, 缺 ${stat.missing}`);
+        if (stat.missing) note(`  ⚠ 有 ${stat.missing} 个词还没生成发音，跑 scripts/gen-audio.py 补上`);
+      }
+    }
+
     fs.writeFileSync(fp, html);
     note('  about 页词库表已重建 / track table rebuilt');
   }
